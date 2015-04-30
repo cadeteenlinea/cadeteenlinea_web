@@ -27,8 +27,6 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
 
@@ -77,6 +75,10 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+            if(!Yii::app()->user->isGuest){
+                $this->actionIndex();
+            }else{
+                $this->layout = '//layouts/mainNoFooter';
 		$model=new LoginForm;
 
 		// if it is ajax validation request
@@ -91,11 +93,17 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+			if($model->validate() && $model->login()){
+                            if(Yii::app()->getSession()->get('tipoUsuario')==2){
+                                $this->redirect(array('cadete/selectCadete')); 
+                            }else{
+                                $this->redirect(Yii::app()->user->returnUrl);
+                            }
+                        }
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
+            }
 	}
 
 	/**

@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -7,27 +8,37 @@
  */
 class UserIdentity extends CUserIdentity
 {
-	/**
-	 * Authenticates a user.
-	 * The example implementation makes sure if the username and password
-	 * are both 'demo'.
-	 * In practical applications, this should be changed to authenticate
-	 * against some persistent user identity storage (e.g. database).
-	 * @return boolean whether authentication succeeds.
-	 */
+	private $_id;
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
+            $username=strtolower($this->username);
+            $usuario=Usuario::model()->find('LOWER(rut)=?',array($username));
+            if($usuario===null)
+                $this->errorCode=self::ERROR_USERNAME_INVALID;
+            else if(!$usuario->validatePassword($this->password))
+                $this->errorCode=self::ERROR_PASSWORD_INVALID;
+            else{
+                $this->_id=$usuario->rut;
+                
+                Yii::app()->getSession()->add('tipoUsuario', $usuario->perfil_idperfil);
+                
+                /*Actualizamos el last_login del usuario que se esta autenticando*/
+                $sql = "update usuario set last_login = now() where rut=$this->_id";
+                $connection = Yii::app() -> db;
+                $command = $connection -> createCommand($sql);
+                $command -> execute();
+                
+                /*Consultamos los datos del usuario por el username ($user->username) */
+                //$info_usuario = Usuario::model()->find('LOWER(username)=?', array($user->username));
+                /*En las vistas tendremos disponibles last_login */
+                //$this->setState('last_login',$info_usuario->last_login);
+
+                $this->errorCode=self::ERROR_NONE;
+            }
+            return !$this->errorCode;
 	}
+        
+        public function getId(){
+            return $this->_id;
+        }
 }

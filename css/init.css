@@ -1,0 +1,16 @@
+/* 
+    Document   : init
+    Created on : 30-04-2015, 03:00:21 PM
+    Author     : Sebastián Franco Brantes
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body > .container {
+  padding: 70px 15px 0;
+}
+
+.menu{
+    min-height: 55px; 
+}
+

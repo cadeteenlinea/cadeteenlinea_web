@@ -49,6 +49,7 @@ class Apoderado extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'rut0' => array(self::BELONGS_TO, 'Usuario', 'rut'),
+                        'cadetes'=>array(self::MANY_MANY, 'Cadete','cadete_apoderado(apoderado_rut, cadete_rut)'),
 			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'apoderado_rut'),
 		);
 	}

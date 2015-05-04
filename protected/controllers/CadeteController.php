@@ -156,7 +156,7 @@ class CadeteController extends Controller
             
             $apoderado = Apoderado::model()->findByPk(Yii::app()->user->id);
             $this->render('selectCadete',array(
-            'apoderado'=>$apoderado,
+                'apoderado'=>$apoderado,
             ));
 
 	}

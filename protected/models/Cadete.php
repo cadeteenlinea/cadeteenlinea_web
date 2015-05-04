@@ -159,4 +159,9 @@ class Cadete extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getnCadeteView()
+        {
+            return str_pad($this->nCadete, 3, "0", STR_PAD_LEFT);
+        }
 }

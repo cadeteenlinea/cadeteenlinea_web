@@ -7,6 +7,11 @@
  * @property string $idcadete_apoderado
  * @property string $cadete_rut
  * @property string $apoderado_rut
+ * @property string $tipoApoderado
+ *
+ * The followings are the available model relations:
+ * @property Apoderado $apoderadoRut
+ * @property Cadete $cadeteRut
  */
 class CadeteApoderado extends CActiveRecord
 {
@@ -26,11 +31,12 @@ class CadeteApoderado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cadete_rut, apoderado_rut', 'required'),
+			array('cadete_rut, apoderado_rut, tipoApoderado', 'required'),
 			array('cadete_rut, apoderado_rut', 'length', 'max'=>10),
+			array('tipoApoderado', 'length', 'max'=>18),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idcadete_apoderado, cadete_rut, apoderado_rut', 'safe', 'on'=>'search'),
+			array('idcadete_apoderado, cadete_rut, apoderado_rut, tipoApoderado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -42,7 +48,8 @@ class CadeteApoderado extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'apoderado' => array(self::BELONGS_TO,'Apoderado','apoderado_rut'),
+			'apoderadoRut' => array(self::BELONGS_TO, 'Apoderado', 'apoderado_rut'),
+			'cadeteRut' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
 		);
 	}
 
@@ -55,6 +62,7 @@ class CadeteApoderado extends CActiveRecord
 			'idcadete_apoderado' => 'Idcadete Apoderado',
 			'cadete_rut' => 'Cadete Rut',
 			'apoderado_rut' => 'Apoderado Rut',
+			'tipoApoderado' => 'Tipo Apoderado',
 		);
 	}
 
@@ -79,6 +87,7 @@ class CadeteApoderado extends CActiveRecord
 		$criteria->compare('idcadete_apoderado',$this->idcadete_apoderado,true);
 		$criteria->compare('cadete_rut',$this->cadete_rut,true);
 		$criteria->compare('apoderado_rut',$this->apoderado_rut,true);
+		$criteria->compare('tipoApoderado',$this->tipoApoderado,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

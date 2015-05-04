@@ -11,7 +11,7 @@ class UserIdentity extends CUserIdentity
 	private $_id;
 	public function authenticate()
 	{
-            $username=strtolower($this->username);
+            $username=substr(strtolower($this->username),0,-2);
             $usuario=Usuario::model()->find('LOWER(rut)=?',array($username));
             if($usuario===null)
                 $this->errorCode=self::ERROR_USERNAME_INVALID;
@@ -20,14 +20,14 @@ class UserIdentity extends CUserIdentity
             else{
                 $this->_id=$usuario->rut;
                 
-                Yii::app()->getSession()->add('tipoUsuario', $usuario->perfil_idperfil);
+                Yii::app()->getSession()->add('perfil', $usuario->perfil);
                 
                 /*Actualizamos el last_login del usuario que se esta autenticando*/
-                $sql = "update usuario set last_login = now() where rut=$this->_id";
+                /*$sql = "update usuario set last_login = now() where rut=$this->_id";
                 $connection = Yii::app() -> db;
                 $command = $connection -> createCommand($sql);
                 $command -> execute();
-                
+                */
                 /*Consultamos los datos del usuario por el username ($user->username) */
                 //$info_usuario = Usuario::model()->find('LOWER(username)=?', array($user->username));
                 /*En las vistas tendremos disponibles last_login */

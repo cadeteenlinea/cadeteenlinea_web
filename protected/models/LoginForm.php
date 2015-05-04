@@ -21,6 +21,7 @@ class LoginForm extends CFormModel
 	public function rules()
 	{
 		return array(
+                        array('username', 'validateRut'),
 			// username and password are required
 			array('username, password', 'required'),
 			// rememberMe needs to be a boolean
@@ -74,4 +75,26 @@ class LoginForm extends CFormModel
 		else
 			return false;
 	}
+        
+        
+        public function validateRut($attribute, $params) {
+            $data = explode('-', $this->username);
+            $evaluate = strrev($data[0]);
+            $multiply = 2;
+            $store = 0;
+            for ($i = 0; $i < strlen($evaluate); $i++) {
+                $store += $evaluate[$i] * $multiply;
+                $multiply++;
+                if ($multiply > 7)
+                    $multiply = 2;
+            }
+            isset($data[1]) ? $verifyCode = strtolower($data[1]) : $verifyCode = '';
+            $result = 11 - ($store % 11);
+            if ($result == 10)
+                $result = 'k';
+            if ($result == 11)
+                $result = 0;
+            if ($verifyCode != $result)
+                $this->addError('username', 'Rut inválido.');
+        }
 }

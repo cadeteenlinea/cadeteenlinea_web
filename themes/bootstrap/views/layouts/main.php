@@ -47,7 +47,13 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
-                                         array('label'=>'Finanzas', 'url'=>array('/site/logout'),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Noticias', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Académico', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Profesional', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Físico', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Militar', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Solicitudes', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
+                                         array('label'=>'Contacto', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
                                     )));
                                 ?>
                                 

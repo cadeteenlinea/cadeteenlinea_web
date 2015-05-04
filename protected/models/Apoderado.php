@@ -5,9 +5,12 @@
  *
  * The followings are the available columns in table 'apoderado':
  * @property string $rut
- * @property string $nombres
- * @property string $apellidoPat
- * @property string $apellidoMat
+ * @property string $fonoComercial
+ * @property string $difunto
+ *
+ * The followings are the available model relations:
+ * @property Usuario $rut0
+ * @property CadeteApoderado[] $cadeteApoderados
  */
 class Apoderado extends CActiveRecord
 {
@@ -27,13 +30,13 @@ class Apoderado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, nombres, apellidoPat, apellidoMat', 'required'),
+			array('rut, difunto', 'required'),
 			array('rut', 'length', 'max'=>10),
-			array('nombres', 'length', 'max'=>75),
-			array('apellidoPat, apellidoMat', 'length', 'max'=>25),
+			array('fonoComercial', 'length', 'max'=>25),
+			array('difunto', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, nombres, apellidoPat, apellidoMat', 'safe', 'on'=>'search'),
+			array('rut, fonoComercial, difunto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,8 +48,8 @@ class Apoderado extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'cadeteApoderado' => array(self::BELONGS_TO,'CadeteApoderado','apoderado_rut'),
-                    'cadetes'=>array(self::MANY_MANY, 'Cadete','cadete_apoderado(apoderado_rut, cadete_rut)'),
+			'rut0' => array(self::BELONGS_TO, 'Usuario', 'rut'),
+			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'apoderado_rut'),
 		);
 	}
 
@@ -57,9 +60,8 @@ class Apoderado extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'nombres' => 'Nombres',
-			'apellidoPat' => 'Apellido Pat',
-			'apellidoMat' => 'Apellido Mat',
+			'fonoComercial' => 'Fono Comercial',
+			'difunto' => 'Difunto',
 		);
 	}
 
@@ -82,9 +84,8 @@ class Apoderado extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-		$criteria->compare('nombres',$this->nombres,true);
-		$criteria->compare('apellidoPat',$this->apellidoPat,true);
-		$criteria->compare('apellidoMat',$this->apellidoMat,true);
+		$criteria->compare('fonoComercial',$this->fonoComercial,true);
+		$criteria->compare('difunto',$this->difunto,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

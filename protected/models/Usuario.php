@@ -5,9 +5,21 @@
  *
  * The followings are the available columns in table 'usuario':
  * @property string $rut
- * @property string $perfil_idperfil
  * @property string $password_2
- * @property string $last_login
+ * @property string $perfil
+ * @property string $apellidoPat
+ * @property string $apellidoMat
+ * @property string $nombres
+ * @property string $direccion
+ * @property string $comuna
+ * @property string $ciudad
+ * @property string $region
+ * @property string $fonoParticular
+ * @property string $email
+ *
+ * The followings are the available model relations:
+ * @property Apoderado $apoderado
+ * @property Cadete $cadete
  */
 class Usuario extends CActiveRecord
 {
@@ -27,13 +39,18 @@ class Usuario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, perfil_idperfil, password_2', 'required'),
-			array('rut, perfil_idperfil', 'length', 'max'=>10),
+			array('rut, password_2, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region', 'required'),
+			array('rut', 'length', 'max'=>10),
 			array('password_2', 'length', 'max'=>250),
-			array('last_login', 'safe'),
+			array('perfil', 'length', 'max'=>11),
+			array('apellidoPat, apellidoMat', 'length', 'max'=>50),
+			array('nombres', 'length', 'max'=>75),
+			array('direccion', 'length', 'max'=>100),
+			array('comuna, ciudad, region, email', 'length', 'max'=>25),
+			array('fonoParticular', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, perfil_idperfil, password_2, last_login', 'safe', 'on'=>'search'),
+			array('rut, password_2, perfil, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, fonoParticular, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,9 +62,8 @@ class Usuario extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'perfil' => array(self::BELONGS_TO,'Perfil','perfil_idperfil'),
-                    'apoderado' => array(self::BELONGS_TO,'Apoderado','rut'),
-                    'cadete' => array(self::BELONGS_TO,'Cadete','rut'),
+			'apoderado' => array(self::HAS_ONE, 'Apoderado', 'rut'),
+			'cadete' => array(self::HAS_ONE, 'Cadete', 'rut'),
 		);
 	}
 
@@ -58,9 +74,17 @@ class Usuario extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'perfil_idperfil' => 'Perfil Idperfil',
 			'password_2' => 'Password 2',
-			'last_login' => 'Last Login',
+			'perfil' => 'Perfil',
+			'apellidoPat' => 'Apellido Pat',
+			'apellidoMat' => 'Apellido Mat',
+			'nombres' => 'Nombres',
+			'direccion' => 'Direccion',
+			'comuna' => 'Comuna',
+			'ciudad' => 'Ciudad',
+			'region' => 'Region',
+			'fonoParticular' => 'Fono Particular',
+			'email' => 'Email',
 		);
 	}
 
@@ -83,9 +107,17 @@ class Usuario extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-		$criteria->compare('perfil_idperfil',$this->perfil_idperfil,true);
 		$criteria->compare('password_2',$this->password_2,true);
-		$criteria->compare('last_login',$this->last_login,true);
+		$criteria->compare('perfil',$this->perfil,true);
+		$criteria->compare('apellidoPat',$this->apellidoPat,true);
+		$criteria->compare('apellidoMat',$this->apellidoMat,true);
+		$criteria->compare('nombres',$this->nombres,true);
+		$criteria->compare('direccion',$this->direccion,true);
+		$criteria->compare('comuna',$this->comuna,true);
+		$criteria->compare('ciudad',$this->ciudad,true);
+		$criteria->compare('region',$this->region,true);
+		$criteria->compare('fonoParticular',$this->fonoParticular,true);
+		$criteria->compare('email',$this->email,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -142,7 +142,7 @@ class CadeteController extends Controller
                 $cadete = Cadete::model()->findByPk($_GET['idCadete']);
                 if($cadete!==null){
 
-                        Yii::app()->getSession()->remove('rutCadete');
+                    Yii::app()->getSession()->remove('rutCadete');
 
                     Yii::app()->getSession()->add('rutCadete', $cadete->rut);
                     $this->redirect(array('site/index'));

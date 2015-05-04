@@ -5,11 +5,21 @@
  *
  * The followings are the available columns in table 'cadete':
  * @property string $rut
- * @property string $nombres
- * @property string $apellidoPat
- * @property string $apellidoMat
  * @property string $curso
- * @property string $nCadete
+ * @property string $divicion
+ * @property string $anoIngreso
+ * @property string $anoNacimiento
+ * @property string $mesNacimiento
+ * @property string $diaNacimiento
+ * @property string $lugarNacimiento
+ * @property string $nacionalidad
+ * @property string $seleccion
+ * @property string $nivel
+ * @property string $circulo
+ *
+ * The followings are the available model relations:
+ * @property Usuario $rut0
+ * @property CadeteApoderado[] $cadeteApoderados
  */
 class Cadete extends CActiveRecord
 {
@@ -29,13 +39,15 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, nombres, apellidoPat, apellidoMat, curso, nCadete', 'required'),
-			array('rut, curso, nCadete', 'length', 'max'=>10),
-			array('nombres', 'length', 'max'=>75),
-			array('apellidoPat, apellidoMat', 'length', 'max'=>25),
+			array('rut, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
+			array('rut, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
+			array('curso', 'length', 'max'=>2),
+			array('divicion', 'length', 'max'=>1),
+			array('lugarNacimiento', 'length', 'max'=>100),
+			array('nacionalidad, seleccion, nivel, circulo', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, nombres, apellidoPat, apellidoMat, curso, nCadete', 'safe', 'on'=>'search'),
+			array('rut, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,6 +59,8 @@ class Cadete extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'rut0' => array(self::BELONGS_TO, 'Usuario', 'rut'),
+			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'cadete_rut'),
 		);
 	}
 
@@ -57,11 +71,17 @@ class Cadete extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'nombres' => 'Nombres',
-			'apellidoPat' => 'Apellido Pat',
-			'apellidoMat' => 'Apellido Mat',
 			'curso' => 'Curso',
-			'nCadete' => 'N Cadete',
+			'divicion' => 'Divicion',
+			'anoIngreso' => 'Ano Ingreso',
+			'anoNacimiento' => 'Ano Nacimiento',
+			'mesNacimiento' => 'Mes Nacimiento',
+			'diaNacimiento' => 'Dia Nacimiento',
+			'lugarNacimiento' => 'Lugar Nacimiento',
+			'nacionalidad' => 'Nacionalidad',
+			'seleccion' => 'Seleccion',
+			'nivel' => 'Nivel',
+			'circulo' => 'Circulo',
 		);
 	}
 
@@ -84,11 +104,17 @@ class Cadete extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-		$criteria->compare('nombres',$this->nombres,true);
-		$criteria->compare('apellidoPat',$this->apellidoPat,true);
-		$criteria->compare('apellidoMat',$this->apellidoMat,true);
 		$criteria->compare('curso',$this->curso,true);
-		$criteria->compare('nCadete',$this->nCadete,true);
+		$criteria->compare('divicion',$this->divicion,true);
+		$criteria->compare('anoIngreso',$this->anoIngreso,true);
+		$criteria->compare('anoNacimiento',$this->anoNacimiento,true);
+		$criteria->compare('mesNacimiento',$this->mesNacimiento,true);
+		$criteria->compare('diaNacimiento',$this->diaNacimiento,true);
+		$criteria->compare('lugarNacimiento',$this->lugarNacimiento,true);
+		$criteria->compare('nacionalidad',$this->nacionalidad,true);
+		$criteria->compare('seleccion',$this->seleccion,true);
+		$criteria->compare('nivel',$this->nivel,true);
+		$criteria->compare('circulo',$this->circulo,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

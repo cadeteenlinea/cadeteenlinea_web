@@ -5,6 +5,7 @@
 
 class SiteTest extends WebTestCase
 {
+
 	/*public function testIndex()
 	{
 		$this->open('');
@@ -23,23 +24,18 @@ class SiteTest extends WebTestCase
 		$this->click("//input[@value='Submit']");
 		$this->waitForTextPresent('Body cannot be blank.');
 	}*/
-
+    /*
 	public function testLoginLogout()
 	{
+		$this->open('');
                 $this->windowMaximize();
-                $this->open("site/login");
-                $this->type("LoginForm_username", "admin"); //Donde LoginForm_username es el id del usuario
-                $this->type("LoginForm_password", "admin");
-                $this->click("LoginForm_rememberMe"); //Permite recordar y no estar autenticando cada rato
-                $this->click("name=yt0");
-                $this->waitForPageToLoad(self::PAGE_LOAD_WAIT_TIME); //constante que declaré para esperar un tiempo
-                /*$this->open('');
-                	// ensure the user is logged out
+                $this->waitForPageToLoad(self::PAGE_LOAD_WAIT_TIME);
+		// ensure the user is logged out
 		if($this->isTextPresent('Logout'))
 			$this->clickAndWait('link=Logout (demo)');
 
 		// test login process, including validation
-		$this->clickAndWait('link=Login');
+		$this->clickAndWait('link=ingresar');
 		$this->assertElementPresent('name=LoginForm[username]');
 		$this->type('name=LoginForm[username]','demo');
 		$this->click("//input[@value='Login']");
@@ -52,16 +48,24 @@ class SiteTest extends WebTestCase
 		// test logout process
 		$this->assertTextNotPresent('Login');
 		$this->clickAndWait('link=Logout (demo)');
-		$this->assertTextPresent('Login');*/
+		$this->assertTextPresent('Login');
 	}
+     * 
+     */
+       
+       public function testLogin(){
+        $this->windowMaximize();
+        $this->open("site/login");
         
-        protected function _login() {
-            $this->windowMaximize();
-            $this->open("site/login");
-            $this->type("LoginForm_username", "skatox"); //Donde LoginForm_username es el id del usuario
-            $this->type("LoginForm_password", "contrasena");
-            $this->click("LoginForm_rememberMe"); //Permite recordar y no estar autenticando cada rato
-            $this->click("name=yt0");
-            $this->waitForPageToLoad(self::PAGE_LOAD_WAIT_TIME); //constante que declaré para esperar un tiempo
-           }
+        $this->type("LoginForm_username", "17558919-8"); //Donde LoginForm_username es el id del usuario
+        $this->type("LoginForm_password", "asdasd");
+        
+        $this->click("yt0");
+        //$element = $this->findElementBy(LocatorStrategy::name, "yt0");
+        
+        
+        
+        //$this->click("input[@value='Iniciar Sesión']");
+        //$this->waitForPageToLoad(self::PAGE_LOAD_WAIT_TIME); //constante que declaré para esperar un tiempo
+       }
 }

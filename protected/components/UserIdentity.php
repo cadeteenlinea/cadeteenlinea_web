@@ -19,7 +19,9 @@ class UserIdentity extends CUserIdentity
                 $this->errorCode=self::ERROR_PASSWORD_INVALID;
             else{
                 $this->_id=$usuario->rut;
-                
+                if($usuario->perfil=='cadete'){
+                    Yii::app()->getSession()->add('rutCadete', $usuario->rut);
+                }
                 Yii::app()->getSession()->add('perfil', $usuario->perfil);
                 
                 /*Actualizamos el last_login del usuario que se esta autenticando*/

@@ -14,7 +14,7 @@
  * @property string $ciudad
  * @property string $region
  * @property string $curso
- * @property string $divicion
+ * @property string $division
  * @property string $anoIngreso
  * @property string $anoNacimiento
  * @property string $mesNacimiento
@@ -48,16 +48,16 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
+			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
 			array('rut, ncadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
 			array('apellidoPat, apellidoMat, comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo, email', 'length', 'max'=>25),
 			array('nombres', 'length', 'max'=>50),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
 			array('curso', 'length', 'max'=>2),
-			array('divicion', 'length', 'max'=>1),
+			array('division', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
+			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,7 +69,7 @@ class Cadete extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'rut0' => array(self::BELONGS_TO, 'Usuario', 'rut'),
+			'usuario' => array(self::BELONGS_TO, 'Usuario', 'rut'),
 			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'cadete_rut'),
 		);
 	}
@@ -90,7 +90,7 @@ class Cadete extends CActiveRecord
 			'ciudad' => 'Ciudad',
 			'region' => 'Region',
 			'curso' => 'Curso',
-			'divicion' => 'Divicion',
+			'division' => 'Division',
 			'anoIngreso' => 'Ano Ingreso',
 			'anoNacimiento' => 'Ano Nacimiento',
 			'mesNacimiento' => 'Mes Nacimiento',
@@ -132,7 +132,7 @@ class Cadete extends CActiveRecord
 		$criteria->compare('ciudad',$this->ciudad,true);
 		$criteria->compare('region',$this->region,true);
 		$criteria->compare('curso',$this->curso,true);
-		$criteria->compare('divicion',$this->divicion,true);
+		$criteria->compare('division',$this->division,true);
 		$criteria->compare('anoIngreso',$this->anoIngreso,true);
 		$criteria->compare('anoNacimiento',$this->anoNacimiento,true);
 		$criteria->compare('mesNacimiento',$this->mesNacimiento,true);

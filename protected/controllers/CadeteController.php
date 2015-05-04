@@ -28,7 +28,7 @@ class CadeteController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','index','view','selectCadete'),
+				'actions'=>array('selectCadete'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -141,9 +141,7 @@ class CadeteController extends Controller
             {
                 $cadete = Cadete::model()->findByPk($_GET['idCadete']);
                 if($cadete!==null){
-
                     Yii::app()->getSession()->remove('rutCadete');
-
                     Yii::app()->getSession()->add('rutCadete', $cadete->rut);
                     $this->redirect(array('site/index'));
                 }else{

@@ -66,9 +66,21 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
+                                         
+                                         array('label'=>'<span class="glyphicon glyphicon-cog"></span> Cuenta <b class="caret"></b>', 'url'=>'#', 
+                                                    'linkOptions'=>array(
+                                                        'class'=>'dropdown-toggle',
+                                                        'data-toggle'=>'dropdown',
+                                                    ),
+                                                    'items'=>array(
+                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('cadete/selectCadete')),
+                                                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
+                                                    ),                                                    
+                                                    'visible'=>!Yii::app()->user->isGuest),
+                                         
                                          array('label'=>'ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'),'visible'=>!Yii::app()->user->isGuest),
-                                    )));
+                                    ),'encodeLabel' => false,
+                                    ));
                                 ?>
                             </div>
                         </div>

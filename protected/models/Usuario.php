@@ -113,4 +113,12 @@ class Usuario extends CActiveRecord
         public function hashPassword($password){
             return md5($password);
         }
+        
+        public function imagen(){
+            if(file_exists(Yii::app()->request->baseUrl."/images/usuario/".$this->rut.".jpg")){
+                return Yii::app()->request->baseUrl."/images/usuario/$this->rut";
+            }else{
+                return Yii::app()->request->baseUrl."/images/usuario/000.jpg";
+            }
+        }
 }

@@ -5,6 +5,14 @@
  *
  * The followings are the available columns in table 'cadete':
  * @property string $rut
+ * @property string $ncadete
+ * @property string $apellidoPat
+ * @property string $apellidoMat
+ * @property string $nombres
+ * @property string $direccion
+ * @property string $comuna
+ * @property string $ciudad
+ * @property string $region
  * @property string $curso
  * @property string $divicion
  * @property string $anoIngreso
@@ -16,6 +24,7 @@
  * @property string $seleccion
  * @property string $nivel
  * @property string $circulo
+ * @property string $email
  *
  * The followings are the available model relations:
  * @property Usuario $rut0
@@ -39,15 +48,16 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
-			array('rut, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
+			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
+			array('rut, ncadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
+			array('apellidoPat, apellidoMat, comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo, email', 'length', 'max'=>25),
+			array('nombres', 'length', 'max'=>50),
+			array('direccion, lugarNacimiento', 'length', 'max'=>100),
 			array('curso', 'length', 'max'=>2),
 			array('divicion', 'length', 'max'=>1),
-			array('lugarNacimiento', 'length', 'max'=>100),
-			array('nacionalidad, seleccion, nivel, circulo', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo', 'safe', 'on'=>'search'),
+			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, divicion, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,6 +81,14 @@ class Cadete extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
+			'ncadete' => 'Ncadete',
+			'apellidoPat' => 'Apellido Pat',
+			'apellidoMat' => 'Apellido Mat',
+			'nombres' => 'Nombres',
+			'direccion' => 'Direccion',
+			'comuna' => 'Comuna',
+			'ciudad' => 'Ciudad',
+			'region' => 'Region',
 			'curso' => 'Curso',
 			'divicion' => 'Divicion',
 			'anoIngreso' => 'Ano Ingreso',
@@ -82,6 +100,7 @@ class Cadete extends CActiveRecord
 			'seleccion' => 'Seleccion',
 			'nivel' => 'Nivel',
 			'circulo' => 'Circulo',
+			'email' => 'Email',
 		);
 	}
 
@@ -104,6 +123,14 @@ class Cadete extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
+		$criteria->compare('ncadete',$this->ncadete,true);
+		$criteria->compare('apellidoPat',$this->apellidoPat,true);
+		$criteria->compare('apellidoMat',$this->apellidoMat,true);
+		$criteria->compare('nombres',$this->nombres,true);
+		$criteria->compare('direccion',$this->direccion,true);
+		$criteria->compare('comuna',$this->comuna,true);
+		$criteria->compare('ciudad',$this->ciudad,true);
+		$criteria->compare('region',$this->region,true);
 		$criteria->compare('curso',$this->curso,true);
 		$criteria->compare('divicion',$this->divicion,true);
 		$criteria->compare('anoIngreso',$this->anoIngreso,true);
@@ -115,6 +142,7 @@ class Cadete extends CActiveRecord
 		$criteria->compare('seleccion',$this->seleccion,true);
 		$criteria->compare('nivel',$this->nivel,true);
 		$criteria->compare('circulo',$this->circulo,true);
+		$criteria->compare('email',$this->email,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

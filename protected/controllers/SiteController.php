@@ -114,4 +114,20 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+        
+        public function actionLoginAndroid(){
+            try{
+                $model = new LoginForm;
+                if(isset($_POST['LoginForm'])){
+                    $model->attributes = $_POST['LoginForm'];
+                    if($model->validate() && $model->login()){
+                        echo "true";
+                    }else{
+                        echo "false";
+                    }
+                }
+            }  catch (Exception $ex){
+                echo "false"; 
+            }
+        }
 }

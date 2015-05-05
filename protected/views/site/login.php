@@ -39,7 +39,7 @@
 	</div>
 
 	<div class="form-group">
-		<?php echo CHtml::submitButton('Iniciar Sesión',array('class'=>'btn btn-info pull-right', 'id'=>'yt0')); ?>
+		<?php echo CHtml::submitButton('Iniciar Sesión',array('class'=>'btn btn-info pull-right', 'id'=>'buttonLogin')); ?>
 	</div>
 
         <?php $this->endWidget(); ?>

@@ -3,7 +3,7 @@
 /**
  * @group models
  */
-class LoginFormTest extends PHPUnit_Framework_TestCase {
+class LoginFormTest extends CTestCase {
 
     /**
      * @var LoginForm
@@ -28,8 +28,13 @@ class LoginFormTest extends PHPUnit_Framework_TestCase {
 
     public function testModel(){
         $this->assertObjectHasAttribute('username',$this->object);
+        $this->assertObjectHasAttribute('password',$this->object);
+        $this->assertObjectHasAttribute('rememberMe',$this->object);
     }
     
+    public function testRules(){
+        $this->assertInternalType('array',$this->object->rules());
+    }
     
 
 }

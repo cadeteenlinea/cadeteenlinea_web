@@ -260,7 +260,7 @@
 <REGIONS>
 </REGIONS>
 <TABLES>
-<TABLE ID="1000" Tablename="usuario" PrevTableName="Table_01" XPos="199" YPos="535" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="2" >
+<TABLE ID="1000" Tablename="usuario" PrevTableName="Table_01" XPos="256" YPos="399" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="2" >
 <COLUMNS>
 <COLUMN ID="1002" ColName="rut" PrevColName="rutUsuario" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -295,7 +295,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1007" Tablename="apoderado" PrevTableName="Table_02" XPos="711" YPos="175" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="3" >
+<TABLE ID="1007" Tablename="apoderado" PrevTableName="Table_02" XPos="691" YPos="1" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="3" >
 <COLUMNS>
 <COLUMN ID="1072" ColName="rut" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -377,7 +377,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1024" Tablename="cadete" PrevTableName="Table_03" XPos="712" YPos="576" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="4" >
+<TABLE ID="1024" Tablename="cadete" PrevTableName="Table_03" XPos="691" YPos="416" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="4" >
 <COLUMNS>
 <COLUMN ID="1070" ColName="rut" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -510,7 +510,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1080" Tablename="cadete_apoderado" PrevTableName="Table_04" XPos="1008" YPos="409" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="7" >
+<TABLE ID="1080" Tablename="cadete_apoderado" PrevTableName="Table_04" XPos="1079" YPos="243" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="7" >
 <COLUMNS>
 <COLUMN ID="1082" ColName="idcadete_apoderado" PrevColName="" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -557,7 +557,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1139" Tablename="funcionario" PrevTableName="Table_06" XPos="329" YPos="13" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="10" >
+<TABLE ID="1139" Tablename="funcionario" PrevTableName="Table_06" XPos="56" YPos="41" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="10" >
 <COLUMNS>
 <COLUMN ID="1150" ColName="rut" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -613,7 +613,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1153" Tablename="departamento" PrevTableName="Table_07" XPos="31" YPos="237" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" >
+<TABLE ID="1153" Tablename="departamento" PrevTableName="Table_07" XPos="29" YPos="433" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" >
 <COLUMNS>
 <COLUMN ID="1155" ColName="iddepartamento" PrevColName="" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -645,7 +645,7 @@
 <RELATION ID="1093" RelationName="Rel_apoderado_cadete" Kind="2" SrcTable="1007" DestTable="1080" FKFields="rut=apoderado_rut\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1095" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="8" />
 <RELATION ID="1096" RelationName="Rel_cadete_apoderado" Kind="2" SrcTable="1024" DestTable="1080" FKFields="rut=cadete_rut\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1098" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="9" />
 <RELATION ID="1146" RelationName="Rel_usuario_funcionario" Kind="0" SrcTable="1000" DestTable="1139" FKFields="rut=rut\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1148" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="11" />
-<RELATION ID="1160" RelationName="Rel_departamento_funcionario" Kind="2" SrcTable="1153" DestTable="1139" FKFields="iddepartamento=departamento_iddepartamento\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1162" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" />
+<RELATION ID="1160" RelationName="Rel_departamento_funcionario" Kind="2" SrcTable="1153" DestTable="1139" FKFields="iddepartamento=departamento_iddepartamento\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1162" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" />
 </RELATIONS>
 <NOTES>
 </NOTES>

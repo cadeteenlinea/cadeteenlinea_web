@@ -14,3 +14,10 @@ body > .container {
     min-height: 55px; 
 }
 
+.abono{
+    color: #01DF01;
+}
+
+.cargo{
+    color: #FF0000;
+}

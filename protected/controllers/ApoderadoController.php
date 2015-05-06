@@ -171,7 +171,7 @@ class ApoderadoController extends Controller
                 }
             }
             $this->render('selectCadete',array(
-                'cadetes'=>$apoderado = $this->loadModel(Yii::app()->user->id)->listarCadetesAsociados(),
+                'cadetes'=>$apoderado = $this->loadModel(Yii::app()->user->id)->getCadetes(),
             ));
             
             

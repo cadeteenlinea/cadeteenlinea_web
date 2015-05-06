@@ -53,6 +53,7 @@ class Transaccion extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'cadete' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
+                        
 		);
 	}
 
@@ -113,4 +114,21 @@ class Transaccion extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, $tipoTransaccion){
+            
+            $command=Yii::app()->db->createCommand();
+            $command->select('SUM(monto) AS sum');
+            $command->from('Transaccion');
+            $command->where('cadete_rut=:rutCadete and YEAR(fechaMovimiento)=:ano and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion', 
+                array(':rutCadete'=>$rutCadete,
+                    ':ano'=>$ano,
+                    'tipoCuenta'=>$tipoCuenta,
+                    'tipoTransaccion'=>$tipoTransaccion
+                    ));
+            return $command->queryScalar();;
+            /*$criteria = new CDbCriteria;
+            $criteria->select="SUM(monto) as sum";
+            return $this->find($criteria);*/
+        }    
 }

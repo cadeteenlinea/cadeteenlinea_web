@@ -54,8 +54,8 @@
                                                     ),
                                                     'items'=>array(
                                                         array('label'=>'Cuenta Corriente', 'url'=>array('cadete/movimientoCuentaCorriente')),
-                                                        array('label'=>'Colegiatura', 'url'=>array('transaccion/selectCadete')),
-                                                        array('label'=>'Equipo Inicial', 'url'=>array('transaccion/selectCadete')),
+                                                        array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
+                                                        array('label'=>'Equipo Inicial', 'url'=>array('cadete/movimientoEquipo')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
                                     ),'encodeLabel' => false,

@@ -134,7 +134,7 @@ class Apoderado extends CActiveRecord
 		return parent::model($className);
 	}
         
-        public function listarCadetesAsociados(){
+        public function getCadetes(){
             return $this->cadetes;
         }
         

@@ -29,7 +29,7 @@
  * The followings are the available model relations:
  * @property Usuario $rut0
  * @property CadeteApoderado[] $cadeteApoderados
- * @property Transaccion[] $transacciones
+ * @property Transaccion[] transacciones
  */
 class Cadete extends CActiveRecord
 {
@@ -72,7 +72,9 @@ class Cadete extends CActiveRecord
 		return array(
 			'usuario' => array(self::BELONGS_TO, 'Usuario', 'rut'),
 			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'cadete_rut'),
-			'transacciones' => array(self::HAS_MANY, 'Transaccion', 'cadete_rut'),
+			'transacciones' => array(self::HAS_MANY, 'Transaccion', 'cadete_rut', 
+                            'order'=>'transacciones.fechaMovimiento ASC'),
+                        'sumTransacciones'=>array(self::STAT,  'Transaccion', 'invoice_id', 'select' => 'SUM(amount)'),
 		);
 	}
 
@@ -167,11 +169,18 @@ class Cadete extends CActiveRecord
             return str_pad($this->nCadete, 3, "0", STR_PAD_LEFT);
         }
         
-        public function listarTransacciones($ano){
-            
-            
+        public function getTransacciones($ano, $tipoCuenta){
             $criteria=new CDbCriteria;
-            $criteria->addCondition("transacciones.tipoTransaccion='Cargo'");
-            return $this->with('transacciones')->findAll($criteria);
+            $criteria->addCondition("rut=$this->rut","AND");
+            $criteria->addCondition("transacciones.tipoCuenta='$tipoCuenta'","AND");
+            $criteria->addCondition("YEAR(transacciones.fechaMovimiento)='$ano'","AND");
+            return $this->with('transacciones')->find($criteria);
         }
+        
+        /*public function getListAno($tipoCuenta){
+            $criteria=new CDbCriteria;
+            $criteria->addCondition("rut=$this->rut","AND");
+            $criteria->addCondition("transacciones.tipoCuenta='$tipoCuenta'","AND");
+            return CHtml::listData($this->with('transacciones')->findAll(),'YEAR(transacciones.fechaMovimiento)','YEAR(transacciones.fechaMovimiento)');
+        }*/
 }

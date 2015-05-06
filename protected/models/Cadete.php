@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'cadete':
  * @property string $rut
- * @property string $ncadete
+ * @property string $nCadete
  * @property string $apellidoPat
  * @property string $apellidoMat
  * @property string $nombres
@@ -29,6 +29,7 @@
  * The followings are the available model relations:
  * @property Usuario $rut0
  * @property CadeteApoderado[] $cadeteApoderados
+ * @property Transaccion[] $transacciones
  */
 class Cadete extends CActiveRecord
 {
@@ -48,8 +49,8 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
-			array('rut, ncadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
+			array('rut, nCadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
+			array('rut, nCadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
 			array('apellidoPat, apellidoMat, comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo, email', 'length', 'max'=>25),
 			array('nombres', 'length', 'max'=>50),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
@@ -57,7 +58,7 @@ class Cadete extends CActiveRecord
 			array('division', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, ncadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
+			array('rut, nCadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,6 +72,7 @@ class Cadete extends CActiveRecord
 		return array(
 			'usuario' => array(self::BELONGS_TO, 'Usuario', 'rut'),
 			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'cadete_rut'),
+			'transacciones' => array(self::HAS_MANY, 'Transaccion', 'cadete_rut'),
 		);
 	}
 
@@ -81,7 +83,7 @@ class Cadete extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'ncadete' => 'Ncadete',
+			'nCadete' => 'N Cadete',
 			'apellidoPat' => 'Apellido Pat',
 			'apellidoMat' => 'Apellido Mat',
 			'nombres' => 'Nombres',
@@ -123,7 +125,7 @@ class Cadete extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-		$criteria->compare('ncadete',$this->ncadete,true);
+		$criteria->compare('nCadete',$this->nCadete,true);
 		$criteria->compare('apellidoPat',$this->apellidoPat,true);
 		$criteria->compare('apellidoMat',$this->apellidoMat,true);
 		$criteria->compare('nombres',$this->nombres,true);
@@ -163,5 +165,13 @@ class Cadete extends CActiveRecord
         public function getnCadeteView()
         {
             return str_pad($this->nCadete, 3, "0", STR_PAD_LEFT);
+        }
+        
+        public function listarTransacciones($ano){
+            
+            
+            $criteria=new CDbCriteria;
+            $criteria->addCondition("transacciones.tipoTransaccion='Cargo'");
+            return $this->with('transacciones')->findAll($criteria);
         }
 }

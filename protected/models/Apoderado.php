@@ -122,7 +122,7 @@ class Apoderado extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
+        
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -133,4 +133,28 @@ class Apoderado extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function listarCadetesAsociados(){
+            return $this->cadetes;
+        }
+        
+        public function seleccionarCadete($rutCadete){
+            if($this->validarCadeteAsociado($rutCadete)){
+                Yii::app()->getSession()->remove('rutCadete');
+                Yii::app()->getSession()->add('rutCadete', $rutCadete);
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        private function validarCadeteAsociado($rutCadete){
+            foreach ($this->cadeteApoderados as $item){
+                if($item->cadete_rut == $rutCadete){
+                    return true;
+                    break;
+                }
+            }
+            return false;
+        }
 }

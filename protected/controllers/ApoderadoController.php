@@ -1,6 +1,6 @@
 <?php
 
-class CadeteController extends Controller
+class ApoderadoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,7 +28,7 @@ class CadeteController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('movimientoCuentaCorriente'),
+				'actions'=>array('selectCadete'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -54,14 +54,14 @@ class CadeteController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Cadete;
+		$model=new Apoderado;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Cadete']))
+		if(isset($_POST['Apoderado']))
 		{
-			$model->attributes=$_POST['Cadete'];
+			$model->attributes=$_POST['Apoderado'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->rut));
 		}
@@ -83,9 +83,9 @@ class CadeteController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Cadete']))
+		if(isset($_POST['Apoderado']))
 		{
-			$model->attributes=$_POST['Cadete'];
+			$model->attributes=$_POST['Apoderado'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->rut));
 		}
@@ -114,7 +114,7 @@ class CadeteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Cadete');
+		$dataProvider=new CActiveDataProvider('Apoderado');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -125,27 +125,26 @@ class CadeteController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Cadete('search');
+		$model=new Apoderado('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Cadete']))
-			$model->attributes=$_GET['Cadete'];
+		if(isset($_GET['Apoderado']))
+			$model->attributes=$_GET['Apoderado'];
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}
-      
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Cadete the loaded model
+	 * @return Apoderado the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Cadete::model()->findByPk($id);
+		$model=Apoderado::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -153,21 +152,28 @@ class CadeteController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Cadete $model the model to be validated
+	 * @param Apoderado $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='cadete-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='apoderado-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
         
-        public function actionMovimientoCuentaCorriente(){
-            $model = $this->loadModel(Yii::app()->getSession()->get('rutCadete'))->listarTransacciones(2015);
-            $this->render('movimientoCuentaCorriente',array(
-                'transacciones'=>  $model,
+        public function actionSelectCadete()
+        {
+            if(isset($_GET['rutCadete'])){
+                if($this->loadModel(Yii::app()->user->id)->seleccionarCadete($_GET['rutCadete'])){
+                    $this->redirect(array('site/index'));
+                }
+            }
+            $this->render('selectCadete',array(
+                'cadetes'=>$apoderado = $this->loadModel(Yii::app()->user->id)->listarCadetesAsociados(),
             ));
+            
+            
         }
 }

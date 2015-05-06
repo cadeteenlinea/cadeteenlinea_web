@@ -47,14 +47,19 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
-                                         array('label'=>'Noticias', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                         array('label'=>'Académico', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                         array('label'=>'Profesional', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                         array('label'=>'Físico', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                         array('label'=>'Militar', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                         array('label'=>'Solicitudes', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                         array('label'=>'Contacto', 'url'=>array(''),'visible'=>!Yii::app()->user->isGuest),
-                                    )));
+                                         array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
+                                                    'linkOptions'=>array(
+                                                        'class'=>'dropdown-toggle',
+                                                        'data-toggle'=>'dropdown',
+                                                    ),
+                                                    'items'=>array(
+                                                        array('label'=>'Cuenta Corriente', 'url'=>array('cadete/movimientoCuentaCorriente')),
+                                                        array('label'=>'Colegiatura', 'url'=>array('transaccion/selectCadete')),
+                                                        array('label'=>'Equipo Inicial', 'url'=>array('transaccion/selectCadete')),
+                                                    ),                                                    
+                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                    ),'encodeLabel' => false,
+                                    ));
                                 ?>
                                 
                                 <?php
@@ -73,7 +78,7 @@
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
-                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('cadete/selectCadete')),
+                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete')),
                                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
                                                     ),                                                    
                                                     'visible'=>!Yii::app()->user->isGuest),

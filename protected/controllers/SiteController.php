@@ -111,23 +111,30 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
-		Yii::app()->user->logout();
+    		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
         
-        public function actionLoginAndroid(){
+        public function actionLoginWebService(){
+            $respuesta = "";
             try{
                 $model = new LoginForm;
                 if(isset($_POST['LoginForm'])){
                     $model->attributes = $_POST['LoginForm'];
                     if($model->validate() && $model->login()){
-                        echo "true";
+                        $respuesta = "true";
                     }else{
-                        echo "false";
+                        $respuesta = "false";
                     }
                 }
-            }  catch (Exception $ex){
-                echo "false"; 
+            }catch(CException $ex){
+                $respuesta = "false"; 
             }
+            
+            $object = array("respuesta"=>$respuesta);
+            
+            header('Content-type: application/json');
+            echo CJSON::encode($object);
+            Yii::app()->end();
         }
 }

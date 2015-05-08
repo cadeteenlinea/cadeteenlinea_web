@@ -3564,3 +3564,203 @@ Stack trace:
 REQUEST_URI=/cadeteenlinea/cadete/movimientoEquipo
 HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoColegiatura
 ---
+2015/05/07 15:54:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loginWebService" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('loginWebService')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('loginWebService')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/loginWebSe...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=rut&LoginForm_password=clave&LoginForm_rememberMe=1
+---
+2015/05/07 16:01:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loginWebService" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('loginWebService')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('loginWebService')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/loginWebSe...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+---
+2015/05/07 16:01:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loginWebService" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('loginWebService')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('loginWebService')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/loginWebSe...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+---
+2015/05/07 16:01:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loginWebService" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('loginWebService')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('loginWebService')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/loginWebSe...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+---
+2015/05/07 16:05:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loginWebService" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('loginWebService')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('loginWebService')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/loginWebSe...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+---
+2015/05/07 19:42:07 [error] [php] Undefined index: result (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:134)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=$%7BLoginForm_username%7D&LoginForm_password=$%7BLoginForm_password%7D&LoginForm_rememberMe=$%7BLoginForm_rememberMe%7D
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (134)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 20:08:05 [error] [php] Undefined index: result (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:134)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=true&LoginForm_password=asdasd&LoginForm_rememberMe=17558919-8
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (134)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 21:59:51 [error] [php] Undefined variable: respuestas (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:135)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (135)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:00:01 [error] [php] Undefined variable: respuestas (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:135)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (135)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:02:40 [error] [php] Undefined variable: object (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:04:21 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:04:24 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:06:46 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService?LoginForm_username=LoginForm_username&LoginForm_password=LoginForm_password&LoginForm_rememberMe=LoginForm_rememberMe
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:07:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "loginWebSite" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('loginWebSite')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('loginWebSite')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/loginWebSi...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/loginWebSite
+---
+2015/05/07 22:07:19 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/LoginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:07:31 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/LoginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:07:35 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/LoginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/07 22:07:36 [error] [php] Undefined variable: respuesta (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/LoginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (133)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 01:45:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "index"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('index')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/index
+---

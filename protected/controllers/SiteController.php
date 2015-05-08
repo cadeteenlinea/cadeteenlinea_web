@@ -116,25 +116,32 @@ class SiteController extends Controller
 	}
         
         public function actionLoginWebService(){
-            $respuesta = "";
+            $response = array();
             try{
                 $model = new LoginForm;
                 if(isset($_POST['LoginForm'])){
                     $model->attributes = $_POST['LoginForm'];
                     if($model->validate() && $model->login()){
-                        $respuesta = "true";
+                        $response['success'] = true;
                     }else{
-                        $respuesta = "false";
+                        $response['success'] = true;
                     }
+                }else{
+                    $response['success'] = false;
                 }
             }catch(CException $ex){
-                $respuesta = "false"; 
+                $response['success'] = false;
             }
             
-            $object = array("respuesta"=>$respuesta);
+            //$cadete = Cadete::model()->findAll();
+            
+            //$model->password = "asdasd";
+            //$model->username = "17558919-8";
             
             header('Content-type: application/json');
-            echo CJSON::encode($object);
+            
+            //echo CJSON::encode($response);
+            echo CJSON::encode($response);
             Yii::app()->end();
         }
 }

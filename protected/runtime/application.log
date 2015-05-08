@@ -3764,3 +3764,91 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/cadeteenlinea/index
 ---
+2015/05/08 05:10:11 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:139)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (139)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 05:10:23 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:139)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (139)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 05:12:35 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:139)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (139)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 15:35:48 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:144)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (144)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 15:40:00 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:144)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (144)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 15:40:21 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:144)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (144)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 15:40:49 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:145)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (145)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/08 15:43:02 [error] [php] Undefined index: LoginForm (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:144)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/loginWebService
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (144)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)

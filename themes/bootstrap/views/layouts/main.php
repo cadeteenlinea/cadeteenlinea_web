@@ -47,19 +47,8 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
-                                         array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
-                                                    'linkOptions'=>array(
-                                                        'class'=>'dropdown-toggle',
-                                                        'data-toggle'=>'dropdown',
-                                                    ),
-                                                    'items'=>array(
-                                                        array('label'=>'Cuenta Corriente', 'url'=>array('cadete/movimientoCuentaCorriente')),
-                                                        array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
-                                                        array('label'=>'Equipo Inicial', 'url'=>array('cadete/movimientoEquipo')),
-                                                    ),                                                    
-                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
-                                    ),'encodeLabel' => false,
-                                    ));
+                                         array('label'=>'Finanzas', 'url'=>array('/site/logout'),'visible'=>!Yii::app()->user->isGuest),
+                                    )));
                                 ?>
                                 
                                 <?php
@@ -71,21 +60,9 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
-                                         
-                                         array('label'=>'<span class="glyphicon glyphicon-cog"></span> Cuenta <b class="caret"></b>', 'url'=>'#', 
-                                                    'linkOptions'=>array(
-                                                        'class'=>'dropdown-toggle',
-                                                        'data-toggle'=>'dropdown',
-                                                    ),
-                                                    'items'=>array(
-                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete')),
-                                                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
-                                                    ),                                                    
-                                                    'visible'=>!Yii::app()->user->isGuest),
-                                         
                                          array('label'=>'ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                                    ),'encodeLabel' => false,
-                                    ));
+                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'),'visible'=>!Yii::app()->user->isGuest),
+                                    )));
                                 ?>
                             </div>
                         </div>

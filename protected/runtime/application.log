@@ -3852,3 +3852,63 @@ Stack trace:
 REQUEST_URI=/cadeteenlinea/site/loginWebService
 in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (144)
 in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/10 06:26:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "asd" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asd')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asd')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/asd')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/asd
+---
+2015/05/10 06:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "asd" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asd')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asd')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/asd')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/asd
+---
+2015/05/10 06:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "asd" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asd')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asd')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/asd')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/asd
+---
+2015/05/10 06:26:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "asd" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asd')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asd')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/asd')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/asd
+---
+2015/05/10 06:26:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "asd" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asd')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asd')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/asd')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/asd
+---
+2015/05/10 06:26:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "asd" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('asd')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asd')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/asd')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/asd
+---

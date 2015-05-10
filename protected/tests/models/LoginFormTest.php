@@ -1,40 +1,39 @@
 <?php
-
+ob_start();
 /**
- * @group models
+ * @group Model_LoginForm
  */
 class LoginFormTest extends CTestCase {
-
-    /**
-     * @var LoginForm
-     */
     protected $object;
 
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
+    public $fixture = array(
+        'username'=>'17558919-8',
+        'password'=>'asdasd',
+        'rememberMe'=>true,
+    );
+    
     protected function setUp() {
+        Yii::import('application.controllers.*');
         $this->object = new LoginForm;
+        $this->object->setAttributes($this->fixture);
     }
 
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
     protected function tearDown() {
         unset($this->object);
     }
 
-    public function testModel(){
-        $this->assertObjectHasAttribute('username',$this->object);
-        $this->assertObjectHasAttribute('password',$this->object);
-        $this->assertObjectHasAttribute('rememberMe',$this->object);
+    public function testValidateRut(){        
+        $this->object->validateRut("username", null);    
+        $this->assertEquals($this->object->errors,array());
     }
     
-    public function testRules(){
-        $this->assertInternalType('array',$this->object->rules());
+    public function testAuthenticate(){
+        $this->object->authenticate("password", null);     
+        $this->assertEquals($this->object->errors,array());
     }
     
-
+    public function testLogin(){
+        $result = $this->object->login();
+        $this->assertEquals($result, true);
+    }
 }

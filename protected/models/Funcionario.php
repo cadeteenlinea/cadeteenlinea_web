@@ -13,7 +13,7 @@
  *
  * The followings are the available model relations:
  * @property Usuario $rut0
- * @property Departamento $departamentoIddepartamento
+ * @property Departamento $departamento
  */
 class Funcionario extends CActiveRecord
 {
@@ -53,7 +53,7 @@ class Funcionario extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'rut0' => array(self::BELONGS_TO, 'Usuario', 'rut'),
-			'departamentoIddepartamento' => array(self::BELONGS_TO, 'Departamento', 'departamento_iddepartamento'),
+			'departamento' => array(self::BELONGS_TO, 'Departamento', 'departamento_iddepartamento'),
 		);
 	}
 

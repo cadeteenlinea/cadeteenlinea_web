@@ -1,3 +1,3 @@
 <?php 
-    echo Yii::app()->getSession()->get('rutCadete');
+    //echo Yii::app()->getSession()->get('rutCadete');
 ?>

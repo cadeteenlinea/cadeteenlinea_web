@@ -119,7 +119,7 @@ class Transaccion extends CActiveRecord
             
             $command=Yii::app()->db->createCommand();
             $command->select('SUM(monto) AS sum');
-            $command->from('Transaccion');
+            $command->from('transaccion');
             $command->where('cadete_rut=:rutCadete and YEAR(fechaMovimiento)=:ano and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion', 
                 array(':rutCadete'=>$rutCadete,
                     ':ano'=>$ano,

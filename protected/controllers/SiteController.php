@@ -119,8 +119,10 @@ class SiteController extends Controller
             $response = array();
             try{
                 $model = new LoginForm;
-                if(isset($_POST['LoginForm'])){
-                    $model->attributes = $_POST['LoginForm'];
+                if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['rememberMe'])){
+                    $model->username = $_POST['username'];
+                    $model->password = $_POST['password'];
+                    $model->rememberMe = $_POST['rememberMe'];
                     if($model->validate() && $model->login()){
                         $response['success'] = true;
                     }else{

@@ -125,6 +125,7 @@ class SiteController extends Controller
                     $model->rememberMe = $_POST['rememberMe'];
                     if($model->validate() && $model->login()){
                         $response['success'] = true;
+                        $response['perfil'] = Yii::app()->getSession()->get('perfil');
                     }else{
                         $response['success'] = true;
                     }

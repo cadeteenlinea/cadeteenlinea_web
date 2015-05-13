@@ -35,8 +35,6 @@ class ApoderadoTest extends CTestCase {
             $this->assertEquals($obj->rut,$this->fixture["rutCadeteValido$cont"]);
             $cont++;
         }
-        //$this->assertEquals(,  );
-        //$this->assertEquals($this->object->apellidoPat,"Franco");
     }
 
     /*

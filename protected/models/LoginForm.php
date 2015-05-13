@@ -39,7 +39,7 @@ class LoginForm extends CFormModel
 		return array(
 			'username'=>'RUT',
                         'password'=>'Clave',
-                        'rememberMe'=>'Recuerdame',
+                        'rememberMe'=>'Recuérdame',
 		);
 	}
 

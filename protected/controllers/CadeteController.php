@@ -176,10 +176,15 @@ class CadeteController extends Controller
             $model = $this->loadModel($rutCadete);
             $transacciones = new Transaccion;
             $total = $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, "Abono") - $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, 'Cargo');
+            
+            $anos = Transaccion::model()->getListAno($rutCadete);
+            
+            
             $this->render('movimientos',array(
                 'transacciones' =>  $model->getTransacciones($ano, $tipoCuenta),
                 'total' => $total,
                 'titulo' => 'Cuenta Corriente',
+                'anos' => $anos,
             ));
         }
         

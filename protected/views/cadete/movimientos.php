@@ -1,3 +1,12 @@
+<?php
+    //print_r($anos);
+    
+    echo CHtml::dropDownList('year', $anos, CHtml::listData($anos, 'fechaMovimiento', 'fechaMovimiento'), 
+            array('prompt'=>'Seleccionar año', 'onchange'=>'form.submit()', 'class'=>'form-control'));
+?>
+
+
+
 <h3><?php echo $titulo; ?></h3>
 
 <div class="panel panel-default">

@@ -130,5 +130,14 @@ class Transaccion extends CActiveRecord
             /*$criteria = new CDbCriteria;
             $criteria->select="SUM(monto) as sum";
             return $this->find($criteria);*/
-        }    
+        }
+        
+        static function getListAno($rutCadete){
+            $criteria=new CDbCriteria;
+            $criteria->select='YEAR(t.fechaMovimiento) as fechaMovimiento';
+            //$criteria->addCondition("t.cadete_rut=$rutCadete");
+            $criteria->distinct=true;
+            $model = Transaccion::model()->findAll($criteria);
+            return $model;
+        }
 }

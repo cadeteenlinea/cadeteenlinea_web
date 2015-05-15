@@ -1,10 +1,23 @@
 <?php
     //print_r($anos);
+    $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'ano-view',
+	'enableAjaxValidation'=>false,));
+
+    //echo CHtml::dropDownList('year', $anos, CHtml::listData($anos, 'fechaMovimiento', 'fechaMovimiento'), 
+    //        array('prompt'=>'Seleccionar año', 'onchange'=>'/site', 'class'=>'form-control', 'select'=>'2015'));
     
-    echo CHtml::dropDownList('year', $anos, CHtml::listData($anos, 'fechaMovimiento', 'fechaMovimiento'), 
-            array('prompt'=>'Seleccionar año', 'onchange'=>'form.submit()', 'class'=>'form-control'));
+     echo CHtml::dropDownList('designation_id', 'designation_id',  Transaccion::model()->getListAno(Yii::app()->getSession()->get('rutCadete')),
+            array('class'=>'form-control','onchange'=>Yii::app()->request->url,
+                'options'=>
+                             array(
+                               Yii::app()->getSession()->get('ano_view')=>array('selected'=>'selected')
+                                 )
+     ));
+    
 ?>
 
+<?php $this->endWidget(); ?>
 
 
 <h3><?php echo $titulo; ?></h3>

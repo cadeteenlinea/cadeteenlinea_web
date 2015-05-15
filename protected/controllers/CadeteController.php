@@ -169,6 +169,7 @@ class CadeteController extends Controller
             if(isset($_GET['anoCuentaCorriente'])){
                 $ano = $_GET['anoCuentaCorriente'];
             }
+            Yii::app()->getSession()->add('ano_view', $ano);
             
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $tipoCuenta = "Cta Cte";
@@ -176,15 +177,11 @@ class CadeteController extends Controller
             $model = $this->loadModel($rutCadete);
             $transacciones = new Transaccion;
             $total = $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, "Abono") - $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, 'Cargo');
-            
-            $anos = Transaccion::model()->getListAno($rutCadete);
-            
-            
+
             $this->render('movimientos',array(
                 'transacciones' =>  $model->getTransacciones($ano, $tipoCuenta),
                 'total' => $total,
                 'titulo' => 'Cuenta Corriente',
-                'anos' => $anos,
             ));
         }
         
@@ -193,6 +190,7 @@ class CadeteController extends Controller
             if(isset($_GET['anoCuentaCorriente'])){
                 $ano = $_GET['anoCuentaCorriente'];
             }
+            Yii::app()->getSession()->add('ano_view', $ano);
             
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $tipoCuenta = "Colegiatura";
@@ -212,6 +210,7 @@ class CadeteController extends Controller
             if(isset($_GET['anoCuentaCorriente'])){
                 $ano = $_GET['anoCuentaCorriente'];
             }
+            Yii::app()->getSession()->add('ano_view', $ano);
             
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $tipoCuenta = "Equipo";

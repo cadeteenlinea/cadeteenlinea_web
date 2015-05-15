@@ -138,6 +138,8 @@ class Transaccion extends CActiveRecord
             //$criteria->addCondition("t.cadete_rut=$rutCadete");
             $criteria->distinct=true;
             $model = Transaccion::model()->findAll($criteria);
-            return $model;
+            
+            return CHtml::listData($model, 
+                'fechaMovimiento', 'fechaMovimiento');
         }
 }

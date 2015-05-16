@@ -1,36 +1,36 @@
-<?php
-    //print_r($anos);
-    $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'ano-view',
-	'enableAjaxValidation'=>false,));
-
-    //echo CHtml::dropDownList('year', $anos, CHtml::listData($anos, 'fechaMovimiento', 'fechaMovimiento'), 
-    //        array('prompt'=>'Seleccionar año', 'onchange'=>'/site', 'class'=>'form-control', 'select'=>'2015'));
-    
-     echo CHtml::dropDownList('designation_id', 'designation_id',  Transaccion::model()->getListAno(Yii::app()->getSession()->get('rutCadete')),
-            array('class'=>'form-control','onchange'=>Yii::app()->request->url,
-                'options'=>
-                             array(
-                               Yii::app()->getSession()->get('ano_view')=>array('selected'=>'selected')
-                                 )
-     ));
-    
-?>
-
-<?php $this->endWidget(); ?>
-
-
 <h3><?php echo $titulo; ?></h3>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <b>Movimientos
-        <?php if($total<0){ 
-            echo "<span class=\"glyphicon glyphicon-minus-sign cargo\"></span> $total ";
-        }else{
-            echo "<span class=\"glyphicon glyphicon-plus-sign abono\"></span> $total ";
-        }?>
+        <b>Total
+            <?php if($total<0){ 
+                echo "<span class=\"glyphicon glyphicon-minus-sign cargo\"></span> $total ";
+            }else{
+                echo "<span class=\"glyphicon glyphicon-plus-sign abono\"></span> $total ";
+            }?>
         </b>
+        <?php
+            //print_r($anos);
+            $form=$this->beginWidget('CActiveForm', array(
+                'id'=>'ano-view',
+                'htmlOptions'=>array(
+                    'class'=>'pull-right',
+                ),
+                'enableAjaxValidation'=>false,));
+                /*
+                 *Despliega una list con los años correspondientes a a los movimientos del cadete
+                 * Yii::app()->request->url entrega la url actual del sitio
+                 * la variable $anoView contiene el año seleccionado por el usuario
+                 * el metodo getListAno entrega un arreglo de tipo listData para el despligue del list
+                 * este arreglo esta compuesto por clave, valor, pero en este caso
+                 * la clave y el valor son el mismo dato
+                 */
+                echo CHtml::dropDownList('fechaMovimiento', 'fechaMovimiento',  Transaccion::model()->getListAno(Yii::app()->getSession()->get('rutCadete'), $tipoCuenta),
+                    array('class'=>'form-control pull-righ','style'=>'width:90px;','submit'=>Yii::app()->request->url,
+                        'options'=> array($anoView=>array('selected'=>'selected'))
+             ));
+            $this->endWidget();
+        ?>
     </div>
     
     <table class="table">
@@ -46,12 +46,12 @@
             foreach ($transacciones->transacciones as $transaccion){
         ?>
             <tr>
-                <td><?php echo $transaccion->fechaMovimiento; ?></td>
+                <td><?php echo $transaccion->FechaFormatoNacional; ?></td>
                 <td><?php echo $transaccion->descripcion; ?></td>
                 <?php if($transaccion->tipoTransaccion == "Cargo") {?>
-                    <td><span class="glyphicon glyphicon-minus-sign cargo"></span> <?php echo $transaccion->monto; ?></td>
+                    <td><span class="glyphicon glyphicon-minus-sign cargo"></span> <?php echo $transaccion->MontoFormatoDinero; ?></td>
                 <?php } else {?>
-                    <td><span class="glyphicon glyphicon-plus-sign abono"></span> <?php echo $transaccion->monto; ?></td>
+                    <td><span class="glyphicon glyphicon-plus-sign abono"></span> <?php echo $transaccion->MontoFormatoDinero; ?></td>
                 <?php }?>
             </tr>
         <?php }} ?>

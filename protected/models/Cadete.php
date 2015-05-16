@@ -164,11 +164,16 @@ class Cadete extends CActiveRecord
 		return parent::model($className);
 	}
         
+        //retorn la visualización del atributo nCadete, el cual en el sistema
+        //se guarda como int, pero por estandar de la escuela la visualizacion
+        //es de formato 000, es decir de 3 digitos
         public function getnCadeteView()
         {
             return str_pad($this->nCadete, 3, "0", STR_PAD_LEFT);
         }
         
+        //retorna todas las transacciones que tiene el cadete, según
+        //ano y tipo de cuenta
         public function getTransacciones($ano, $tipoCuenta){
             $criteria=new CDbCriteria;
             $criteria->addCondition("rut=$this->rut","AND");
@@ -176,11 +181,4 @@ class Cadete extends CActiveRecord
             $criteria->addCondition("YEAR(transacciones.fechaMovimiento)='$ano'","AND");
             return $this->with('transacciones')->find($criteria);
         }
-        
-        /*public function getListAno($tipoCuenta){
-            $criteria=new CDbCriteria;
-            $criteria->addCondition("rut=$this->rut","AND");
-            $criteria->addCondition("transacciones.tipoCuenta='$tipoCuenta'","AND");
-            return CHtml::listData($this->with('transacciones')->findAll(),'YEAR(transacciones.fechaMovimiento)','YEAR(transacciones.fechaMovimiento)');
-        }*/
 }

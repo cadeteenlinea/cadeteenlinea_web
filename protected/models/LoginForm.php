@@ -78,7 +78,7 @@ class LoginForm extends CFormModel
 			return false;
 	}
         
-        
+        //Validación de rut chileno
         public function validateRut($attribute, $params) {
             $data = explode('-', $this->username);
             $evaluate = strrev($data[0]);

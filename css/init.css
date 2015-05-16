@@ -23,8 +23,16 @@ body > .container {
     color: #FF0000;
 }
 
+/*Establece el tamaño minimo para los Head de los paneles utilizados
+en las finanzas*/
+.panel-heading{
+    min-height: 50px !important;
+}
 
 
+
+/*Esto se utiliza en el login, para generar el ancla al medio del contenedor
+*/
 hr.separador_post { 
  height: 30px;
  border-style: solid;

@@ -4454,3 +4454,222 @@ REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
 in C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php (11)
 in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (187)
 in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/16 02:37:47 [error] [php] Undefined variable: ano (C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php:15)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): CadeteController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): CadeteController->renderPartial()
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(185): CadeteController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+in C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php (15)
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (185)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/16 02:37:55 [error] [php] Undefined variable: ano (C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php:15)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): CadeteController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): CadeteController->renderPartial()
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(185): CadeteController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+in C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php (15)
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (185)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/16 02:49:43 [error] [php] Undefined variable: tipoCuenta (C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php:14)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): CadeteController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): CadeteController->renderPartial()
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(230): CadeteController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoEquipo()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/movimientoEquipo
+in C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php (14)
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (230)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/05/16 03:03:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/bootstrap.css.map"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/bootstrap.c...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/css/bootstrap.css.map
+HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoCuentaCorriente
+---
+2015/05/16 03:03:52 [error] [exception.CException] exception 'CException' with message 'La propiedad "CActiveForm"."class" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('class', 'pull-right')
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(CadeteController), 'CActiveForm', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(197): CBaseController->createWidget('CActiveForm', Array)
+#3 C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php(19): CBaseController->beginWidget('CActiveForm', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('movimientos', Array, true)
+#8 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(192): CController->render('movimientos', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('movimientoCuent...')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/movimien...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+HTTP_REFERER=http://localhost/cadeteenlinea/site/index
+---
+2015/05/16 03:03:53 [error] [exception.CException] exception 'CException' with message 'La propiedad "CActiveForm"."class" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('class', 'pull-right')
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(CadeteController), 'CActiveForm', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(197): CBaseController->createWidget('CActiveForm', Array)
+#3 C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php(19): CBaseController->beginWidget('CActiveForm', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('movimientos', Array, true)
+#8 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(192): CController->render('movimientos', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('movimientoCuent...')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/movimien...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+HTTP_REFERER=http://localhost/cadeteenlinea/site/index
+---
+2015/05/16 03:04:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/bootstrap.css.map"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/bootstrap.c...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/css/bootstrap.css.map
+HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoCuentaCorriente
+---
+2015/05/16 03:04:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/bootstrap.css.map"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/bootstrap.c...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/css/bootstrap.css.map
+HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoCuentaCorriente
+---
+2015/05/16 03:04:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/bootstrap.css.map"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/bootstrap.c...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/css/bootstrap.css.map
+HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoCuentaCorriente
+---
+2015/05/16 03:06:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/bootstrap.css.map"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('css/bootstrap.c...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/css/bootstrap.css.map
+HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoCuentaCorriente
+---
+2015/05/16 03:10:10 [error] [exception.CException] exception 'CException' with message 'La propiedad "Transaccion"."getMontoDinero" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('getMontoDinero')
+#1 C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php(54): CActiveRecord->__get('getMontoDinero')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('movimientos', Array, true)
+#6 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(192): CController->render('movimientos', Array)
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('movimientoCuent...')
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/movimien...')
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+HTTP_REFERER=http://localhost/cadeteenlinea/cadete/movimientoCuentaCorriente
+---
+2015/05/16 03:18:35 [error] [exception.CException] exception 'CException' with message 'La propiedad "Transaccion"."getMontoFormatoDinero" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('getMontoFormato...')
+#1 C:\xampp\htdocs\cadeteenlinea\protected\views\cadete\movimientos.php(52): CActiveRecord->__get('getMontoFormato...')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('movimientos', Array, true)
+#6 C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(192): CController->render('movimientos', Array)
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('movimientoCuent...')
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/movimien...')
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+HTTP_REFERER=http://localhost/cadeteenlinea/site/index
+---

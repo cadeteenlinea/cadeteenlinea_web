@@ -115,8 +115,9 @@ class Transaccion extends CActiveRecord
 		return parent::model($className);
 	}
         
+        //retorna la suma de las transacciones del cadete, según
+        //cadete, tipo cuenta, ano y tipo de transaccion
         public function getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, $tipoTransaccion){
-            
             $command=Yii::app()->db->createCommand();
             $command->select('SUM(monto) AS sum');
             $command->from('transaccion');
@@ -127,19 +128,29 @@ class Transaccion extends CActiveRecord
                     'tipoTransaccion'=>$tipoTransaccion
                     ));
             return $command->queryScalar();;
-            /*$criteria = new CDbCriteria;
-            $criteria->select="SUM(monto) as sum";
-            return $this->find($criteria);*/
         }
         
-        static function getListAno($rutCadete){
+        //Despliega todos los años de las transacciones correspondientes al cadete
+        //según el tipo de cuenta pedido
+        static function getListAno($rutCadete, $tipoCuenta){
             $criteria=new CDbCriteria;
             $criteria->select='YEAR(t.fechaMovimiento) as fechaMovimiento';
-            //$criteria->addCondition("t.cadete_rut=$rutCadete");
+            $criteria->addCondition("t.cadete_rut=$rutCadete");
+            $criteria->addCondition("t.tipoCuenta='$tipoCuenta'");
             $criteria->distinct=true;
             $model = Transaccion::model()->findAll($criteria);
             
             return CHtml::listData($model, 
                 'fechaMovimiento', 'fechaMovimiento');
+        }
+        
+        //retorna el atributo monto con formato de dinero
+        public function getMontoFormatoDinero(){
+            return Yii::app()->numberFormatter->format("#,##0", $this->monto);
+        }
+        
+        //retorna el campo fechamovimiento con el formato dd/mm/yyyy
+        public function getFechaFormatoNacional(){
+            return Yii::app()->dateFormatter->format("dd/MM/yyyy", $this->fechaMovimiento);
         }
 }

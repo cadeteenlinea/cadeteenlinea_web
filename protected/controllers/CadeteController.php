@@ -165,33 +165,38 @@ class CadeteController extends Controller
 	}
         
         public function actionMovimientoCuentaCorriente(){ 
+            //Validación de año, por defecto se carga con el año actual
+            //si la variable $_POST trae valor, el año es cambiado por el valor seleccionado
             $ano = date("Y");
-            if(isset($_GET['anoCuentaCorriente'])){
-                $ano = $_GET['anoCuentaCorriente'];
+            if(isset($_POST['fechaMovimiento'])){
+                $ano = $_POST['fechaMovimiento'];
             }
-            Yii::app()->getSession()->add('ano_view', $ano);
             
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $tipoCuenta = "Cta Cte";
             
+            //isntancia de la clase cadete, para obtener todas sus transacciones
+            //hace uso del metodo getTransacciones
             $model = $this->loadModel($rutCadete);
+            
+            //entrega el total de transacciones (SUM)
             $transacciones = new Transaccion;
             $total = $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, "Abono") - $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, 'Cargo');
 
             $this->render('movimientos',array(
                 'transacciones' =>  $model->getTransacciones($ano, $tipoCuenta),
-                'total' => $total,
+                'total' => Yii::app()->numberFormatter->format("#,##0",$total),
                 'titulo' => 'Cuenta Corriente',
+                'anoView' => $ano,
+                'tipoCuenta'=>$tipoCuenta
             ));
         }
         
         public function actionMovimientoColegiatura(){ 
             $ano = date("Y");
-            if(isset($_GET['anoCuentaCorriente'])){
-                $ano = $_GET['anoCuentaCorriente'];
-            }
-            Yii::app()->getSession()->add('ano_view', $ano);
-            
+            if(isset($_POST['fechaMovimiento'])){
+                $ano = $_POST['fechaMovimiento'];
+            }           
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $tipoCuenta = "Colegiatura";
             
@@ -200,18 +205,18 @@ class CadeteController extends Controller
             $total = $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, "Abono") - $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, 'Cargo');
             $this->render('movimientos',array(
                 'transacciones' =>  $model->getTransacciones($ano, $tipoCuenta),
-                'total' => $total,
+                'total' => Yii::app()->numberFormatter->format("#,##0",$total),
                 'titulo' => $tipoCuenta,
+                'anoView' => $ano,
+                'tipoCuenta'=>$tipoCuenta
             ));
         }
         
         public function actionMovimientoEquipo(){ 
             $ano = date("Y");
-            if(isset($_GET['anoCuentaCorriente'])){
-                $ano = $_GET['anoCuentaCorriente'];
-            }
-            Yii::app()->getSession()->add('ano_view', $ano);
-            
+            if(isset($_POST['fechaMovimiento'])){
+                $ano = $_POST['fechaMovimiento'];
+            }            
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $tipoCuenta = "Equipo";
             
@@ -220,8 +225,10 @@ class CadeteController extends Controller
             $total = $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, "Abono") - $transacciones->getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, 'Cargo');
             $this->render('movimientos',array(
                 'transacciones' =>  $model->getTransacciones($ano, $tipoCuenta),
-                'total' => $total,
+                'total' => Yii::app()->numberFormatter->format("#,##0",$total),
                 'titulo' => 'Equipo Inicial',
+                'anoView' => $ano,
+                'tipoCuenta'=>$tipoCuenta
             ));
         }
 }

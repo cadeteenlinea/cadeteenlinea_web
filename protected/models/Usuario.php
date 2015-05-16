@@ -105,15 +105,21 @@ class Usuario extends CActiveRecord
 		return parent::model($className);
 	}
         
+        //Valida que la clave enviada por el usuario sea la misma que se encuentra
+        //en la base de datos
         public function validatePassword($password){
             //return $this->hashPassword($password)===$this->password_2;
             return $this->password_2 === $password;
         }
         
+        //Genera la clave encriptada guardada en la base de datos
+        //se utiliza el hash MD5
         public function hashPassword($password){
             return md5($password);
         }
         
+        //valida la ubicación de la imagen a utilizar por el cadete
+        //en caso de que no exista, retorna una por defecto
         public function imagen(){
             if(file_exists(Yii::app()->request->baseUrl."/images/usuario/".$this->rut.".jpg")){
                 return Yii::app()->request->baseUrl."/images/usuario/$this->rut";

@@ -22,13 +22,19 @@
         )); ?>
 
 	<div class="form-group">
+            <div class="input-group input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 		<?php echo $form->textField($model,'username',array('class'=>'form-control', 'placeholder'=>'Rut de usuario')); ?>
-		<?php echo $form->error($model,'username',array('class'=>'alert alert-danger')); ?>
+            </div>
+            <?php echo $form->error($model,'username',array('class'=>'alert alert-danger')); ?>
 	</div>
 
 	<div class="form-group">
+            <div class="input-group input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 		<?php echo $form->passwordField($model,'password',array('class'=>'form-control', 'placeholder'=>'Contraseña')); ?>
-		<?php echo $form->error($model,'password',array('class'=>'alert alert-danger')); ?>
+            </div>
+            <?php echo $form->error($model,'password',array('class'=>'alert alert-danger')); ?>
 	</div>
 
 	<div class="form-group">

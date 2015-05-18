@@ -174,11 +174,12 @@ class Cadete extends CActiveRecord
         
         //retorna todas las transacciones que tiene el cadete, según
         //ano y tipo de cuenta
-        public function getTransacciones($ano, $tipoCuenta){
+        public function getTransacciones($ano=null, $tipoCuenta){
             $criteria=new CDbCriteria;
             $criteria->addCondition("rut=$this->rut","AND");
             $criteria->addCondition("transacciones.tipoCuenta='$tipoCuenta'","AND");
-            $criteria->addCondition("YEAR(transacciones.fechaMovimiento)='$ano'","AND");
+            if($ano!=null)
+                $criteria->addCondition("YEAR(transacciones.fechaMovimiento)='$ano'","AND");
             return $this->with('transacciones')->find($criteria);
         }
 }

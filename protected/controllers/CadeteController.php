@@ -167,7 +167,7 @@ class CadeteController extends Controller
         public function actionMovimientoCuentaCorriente(){ 
             //Validación de año, por defecto se carga con el año actual
             //si la variable $_POST trae valor, el año es cambiado por el valor seleccionado
-            $ano = date("Y");
+            $ano = '';
             if(isset($_POST['fechaMovimiento'])){
                 $ano = $_POST['fechaMovimiento'];
             }
@@ -193,7 +193,7 @@ class CadeteController extends Controller
         }
         
         public function actionMovimientoColegiatura(){ 
-            $ano = date("Y");
+            $ano = '';
             if(isset($_POST['fechaMovimiento'])){
                 $ano = $_POST['fechaMovimiento'];
             }           
@@ -213,7 +213,7 @@ class CadeteController extends Controller
         }
         
         public function actionMovimientoEquipo(){ 
-            $ano = date("Y");
+            $ano = '';
             if(isset($_POST['fechaMovimiento'])){
                 $ano = $_POST['fechaMovimiento'];
             }            

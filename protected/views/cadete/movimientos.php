@@ -26,7 +26,7 @@
                  * la clave y el valor son el mismo dato
                  */
                 echo CHtml::dropDownList('fechaMovimiento', 'fechaMovimiento',  Transaccion::model()->getListAno(Yii::app()->getSession()->get('rutCadete'), $tipoCuenta),
-                    array('class'=>'form-control pull-righ','style'=>'width:90px;','submit'=>Yii::app()->request->url,
+                    array('empty' => '--ver todo--','class'=>'form-control pull-righ','style'=>'width:125px;','submit'=>Yii::app()->request->url,
                         'options'=> array($anoView=>array('selected'=>'selected'))
              ));
             $this->endWidget();

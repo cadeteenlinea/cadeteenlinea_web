@@ -117,16 +117,24 @@ class Transaccion extends CActiveRecord
         
         //retorna la suma de las transacciones del cadete, según
         //cadete, tipo cuenta, ano y tipo de transaccion
-        public function getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano, $tipoTransaccion){
+        public function getSumTransaccionesTipoTran($rutCadete, $tipoCuenta, $ano=null, $tipoTransaccion){
             $command=Yii::app()->db->createCommand();
             $command->select('SUM(monto) AS sum');
             $command->from('transaccion');
-            $command->where('cadete_rut=:rutCadete and YEAR(fechaMovimiento)=:ano and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion', 
-                array(':rutCadete'=>$rutCadete,
-                    ':ano'=>$ano,
-                    'tipoCuenta'=>$tipoCuenta,
-                    'tipoTransaccion'=>$tipoTransaccion
-                    ));
+            if($ano!=null){
+                $command->where('cadete_rut=:rutCadete and YEAR(fechaMovimiento)=:ano and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion', 
+                    array(':rutCadete'=>$rutCadete,
+                        ':ano'=>$ano,
+                        'tipoCuenta'=>$tipoCuenta,
+                        'tipoTransaccion'=>$tipoTransaccion
+                        ));
+            }else{
+                $command->where('cadete_rut=:rutCadete and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion', 
+                    array(':rutCadete'=>$rutCadete,
+                        'tipoCuenta'=>$tipoCuenta,
+                        'tipoTransaccion'=>$tipoTransaccion
+                        ));
+            }
             return $command->queryScalar();;
         }
         

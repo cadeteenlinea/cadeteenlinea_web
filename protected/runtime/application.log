@@ -4673,3 +4673,48 @@ Stack trace:
 REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
 HTTP_REFERER=http://localhost/cadeteenlinea/site/index
 ---
+2015/05/18 20:48:36 [error] [php] Undefined variable: ano (C:\xampp_new\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:184)
+Stack trace:
+#0 C:\xampp_new\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#1 C:\xampp_new\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp_new\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp_new\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#4 C:\xampp_new\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp_new\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp_new\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#7 C:\xampp_new\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#8 C:\xampp_new\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp_new\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp_new\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+in C:\xampp_new\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (184)
+in C:\xampp_new\htdocs\cadeteenlinea\index.php (13)
+2015/05/18 20:52:54 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() falló: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. La sentencia SQL ejecutada fue: SELECT SUM(monto) AS sum
+FROM `transaccion`
+WHERE cadete_rut=:rutCadete and YEAR(fechaMovimiento)=:ano and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion.
+in C:\xampp_new\htdocs\cadeteenlinea\protected\models\Transaccion.php (138)
+in C:\xampp_new\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (184)
+in C:\xampp_new\htdocs\cadeteenlinea\index.php (13)
+2015/05/18 20:52:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT SUM(monto) AS sum
+FROM `transaccion`
+WHERE cadete_rut=:rutCadete and YEAR(fechaMovimiento)=:ano and tipoCuenta=:tipoCuenta and tipoTransaccion=:tipoTransaccion' in C:\xampp_new\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp_new\htdocs\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\xampp_new\htdocs\cadeteenlinea\protected\models\Transaccion.php(138): CDbCommand->queryScalar()
+#2 C:\xampp_new\htdocs\cadeteenlinea\protected\controllers\CadeteController.php(184): Transaccion->getSumTransaccionesTipoTran('11111111', 'Cta Cte', '', 'Abono')
+#3 C:\xampp_new\htdocs\yii\framework\web\actions\CInlineAction.php(49): CadeteController->actionMovimientoCuentaCorriente()
+#4 C:\xampp_new\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp_new\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp_new\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp_new\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp_new\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp_new\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp_new\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp_new\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp_new\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('movimientoCuent...')
+#13 C:\xampp_new\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/movimien...')
+#14 C:\xampp_new\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp_new\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/cadeteenlinea/cadete/movimientoCuentaCorriente
+---

@@ -78,7 +78,7 @@
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
-                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete')),
+                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 'visible'=>Yii::app()->getSession()->get('perfil')=='apoderado'),
                                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
                                                     ),                                                    
                                                     'visible'=>!Yii::app()->user->isGuest),

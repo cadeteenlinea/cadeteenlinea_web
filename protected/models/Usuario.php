@@ -121,8 +121,9 @@ class Usuario extends CActiveRecord
         //valida la ubicación de la imagen a utilizar por el cadete
         //en caso de que no exista, retorna una por defecto
         public function imagen(){
-            if(file_exists(Yii::app()->request->baseUrl."/images/usuario/".$this->rut.".jpg")){
-                return Yii::app()->request->baseUrl."/images/usuario/$this->rut";
+            if(file_exists(Yii::getPathOfAlias('webroot.images.usuario')."/".$this->rut.".jpg")){
+            //if(file_exists(Yii::app()->request->baseUrl."/images/usuario/".$this->rut.".jpg")){
+                return Yii::app()->request->baseUrl."/images/usuario/".$this->rut.".jpg";
             }else{
                 return Yii::app()->request->baseUrl."/images/usuario/000.jpg";
             }

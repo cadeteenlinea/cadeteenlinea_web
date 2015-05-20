@@ -7,6 +7,7 @@
 </style>
 
 <h2>Seleccione Cadete</h2>
+<?php  ?>
 <br/>
 <br/>
 

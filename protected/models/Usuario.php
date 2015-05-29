@@ -145,7 +145,7 @@ class Usuario extends CActiveRecord
             return $random;
         } 
         
-        public function resetContrasena($model){
+        public function resetContrasena($model, $codigo){
             //código de verificación vacio, nunca se solicito reset de contraseña
             if($this->codVerificacion!=null){
                 //Codigo de verificación no coinciden

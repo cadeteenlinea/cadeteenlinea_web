@@ -115,6 +115,55 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
         
+        public function actionRecuperarContrasena(){
+            /* se utiliza la clase RecoverPassForm
+             * para realizar las validaciones propias del formulario
+             * rut válido, campo obligatorio y usuario existente en el sistema
+             */
+            $model = new RecoverPassForm();
+            
+            if(isset($_POST['RecoverPassForm']))
+            {
+               $model->attributes=$_POST['RecoverPassForm'];
+               if($model->validate()){
+                   $rut=substr(strtolower($model->rut),0,-2);
+                   $usuario=Usuario::model()->findByPk($rut);
+                   $codigoVerificacion = $usuario->generarCodVerificación();
+                   if($usuario->save()){
+                        $this->redirect(array('resetPassword'));
+                   }
+                   //mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+               }
+            }
+ 
+            $this->render('recuperarContrasena',array(
+		'model'=>$model,
+            ));
+        }
+        
+        public function actionResetPassword(){
+            $model = new ResetPassForm();
+            if(isset($_POST['ResetPassForm']))
+            {
+                $model->attributes=$_POST['ResetPassForm'];
+                if($model->validate()){
+                    
+                    $rut=substr(strtolower($model->rut),0,-2);
+                    $usuario=Usuario::model()->findByPk($rut);
+                    
+                    if ($usuario->resetContrasena($model)){
+                        $this->redirect(array('login'));
+                    }else{
+                        $model->addError('codVerificacion', 'Código inválido o tiempo expirado');
+                    }
+                }
+            }
+            $this->render('resetPassword',array(
+		'model'=>$model,
+            ));
+        }
+        
+        
         public function actionLoginWebService(){
             $response = array();
             try{
@@ -147,4 +196,8 @@ class SiteController extends Controller
             echo CJSON::encode($response);
             Yii::app()->end();
         }
+        
+        
+        
+        
 }

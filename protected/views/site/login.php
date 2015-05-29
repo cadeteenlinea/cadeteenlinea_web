@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-2"></div>
 
-        <div  class="col-lg-4 col-md-6 col-sm-8 form">
+        <div class="col-lg-4 col-md-6 col-sm-8 form">
         <h1 class="text-center">Iniciar sesión</h1>
         <hr class="separador_post"/>
         <?php $form=$this->beginWidget('CActiveForm', array(
@@ -48,6 +48,11 @@
 	</div>
 
         <?php $this->endWidget(); ?>
+        
+        <div class="text-center">
+            <?php echo CHtml::link('¿Olvidaste tu contraseña?',array('site/recuperarContrasena')); ?>
+        </div>
+        
         </div>
         
         <div class="col-lg-4 col-md-3 col-sm-2"></div>

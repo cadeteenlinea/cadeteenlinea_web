@@ -7,6 +7,8 @@
  * @property string $rut
  * @property string $password_2
  * @property string $perfil
+ * @property string $codVerificacion
+ * @property string $fechaVerificacion
  *
  * The followings are the available model relations:
  * @property Apoderado $apoderado
@@ -15,6 +17,8 @@
  */
 class Usuario extends CActiveRecord
 {
+        public $newPassword;
+        public $passwordRepeat;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -35,8 +39,8 @@ class Usuario extends CActiveRecord
 			array('rut', 'length', 'max'=>10),
 			array('password_2', 'length', 'max'=>250),
 			array('perfil', 'length', 'max'=>11),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+                        array('codVerificacion', 'length', 'max'=>10),
+                    
 			array('rut, password_2, perfil', 'safe', 'on'=>'search'),
 		);
 	}
@@ -64,6 +68,8 @@ class Usuario extends CActiveRecord
 			'rut' => 'Rut',
 			'password_2' => 'Clave',
 			'perfil' => 'Perfil',
+                        'newPassword'=>'Nueva Contraseña',
+                        'passwordRepeat'=>'Repetir Nueva Contraseña'
 		);
 	}
 
@@ -105,6 +111,7 @@ class Usuario extends CActiveRecord
 		return parent::model($className);
 	}
         
+        
         //Valida que la clave enviada por el usuario sea la misma que se encuentra
         //en la base de datos
         public function validatePassword($password){
@@ -128,4 +135,30 @@ class Usuario extends CActiveRecord
                 return Yii::app()->request->baseUrl."/images/usuario/000.jpg";
             }
         }
+        
+        public function generarCodVerificación(){
+            $random = '';
+            for ($i = 0; $i < 10; $i++) {
+              $random .= chr(mt_rand(33, 126));
+            }
+            $this->codVerificacion = $random;
+            return $random;
+        } 
+        
+        public function resetContrasena($model, $codigo){
+            //código de verificación vacio, nunca se solicito reset de contraseña
+            if($this->codVerificacion!=null){
+                //Codigo de verificación no coinciden
+                if($this->codVerificacion === $model->codVerificacion){
+                    $this->password_2 = $model->password;
+                    $this->codVerificacion = null;
+                    $this->fechaVerificacion = null;
+                    if($this->save()){
+                        return true;
+                    }  
+                }
+            }
+            return false;
+        }
+        
 }

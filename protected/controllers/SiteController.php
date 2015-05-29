@@ -128,7 +128,7 @@ class SiteController extends Controller
                if($model->validate()){
                    $rut=substr(strtolower($model->rut),0,-2);
                    $usuario=Usuario::model()->findByPk($rut);
-                   $codigoVerificacion = $usuario->generarCodVerificación();
+                   $codigoVerificacion = $usuario->asignarCodVerificaciónYFecha();
                    if($usuario->save()){
                         $this->redirect(array('resetPassword'));
                    }

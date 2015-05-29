@@ -136,12 +136,13 @@ class Usuario extends CActiveRecord
             }
         }
         
-        public function generarCodVerificación(){
+        public function asignarCodVerificaciónYFecha(){
             $random = '';
             for ($i = 0; $i < 10; $i++) {
               $random .= chr(mt_rand(33, 126));
             }
             $this->codVerificacion = $random;
+            $this->fechaVerificacion = date("Y-m-d H:i:s");
             return $random;
         } 
         
@@ -150,14 +151,26 @@ class Usuario extends CActiveRecord
             if($this->codVerificacion!=null){
                 //Codigo de verificación no coinciden
                 if($this->codVerificacion === $model->codVerificacion){
-                    $this->password_2 = $model->password;
-                    $this->codVerificacion = null;
-                    $this->fechaVerificacion = null;
-                    if($this->save()){
-                        return true;
-                    }  
+                    if($this->validarFechaTiempo()){
+                        $this->password_2 = $model->password;
+                        $this->codVerificacion = null;
+                        $this->fechaVerificacion = null;
+                        if($this->save()){
+                            return true;
+                        }  
+                    }
                 }
             }
+            return false;
+        }
+        
+        public function validarFechaTiempo(){
+            $fecha = $this->fechaVerificacion;
+            $fecha = strtotime ( '+24 hour' , strtotime ( $fecha ) ) ;
+            $now = date("Y-m-d H:i:s");
+            if($fecha > $now)
+                return true;
+                
             return false;
         }
         

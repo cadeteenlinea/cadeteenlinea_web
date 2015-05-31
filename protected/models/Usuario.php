@@ -12,6 +12,7 @@
  * @property string $perfil
  * @property string $codVerificacion
  * @property string $fechaVerificacion
+ * @property string $email
  *
  * The followings are the available model relations:
  * @property Apoderado $apoderado
@@ -38,9 +39,9 @@ class Usuario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, apellidoPat, apellidoMat, nombres, password_2', 'required'),
+			array('rut, apellidoPat, apellidoMat, nombres, password_2, email', 'required'),
 			array('rut', 'length', 'max'=>10),
-                        array('apellidoPat, apellidoMat', 'length', 'max'=>25),
+                        array('apellidoPat, apellidoMat, email', 'length', 'max'=>25),
                         array('nombres', 'length', 'max'=>50),
 			array('password_2', 'length', 'max'=>250),
 			array('perfil', 'length', 'max'=>11),
@@ -77,7 +78,8 @@ class Usuario extends CActiveRecord
 			'password_2' => 'Clave',
 			'perfil' => 'Perfil',
                         'newPassword'=>'Nueva Contraseña',
-                        'passwordRepeat'=>'Repetir Nueva Contraseña'
+                        'passwordRepeat'=>'Repetir Nueva Contraseña',
+                        'email'=>'Email'
 		);
 	}
 
@@ -122,6 +124,9 @@ class Usuario extends CActiveRecord
 		return parent::model($className);
 	}
         
+        public function nombreCompleto(){
+            return $this->nombres + ' '+ $this->apellidoPat + ' ' + $this->apellidoMat;
+        }
         
         //Valida que la clave enviada por el usuario sea la misma que se encuentra
         //en la base de datos
@@ -158,7 +163,19 @@ class Usuario extends CActiveRecord
         } 
         
         public function enviarEmailContrasena(){
-            if(mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers))
+            $subject='=?UTF-8?B?'.base64_encode('Por favor cambie su contraseña').'?=';
+            $body = 'Nos enteramos de que usted perdió su contraseña. Lo sentimos! <br/><br/>';
+            $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</b>';
+            $body .= 'codigo: '. $this->codVerificacion.'<br/><br/>';
+            $body .= '<a href="http://localhost/cadeteenlinea/site/ResetPassword">http://localhost/cadeteenlinea/site/ResetPassword</a>';
+            
+            
+            $headers="From: ".Yii::app()->params['adminEmail']."\r\n".
+		"Reply-To: ".Yii::app()->params['adminEmail']."\r\n".
+		"MIME-Version: 1.0\r\n".
+		"Content-Type: text/plain; charset=UTF-8";
+            
+            if(mail($this->email,$subject,$body,$headers))
                 return true;
             return false;
         }   
@@ -184,10 +201,9 @@ class Usuario extends CActiveRecord
         public function validarFechaTiempo(){
             $fecha = $this->fechaVerificacion;
             $fecha = strtotime ( '+24 hour' , strtotime ( $fecha ) ) ;
-            $now = date("Y-m-d H:i:s");
+            $now = strtotime(date("Y-m-d H:i:s"));
             if($fecha > $now)
-                return true;
-                
+                return true;  
             return false;
         }
         

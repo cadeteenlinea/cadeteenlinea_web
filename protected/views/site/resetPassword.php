@@ -23,13 +23,13 @@
         
         <div class="form-group">
             <?php echo $form->labelEx($model,'password'); ?>
-            <?php echo $form->textField($model,'password',array('class'=>'form-control',)); ?>
+            <?php echo $form->passwordField($model,'password',array('class'=>'form-control',)); ?>
             <?php echo $form->error($model,'password',array('class'=>'alert alert-danger')); ?>
         </div>
         
         <div class="form-group">
             <?php echo $form->labelEx($model,'passwordRepeat'); ?>
-            <?php echo $form->textField($model,'passwordRepeat',array('class'=>'form-control',)); ?>
+            <?php echo $form->passwordField($model,'passwordRepeat',array('class'=>'form-control',)); ?>
             <?php echo $form->error($model,'passwordRepeat',array('class'=>'alert alert-danger')); ?>
         </div>
         

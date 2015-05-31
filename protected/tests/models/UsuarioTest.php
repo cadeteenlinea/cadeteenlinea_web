@@ -7,7 +7,7 @@ class UsuarioTest extends CTestCase {
 
     protected $object;
     public $fixture = array(
-        'rut'=>'11111111',
+        'rut'=>'17558919',
     );
 
     protected function setUp() {
@@ -18,8 +18,11 @@ class UsuarioTest extends CTestCase {
         unset($this->object);
     }
 
-    public function testGenerarCodVerificacion() {
-        $this->assertNotEmpty($this->object->generarCodVerificación());
+    public function testAsignarCodVerificaciónYFecha() { 
+        $this->object = Usuario::model()->findByPk($this->fixture['rut']);
+        $this->assertNotEmpty($this->object->asignarCodVerificaciónYFecha());
+        $this->assertNotEmpty($this->object->codVerificacion);
+        $this->assertNotEmpty($this->object->fechaVerificacion);        
     }
     
     

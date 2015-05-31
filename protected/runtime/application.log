@@ -5424,3 +5424,13 @@ Stack trace:
 REQUEST_URI=/cadeteenlinea/apoderado/selectCadete
 HTTP_REFERER=http://localhost/cadeteenlinea/site/login
 ---
+2015/05/31 20:55:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "resetContrasena" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('resetContrasena')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('resetContrasena')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/resetContr...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/resetContrasena
+---

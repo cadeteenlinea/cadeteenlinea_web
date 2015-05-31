@@ -21,7 +21,6 @@
  * @property string $seleccion
  * @property string $nivel
  * @property string $circulo
- * @property string $email
  *
  * The followings are the available model relations:
  * @property Usuario $rut0
@@ -48,13 +47,13 @@ class Cadete extends CActiveRecord
 		return array(
 			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
 			array('rut, nCadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
-			array('comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo, email', 'length', 'max'=>25),
+			array('comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo', 'length', 'max'=>25),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
 			array('curso', 'length', 'max'=>2),
 			array('division', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
+			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -97,7 +96,6 @@ class Cadete extends CActiveRecord
 			'seleccion' => 'Seleccion',
 			'nivel' => 'Nivel',
 			'circulo' => 'Circulo',
-			'email' => 'Email',
 		);
 	}
 
@@ -136,7 +134,6 @@ class Cadete extends CActiveRecord
 		$criteria->compare('seleccion',$this->seleccion,true);
 		$criteria->compare('nivel',$this->nivel,true);
 		$criteria->compare('circulo',$this->circulo,true);
-		$criteria->compare('email',$this->email,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

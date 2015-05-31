@@ -131,9 +131,8 @@ class SiteController extends Controller
                    $codigoVerificacion = $usuario->asignarCodVerificaciónYFecha();
                    if($usuario->save()){
                         if($usuario->enviarEmailContrasena())
-                            $this->redirect(array('resetPassword'));
+                            $this->redirect(array('RecuperarContrasena'));
                    }
-                   //mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
                }
             }
  

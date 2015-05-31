@@ -130,7 +130,8 @@ class SiteController extends Controller
                    $usuario=Usuario::model()->findByPk($rut);
                    $codigoVerificacion = $usuario->asignarCodVerificaciónYFecha();
                    if($usuario->save()){
-                        $this->redirect(array('resetPassword'));
+                        if($usuario->enviarEmailContrasena())
+                            $this->redirect(array('resetPassword'));
                    }
                    //mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
                }

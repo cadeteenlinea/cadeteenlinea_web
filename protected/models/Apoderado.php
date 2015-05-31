@@ -5,9 +5,6 @@
  *
  * The followings are the available columns in table 'apoderado':
  * @property string $rut
- * @property string $apellidoPat
- * @property string $apellidoMat
- * @property string $nombres
  * @property string $direccion
  * @property string $comuna
  * @property string $ciudad
@@ -39,16 +36,15 @@ class Apoderado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, fono, difunto', 'required'),
-			array('rut, nombres', 'length', 'max'=>10),
-			array('apellidoPat, apellidoMat', 'length', 'max'=>50),
+			array('rut,direccion, comuna, ciudad, region, fono, difunto', 'required'),
+			array('rut', 'length', 'max'=>10),
 			array('direccion', 'length', 'max'=>100),
 			array('comuna, ciudad, region, fonoComercial, email', 'length', 'max'=>25),
 			array('fono', 'length', 'max'=>15),
 			array('difunto', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, fono, fonoComercial, email, difunto', 'safe', 'on'=>'search'),
+			array('rut, direccion, comuna, ciudad, region, fono, fonoComercial, email, difunto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,9 +69,6 @@ class Apoderado extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'apellidoPat' => 'Apellido Pat',
-			'apellidoMat' => 'Apellido Mat',
-			'nombres' => 'Nombres',
 			'direccion' => 'Direccion',
 			'comuna' => 'Comuna',
 			'ciudad' => 'Ciudad',
@@ -106,9 +99,6 @@ class Apoderado extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-		$criteria->compare('apellidoPat',$this->apellidoPat,true);
-		$criteria->compare('apellidoMat',$this->apellidoMat,true);
-		$criteria->compare('nombres',$this->nombres,true);
 		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('comuna',$this->comuna,true);
 		$criteria->compare('ciudad',$this->ciudad,true);

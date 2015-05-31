@@ -6,9 +6,6 @@
  * The followings are the available columns in table 'cadete':
  * @property string $rut
  * @property string $nCadete
- * @property string $apellidoPat
- * @property string $apellidoMat
- * @property string $nombres
  * @property string $direccion
  * @property string $comuna
  * @property string $ciudad
@@ -49,16 +46,15 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, nCadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
+			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
 			array('rut, nCadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
-			array('apellidoPat, apellidoMat, comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo, email', 'length', 'max'=>25),
-			array('nombres', 'length', 'max'=>50),
+			array('comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo, email', 'length', 'max'=>25),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
 			array('curso', 'length', 'max'=>2),
 			array('division', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, nCadete, apellidoPat, apellidoMat, nombres, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
+			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,9 +82,6 @@ class Cadete extends CActiveRecord
 		return array(
 			'rut' => 'Rut',
 			'nCadete' => 'N Cadete',
-			'apellidoPat' => 'Apellido Pat',
-			'apellidoMat' => 'Apellido Mat',
-			'nombres' => 'Nombres',
 			'direccion' => 'Direccion',
 			'comuna' => 'Comuna',
 			'ciudad' => 'Ciudad',
@@ -128,9 +121,6 @@ class Cadete extends CActiveRecord
 
 		$criteria->compare('rut',$this->rut,true);
 		$criteria->compare('nCadete',$this->nCadete,true);
-		$criteria->compare('apellidoPat',$this->apellidoPat,true);
-		$criteria->compare('apellidoMat',$this->apellidoMat,true);
-		$criteria->compare('nombres',$this->nombres,true);
 		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('comuna',$this->comuna,true);
 		$criteria->compare('ciudad',$this->ciudad,true);

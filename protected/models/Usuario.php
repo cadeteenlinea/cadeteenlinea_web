@@ -5,6 +5,9 @@
  *
  * The followings are the available columns in table 'usuario':
  * @property string $rut
+ * @property string $apellidoPat
+ * @property string $apellidoMat
+ * @property string $nombres
  * @property string $password_2
  * @property string $perfil
  * @property string $codVerificacion
@@ -35,13 +38,15 @@ class Usuario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, password_2', 'required'),
+			array('rut, apellidoPat, apellidoMat, nombres, password_2', 'required'),
 			array('rut', 'length', 'max'=>10),
+                        array('apellidoPat, apellidoMat', 'length', 'max'=>25),
+                        array('nombres', 'length', 'max'=>50),
 			array('password_2', 'length', 'max'=>250),
 			array('perfil', 'length', 'max'=>11),
                         array('codVerificacion', 'length', 'max'=>10),
                     
-			array('rut, password_2, perfil', 'safe', 'on'=>'search'),
+			array('rut, apellidoPat, apellidoMat, nombres, password_2, perfil', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +71,9 @@ class Usuario extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
+                        'apellidoPat' => 'Apellido Pat',
+			'apellidoMat' => 'Apellido Mat',
+			'nombres' => 'Nombres',
 			'password_2' => 'Clave',
 			'perfil' => 'Perfil',
                         'newPassword'=>'Nueva Contraseña',
@@ -92,6 +100,9 @@ class Usuario extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
+                $criteria->compare('apellidoPat',$this->apellidoPat,true);
+		$criteria->compare('apellidoMat',$this->apellidoMat,true);
+		$criteria->compare('nombres',$this->nombres,true);
 		$criteria->compare('password_2',$this->password_2,true);
 		$criteria->compare('perfil',$this->perfil,true);
 
@@ -145,6 +156,12 @@ class Usuario extends CActiveRecord
             $this->fechaVerificacion = date("Y-m-d H:i:s");
             return $random;
         } 
+        
+        public function enviarEmailContrasena(){
+            if(mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers))
+                return true;
+            return false;
+        }   
         
         public function resetContrasena($model){
             //código de verificación vacio, nunca se solicito reset de contraseña

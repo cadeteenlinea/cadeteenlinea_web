@@ -6,9 +6,6 @@
  * The followings are the available columns in table 'funcionario':
  * @property string $rut
  * @property string $departamento_iddepartamento
- * @property string $apellidoPat
- * @property string $apellidoMat
- * @property string $nombres
  * @property string $tipo
  *
  * The followings are the available model relations:
@@ -33,14 +30,12 @@ class Funcionario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, apellidoPat, apellidoMat, nombres, tipo', 'required'),
+			array('rut, tipo', 'required'),
 			array('rut, departamento_iddepartamento', 'length', 'max'=>10),
-			array('apellidoPat, apellidoMat', 'length', 'max'=>25),
-			array('nombres', 'length', 'max'=>50),
 			array('tipo', 'length', 'max'=>14),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, departamento_iddepartamento, apellidoPat, apellidoMat, nombres, tipo', 'safe', 'on'=>'search'),
+			array('rut, departamento_iddepartamento, tipo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,9 +60,6 @@ class Funcionario extends CActiveRecord
 		return array(
 			'rut' => 'Rut',
 			'departamento_iddepartamento' => 'Departamento Iddepartamento',
-			'apellidoPat' => 'Apellido Pat',
-			'apellidoMat' => 'Apellido Mat',
-			'nombres' => 'Nombres',
 			'tipo' => 'Tipo',
 		);
 	}
@@ -91,10 +83,7 @@ class Funcionario extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-		$criteria->compare('departamento_iddepartamento',$this->departamento_iddepartamento,true);
-		$criteria->compare('apellidoPat',$this->apellidoPat,true);
-		$criteria->compare('apellidoMat',$this->apellidoMat,true);
-		$criteria->compare('nombres',$this->nombres,true);
+		$criteria->compare('departamento_iddepartamento',$this->departamento_iddepartamento,true);		
 		$criteria->compare('tipo',$this->tipo,true);
 
 		return new CActiveDataProvider($this, array(

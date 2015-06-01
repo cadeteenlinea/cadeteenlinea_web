@@ -49,6 +49,3 @@
         <div class="col-lg-4 col-md-3 col-sm-2"></div>
     </div>
 </div>
-
-
-<?php $this->renderPartial('_message'); ?>

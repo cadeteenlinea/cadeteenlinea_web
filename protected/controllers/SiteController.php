@@ -130,14 +130,8 @@ class SiteController extends Controller
                    $usuario=Usuario::model()->findByPk($rut);
                    $codigoVerificacion = $usuario->asignarCodVerificaciónYFecha();
                    if($usuario->save()){
-                        if($usuario->enviarEmailContrasena()){
-                            Yii::app()->user->setFlash('success','* Te hemos 
-                                enviado un correo electrónico con un enlace y 
-                                código de autorización, los que le permitiran 
-                                restablecer su contraseña por 
-                                las próximas 24 horas');
+                        if($usuario->enviarEmailContrasena())
                             $this->redirect(array('RecuperarContrasena'));
-                        }
                    }
                }
             }
@@ -158,7 +152,6 @@ class SiteController extends Controller
                     $usuario=Usuario::model()->findByPk($rut);
                     
                     if ($usuario->resetContrasena($model)){
-                        Yii::app()->user->setFlash('success','Contraseña restablecida');
                         $this->redirect(array('login'));
                     }else{
                         $model->addError('codVerificacion', 'Código inválido o tiempo expirado');

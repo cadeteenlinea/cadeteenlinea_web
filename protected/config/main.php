@@ -78,6 +78,36 @@ return array(
 				*/
 			),
 		),
+            
+                'Smtpmail'=>array(
+                    /*'class'=>'application.extensions.smtpmail.PHPMailer',
+                    'Host'=>"smtp.office365.com",
+                    'Username'=>'s.francobrantes@uandresbello.edu',
+                    'Password'=>'Fra1669,',
+                    'Mailer'=>'smtp',
+                    'Port'=>587,
+                    'SMTPAuth'=>true, 
+                    'SMTPSecure' => 'tls',*/
+                    
+                    'class'=>'application.extensions.smtpmail.PHPMailer',
+                    'Host'=>"smtp.gmail.com",
+                    'Username'=>'cadeteenlinea@gmail.com',
+                    'Password'=>'cadetes2015',
+                    'Mailer'=>'smtp',
+                    'Port'=>587,
+                    'SMTPAuth'=>true, 
+                    'CharSet'=>'utf-8', 
+                    'SMTPSecure' => 'tls',
+                    
+                    /*'class'=>'application.extensions.smtpmail.PHPMailer',
+                    'Host'=>"mail.escuelanaval.cl",
+                    'Username'=>'cadeteenlinea@escuelanaval',
+                    'Password'=>'cadete',
+                    'Mailer'=>'smtp',
+                    'Port'=>25,
+                    'SMTPAuth'=>false, 
+                    'SMTPSecure' => 'ssl'*/
+                ),
 
 	),
 

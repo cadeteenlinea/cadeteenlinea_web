@@ -6,12 +6,18 @@
 class UsuarioTest extends CTestCase {
 
     protected $object;
+    protected $objectReset;
     public $fixture = array(
         'rut'=>'17558919',
+        'password'=>'asdasd',
+        'passwordRepeat'=>'asdasd',
+        'codVerificacion'=>''
     );
 
     protected function setUp() {
         $this->object = new Usuario;
+        $this->objectReset = new ResetPassForm();
+        $this->objectReset->attributes = $this->fixture;
     }
 
     protected function tearDown() {
@@ -31,12 +37,12 @@ class UsuarioTest extends CTestCase {
         $this->assertTrue($this->object->enviarEmailContrasena());
     }
     
-    //se debe modificar para poder realizar pruebas certeras, variable fecha produce problemas
-    public function testResetContrasena(){
-        /*$this->object = Usuario::model()->findByPk($this->fixture['rut']);
-        $model = $this->object;
-        $this->object->fechaVerificacion = date("Y-m-d H:i:s");
-        $this->object->save();
-        $this->assertTrue($this->object->resetContrasena($model));*/
+    public function testResetContrasenaTrue(){
+        $this->object = Usuario::model()->findByPk($this->fixture['rut']);
+        $this->assertNotEmpty($this->object->asignarCodVerificaciónYFecha());
+        $this->objectReset->codVerificacion = $this->object->codVerificacion;
+        $this->assertTrue($this->object->resetContrasena($this->objectReset));
+        $this->assertEmpty($this->object->codVerificacion);
+        $this->assertEmpty($this->object->fechaVerificacion);
     }
 }

@@ -163,7 +163,7 @@ class Usuario extends CActiveRecord
         } 
         
         public function enviarEmailContrasena(){
-            $subject='=?UTF-8?B?'.base64_encode('Por favor cambie su contraseña').'?=';
+            /*$subject='=?UTF-8?B?'.base64_encode('Por favor cambie su contraseña').'?=';
             $body = 'Nos enteramos de que usted perdió su contraseña. Lo sentimos! <br/><br/>';
             $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</b>';
             $body .= 'codigo: '. $this->codVerificacion.'<br/><br/>';
@@ -177,7 +177,28 @@ class Usuario extends CActiveRecord
             
             if(mail($this->email,$subject,$body,$headers))
                 return true;
-            return false;
+            return false;*/
+            
+            $body = '<p>Nos enteramos de que usted perdió su contraseña. Lo sentimos!<br/><br/>';
+            $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</p> </b>';
+            $body .= '<p>codigo: <b>'. $this->codVerificacion.'</b></p>';
+            $body .= '<a href="'.Yii::app()->request->baseUrl.'/site/ResetPassword">'.Yii::app()->request->baseUrl.'/site/ResetPassword</a>';
+            $body .= '<p><br/>Si usted no utiliza este código dentro de las proximas, '
+                    . 'este caducará. Para obtener un nuevo código visite</p>'
+                    . '<a href="'.Yii::app()->request->baseUrl.'/site/RecuperarContrasena">'.Yii::app()->request->baseUrl.'/site/RecuperarContrasena</a>';
+            
+            $mail=Yii::app()->Smtpmail;
+            $mail->SetFrom('cadeteenlinea@gmail.com', '[Cadete en linea]');
+            $mail->Subject    = 'Cambio de contraseña';
+            $mail->MsgHTML($body);
+            $mail->AddAddress($this->email, "");
+            $sw = false;
+            if($mail->Send()) {
+                $sw = true;
+            }
+            $mail->ClearAddresses(); //clear addresses for next email sending
+
+            return $sw;
         }   
         
         public function resetContrasena($model){

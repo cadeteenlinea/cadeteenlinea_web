@@ -1,0 +1,8 @@
+To: seb.frab@gmail.com
+Subject: =?UTF-8?B?UG9yIGZhdm9yIGNhbWJpZSBzdSBjb250cmFzZcOxYQ==?=
+From: seb.frab@gmail.com
+Reply-To: seb.frab@gmail.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Nos enteramos de que usted perdió su contraseña. Lo sentimos! <br/><br/>Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</b>codigo: =0owN+VSGo<br/><br/><a href="http://localhost/cadeteenlinea/site/ResetPassword">http://localhost/cadeteenlinea/site/ResetPassword</a>

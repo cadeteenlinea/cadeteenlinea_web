@@ -47,6 +47,15 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
+                                         array('label'=>'Académia <b class="caret"></b>', 'url'=>'#', 
+                                                    'linkOptions'=>array(
+                                                        'class'=>'dropdown-toggle',
+                                                        'data-toggle'=>'dropdown',
+                                                    ),
+                                                    'items'=>array(
+                                                        array('label'=>'Notas Parciales', 'url'=>array('cadete/notasParciales')),
+                                                    ),                                                    
+                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
                                          array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',

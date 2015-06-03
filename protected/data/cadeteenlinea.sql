@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2015 a las 16:32:19
+-- Tiempo de generación: 03-06-2015 a las 22:21:56
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cadeteenlinea`
 --
-CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `cadeteenlinea`;
 
 -- --------------------------------------------------------
 
@@ -31,9 +29,6 @@ USE `cadeteenlinea`;
 DROP TABLE IF EXISTS `apoderado`;
 CREATE TABLE IF NOT EXISTS `apoderado` (
   `rut` int(10) unsigned NOT NULL,
-  `apellidoPat` varchar(25) NOT NULL,
-  `apellidoMat` varchar(25) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `comuna` varchar(25) NOT NULL,
   `ciudad` varchar(25) NOT NULL,
@@ -48,9 +43,46 @@ CREATE TABLE IF NOT EXISTS `apoderado` (
 -- Volcado de datos para la tabla `apoderado`
 --
 
-INSERT INTO `apoderado` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `email`, `difunto`) VALUES
-(5108249, 'Gaete', 'Lopez', 'Veronica Judith', 'Los alerces', 'Viña del Mar', 'Viña del Mar', 'Valparaiso', '56236563', NULL, NULL, 'no'),
-(17558919, 'Franco', 'Brantes', 'Sebastián Elias', 'los alerces', 'Quilpue', 'Quilpue', 'Valparaiso', '96836377', NULL, 'seb.frab@gmail.com', 'no');
+INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `email`, `difunto`) VALUES
+(5108249, 'Los alerces', 'Viña del Mar', 'Viña del Mar', 'Valparaiso', '56236563', NULL, NULL, 'no'),
+(17558919, 'los alerces', 'Quilpue', 'Quilpue', 'Valparaiso', '96836377', NULL, 'seb.frab@gmail.com', 'no');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asignatura`
+--
+
+DROP TABLE IF EXISTS `asignatura`;
+CREATE TABLE IF NOT EXISTS `asignatura` (
+`idasignatura` int(11) NOT NULL,
+  `codigo` varchar(6) NOT NULL,
+  `ano` int(11) NOT NULL,
+  `semestre` tinyint(4) NOT NULL,
+  `curso` tinyint(4) NOT NULL,
+  `nombre` varchar(75) NOT NULL,
+  `especialidad_idespecialidad` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `asignatura`
+--
+
+INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, `nombre`, `especialidad_idespecialidad`) VALUES
+(1, 'CAL320', 2015, 0, 3, 'CALCULO (AYUDANTIA)\r\n', 4),
+(2, 'FIS310', 2015, 0, 3, 'FISICA (LABORATORIO)\r\n', 4),
+(3, 'ING300', 2015, 0, 3, 'INGLÉS\r\n', 4),
+(4, 'SNO300', 2015, 0, 3, 'SANIDAD OPERACIO\r\n', 4),
+(5, 'ALG301', 2015, 1, 3, 'ÁLGEBRA LINEAL\r\n', 4),
+(6, 'CAL301', 2015, 1, 3, 'CÁLCULO III', 4),
+(7, 'ELM301', 2015, 1, 3, 'ELECTROMAGNETISMO\r\n', 4),
+(8, 'HIN301', 2015, 1, 3, 'HISTORIA NAVAL APLIC. II\r\n', 4),
+(9, 'MAN301', 2015, 1, 3, 'MANDO I', 4),
+(10, 'QUI311', 2015, 1, 3, 'QUIMICA (LABORATORIO)', 4),
+(11, 'SIN301', 2015, 1, 3, 'SIST. DE INGENIERÍA', 4),
+(12, 'CHI302', 2015, 2, 3, 'CHILE HISTORIA Y SOBERANI', 4),
+(21, 'CIE302', 2015, 2, 3, 'CIRCUITO ELECTRICO', 4),
+(22, 'EDF302', 2015, 2, 3, 'ECUACIONES DIFERENCIALES\r\n', 4);
 
 -- --------------------------------------------------------
 
@@ -62,9 +94,6 @@ DROP TABLE IF EXISTS `cadete`;
 CREATE TABLE IF NOT EXISTS `cadete` (
   `rut` int(10) unsigned NOT NULL,
   `nCadete` int(10) unsigned NOT NULL,
-  `apellidoPat` varchar(25) NOT NULL,
-  `apellidoMat` varchar(25) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `comuna` varchar(25) NOT NULL,
   `ciudad` varchar(25) NOT NULL,
@@ -80,16 +109,16 @@ CREATE TABLE IF NOT EXISTS `cadete` (
   `seleccion` varchar(25) NOT NULL,
   `nivel` varchar(25) NOT NULL,
   `circulo` varchar(25) DEFAULT NULL,
-  `email` varchar(25) DEFAULT NULL
+  `especialidad_idespecialidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cadete`
 --
 
-INSERT INTO `cadete` (`rut`, `nCadete`, `apellidoPat`, `apellidoMat`, `nombres`, `direccion`, `comuna`, `ciudad`, `region`, `curso`, `division`, `anoIngreso`, `anoNacimiento`, `mesNacimiento`, `diaNacimiento`, `lugarNacimiento`, `nacionalidad`, `seleccion`, `nivel`, `circulo`, `email`) VALUES
-(11111111, 76, 'Montenegro', 'García', 'Felipe Joaquin', 'los alerces', 'Quilpue', 'Quilpue', 'Valparaiso', '3A', '1', 2012, 1992, 7, 18, '', 'Chilena', '', '', NULL, NULL),
-(22222222, 3, 'Vargas', 'García', 'Erika Lorena', 'los alerces', 'Quilpue', 'Quilpue', 'Valparaiso', '1B', '5', 2015, 1996, 2, 27, '', 'Chilena', '', '', NULL, NULL);
+INSERT INTO `cadete` (`rut`, `nCadete`, `direccion`, `comuna`, `ciudad`, `region`, `curso`, `division`, `anoIngreso`, `anoNacimiento`, `mesNacimiento`, `diaNacimiento`, `lugarNacimiento`, `nacionalidad`, `seleccion`, `nivel`, `circulo`, `especialidad_idespecialidad`) VALUES
+(11111111, 76, 'los alerces', 'Quilpue', 'Quilpue', 'Valparaiso', '3E', '1', 2012, 1992, 7, 18, '', 'Chilena', '', '', NULL, 4),
+(22222222, 3, 'los alerces', 'Quilpue', 'Quilpue', 'Valparaiso', '1B', '5', 2015, 1996, 2, 27, '', 'Chilena', '', '', NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -129,6 +158,32 @@ CREATE TABLE IF NOT EXISTS `departamento` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `especialidad`
+--
+
+DROP TABLE IF EXISTS `especialidad`;
+CREATE TABLE IF NOT EXISTS `especialidad` (
+`idespecialidad` int(11) NOT NULL,
+  `codigo` varchar(1) NOT NULL,
+  `nombre` varchar(45) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `especialidad`
+--
+
+INSERT INTO `especialidad` (`idespecialidad`, `codigo`, `nombre`) VALUES
+(1, 'A', 'Politecnico'),
+(2, 'B', 'Politecnico'),
+(3, 'C', 'CEPO'),
+(4, 'E', 'ECO'),
+(5, 'I', 'INDIA'),
+(6, 'J', 'Abastecimiento'),
+(7, 'L', 'Litoral');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `funcionario`
 --
 
@@ -136,11 +191,48 @@ DROP TABLE IF EXISTS `funcionario`;
 CREATE TABLE IF NOT EXISTS `funcionario` (
   `rut` int(10) unsigned NOT NULL,
   `departamento_iddepartamento` int(10) unsigned DEFAULT NULL,
-  `apellidoPat` varchar(25) NOT NULL,
-  `apellidoMat` varchar(25) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
   `tipo` enum('Administrador','administrativo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notas_parciales`
+--
+
+DROP TABLE IF EXISTS `notas_parciales`;
+CREATE TABLE IF NOT EXISTS `notas_parciales` (
+`idnotas_parciales` int(11) NOT NULL,
+  `nota` float NOT NULL,
+  `dia` smallint(6) NOT NULL,
+  `mes` smallint(6) NOT NULL,
+  `ano` int(11) NOT NULL,
+  `semestre` tinyint(4) NOT NULL,
+  `asignatura_idasignatura` int(11) NOT NULL,
+  `cadete_rut` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `notas_parciales`
+--
+
+INSERT INTO `notas_parciales` (`idnotas_parciales`, `nota`, `dia`, `mes`, `ano`, `semestre`, `asignatura_idasignatura`, `cadete_rut`) VALUES
+(1, 9.2, 14, 4, 2015, 1, 3, 11111111),
+(2, 9, 27, 5, 2015, 1, 3, 11111111),
+(3, 5.6, 15, 5, 2015, 1, 2, 11111111),
+(4, 3.2, 16, 3, 2015, 1, 6, 11111111),
+(5, 8.5, 3, 4, 2015, 1, 9, 11111111),
+(6, 7.6, 3, 4, 2015, 1, 6, 11111111),
+(7, 6.2, 18, 4, 2015, 1, 11, 11111111),
+(8, 7.8, 25, 4, 2015, 1, 11, 11111111),
+(9, 8.7, 25, 3, 2015, 1, 8, 11111111),
+(10, 6.3, 16, 4, 2015, 1, 10, 22222222),
+(11, 5.2, 12, 4, 2015, 1, 7, 11111111),
+(12, 8.4, 15, 5, 2015, 1, 7, 11111111),
+(13, 7.1, 18, 3, 2015, 1, 7, 11111111),
+(14, 5.9, 21, 4, 2015, 1, 7, 11111111),
+(15, 6.5, 3, 3, 2015, 10, 12, 11111111),
+(16, 9.8, 17, 3, 2015, 1, 12, 11111111);
 
 -- --------------------------------------------------------
 
@@ -249,20 +341,26 @@ INSERT INTO `transaccion` (`idtransaccion`, `cadete_rut`, `tipoTransaccion`, `mo
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `rut` int(10) unsigned NOT NULL,
+  `apellidoPat` varchar(25) NOT NULL,
+  `apellidoMat` varchar(25) NOT NULL,
+  `nombres` varchar(50) NOT NULL,
   `password_2` varchar(250) NOT NULL,
   `perfil` enum('funcionario','apoderado','cadete') NOT NULL DEFAULT 'funcionario',
-  `lastLogin` datetime DEFAULT NULL
+  `lastLogin` datetime DEFAULT NULL,
+  `codVerificacion` varchar(10) DEFAULT NULL,
+  `email` varchar(25) NOT NULL,
+  `fechaVerificacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`rut`, `password_2`, `perfil`, `lastLogin`) VALUES
-(5108249, 'asdasd', 'apoderado', NULL),
-(11111111, 'asdasd', 'cadete', '0000-00-00 00:00:00'),
-(17558919, 'asdasd', 'apoderado', '0000-00-00 00:00:00'),
-(22222222, 'asdasd', 'cadete', '0000-00-00 00:00:00');
+INSERT INTO `usuario` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `password_2`, `perfil`, `lastLogin`, `codVerificacion`, `email`, `fechaVerificacion`) VALUES
+(5108249, 'Gaete', 'Lopez', 'Veronica Judith', 'asdasd', 'apoderado', NULL, NULL, '', NULL),
+(11111111, 'Montenegro', 'García', 'Felipe Joaquin', 'asdasd', 'cadete', '0000-00-00 00:00:00', NULL, '', NULL),
+(17558919, 'Franco', 'Brantes', 'Sebastian Elias', 'asdasd', 'apoderado', '0000-00-00 00:00:00', NULL, 'seb.frab@gmail.com', NULL),
+(22222222, 'Vargas', 'García', 'Erika Lorena', 'asdasd', 'cadete', '0000-00-00 00:00:00', '\\Bv:[.U}@,', 'seb.frab@gmail.com', '2015-05-31 21:23:05');
 
 --
 -- Índices para tablas volcadas
@@ -275,10 +373,16 @@ ALTER TABLE `apoderado`
  ADD PRIMARY KEY (`rut`), ADD KEY `apoderado_FKIndex1` (`rut`);
 
 --
+-- Indices de la tabla `asignatura`
+--
+ALTER TABLE `asignatura`
+ ADD PRIMARY KEY (`idasignatura`), ADD KEY `fk_asignatura_especialidad1_idx` (`especialidad_idespecialidad`);
+
+--
 -- Indices de la tabla `cadete`
 --
 ALTER TABLE `cadete`
- ADD PRIMARY KEY (`rut`), ADD KEY `cadete_FKIndex1` (`rut`);
+ ADD PRIMARY KEY (`rut`), ADD KEY `cadete_FKIndex1` (`rut`), ADD KEY `fk_cadete_especialidad1_idx` (`especialidad_idespecialidad`);
 
 --
 -- Indices de la tabla `cadete_apoderado`
@@ -293,10 +397,22 @@ ALTER TABLE `departamento`
  ADD PRIMARY KEY (`iddepartamento`);
 
 --
+-- Indices de la tabla `especialidad`
+--
+ALTER TABLE `especialidad`
+ ADD PRIMARY KEY (`idespecialidad`);
+
+--
 -- Indices de la tabla `funcionario`
 --
 ALTER TABLE `funcionario`
  ADD PRIMARY KEY (`rut`), ADD KEY `funcionario_FKIndex1` (`rut`), ADD KEY `funcionario_FKIndex2` (`departamento_iddepartamento`);
+
+--
+-- Indices de la tabla `notas_parciales`
+--
+ALTER TABLE `notas_parciales`
+ ADD PRIMARY KEY (`idnotas_parciales`), ADD KEY `fk_notas_parciales_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_parciales_cadete1_idx` (`cadete_rut`);
 
 --
 -- Indices de la tabla `transaccion`
@@ -315,6 +431,11 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `asignatura`
+--
+ALTER TABLE `asignatura`
+MODIFY `idasignatura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+--
 -- AUTO_INCREMENT de la tabla `cadete_apoderado`
 --
 ALTER TABLE `cadete_apoderado`
@@ -324,6 +445,16 @@ MODIFY `idcadete_apoderado` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREM
 --
 ALTER TABLE `departamento`
 MODIFY `iddepartamento` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `especialidad`
+--
+ALTER TABLE `especialidad`
+MODIFY `idespecialidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT de la tabla `notas_parciales`
+--
+ALTER TABLE `notas_parciales`
+MODIFY `idnotas_parciales` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `transaccion`
 --
@@ -340,10 +471,17 @@ ALTER TABLE `apoderado`
 ADD CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `asignatura`
+--
+ALTER TABLE `asignatura`
+ADD CONSTRAINT `fk_asignatura_especialidad1` FOREIGN KEY (`especialidad_idespecialidad`) REFERENCES `especialidad` (`idespecialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `cadete`
 --
 ALTER TABLE `cadete`
-ADD CONSTRAINT `cadete_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `cadete_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_cadete_especialidad1` FOREIGN KEY (`especialidad_idespecialidad`) REFERENCES `especialidad` (`idespecialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `cadete_apoderado`
@@ -358,6 +496,13 @@ ADD CONSTRAINT `cadete_apoderado_ibfk_2` FOREIGN KEY (`cadete_rut`) REFERENCES `
 ALTER TABLE `funcionario`
 ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`departamento_iddepartamento`) REFERENCES `departamento` (`iddepartamento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `notas_parciales`
+--
+ALTER TABLE `notas_parciales`
+ADD CONSTRAINT `fk_notas_parciales_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_notas_parciales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `transaccion`

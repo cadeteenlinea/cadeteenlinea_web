@@ -28,7 +28,7 @@ class CadeteController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo'),
+				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo', 'notasParciales'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -229,6 +229,19 @@ class CadeteController extends Controller
                 'titulo' => 'Equipo Inicial',
                 'anoView' => $ano,
                 'tipoCuenta'=>$tipoCuenta
+            ));
+        }
+        
+        public function actionNotasParciales(){
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $usuario = Usuario::model()->findByPk($rutCadete);
+            $ano = date("Y");
+            $model = Asignatura::model()->getAsignaturasAnoCursoEspecialidad($ano, $usuario->cadete->getCursoNumero(), $usuario->cadete->especialidad->idespecialidad);
+            
+            $this->render('notasParciales',array(
+                'model'=>$model,
+                'usuario'=>$usuario,
+                'titulo' => 'Notas Parciales',
             ));
         }
 }

@@ -21,11 +21,14 @@
  * @property string $seleccion
  * @property string $nivel
  * @property string $circulo
+ * @property integer $especialidad_idespecialidad
  *
  * The followings are the available model relations:
  * @property Usuario $rut0
+ * @property Especialidad $especialidad
  * @property CadeteApoderado[] $cadeteApoderados
- * @property Transaccion[] transacciones
+ * @property NotasParciales[] $notasParciales
+ * @property Transaccion[] $transaccions
  */
 class Cadete extends CActiveRecord
 {
@@ -45,15 +48,16 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel', 'required'),
+			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, especialidad_idespecialidad', 'required'),
+			array('especialidad_idespecialidad', 'numerical', 'integerOnly'=>true),
 			array('rut, nCadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
-			array('comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo', 'length', 'max'=>25),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
+			array('comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo', 'length', 'max'=>25),
 			array('curso', 'length', 'max'=>2),
 			array('division', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo', 'safe', 'on'=>'search'),
+			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, especialidad_idespecialidad', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,11 +69,12 @@ class Cadete extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'usuario' => array(self::BELONGS_TO, 'Usuario', 'rut'),
+                        'usuario' => array(self::BELONGS_TO, 'Usuario', 'rut'),
 			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'cadete_rut'),
 			'transacciones' => array(self::HAS_MANY, 'Transaccion', 'cadete_rut', 
                             'order'=>'transacciones.fechaMovimiento ASC'),
                         'sumTransacciones'=>array(self::STAT,  'Transaccion', 'invoice_id', 'select' => 'SUM(amount)'),
+			'especialidad' => array(self::BELONGS_TO, 'Especialidad', 'especialidad_idespecialidad'),
 		);
 	}
 
@@ -96,6 +101,7 @@ class Cadete extends CActiveRecord
 			'seleccion' => 'Seleccion',
 			'nivel' => 'Nivel',
 			'circulo' => 'Circulo',
+			'especialidad_idespecialidad' => 'Especialidad Idespecialidad',
 		);
 	}
 
@@ -134,6 +140,7 @@ class Cadete extends CActiveRecord
 		$criteria->compare('seleccion',$this->seleccion,true);
 		$criteria->compare('nivel',$this->nivel,true);
 		$criteria->compare('circulo',$this->circulo,true);
+		$criteria->compare('especialidad_idespecialidad',$this->especialidad_idespecialidad);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -159,6 +166,11 @@ class Cadete extends CActiveRecord
             return str_pad($this->nCadete, 3, "0", STR_PAD_LEFT);
         }
         
+        public function getCursoNumero(){
+            return substr($this->curso, 0,1);
+        }
+        
+        
         //retorna todas las transacciones que tiene el cadete, según
         //ano y tipo de cuenta
         public function getTransacciones($ano=null, $tipoCuenta){
@@ -168,5 +180,22 @@ class Cadete extends CActiveRecord
             if($ano!=null)
                 $criteria->addCondition("YEAR(transacciones.fechaMovimiento)='$ano'","AND");
             return $this->with('transacciones')->find($criteria);
+        }
+        
+        public function getNotasParcialesAsignatura($idAsignatura){
+            $criteria=new CDbCriteria;
+            $criteria->addCondition('t.asignatura_idasignatura='.$idAsignatura);
+            $criteria->addCondition('t.cadete_rut='.$this->rut);
+            $model = NotasParciales::model()->findAll($criteria);
+            return $model;
+        }
+        
+        public function getPromedioNotasParcialesAsignatura($idAsignatura){
+            $criteria=new CDbCriteria;
+            $criteria->select = "AVG(t.nota) as 'nota'"; 
+            $criteria->addCondition('t.asignatura_idasignatura='.$idAsignatura);
+            $criteria->addCondition('t.cadete_rut='.$this->rut);
+            $model = NotasParciales::model()->find($criteria);
+            return round($model->nota,1);
         }
 }

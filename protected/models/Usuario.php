@@ -179,13 +179,16 @@ class Usuario extends CActiveRecord
                 return true;
             return false;*/
             
-            $body = '<p>Nos enteramos de que usted perdió su contraseña. Lo sentimos!<br/><br/>';
-            $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</p> </b>';
+            $body = '<p>Hola, '.$this->nombres.'</p>';
+            $body .= '<p>Nos enteramos de que usted perdió su contraseña. Lo sentimos!<br/>';
+            $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</p>';
             $body .= '<p>codigo: <b>'. $this->codVerificacion.'</b></p>';
-            $body .= '<a href="'.Yii::app()->request->baseUrl.'/site/ResetPassword">'.Yii::app()->request->baseUrl.'/site/ResetPassword</a>';
+            $body .= '<a href="http://200.54.198.54/cadeteenlinea/site/ResetPassword">'.Yii::app()->request->baseUrl.'/site/ResetPassword</a>';
             $body .= '<p><br/>Si usted no utiliza este código dentro de las proximas, '
-                    . 'este caducará. Para obtener un nuevo código visite</p>'
-                    . '<a href="'.Yii::app()->request->baseUrl.'/site/RecuperarContrasena">'.Yii::app()->request->baseUrl.'/site/RecuperarContrasena</a>';
+                    . 'este caducará. Para obtener un nuevo código visite '
+                    . '<a href="http://200.54.198.54/cadeteenlinea/site/RecuperarContrasena">'.Yii::app()->request->baseUrl.'/site/RecuperarContrasena</a></p>';
+            $body .= '<p>Atentamente.<br/>'
+                    . 'Equipo de Cadete en Línea</p>';
             
             $mail=Yii::app()->Smtpmail;
             $mail->SetFrom('cadeteenlinea@gmail.com', '[Cadete en linea]');

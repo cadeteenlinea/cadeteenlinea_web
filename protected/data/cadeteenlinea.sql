@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2015 a las 22:21:56
+-- Tiempo de generación: 04-06-2015 a las 21:58:58
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cadeteenlinea`
 --
+CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `cadeteenlinea`;
 
 -- --------------------------------------------------------
 
@@ -39,6 +41,11 @@ CREATE TABLE IF NOT EXISTS `apoderado` (
   `difunto` enum('si','no') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `apoderado`
+--
+
+TRUNCATE TABLE `apoderado`;
 --
 -- Volcado de datos para la tabla `apoderado`
 --
@@ -62,8 +69,13 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
   `curso` tinyint(4) NOT NULL,
   `nombre` varchar(75) NOT NULL,
   `especialidad_idespecialidad` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `asignatura`
+--
+
+TRUNCATE TABLE `asignatura`;
 --
 -- Volcado de datos para la tabla `asignatura`
 --
@@ -82,7 +94,23 @@ INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, 
 (11, 'SIN301', 2015, 1, 3, 'SIST. DE INGENIERÍA', 4),
 (12, 'CHI302', 2015, 2, 3, 'CHILE HISTORIA Y SOBERANI', 4),
 (21, 'CIE302', 2015, 2, 3, 'CIRCUITO ELECTRICO', 4),
-(22, 'EDF302', 2015, 2, 3, 'ECUACIONES DIFERENCIALES\r\n', 4);
+(22, 'EDF302', 2015, 2, 3, 'ECUACIONES DIFERENCIALES\r\n', 4),
+(23, 'ING200', 2014, 0, 2, 'INGLÉS\r\n\r\n', 4),
+(24, 'CAL201', 2014, 1, 2, 'CÁLCULO I\r\n\r\n', 4),
+(25, 'ETI201', 2014, 1, 2, 'ÉTICA Y MORAL\r\n', 4),
+(26, 'FIM201', 2014, 1, 2, 'FÍSICA MECÁNICA\r\n', 4),
+(27, 'HAB201', 2014, 1, 2, 'HABI. LINGUÍSTICAS II\r\n', 4),
+(28, 'NAV201', 2014, 1, 2, 'NAVEGACIÓN COSTERA I\r\n', 4),
+(29, 'QUI201', 2014, 1, 2, 'QUÍMICA APLICADA II\r\n', 4),
+(30, 'CAL202', 2014, 2, 2, 'CÁLCULO II\r\n', 4),
+(31, 'AGT100', 2013, 0, 1, 'ÁLGEBRA GEO. TRIGONOMETR.\r\n', 1),
+(32, 'FIS100', 2013, 0, 1, 'FÍSICA GENERAL\r\n', 1),
+(33, 'FLP100', 2013, 0, 1, 'FILOSOFÍA Y PSICOLOGÍA\r\n', 1),
+(34, 'FNV100', 2013, 0, 1, 'FUNDAMENTOS NAVALES\r\n', 1),
+(35, 'HCS100', 2013, 0, 1, 'HISTORIA Y CIENCIAS SOC.\r\n', 1),
+(36, 'ING100', 2013, 0, 1, 'INGLÉS\r\n', 1),
+(37, 'LCC100', 2013, 0, 1, 'LENGUA CASTELLANA Y COM.\r\n', 1),
+(38, 'MAT100', 2013, 0, 1, 'MATEMÁTICAS\r\n', 1);
 
 -- --------------------------------------------------------
 
@@ -113,6 +141,11 @@ CREATE TABLE IF NOT EXISTS `cadete` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Truncar tablas antes de insertar `cadete`
+--
+
+TRUNCATE TABLE `cadete`;
+--
 -- Volcado de datos para la tabla `cadete`
 --
 
@@ -135,6 +168,11 @@ CREATE TABLE IF NOT EXISTS `cadete_apoderado` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
+-- Truncar tablas antes de insertar `cadete_apoderado`
+--
+
+TRUNCATE TABLE `cadete_apoderado`;
+--
 -- Volcado de datos para la tabla `cadete_apoderado`
 --
 
@@ -142,6 +180,36 @@ INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_r
 (1, 11111111, 17558919, 'Padre'),
 (2, 22222222, 17558919, 'Padre'),
 (3, 22222222, 5108249, 'Apoderado suplente');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `concepto`
+--
+
+DROP TABLE IF EXISTS `concepto`;
+CREATE TABLE IF NOT EXISTS `concepto` (
+`idconcepto` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `codigo` varchar(2) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Truncar tablas antes de insertar `concepto`
+--
+
+TRUNCATE TABLE `concepto`;
+--
+-- Volcado de datos para la tabla `concepto`
+--
+
+INSERT INTO `concepto` (`idconcepto`, `nombre`, `codigo`) VALUES
+(1, 'Trabajo de síntesis ', 'S'),
+(2, 'Interrogación oral', 'I'),
+(3, 'Trabajo e laboratorio', 'L'),
+(4, 'Prueba avisada según calendario', 'P'),
+(5, 'Prueba especial de recuperación', 'R'),
+(6, 'Quist ', 'C');
 
 -- --------------------------------------------------------
 
@@ -155,6 +223,11 @@ CREATE TABLE IF NOT EXISTS `departamento` (
   `nombre` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `departamento`
+--
+
+TRUNCATE TABLE `departamento`;
 -- --------------------------------------------------------
 
 --
@@ -168,6 +241,11 @@ CREATE TABLE IF NOT EXISTS `especialidad` (
   `nombre` varchar(45) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `especialidad`
+--
+
+TRUNCATE TABLE `especialidad`;
 --
 -- Volcado de datos para la tabla `especialidad`
 --
@@ -194,6 +272,56 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `tipo` enum('Administrador','administrativo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `funcionario`
+--
+
+TRUNCATE TABLE `funcionario`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notas_finales`
+--
+
+DROP TABLE IF EXISTS `notas_finales`;
+CREATE TABLE IF NOT EXISTS `notas_finales` (
+`idnotas_finales` int(11) NOT NULL,
+  `nota_presentacion` float NOT NULL,
+  `nota_examen` float DEFAULT NULL,
+  `nota_final` float NOT NULL,
+  `nota_examen_repeticion` float DEFAULT NULL,
+  `nota_final_repeticion` float DEFAULT NULL,
+  `estado` enum('A','E','R') NOT NULL,
+  `asignatura_idasignatura` int(11) NOT NULL,
+  `cadete_rut` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Truncar tablas antes de insertar `notas_finales`
+--
+
+TRUNCATE TABLE `notas_finales`;
+--
+-- Volcado de datos para la tabla `notas_finales`
+--
+
+INSERT INTO `notas_finales` (`idnotas_finales`, `nota_presentacion`, `nota_examen`, `nota_final`, `nota_examen_repeticion`, `nota_final_repeticion`, `estado`, `asignatura_idasignatura`, `cadete_rut`) VALUES
+(1, 8.47, 0, 8.47, 0, 0, 'A', 25, 11111111),
+(2, 8.81, 8.81, 8.56, NULL, NULL, 'E', 23, 11111111),
+(3, 5.68, 4.6, 5.24, 6, 6, 'A', 24, 11111111),
+(4, 5.86, 5, 5.51, 3.3, 5.51, 'R', 28, 11111111),
+(5, 6.6, 1.6, 4.6, 6, 6, 'A', 30, 11111111),
+(6, 7.9, NULL, 7.9, NULL, NULL, 'E', 26, 11111111),
+(7, 3.85, 7.6, 5.35, 6.3, 6, 'A', 27, 11111111),
+(8, 9.55, NULL, 9.55, NULL, NULL, 'E', 31, 11111111),
+(9, 9.16, 9.16, 8.25, NULL, NULL, 'E', 32, 11111111),
+(10, 7.87, 8.5, 8.12, NULL, NULL, 'A', 33, 11111111),
+(11, 3.85, 7.6, 5.35, 6.3, 6, 'A', 34, 11111111),
+(12, 6.1, 6.9, 6.42, NULL, NULL, 'A', 35, 11111111),
+(13, 5.56, 3.2, 4.61, 5, 6, 'A', 36, 11111111),
+(14, 7.06, 7.5, 7.23, NULL, NULL, 'A', 37, 11111111),
+(15, 6.1, 5.5, 5.86, 7.4, 6, 'A', 38, 11111111);
+
 -- --------------------------------------------------------
 
 --
@@ -209,30 +337,36 @@ CREATE TABLE IF NOT EXISTS `notas_parciales` (
   `ano` int(11) NOT NULL,
   `semestre` tinyint(4) NOT NULL,
   `asignatura_idasignatura` int(11) NOT NULL,
-  `cadete_rut` int(10) unsigned NOT NULL
+  `cadete_rut` int(10) unsigned NOT NULL,
+  `concepto_idconcepto` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `notas_parciales`
+--
+
+TRUNCATE TABLE `notas_parciales`;
 --
 -- Volcado de datos para la tabla `notas_parciales`
 --
 
-INSERT INTO `notas_parciales` (`idnotas_parciales`, `nota`, `dia`, `mes`, `ano`, `semestre`, `asignatura_idasignatura`, `cadete_rut`) VALUES
-(1, 9.2, 14, 4, 2015, 1, 3, 11111111),
-(2, 9, 27, 5, 2015, 1, 3, 11111111),
-(3, 5.6, 15, 5, 2015, 1, 2, 11111111),
-(4, 3.2, 16, 3, 2015, 1, 6, 11111111),
-(5, 8.5, 3, 4, 2015, 1, 9, 11111111),
-(6, 7.6, 3, 4, 2015, 1, 6, 11111111),
-(7, 6.2, 18, 4, 2015, 1, 11, 11111111),
-(8, 7.8, 25, 4, 2015, 1, 11, 11111111),
-(9, 8.7, 25, 3, 2015, 1, 8, 11111111),
-(10, 6.3, 16, 4, 2015, 1, 10, 22222222),
-(11, 5.2, 12, 4, 2015, 1, 7, 11111111),
-(12, 8.4, 15, 5, 2015, 1, 7, 11111111),
-(13, 7.1, 18, 3, 2015, 1, 7, 11111111),
-(14, 5.9, 21, 4, 2015, 1, 7, 11111111),
-(15, 6.5, 3, 3, 2015, 10, 12, 11111111),
-(16, 9.8, 17, 3, 2015, 1, 12, 11111111);
+INSERT INTO `notas_parciales` (`idnotas_parciales`, `nota`, `dia`, `mes`, `ano`, `semestre`, `asignatura_idasignatura`, `cadete_rut`, `concepto_idconcepto`) VALUES
+(1, 9.2, 14, 4, 2015, 1, 3, 11111111, 1),
+(2, 9, 27, 5, 2015, 1, 3, 11111111, 4),
+(3, 5.6, 15, 5, 2015, 1, 2, 11111111, 2),
+(4, 3.2, 16, 3, 2015, 1, 6, 11111111, 5),
+(5, 8.5, 3, 4, 2015, 1, 9, 11111111, 5),
+(6, 7.6, 3, 4, 2015, 1, 6, 11111111, 4),
+(7, 6.2, 18, 4, 2015, 1, 11, 11111111, 4),
+(8, 7.8, 25, 4, 2015, 1, 11, 11111111, 2),
+(9, 8.7, 25, 3, 2015, 1, 8, 11111111, 1),
+(10, 6.3, 16, 4, 2015, 1, 10, 11111111, 6),
+(11, 5.2, 12, 4, 2015, 1, 7, 11111111, 1),
+(12, 8.4, 15, 5, 2015, 1, 7, 11111111, 6),
+(13, 7.1, 18, 3, 2015, 1, 7, 11111111, 1),
+(14, 5.9, 21, 4, 2015, 1, 7, 11111111, 1),
+(15, 6.5, 3, 3, 2015, 10, 12, 11111111, 2),
+(16, 9.8, 17, 3, 2015, 1, 12, 11111111, 2);
 
 -- --------------------------------------------------------
 
@@ -251,6 +385,11 @@ CREATE TABLE IF NOT EXISTS `transaccion` (
   `tipoCuenta` enum('Cta Cte','Colegiatura','Equipo') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
 
+--
+-- Truncar tablas antes de insertar `transaccion`
+--
+
+TRUNCATE TABLE `transaccion`;
 --
 -- Volcado de datos para la tabla `transaccion`
 --
@@ -353,6 +492,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Truncar tablas antes de insertar `usuario`
+--
+
+TRUNCATE TABLE `usuario`;
+--
 -- Volcado de datos para la tabla `usuario`
 --
 
@@ -391,6 +535,12 @@ ALTER TABLE `cadete_apoderado`
  ADD PRIMARY KEY (`idcadete_apoderado`), ADD KEY `cadete_apoderado_FKIndex1` (`apoderado_rut`), ADD KEY `cadete_apoderado_FKIndex2` (`cadete_rut`);
 
 --
+-- Indices de la tabla `concepto`
+--
+ALTER TABLE `concepto`
+ ADD PRIMARY KEY (`idconcepto`);
+
+--
 -- Indices de la tabla `departamento`
 --
 ALTER TABLE `departamento`
@@ -409,10 +559,16 @@ ALTER TABLE `funcionario`
  ADD PRIMARY KEY (`rut`), ADD KEY `funcionario_FKIndex1` (`rut`), ADD KEY `funcionario_FKIndex2` (`departamento_iddepartamento`);
 
 --
+-- Indices de la tabla `notas_finales`
+--
+ALTER TABLE `notas_finales`
+ ADD PRIMARY KEY (`idnotas_finales`), ADD KEY `fk_nota_final_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_finales_cadete1_idx` (`cadete_rut`);
+
+--
 -- Indices de la tabla `notas_parciales`
 --
 ALTER TABLE `notas_parciales`
- ADD PRIMARY KEY (`idnotas_parciales`), ADD KEY `fk_notas_parciales_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_parciales_cadete1_idx` (`cadete_rut`);
+ ADD PRIMARY KEY (`idnotas_parciales`), ADD KEY `fk_notas_parciales_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_parciales_cadete1_idx` (`cadete_rut`), ADD KEY `fk_notas_parciales_concepto1_idx` (`concepto_idconcepto`);
 
 --
 -- Indices de la tabla `transaccion`
@@ -434,12 +590,17 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-MODIFY `idasignatura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+MODIFY `idasignatura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT de la tabla `cadete_apoderado`
 --
 ALTER TABLE `cadete_apoderado`
 MODIFY `idcadete_apoderado` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `concepto`
+--
+ALTER TABLE `concepto`
+MODIFY `idconcepto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
@@ -450,6 +611,11 @@ MODIFY `iddepartamento` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `especialidad`
 MODIFY `idespecialidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT de la tabla `notas_finales`
+--
+ALTER TABLE `notas_finales`
+MODIFY `idnotas_finales` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `notas_parciales`
 --
@@ -498,11 +664,19 @@ ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`r
 ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`departamento_iddepartamento`) REFERENCES `departamento` (`iddepartamento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `notas_finales`
+--
+ALTER TABLE `notas_finales`
+ADD CONSTRAINT `fk_nota_final_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_notas_finales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `notas_parciales`
 --
 ALTER TABLE `notas_parciales`
 ADD CONSTRAINT `fk_notas_parciales_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_notas_parciales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_notas_parciales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_notas_parciales_concepto1` FOREIGN KEY (`concepto_idconcepto`) REFERENCES `concepto` (`idconcepto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `transaccion`

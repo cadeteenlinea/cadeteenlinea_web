@@ -28,7 +28,7 @@ class CadeteController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo', 'notasParciales'),
+				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo', 'notasParciales','notasFinales'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -242,6 +242,26 @@ class CadeteController extends Controller
                 'model'=>$model,
                 'usuario'=>$usuario,
                 'titulo' => 'Notas Parciales',
+            ));
+        }
+        
+        public function  actionNotasFinales(){
+            $ano = '';
+            if(isset($_POST['ano'])){
+                $ano = $_POST['ano'];
+            }else{
+                $ano = NotasFinales::model()->getAnoMax(Yii::app()->getSession()->get('rutCadete'));
+            }
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $usuario = Usuario::model()->findByPk($rutCadete);
+            $model = null;
+            if(!empty($ano))
+                $model = Asignatura::model()->getAsignaturasCadeteAno($ano, $usuario->rut);
+            
+            $this->render('notasFinales',array(
+                'model'=>$model,
+                'ano'=>$ano,
+                'titulo' => 'Resumen Anual',
             ));
         }
 }

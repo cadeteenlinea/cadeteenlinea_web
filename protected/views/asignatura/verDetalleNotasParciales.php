@@ -19,7 +19,7 @@
         ?>
             <tr>
                 <td><?php echo $nota->getFecha(); ?></td>
-                <td></td>
+                <td><?php echo $nota->concepto->nombre; ?></td>
                 <td><?php echo $nota->nota; ?></td>
             </tr>
         <?php }} ?>

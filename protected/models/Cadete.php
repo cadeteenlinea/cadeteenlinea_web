@@ -29,6 +29,7 @@
  * @property CadeteApoderado[] $cadeteApoderados
  * @property NotasParciales[] $notasParciales
  * @property Transaccion[] $transaccions
+ * @property NotasFinales[] $notasFinales
  */
 class Cadete extends CActiveRecord
 {
@@ -75,6 +76,7 @@ class Cadete extends CActiveRecord
                             'order'=>'transacciones.fechaMovimiento ASC'),
                         'sumTransacciones'=>array(self::STAT,  'Transaccion', 'invoice_id', 'select' => 'SUM(amount)'),
 			'especialidad' => array(self::BELONGS_TO, 'Especialidad', 'especialidad_idespecialidad'),
+			'notasFinales' => array(self::HAS_MANY, 'NotasFinales', 'cadete_rut'),
 		);
 	}
 

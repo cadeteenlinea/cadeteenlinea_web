@@ -10,12 +10,14 @@
  * @property integer $mes
  * @property integer $ano
  * @property integer $semestre
- * @property integer $asignatura_idasignatura
+ * @property integer $asignatura
  * @property string $cadete_rut
+ * @property integer $concepto
  *
  * The followings are the available model relations:
  * @property Asignatura $asignaturaIdasignatura
  * @property Cadete $cadeteRut
+ * @property Concepto $conceptoIdconcepto
  */
 class NotasParciales extends CActiveRecord
 {
@@ -35,13 +37,13 @@ class NotasParciales extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nota, dia, mes, ano, semestre, asignatura_idasignatura, cadete_rut', 'required'),
-			array('dia, mes, ano, semestre, asignatura_idasignatura', 'numerical', 'integerOnly'=>true),
+			array('nota, dia, mes, ano, semestre, asignatura_idasignatura, cadete_rut, concepto_idconcepto', 'required'),
+			array('dia, mes, ano, semestre, asignatura_idasignatura, concepto_idconcepto', 'numerical', 'integerOnly'=>true),
 			array('nota', 'numerical'),
 			array('cadete_rut', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idnotas_parciales, nota, dia, mes, ano, semestre, asignatura_idasignatura, cadete_rut', 'safe', 'on'=>'search'),
+			array('idnotas_parciales, nota, dia, mes, ano, semestre, asignatura_idasignatura, cadete_rut, concepto_idconcepto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,8 +55,9 @@ class NotasParciales extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'asignaturaIdasignatura' => array(self::BELONGS_TO, 'Asignatura', 'asignatura_idasignatura'),
+			'asignatura' => array(self::BELONGS_TO, 'Asignatura', 'asignatura_idasignatura'),
 			'cadeteRut' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
+			'concepto' => array(self::BELONGS_TO, 'Concepto', 'concepto_idconcepto'),
 		);
 	}
 
@@ -72,6 +75,7 @@ class NotasParciales extends CActiveRecord
 			'semestre' => 'Semestre',
 			'asignatura_idasignatura' => 'Asignatura Idasignatura',
 			'cadete_rut' => 'Cadete Rut',
+			'concepto_idconcepto' => 'Concepto Idconcepto',
 		);
 	}
 
@@ -101,6 +105,7 @@ class NotasParciales extends CActiveRecord
 		$criteria->compare('semestre',$this->semestre);
 		$criteria->compare('asignatura_idasignatura',$this->asignatura_idasignatura);
 		$criteria->compare('cadete_rut',$this->cadete_rut,true);
+		$criteria->compare('concepto_idconcepto',$this->concepto_idconcepto);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

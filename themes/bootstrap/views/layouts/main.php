@@ -54,6 +54,7 @@
                                                     ),
                                                     'items'=>array(
                                                         array('label'=>'Notas Parciales', 'url'=>array('cadete/notasParciales')),
+                                                        array('label'=>'Resumen anual', 'url'=>array('cadete/notasFinales')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
                                          array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 

@@ -117,4 +117,8 @@ class NotasParciales extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getFecha(){
+            return $this->dia.'/'.$this->mes.'/'.$this->ano;
+        }
 }

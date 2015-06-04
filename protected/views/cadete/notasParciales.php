@@ -7,8 +7,9 @@
         <thead>
             <tr>
                 <th>Asignatura</th>
-                <th>Notas</th>
-                <th>Promedio</th>
+                <th class="hidden-xs">Notas</th>
+                <th class="hidden-xs">Promedio</th>
+                <th class="visible-xs">Prom.</th>
             </tr>
         </thead>
         <?php
@@ -16,8 +17,8 @@
             foreach ($model as $asignatura){
         ?>
             <tr>
-                <td><a><?php echo $asignatura->nombre; ?></a></td>
-                <td>
+                <td><a href="<?php echo Yii::app()->createUrl("asignatura/verDetalleNotasParciales/",array("id"=>$asignatura->idasignatura)); ?>" title="ver detalle"><?php echo $asignatura->nombre; ?></a></td>
+                <td class="hidden-xs">
                 <?php 
                     $sw=false;
                     $texto = '';

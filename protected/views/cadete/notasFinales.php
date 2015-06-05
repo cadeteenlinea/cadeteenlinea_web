@@ -39,11 +39,12 @@
                 foreach ($model as $asignatura){
             ?>
             <tr>
-                <td><a href="<?php echo Yii::app()->createUrl("asignatura/verDetalleNotasFinal/",array("id"=>$asignatura->idasignatura)); ?>" title="ver detalle"><?php echo $asignatura->nombre; ?></a></td>
                 <?php
                     $nota = NotasFinales::model()->getNotaAnoCadete(Yii::app()->getSession()->get('rutCadete'), $asignatura->idasignatura);
                     if(!empty($nota)){
                 ?>
+                    <td><a href="<?php echo Yii::app()->createUrl("notasFinales/verDetalleNotasFinal/",array("id"=>$nota->idnotas_finales)); ?>" title="ver detalle"><?php echo $asignatura->nombre; ?></a></td>
+                
                     <td class="hidden-sm hidden-xs"><?php echo $nota->nota_presentacion; ?></td>
                     <td class="hidden-sm hidden-xs"><?php echo $nota->nota_examen; ?></td>
                     <td class="hidden-sm hidden-xs"><?php echo $nota->nota_final; ?></td>
@@ -52,6 +53,7 @@
                     <td class="hidden-sm hidden-xs"><?php echo $nota->getEstado(); ?></td>
                     <td class="visible-sm visible-xs"><?php echo $nota->estado; ?></td>
                 <?php }else{ ?>
+                    <td class="hidden-sm hidden-xs"><?php echo $asignatura->nombre; ?></td>
                     <td class="hidden-sm hidden-xs"></td>
                     <td class="hidden-sm hidden-xs"></td>
                     <td class="hidden-sm hidden-xs"></td>

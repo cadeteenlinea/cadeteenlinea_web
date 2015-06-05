@@ -30,6 +30,7 @@
  * @property NotasParciales[] $notasParciales
  * @property Transaccion[] $transaccions
  * @property NotasFinales[] $notasFinales
+ * @property InglesTae[] $inglesTae
  */
 class Cadete extends CActiveRecord
 {
@@ -77,6 +78,7 @@ class Cadete extends CActiveRecord
                         'sumTransacciones'=>array(self::STAT,  'Transaccion', 'invoice_id', 'select' => 'SUM(amount)'),
 			'especialidad' => array(self::BELONGS_TO, 'Especialidad', 'especialidad_idespecialidad'),
 			'notasFinales' => array(self::HAS_MANY, 'NotasFinales', 'cadete_rut'),
+			'inglesTae' => array(self::HAS_MANY, 'InglesTae', 'cadete_rut'),
 		);
 	}
 

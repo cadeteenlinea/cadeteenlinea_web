@@ -28,7 +28,7 @@ class CadeteController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo', 'notasParciales','notasFinales'),
+				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo', 'notasParciales','notasFinales','notasTae'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -262,6 +262,17 @@ class CadeteController extends Controller
                 'model'=>$model,
                 'ano'=>$ano,
                 'titulo' => 'Resumen Anual',
+            ));
+        }
+        
+        public function actionNotasTae(){
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $model = Cadete::model()->findByPk($rutCadete);
+            
+            
+            $this->render('notasTae',array(
+                'model' => $model,
+                'titulo' => 'Examen Inglés TAE',
             ));
         }
 }

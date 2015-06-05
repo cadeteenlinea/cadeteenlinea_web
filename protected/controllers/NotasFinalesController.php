@@ -1,6 +1,6 @@
 <?php
 
-class AsignaturaController extends Controller
+class NotasFinalesController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,7 +28,7 @@ class AsignaturaController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('VerDetalleNotasParciales','verDetalleNotasFinal'),
+				'actions'=>array('verDetalleNotasFinal'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -54,16 +54,16 @@ class AsignaturaController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Asignatura;
+		$model=new NotasFinales;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Asignatura']))
+		if(isset($_POST['NotasFinales']))
 		{
-			$model->attributes=$_POST['Asignatura'];
+			$model->attributes=$_POST['NotasFinales'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idasignatura));
+				$this->redirect(array('view','id'=>$model->idnotas_finales));
 		}
 
 		$this->render('create',array(
@@ -83,11 +83,11 @@ class AsignaturaController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Asignatura']))
+		if(isset($_POST['NotasFinales']))
 		{
-			$model->attributes=$_POST['Asignatura'];
+			$model->attributes=$_POST['NotasFinales'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idasignatura));
+				$this->redirect(array('view','id'=>$model->idnotas_finales));
 		}
 
 		$this->render('update',array(
@@ -114,7 +114,7 @@ class AsignaturaController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Asignatura');
+		$dataProvider=new CActiveDataProvider('NotasFinales');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -125,10 +125,10 @@ class AsignaturaController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Asignatura('search');
+		$model=new NotasFinales('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Asignatura']))
-			$model->attributes=$_GET['Asignatura'];
+		if(isset($_GET['NotasFinales']))
+			$model->attributes=$_GET['NotasFinales'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -139,12 +139,12 @@ class AsignaturaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Asignatura the loaded model
+	 * @return NotasFinales the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Asignatura::model()->findByPk($id);
+		$model=NotasFinales::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -152,25 +152,25 @@ class AsignaturaController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Asignatura $model the model to be validated
+	 * @param NotasFinales $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='asignatura-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='notas-finales-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
         
-        public function actionVerDetalleNotasParciales($id){
+        public function actionVerDetalleNotasFinal($id){
             $model=$this->loadModel($id);
-            $notas = Cadete::model()->findByPk(Yii::app()->getSession()->get('rutCadete'));
-            $this->render('verDetalleNotasParciales',array(
-		'model'=>$model,
-                'notas'=>$notas->getNotasParcialesAsignatura($id),
-                'promedio'=>$notas->getPromedioNotasParcialesAsignatura($id),
+            
+            
+            
+            $this->render('verDetalleNotasFinal', array(
                 'titulo' => 'Notas Parciales',
+                'model' => $model,
             ));
         }
 }

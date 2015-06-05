@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2015 a las 21:58:58
+-- Tiempo de generación: 05-06-2015 a las 15:48:30
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -42,11 +42,6 @@ CREATE TABLE IF NOT EXISTS `apoderado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `apoderado`
---
-
-TRUNCATE TABLE `apoderado`;
---
 -- Volcado de datos para la tabla `apoderado`
 --
 
@@ -71,11 +66,6 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
   `especialidad_idespecialidad` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `asignatura`
---
-
-TRUNCATE TABLE `asignatura`;
 --
 -- Volcado de datos para la tabla `asignatura`
 --
@@ -141,11 +131,6 @@ CREATE TABLE IF NOT EXISTS `cadete` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `cadete`
---
-
-TRUNCATE TABLE `cadete`;
---
 -- Volcado de datos para la tabla `cadete`
 --
 
@@ -168,11 +153,6 @@ CREATE TABLE IF NOT EXISTS `cadete_apoderado` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `cadete_apoderado`
---
-
-TRUNCATE TABLE `cadete_apoderado`;
---
 -- Volcado de datos para la tabla `cadete_apoderado`
 --
 
@@ -194,11 +174,6 @@ CREATE TABLE IF NOT EXISTS `concepto` (
   `codigo` varchar(2) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `concepto`
---
-
-TRUNCATE TABLE `concepto`;
 --
 -- Volcado de datos para la tabla `concepto`
 --
@@ -223,11 +198,6 @@ CREATE TABLE IF NOT EXISTS `departamento` (
   `nombre` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `departamento`
---
-
-TRUNCATE TABLE `departamento`;
 -- --------------------------------------------------------
 
 --
@@ -241,11 +211,6 @@ CREATE TABLE IF NOT EXISTS `especialidad` (
   `nombre` varchar(45) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `especialidad`
---
-
-TRUNCATE TABLE `especialidad`;
 --
 -- Volcado de datos para la tabla `especialidad`
 --
@@ -272,11 +237,33 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `tipo` enum('Administrador','administrativo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Truncar tablas antes de insertar `funcionario`
+-- Estructura de tabla para la tabla `ingles_tae`
 --
 
-TRUNCATE TABLE `funcionario`;
+DROP TABLE IF EXISTS `ingles_tae`;
+CREATE TABLE IF NOT EXISTS `ingles_tae` (
+`idingles_tae` int(11) NOT NULL,
+  `ano` int(11) NOT NULL,
+  `mes` int(11) NOT NULL,
+  `speaking` int(11) NOT NULL,
+  `understanding` int(11) NOT NULL,
+  `writing` int(11) NOT NULL,
+  `average` int(11) NOT NULL,
+  `cadete_rut` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ingles_tae`
+--
+
+INSERT INTO `ingles_tae` (`idingles_tae`, `ano`, `mes`, `speaking`, `understanding`, `writing`, `average`, `cadete_rut`) VALUES
+(1, 2013, 3, 24, 50, 27, 35, 11111111),
+(2, 2013, 7, 26, 55, 30, 38, 11111111),
+(3, 2014, 4, 43, 59, 43, 49, 11111111);
+
 -- --------------------------------------------------------
 
 --
@@ -296,11 +283,6 @@ CREATE TABLE IF NOT EXISTS `notas_finales` (
   `cadete_rut` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `notas_finales`
---
-
-TRUNCATE TABLE `notas_finales`;
 --
 -- Volcado de datos para la tabla `notas_finales`
 --
@@ -342,11 +324,6 @@ CREATE TABLE IF NOT EXISTS `notas_parciales` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `notas_parciales`
---
-
-TRUNCATE TABLE `notas_parciales`;
---
 -- Volcado de datos para la tabla `notas_parciales`
 --
 
@@ -385,11 +362,6 @@ CREATE TABLE IF NOT EXISTS `transaccion` (
   `tipoCuenta` enum('Cta Cte','Colegiatura','Equipo') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
 
---
--- Truncar tablas antes de insertar `transaccion`
---
-
-TRUNCATE TABLE `transaccion`;
 --
 -- Volcado de datos para la tabla `transaccion`
 --
@@ -492,11 +464,6 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `usuario`
---
-
-TRUNCATE TABLE `usuario`;
---
 -- Volcado de datos para la tabla `usuario`
 --
 
@@ -559,6 +526,12 @@ ALTER TABLE `funcionario`
  ADD PRIMARY KEY (`rut`), ADD KEY `funcionario_FKIndex1` (`rut`), ADD KEY `funcionario_FKIndex2` (`departamento_iddepartamento`);
 
 --
+-- Indices de la tabla `ingles_tae`
+--
+ALTER TABLE `ingles_tae`
+ ADD PRIMARY KEY (`idingles_tae`), ADD KEY `fk_ingles_tae_cadete1_idx` (`cadete_rut`);
+
+--
 -- Indices de la tabla `notas_finales`
 --
 ALTER TABLE `notas_finales`
@@ -612,6 +585,11 @@ MODIFY `iddepartamento` int(10) unsigned NOT NULL AUTO_INCREMENT;
 ALTER TABLE `especialidad`
 MODIFY `idespecialidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
+-- AUTO_INCREMENT de la tabla `ingles_tae`
+--
+ALTER TABLE `ingles_tae`
+MODIFY `idingles_tae` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT de la tabla `notas_finales`
 --
 ALTER TABLE `notas_finales`
@@ -662,6 +640,12 @@ ADD CONSTRAINT `cadete_apoderado_ibfk_2` FOREIGN KEY (`cadete_rut`) REFERENCES `
 ALTER TABLE `funcionario`
 ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`departamento_iddepartamento`) REFERENCES `departamento` (`iddepartamento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `ingles_tae`
+--
+ALTER TABLE `ingles_tae`
+ADD CONSTRAINT `fk_ingles_tae_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `notas_finales`

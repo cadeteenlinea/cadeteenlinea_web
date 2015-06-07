@@ -28,7 +28,10 @@ class CadeteController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('movimientoCuentaCorriente', 'movimientoColegiatura', 'movimientoEquipo', 'notasParciales','notasFinales','notasTae'),
+				'actions'=>array('movimientoCuentaCorriente', 
+                                    'movimientoColegiatura', 'movimientoEquipo', 
+                                    'notasParciales','notasFinales','notasTae',
+                                    'calificaciones'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -269,10 +272,34 @@ class CadeteController extends Controller
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
             $model = Cadete::model()->findByPk($rutCadete);
             
-            
             $this->render('notasTae',array(
                 'model' => $model,
                 'titulo' => 'Examen Inglés TAE',
+            ));
+        }
+        
+        public function actionCalificaciones(){
+            $ano = '';
+            if(isset($_POST['ano'])){
+                $ano = $_POST['ano'];
+            }else{
+                $ano = Calificaciones::model()->getAnoMax(Yii::app()->getSession()->get('rutCadete'));
+            }
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $model = $this->loadModel($rutCadete);
+            
+            $semestre1 = null;
+            $semestre2 = null;
+            if(!empty($ano)){
+                $semestre1 = $model->getCalificacionesAnoSemestre($ano,1);
+                $semestre2 = $model->getCalificacionesAnoSemestre($ano,2);
+            }
+            
+            $this->render('calificaciones', array(
+                'semestre1' => $semestre1,
+                'semestre2' => $semestre2,
+                'ano' => $ano,
+                'titulo' => 'Calificaciones',
             ));
         }
 }

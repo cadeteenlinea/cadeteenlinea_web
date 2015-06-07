@@ -58,6 +58,7 @@
                                                         array('label'=>'Examen Inglés TAE', 'url'=>array('cadete/notasTae')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                         array('label'=>'Calificaciones', 'url'=>array('cadete/calificaciones'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
                                          array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',

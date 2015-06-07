@@ -31,6 +31,7 @@
  * @property Transaccion[] $transaccions
  * @property NotasFinales[] $notasFinales
  * @property InglesTae[] $inglesTae
+ * @property InglesTae[] $calificaciones
  */
 class Cadete extends CActiveRecord
 {
@@ -79,6 +80,7 @@ class Cadete extends CActiveRecord
 			'especialidad' => array(self::BELONGS_TO, 'Especialidad', 'especialidad_idespecialidad'),
 			'notasFinales' => array(self::HAS_MANY, 'NotasFinales', 'cadete_rut'),
 			'inglesTae' => array(self::HAS_MANY, 'InglesTae', 'cadete_rut'),
+                        'calificaciones' => array(self::HAS_MANY, 'Calificaciones', 'cadete_rut'),
 		);
 	}
 
@@ -201,5 +203,15 @@ class Cadete extends CActiveRecord
             $criteria->addCondition('t.cadete_rut='.$this->rut);
             $model = NotasParciales::model()->find($criteria);
             return round($model->nota,1);
+        }
+        
+        public function getCalificacionesAnoSemestre($ano, $semestre){
+            $criteria = new CDbCriteria();
+            //$criteria->with = array('calificaciones');
+            $criteria->addCondition('ano='.$ano);
+            $criteria->addCondition('semestre='.$semestre);
+            $criteria->addCondition('cadete_rut='.$this->rut);
+            $model = Calificaciones::model()->find($criteria);
+            return $model;
         }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2015 a las 15:48:30
+-- Tiempo de generación: 07-06-2015 a las 21:35:14
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -160,6 +160,39 @@ INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_r
 (1, 11111111, 17558919, 'Padre'),
 (2, 22222222, 17558919, 'Padre'),
 (3, 22222222, 5108249, 'Apoderado suplente');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `calificaciones`
+--
+
+DROP TABLE IF EXISTS `calificaciones`;
+CREATE TABLE IF NOT EXISTS `calificaciones` (
+`idcalificaciones` int(11) NOT NULL,
+  `ano` int(11) DEFAULT NULL,
+  `semestre` tinyint(4) NOT NULL,
+  `mando` float NOT NULL,
+  `interes_profesional` float NOT NULL,
+  `personalidad_madurez` float NOT NULL,
+  `responsabilidad` float NOT NULL,
+  `espiritu_militar` float NOT NULL,
+  `cooperacion` float NOT NULL,
+  `conducta` float NOT NULL,
+  `aptitud_fisica` float NOT NULL,
+  `tenida_orden_aseo` float NOT NULL,
+  `final` float NOT NULL,
+  `cadete_rut` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `calificaciones`
+--
+
+INSERT INTO `calificaciones` (`idcalificaciones`, `ano`, `semestre`, `mando`, `interes_profesional`, `personalidad_madurez`, `responsabilidad`, `espiritu_militar`, `cooperacion`, `conducta`, `aptitud_fisica`, `tenida_orden_aseo`, `final`, `cadete_rut`) VALUES
+(1, 2013, 1, 0, 8.33, 7.89, 7.66, 7, 7.41, 8.16, 8.75, 7.85, 7.82, 11111111),
+(2, 2013, 2, 0, 6.8, 7.84, 7.83, 7.6, 8, 8.08, 8.41, 8, 7.84, 11111111),
+(3, 2014, 1, 8.2, 7, 7.86, 7.83, 7.33, 7.84, 8.56, 9.55, 8, 8.06, 11111111);
 
 -- --------------------------------------------------------
 
@@ -502,6 +535,12 @@ ALTER TABLE `cadete_apoderado`
  ADD PRIMARY KEY (`idcadete_apoderado`), ADD KEY `cadete_apoderado_FKIndex1` (`apoderado_rut`), ADD KEY `cadete_apoderado_FKIndex2` (`cadete_rut`);
 
 --
+-- Indices de la tabla `calificaciones`
+--
+ALTER TABLE `calificaciones`
+ ADD PRIMARY KEY (`idcalificaciones`), ADD KEY `fk_calificaciones_cadete1_idx` (`cadete_rut`);
+
+--
 -- Indices de la tabla `concepto`
 --
 ALTER TABLE `concepto`
@@ -570,6 +609,11 @@ MODIFY `idasignatura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 ALTER TABLE `cadete_apoderado`
 MODIFY `idcadete_apoderado` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT de la tabla `calificaciones`
+--
+ALTER TABLE `calificaciones`
+MODIFY `idcalificaciones` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT de la tabla `concepto`
 --
 ALTER TABLE `concepto`
@@ -633,6 +677,12 @@ ADD CONSTRAINT `fk_cadete_especialidad1` FOREIGN KEY (`especialidad_idespecialid
 ALTER TABLE `cadete_apoderado`
 ADD CONSTRAINT `cadete_apoderado_ibfk_1` FOREIGN KEY (`apoderado_rut`) REFERENCES `apoderado` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `cadete_apoderado_ibfk_2` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `calificaciones`
+--
+ALTER TABLE `calificaciones`
+ADD CONSTRAINT `fk_calificaciones_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `funcionario`

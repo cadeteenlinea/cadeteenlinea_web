@@ -10,14 +10,14 @@
  * @property integer $mes
  * @property integer $ano
  * @property integer $semestre
- * @property integer $asignatura
+ * @property integer $asignatura_idasignatura
  * @property string $cadete_rut
  * @property integer $concepto
  *
  * The followings are the available model relations:
- * @property Asignatura $asignaturaIdasignatura
- * @property Cadete $cadeteRut
- * @property Concepto $conceptoIdconcepto
+ * @property Asignatura $asignatura
+ * @property Cadete $cadete
+ * @property Concepto $concepto
  */
 class NotasParciales extends CActiveRecord
 {
@@ -56,7 +56,7 @@ class NotasParciales extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'asignatura' => array(self::BELONGS_TO, 'Asignatura', 'asignatura_idasignatura'),
-			'cadeteRut' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
+			'cadete' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
 			'concepto' => array(self::BELONGS_TO, 'Concepto', 'concepto_idconcepto'),
 		);
 	}

@@ -21,8 +21,8 @@ class ResetPassForm extends CFormModel
     {
         return array(
             'rut'=>'Rut',
-            'password'=>'Contraseña',
-            'passwordRepeat'=>'R Contraseña',
+            'password'=>'Nueva Contraseña',
+            'passwordRepeat'=>'Repetir Nueva Contraseña',
             'codVerificacion'=>'Código de Verificación',
         );
     }

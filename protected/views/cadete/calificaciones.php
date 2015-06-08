@@ -25,8 +25,10 @@
         <thead>
             <tr>
                 <th></th>
-                <th>1er. Semestre</th>
-                <th>2do. Semestre</th>
+                <th class="visible-xs">1er.</th>
+                <th class="visible-xs">2do.</th>
+                <th class="hidden-xs">1er. Semestre</th>
+                <th class="hidden-xs">2do. Semestre</th>
             </tr>
         </thead>
         <tr>

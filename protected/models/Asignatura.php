@@ -13,7 +13,7 @@
  * @property integer $especialidad_idespecialidad
  *
  * The followings are the available model relations:
- * @property Especialidad $especialidadIdespecialidad
+ * @property Especialidad $especialidad
  * @property NotasFinales[] $notasFinales
  * @property NotasParciales[] $notasParciales
  */
@@ -53,7 +53,7 @@ class Asignatura extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'especialidadIdespecialidad' => array(self::BELONGS_TO, 'Especialidad', 'especialidad_idespecialidad'),
+			'especialidad' => array(self::BELONGS_TO, 'Especialidad', 'especialidad_idespecialidad'),
 			'notasFinales' => array(self::HAS_MANY, 'NotasFinales', 'asignatura_idasignatura'),
 			'notasParciales' => array(self::HAS_MANY, 'NotasParciales', 'asignatura_idasignatura'),
 		);
@@ -119,7 +119,7 @@ class Asignatura extends CActiveRecord
         
         public static function getAsignaturasAnoCursoEspecialidad($ano, $curso, $especialidad){
             $criteria=new CDbCriteria;
-            $criteria->with = array('notasParciales','notasParciales.cadeteRut');
+            $criteria->with = array('notasParciales','notasParciales.cadete');
             $criteria->addCondition('t.ano='.$ano);
             $criteria->addCondition('t.curso='.$curso);
             $criteria->addCondition('t.especialidad_idespecialidad='.$especialidad);

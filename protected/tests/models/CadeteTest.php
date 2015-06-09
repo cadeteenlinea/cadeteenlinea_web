@@ -10,6 +10,9 @@ class CadeteTest extends CTestCase {
         'rut'=>'11111111',
         'ncadete'=>'3',
         'nCadeteView'=>'076',
+        'asignatura'=>'12',
+        'ano'=>'2013',
+        'semestre'=>1,
     );
 
     protected function setUp() {
@@ -34,5 +37,25 @@ class CadeteTest extends CTestCase {
             $this->assertNotEmpty($item->tipoTransaccion);
             $this->assertNotEmpty($item->monto);
         }  
+    }
+    
+    public function testGetNotasParcialesAsignatura() {
+        $this->object = Cadete::model()->findByPk($this->fixture["rut"]);
+        $notas = $this->object->getNotasParcialesAsignatura($this->fixture["asignatura"]);
+        foreach($notas as $nota){
+            $this->assertNotEmpty($nota->nota);
+        }
+    }
+    
+    public function testGetPromedioNotasParcialesAsignatura() {
+        $this->object = Cadete::model()->findByPk($this->fixture["rut"]);
+        $promedio = $this->object->getPromedioNotasParcialesAsignatura($this->fixture["asignatura"]);
+        $this->assertNotEmpty($promedio);
+    }
+    
+    public function testGetCalificacionesAnoSemestre() {
+        $this->object = Cadete::model()->findByPk($this->fixture["rut"]);
+        $calificacion = $this->object->getCalificacionesAnoSemestre($this->fixture["ano"], $this->fixture["semestre"]);
+        $this->assertNotEmpty($calificacion->idcalificaciones);    
     }
 }

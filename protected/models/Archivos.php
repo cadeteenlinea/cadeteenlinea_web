@@ -101,10 +101,10 @@ class Archivos extends CActiveRecord
 	}
         
         public function publicarArchivo(){
-            
             $lineas = file("./txt/".$this->idarchivos.".csv");
             $i=1;
             $errors = array();
+            $countErrors=0;
             foreach ($lineas as $linea_num => $linea)
             {
                 if($i>1){
@@ -118,10 +118,14 @@ class Archivos extends CActiveRecord
                             break;
                     }
                     $errors[] = array("columna"=>$i, "error" => $model->getErrors());
+                    if(!empty($model->getErrors())){
+                        $countErrors++;
+                    }
                 }
                 $i++;
             }
-            return $errors;
+            $respuesta = array($errors, $countErrors);
+            return $respuesta;
         }
         
         private function cargadoClaseCadete($datos){

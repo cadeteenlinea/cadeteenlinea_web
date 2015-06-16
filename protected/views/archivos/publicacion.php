@@ -11,7 +11,7 @@ $this->menu=array(
 
 <div class="panel panel-default">
     <div class="panel-heading">
-
+        <p>Registros con errores <b><?php echo $countError ?></b></p>
     </div>
     <table class="table">
         <thead>

@@ -176,7 +176,8 @@ class ArchivosController extends Controller
             
             $this->render('publicacion',array(
                 'titulo' => 'Publicación archivo '.$model->tipoArchivo->nombre,
-                'errors' => $resultado,
+                'errors' => $resultado[0],
+                'countError' => $resultado[1],
                 'model' => $model
             ));
         }

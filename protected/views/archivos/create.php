@@ -8,8 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Archivos', 'url'=>array('index')),
-	array('label'=>'Manage Archivos', 'url'=>array('admin')),
+	array('label'=>'Mantenedor de Archivos', 'url'=>array('admin')),
 );
 ?>
 

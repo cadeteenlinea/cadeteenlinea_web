@@ -28,7 +28,7 @@ class ArchivosController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','index'),
+				'actions'=>array('create','index','admin','view', 'publicar'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -64,7 +64,7 @@ class ArchivosController extends Controller
                     $model->archivo=CUploadedFile::getInstance($model,'archivo');
                     if($model->save()){
                         $ext = $model->archivo->getExtensionName();
-                        $path="archivos/$model->idarchivos.$ext";
+                        $path="txt/$model->idarchivos.$ext";
                         if($model->archivo->saveAs($path)){
                             $this->redirect(array('view','id'=>$model->idarchivos));
                         }else{
@@ -121,10 +121,7 @@ class ArchivosController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Archivos');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+            $this->actionAdmin();
 	}
 
 	/**
@@ -169,6 +166,20 @@ class ArchivosController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionPublicar($id){
+            $model=$this->loadModel($id);
+            if(!empty($model)){
+                $resultado = null;
+                $resultado = $model->publicarArchivo();
+            }  
+            
+            $this->render('publicacion',array(
+                'titulo' => 'Publicación archivo '.$model->tipoArchivo->nombre,
+                'errors' => $resultado,
+                'model' => $model
+            ));
+        }
         
         
 }

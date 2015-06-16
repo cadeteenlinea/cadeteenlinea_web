@@ -11,7 +11,6 @@
  * @property string $region
  * @property string $fono
  * @property string $fonoComercial
- * @property string $email
  * @property string $difunto
  *
  * The followings are the available model relations:
@@ -36,15 +35,15 @@ class Apoderado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut,direccion, comuna, ciudad, region, fono, difunto', 'required'),
+			array('rut, fono, difunto', 'required'),
 			array('rut', 'length', 'max'=>10),
 			array('direccion', 'length', 'max'=>100),
-			array('comuna, ciudad, region, fonoComercial, email', 'length', 'max'=>25),
+			array('comuna, ciudad, region, fonoComercial', 'length', 'max'=>25),
 			array('fono', 'length', 'max'=>15),
 			array('difunto', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('rut, direccion, comuna, ciudad, region, fono, fonoComercial, email, difunto', 'safe', 'on'=>'search'),
+			array('rut, direccion, comuna, ciudad, region, fono, fonoComercial, difunto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,7 +74,6 @@ class Apoderado extends CActiveRecord
 			'region' => 'Region',
 			'fono' => 'Fono',
 			'fonoComercial' => 'Fono Comercial',
-			'email' => 'Email',
 			'difunto' => 'Difunto',
 		);
 	}
@@ -105,7 +103,6 @@ class Apoderado extends CActiveRecord
 		$criteria->compare('region',$this->region,true);
 		$criteria->compare('fono',$this->fono,true);
 		$criteria->compare('fonoComercial',$this->fonoComercial,true);
-		$criteria->compare('email',$this->email,true);
 		$criteria->compare('difunto',$this->difunto,true);
 
 		return new CActiveDataProvider($this, array(

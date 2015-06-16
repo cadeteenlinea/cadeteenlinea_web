@@ -42,6 +42,7 @@ class Usuario extends CActiveRecord
 			array('rut, apellidoPat, apellidoMat, nombres, password_2, email', 'required'),
 			array('rut', 'length', 'max'=>10),
                         array('apellidoPat, apellidoMat, email', 'length', 'max'=>25),
+                        array('email', 'length', 'max'=>50),
                         array('nombres', 'length', 'max'=>50),
 			array('password_2', 'length', 'max'=>250),
 			array('perfil', 'length', 'max'=>11),

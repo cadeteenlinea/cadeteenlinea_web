@@ -30,7 +30,7 @@ class Archivos extends CActiveRecord
 		return array(
 			array('tipo_archivo_idtipo_archivo, fecha, archivo', 'required'),
 			array('tipo_archivo_idtipo_archivo', 'numerical', 'integerOnly'=>true),
-                        array('archivo', 'file', 'types'=>'txt'),
+                        array('archivo', 'file', 'types'=>'csv'),
 			array('fecha', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -56,7 +56,7 @@ class Archivos extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idarchivos' => 'Idarchivos',
+			'idarchivos' => '#',
 			'fecha' => 'Fecha',
 			'tipo_archivo_idtipo_archivo' => 'Tipo Archivo',
 		);
@@ -99,4 +99,124 @@ class Archivos extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function publicarArchivo(){
+            
+            $lineas = file("./txt/".$this->idarchivos.".csv");
+            $i=1;
+            $errors = array();
+            foreach ($lineas as $linea_num => $linea)
+            {
+                if($i>1){
+                    $datos = explode(";", $linea);
+                    switch ($this->tipoArchivo->tabla_sincronizar) {
+                        case "cadete":
+                            $model = $this->cargadoClaseCadete($datos);
+                            break;
+                        case "apoderado":
+                            $model = $this->cargadoClaseApoderado($datos);
+                            break;
+                    }
+                    $errors[] = array("columna"=>$i, "error" => $model->getErrors());
+                }
+                $i++;
+            }
+            return $errors;
+        }
+        
+        private function cargadoClaseCadete($datos){
+            $rut = substr(strtolower($datos[1]),0,-2);
+            $cadete = Cadete::model()->findByPk($rut);
+            $usuario = Usuario::model()->findByPk($rut);
+            if(empty($cadete)){
+                $cadete = new Cadete();
+                $cadete->rut = $rut;
+            }
+            
+            if(empty($usuario)){
+                $usuario = new Usuario();
+                $usuario->rut = $rut;
+                $usuario->password_2 = $rut;
+                $usuario->apellidoPat = $datos[2];
+                $usuario->apellidoMat = $datos[3];
+                $usuario->nombres = $datos[4];
+                $usuario->perfil = 'cadete';
+                $usuario->email = 'seb.frab@gmail.com';
+                if(!$usuario->save()){
+                    return $usuario;
+                }
+            }
+
+            $cadete->nCadete = $datos[0];
+            $cadete->direccion = $datos[15];
+            $cadete->comuna = $datos[16];
+            $cadete->ciudad = $datos[17];
+            $cadete->region = $datos[18];
+            $cadete->curso = $datos[5];
+            $cadete->division = $datos[8];
+            $cadete->anoIngreso = $datos[9];
+            $cadete->anoNacimiento = $datos[10];
+            $cadete->mesNacimiento = $datos[11];
+            $cadete->diaNacimiento = $datos[12];
+            $cadete->lugarNacimiento = $datos[13];
+            $cadete->nacionalidad = $datos[14];
+            $cadete->seleccion = $datos[23];
+            $cadete->nivel = $datos[24];
+            $cadete->circulo = $datos[25];
+            $cadete->especialidad_idespecialidad = 1;
+            
+            if($cadete->save()){
+                return $cadete;
+            }else{
+                return $cadete;
+            }
+        }
+        
+        private function cargadoClaseApoderado($datos){
+            $rut = substr(strtolower($datos[3]),0,-2);
+            $apoderado = Apoderado::model()->findByPk($rut);
+            $usuario = Usuario::model()->findByPk($rut);
+            
+            if(empty($apoderado)){
+                $apoderado = new Apoderado();
+                $apoderado->rut = $rut;
+            }
+            
+            if(empty($usuario)){
+                $usuario = new Usuario();
+                $usuario->rut = $rut;
+                $usuario->password_2 = $rut;
+                $usuario->apellidoPat = $datos[0];
+                $usuario->apellidoMat = $datos[1];
+                $usuario->nombres = $datos[2];
+                $usuario->perfil = 'apoderado';
+                $usuario->email = 'seb.frab@gmail.com';
+                if(!$usuario->save()){
+                    return $usuario;
+                }
+            }
+            
+            $apoderado->direccion = $datos[4];
+            $apoderado->comuna = $datos[5];
+            $apoderado->region = $datos[6];
+            $apoderado->fono = $datos[9];
+            $apoderado->fonoComercial = $datos[10];
+            if(empty($datos[12])){
+                $apoderado->difunto = "no";  
+            }else{
+               if($datos[12]=="N"){
+                   $apoderado->difunto = "no"; 
+               }else{
+                   $apoderado->difunto = "si"; 
+               }
+            }
+             
+            
+            if($apoderado->save()){
+                return $apoderado;
+            }else{
+                return $apoderado;
+            }
+        }
+        
 }

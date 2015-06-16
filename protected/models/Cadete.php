@@ -51,7 +51,7 @@ class Cadete extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, especialidad_idespecialidad', 'required'),
+			array('rut, nCadete, curso, division, anoIngreso, nacionalidad, especialidad_idespecialidad', 'required'),
 			array('especialidad_idespecialidad', 'numerical', 'integerOnly'=>true),
 			array('rut, nCadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
@@ -91,7 +91,7 @@ class Cadete extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'nCadete' => 'N Cadete',
+			'nCadete' => 'N° Cadete',
 			'direccion' => 'Direccion',
 			'comuna' => 'Comuna',
 			'ciudad' => 'Ciudad',

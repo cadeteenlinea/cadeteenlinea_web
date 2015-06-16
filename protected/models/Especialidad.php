@@ -101,4 +101,9 @@ class Especialidad extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public static function findEspecialidadLetra($letra){
+            $criteria=new CDbCriteria;
+            $criteria->compare('nombre',$this->nombre,true);
+        }
 }

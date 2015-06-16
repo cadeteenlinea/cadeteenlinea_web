@@ -1,0 +1,39 @@
+<?php
+
+$this->menu=array(
+	array('label'=>'Nuevo Archivo', 'url'=>array('create')),
+	array('label'=>'Eliminar Archivo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idarchivos),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Mantenedor Archivos', 'url'=>array('admin')),
+);
+?>
+
+<h3><?php echo $titulo; ?></h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Columna</th>
+            <th>Errores</th>
+          </tr>
+        </thead>
+
+        <?php
+            foreach($errors as $columna){
+                if(!empty($columna["error"])){
+                    echo "<tr>";
+                    echo "<td>".$columna["columna"]."</td>";
+                    echo "<td>";
+                    foreach($columna["error"] as $error){
+                        echo $error[0]."<br/>";
+                    }
+                    echo "</td>";
+                    echo "</tr>";
+                }
+            }
+        ?>
+    </table>
+</div>

@@ -182,13 +182,18 @@ class Archivos extends CActiveRecord
             $cadete->seleccion = $datos[23];
             $cadete->nivel = $datos[24];
             $cadete->circulo = $datos[25];
-            $cadete->especialidad_idespecialidad = 1;
+            $especialidad = Especialidad::model()->findEspecialidadLetra($datos[6]);
+            $cadete->especialidad_idespecialidad = null;
+            if(!empty($especialidad))
+                $cadete->especialidad_idespecialidad = $especialidad->idespecialidad;
             
             if($cadete->save()){
                 return $cadete;
             }else{
                 if(!empty($usuario)){
-                    $usuario->delete();
+                    if($usuario->delete()){
+                        return $cadete;
+                    }
                 }
                 return $cadete;
             }

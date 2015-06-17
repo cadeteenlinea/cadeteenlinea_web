@@ -129,6 +129,16 @@ class Usuario extends CActiveRecord
             return $this->nombres + ' '+ $this->apellidoPat + ' ' + $this->apellidoMat;
         }
         
+        function beforeDelete(){
+            if( $this->apoderado !== array() )
+                return false;
+            if( $this->cadete !== array() )
+                return false;
+            if( $this->funcionario !== array() )
+                return false;
+            return parent::beforeDelete();
+        }
+        
         //Valida que la clave enviada por el usuario sea la misma que se encuentra
         //en la base de datos
         public function validatePassword($password){

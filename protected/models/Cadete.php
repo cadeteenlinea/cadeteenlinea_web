@@ -81,6 +81,7 @@ class Cadete extends CActiveRecord
 			'notasFinales' => array(self::HAS_MANY, 'NotasFinales', 'cadete_rut'),
 			'inglesTae' => array(self::HAS_MANY, 'InglesTae', 'cadete_rut'),
                         'calificaciones' => array(self::HAS_MANY, 'Calificaciones', 'cadete_rut'),
+			'notasParciales' => array(self::HAS_MANY, 'NotasParciales', 'cadete_rut'),
 		);
 	}
 
@@ -163,6 +164,18 @@ class Cadete extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        function beforeDelete(){
+            if( $this->cadeteApoderados !== array() )
+                return false;
+            if( $this->transacciones !== array() )
+                return false;
+            if( $this->notasFinales !== array() )
+                return false;
+            if( $this->notasParciales !== array() )
+                return false;
+            return parent::beforeDelete();
+        }
         
         //retorn la visualización del atributo nCadete, el cual en el sistema
         //se guarda como int, pero por estandar de la escuela la visualizacion

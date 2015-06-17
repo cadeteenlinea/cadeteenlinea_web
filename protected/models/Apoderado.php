@@ -14,7 +14,7 @@
  * @property string $difunto
  *
  * The followings are the available model relations:
- * @property Usuario $rut0
+ * @property Usuario $usuario
  * @property CadeteApoderado[] $cadeteApoderados
  */
 class Apoderado extends CActiveRecord
@@ -55,7 +55,7 @@ class Apoderado extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'rut0' => array(self::BELONGS_TO, 'Usuario', 'rut'),
+			'usuario' => array(self::BELONGS_TO, 'Usuario', 'rut'),
 			'cadeteApoderados' => array(self::HAS_MANY, 'CadeteApoderado', 'apoderado_rut'),
                         'cadetes'=>array(self::MANY_MANY, 'Cadete','cadete_apoderado(apoderado_rut, cadete_rut)'),
 		);
@@ -120,6 +120,16 @@ class Apoderado extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        function beforeDelete(){
+            if( $this->cadeteApoderados !== array() )
+                return false;
+            if( $this->cadetes !== array() )
+                return false;
+            if( $this->usuario !== array() )
+                return false;
+            return parent::beforeDelete();
+        }
         
         public function getCadetes(){
             return $this->cadetes;

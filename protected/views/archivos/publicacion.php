@@ -2,7 +2,7 @@
 
 $this->menu=array(
 	array('label'=>'Nuevo Archivo', 'url'=>array('create')),
-	array('label'=>'Eliminar Archivo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idarchivos),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Eliminar Archivo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idarchivos),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
 	array('label'=>'Mantenedor Archivos', 'url'=>array('admin')),
 );
 ?>
@@ -18,7 +18,7 @@ $this->menu=array(
     <table class="table">
         <thead>
           <tr>
-            <th>Columna</th>
+            <th>Registro</th>
             <th>Errores</th>
           </tr>
         </thead>

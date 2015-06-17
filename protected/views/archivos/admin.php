@@ -15,6 +15,20 @@ $this->menu=array(
 
 <h1>Mantenedor de Archivos</h1>
 
+<div id="statusMsg">
+<?php if(Yii::app()->user->hasFlash('success')):?>
+    <div style="margin-top: 20px;" class="flash-success col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <?php echo Yii::app()->user->getFlash('success'); ?>
+    </div>
+<?php endif; ?>
+ 
+<?php if(Yii::app()->user->hasFlash('error')):?>
+    <div style="margin-top: 20px;" class="flash-error col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <?php echo Yii::app()->user->getFlash('error'); ?>
+    </div>
+<?php endif; ?>
+</div>
+
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'archivos-grid',
 	'dataProvider'=>$model->search(),
@@ -47,14 +61,20 @@ $this->menu=array(
                 ),
 		array(
                         'class'=>'CButtonColumn',
-                        'htmlOptions'=>array('width'=>'80px'),
-                        'template'=>'{view}{delete}',
+                        'htmlOptions'=>array('width'=>'120px'),
+                        'template'=>'{view}{actualizarBase}{delete}',
                         'afterDelete'=>'function(link,success,data){ if(success) $("#statusMsg").html(data); }',
                         'buttons'=>array(
                             'view' => array
                             (
-                                'label'=>'ver - publicar',
+                                'label'=>'ver',
                                 'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/ver.png',
+                            ),
+                            'actualizarBase' => array
+                            (
+                                'label'=>'actualizar Base de Datos',
+                                'url' => 'Yii::app()->createUrl("archivos/publicar/$data->idarchivos")',
+                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/actualizarBase.png',
                             ),
                             'delete' => array
                             (

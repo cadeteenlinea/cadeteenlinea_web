@@ -101,7 +101,7 @@ class Archivos extends CActiveRecord
 	}
         
         public function publicarArchivo(){
-            $lineas = file("./txt/".$this->idarchivos.".csv");
+            $lineas = file("./csv/".$this->idarchivos.".csv");
             $i=1;
             $errors = array();
             $countErrors=0;
@@ -299,5 +299,10 @@ class Archivos extends CActiveRecord
                 return $cadete;
             }
         }
+        
+         protected function afterDelete(){
+             parent::afterDelete();
+             unlink('csv/'.$this->idarchivos.'.csv');
+         }
         
 }

@@ -2,7 +2,7 @@
 
 $this->menu=array(
 	array('label'=>'Nuevo Archivo', 'url'=>array('create')),
-	array('label'=>'Eliminar Archivo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idarchivos),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Eliminar Archivo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idarchivos),'confirm'=>'¿Está seguro que desea borrar este elemento?')),
 	array('label'=>'Mantenedor Archivos', 'url'=>array('admin')),
 );
 ?>
@@ -20,7 +20,7 @@ $this->menu=array(
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <?php echo CHtml::link('Publicar',array('archivos/publicar/'.$model->idarchivos),array("class"=>'btn btn-primary')); ?>
+            <?php echo CHtml::link('Actualizar Base de Datos',array('archivos/publicar/'.$model->idarchivos),array("class"=>'btn btn-primary')); ?>
         </div>
     </div>
 </div>

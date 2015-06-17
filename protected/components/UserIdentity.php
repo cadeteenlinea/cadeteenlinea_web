@@ -23,6 +23,9 @@ class UserIdentity extends CUserIdentity
                     Yii::app()->getSession()->add('rutCadete', $usuario->rut);
                 }
                 Yii::app()->getSession()->add('perfil', $usuario->perfil);
+                if($usuario->perfil == "funcionario"){
+                    Yii::app()->getSession()->add('tipoFuncionario', $usuario->funcionario->tipo);
+                }
                 
                 /*Actualizamos el last_login del usuario que se esta autenticando*/
                 /*$sql = "update usuario set last_login = now() where rut=$this->_id";

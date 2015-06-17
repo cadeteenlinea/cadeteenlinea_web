@@ -28,8 +28,8 @@ class ArchivosController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','index','admin','view', 'publicar'),
-				'users'=>array('@'),
+				'actions'=>array('create','index','admin','view', 'publicar', 'delete'),
+                                'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "Administrador"',
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -64,7 +64,7 @@ class ArchivosController extends Controller
                     $model->archivo=CUploadedFile::getInstance($model,'archivo');
                     if($model->save()){
                         $ext = $model->archivo->getExtensionName();
-                        $path="txt/$model->idarchivos.$ext";
+                        $path="csv/$model->idarchivos.$ext";
                         if($model->archivo->saveAs($path)){
                             $this->redirect(array('view','id'=>$model->idarchivos));
                         }else{
@@ -92,9 +92,9 @@ class ArchivosController extends Controller
 
 		if(isset($_POST['Archivos']))
 		{
-			$model->attributes=$_POST['Archivos'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idarchivos));
+                    $model->attributes=$_POST['Archivos'];
+                    if($model->save())
+                    	$this->redirect(array('view','id'=>$model->idarchivos));
 		}
 
 		$this->render('update',array(
@@ -109,11 +109,34 @@ class ArchivosController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isPostRequest)
+                {
+                    try{
+                        $status = $this->loadModel($id)->delete();
+                        if ($status){
+                            if(!isset($_GET['ajax']))
+                                Yii::app()->user->setFlash('success','Archivo eliminado');
+                            else
+                                echo "<div class='flash-success'>Archivo eliminado</div>";
+                        }else{
+                            if(!isset($_GET['ajax']))
+                                Yii::app()->user->setFlash('error','Archivo no se puede eliminar');
+                            else
+                                echo "<div class='flash-error'>Archivo no se puede eliminar</div>"; //for ajax
+                        }
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+                    }catch(CDbException $e){
+
+                        if(!isset($_GET['ajax']))
+                            Yii::app()->user->setFlash('error','Archivo no se puede eliminar');
+                        else
+                            echo "<div class='flash-error'>Archivo no se puede eliminar</div>"; //for ajax
+
+                    }
+
+                    if(!isset($_GET['ajax']))
+                        $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+                }
 	}
 
 	/**

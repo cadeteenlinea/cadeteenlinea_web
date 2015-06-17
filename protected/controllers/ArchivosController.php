@@ -178,7 +178,8 @@ class ArchivosController extends Controller
                 'titulo' => 'Publicación archivo '.$model->tipoArchivo->nombre,
                 'errors' => $resultado[0],
                 'countError' => $resultado[1],
-                'model' => $model
+                'countSuccess' => $resultado[2],
+                'model' => $model,
             ));
         }
         

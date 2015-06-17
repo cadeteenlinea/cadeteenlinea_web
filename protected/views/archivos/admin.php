@@ -15,7 +15,6 @@ $this->menu=array(
 
 <h1>Mantenedor de Archivos</h1>
 
-
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'archivos-grid',
 	'dataProvider'=>$model->search(),

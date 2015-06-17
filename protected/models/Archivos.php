@@ -105,6 +105,16 @@ class Archivos extends CActiveRecord
             $i=1;
             $errors = array();
             $countErrors=0;
+            $countSuccess=0;
+            
+            if($this->tipoArchivo->tabla_sincronizar=="cadete_apoderado"){
+                Yii::app()->db->createCommand('truncate table cadete_apoderado')->execute();
+            }
+            /*if($this->tipoArchivo->tabla_sincronizar=="cadete"){
+                Yii::app()->db->createCommand('TRUNCATE TABLE cadete')->execute();
+                Yii::app()->db->createCommand('DELETE FROM usuario WHERE perfil = "cadete"')->execute();
+            }*/
+            
             foreach ($lineas as $linea_num => $linea)
             {
                 if($i>1){
@@ -116,15 +126,20 @@ class Archivos extends CActiveRecord
                         case "apoderado":
                             $model = $this->cargadoClaseApoderado($datos);
                             break;
+                        case "cadete_apoderado":
+                            $model = $this->cargadoClaseCadeteApoderado($datos);
+                            break;
                     }
                     $errors[] = array("columna"=>$i, "error" => $model->getErrors());
                     if(!empty($model->getErrors())){
                         $countErrors++;
+                    }else{
+                        $countSuccess++;
                     }
                 }
                 $i++;
             }
-            $respuesta = array($errors, $countErrors);
+            $respuesta = array($errors, $countErrors, $countSuccess);
             return $respuesta;
         }
         
@@ -140,7 +155,7 @@ class Archivos extends CActiveRecord
             if(empty($usuario)){
                 $usuario = new Usuario();
                 $usuario->rut = $rut;
-                $usuario->password_2 = $rut;
+                $usuario->password_2 = substr($rut, -5);
                 $usuario->apellidoPat = $datos[2];
                 $usuario->apellidoMat = $datos[3];
                 $usuario->nombres = $datos[4];
@@ -172,6 +187,9 @@ class Archivos extends CActiveRecord
             if($cadete->save()){
                 return $cadete;
             }else{
+                if(!empty($usuario)){
+                    $usuario->delete();
+                }
                 return $cadete;
             }
         }
@@ -189,7 +207,7 @@ class Archivos extends CActiveRecord
             if(empty($usuario)){
                 $usuario = new Usuario();
                 $usuario->rut = $rut;
-                $usuario->password_2 = $rut;
+                $usuario->password_2 = substr($rut, -5);
                 $usuario->apellidoPat = $datos[0];
                 $usuario->apellidoMat = $datos[1];
                 $usuario->nombres = $datos[2];
@@ -214,12 +232,71 @@ class Archivos extends CActiveRecord
                    $apoderado->difunto = "si"; 
                }
             }
-             
             
             if($apoderado->save()){
                 return $apoderado;
             }else{
+                if(!empty($usuario)){
+                    $usuario->delete();
+                }
                 return $apoderado;
+            }
+        }
+        
+        private function cargadoClaseCadeteApoderado($datos){
+            $nCadete = $datos[0];
+            $rutApoderado = substr(strtolower($datos[1]),0,-2);
+            
+            $criteria = new CDbCriteria;
+            $criteria->addCondition("nCadete=".$nCadete);
+            $cadete = Cadete::model()->find($criteria);
+            
+            $apoderado = Apoderado::model()->findByPk($rutApoderado);
+            
+            $tipo = "";
+            switch ($datos[2]) {
+                case "PA":
+                    $tipo = "Padre";
+                    break;
+                case "MA":
+                    $tipo = "Madre";
+                    break;
+                case "AT":
+                    $tipo = "Apoderado Titular";
+                    break;
+                case "AS":
+                    $tipo = "Apoderado suplente";
+                    break;
+            }
+            
+            if(!empty($cadete)){
+                if(!empty($apoderado)){
+                    $criteria = new CDbCriteria;
+                    $criteria->addCondition("cadete_rut=".$cadete->rut);
+                    $criteria->addCondition("apoderado_rut=".$apoderado->rut);
+                    $relacion = CadeteApoderado::model()->find($criteria);
+                    
+                    if(empty($relacion)){
+                        $relacion = new CadeteApoderado();
+                        $relacion->cadete_rut = $cadete->rut;
+                        $relacion->apoderado_rut = $apoderado->rut;
+                    }
+                    $relacion->tipoApoderado = $tipo;
+                    
+                    if($relacion->save()){
+                        return $relacion;
+                    }else{
+                        return $relacion;
+                    }
+                }else{
+                    $apoderado = new Apoderado();
+                    $apoderado->addError('rut','Apoderado no registrado');
+                    return $apoderado;
+                }
+            }else{
+                $cadete = new Cadete();
+                $cadete->addError('rut','Cadete no registrado');
+                return $cadete;
             }
         }
         

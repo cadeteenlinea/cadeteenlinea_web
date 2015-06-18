@@ -63,9 +63,7 @@ class ArchivosController extends Controller
 
                     $model->archivo=CUploadedFile::getInstance($model,'archivo');
                     if($model->save()){
-                        $ext = $model->archivo->getExtensionName();
-                        $path="csv/$model->idarchivos.$ext";
-                        if($model->archivo->saveAs($path)){
+                        if($model->subirArchivo()){
                             $this->redirect(array('view','id'=>$model->idarchivos));
                         }else{
                             $model->addError('archivo', 'Se ha producido un error al subir el archivo al servidor');

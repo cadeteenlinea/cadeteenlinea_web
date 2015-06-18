@@ -305,6 +305,16 @@ class Archivos extends CActiveRecord
             }
         }
         
+        public function subirArchivo(){
+            $ext = $this->archivo->getExtensionName();
+            $path="csv/$this->idarchivos.$ext";
+            if($this->archivo->saveAs($path)){    
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
          protected function afterDelete(){
              parent::afterDelete();
              unlink('csv/'.$this->idarchivos.'.csv');

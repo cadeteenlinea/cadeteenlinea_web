@@ -18,6 +18,9 @@ class SiteController extends Controller
 			'page'=>array(
 				'class'=>'CViewAction',
 			),
+                        'cadetes'=>array(
+				'class'=>'CWebServiceAction',
+			),
 		);
 	}
 
@@ -27,11 +30,16 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+            
             if(!Yii::app()->user->isGuest){
                 $this->render('index');
             }else{
                 $this->actionLogin();
             }
+            
+            // PRUEBA DE WEBSERVICE SOAP
+            //$client=new SoapClient('http://localhost/cadeteenlinea/site/quote');
+            //echo $client->getPrice('GOOGLE');
 	}
 
 	/**
@@ -209,6 +217,25 @@ class SiteController extends Controller
         }
         
         
+        /**
+	 * @param string the symbol of the stock
+	 * @return float the stock price
+	 * @soap
+	 */
+	public function getPrice($symbol)
+	{
+		$prices=array('IBM'=>100, 'GOOGLE'=>350);
+		return isset($prices[$symbol])?$prices[$symbol]:0;
+		//...return stock price for $symbol
+	}
         
+        /**
+	 * @param string
+	 * @return float
+	 * @soap
+	 */
+        public function getCadetes($prueba){
+            return 1;
+        }
         
 }

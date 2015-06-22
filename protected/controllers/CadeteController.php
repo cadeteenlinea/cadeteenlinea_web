@@ -18,7 +18,14 @@ class CadeteController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
+        
+        public function actions() {
+            return array(
+                'cadetes'=>array(
+                    'class'=>'CWebServiceAction',
+		),
+            );
+        }
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -34,6 +41,10 @@ class CadeteController extends Controller
                                     'calificaciones'),
 				'users'=>array('@'),
 			),
+                        array('allow',
+                            'actions'=>array('cadetes'),
+				'users'=>array('*'),
+                        ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -301,5 +312,39 @@ class CadeteController extends Controller
                 'ano' => $ano,
                 'titulo' => 'Calificaciones',
             ));
+        }
+        
+        /**
+	 * @param string   cadete
+	 * @return string   
+	 * @soap
+	 */
+        public function save($cadete){
+            if(isset($cadete))
+            {
+                $result = "";
+                try{
+                    $cad = CJSON::decode($cadete);
+                    $model = Cadete::model()->findByPk($cad["rut"]);
+                    if(!empty($model)){
+                        $result = "update";
+                    } else {
+                        $result = "insert";
+                        $model=new Cadete;
+                    }
+                    $model->nacionalidad = $cad["nacionalidad"];
+                    
+                    if($model->save())
+                        return $result;
+                    else 
+                        return "false";
+                    
+                }  catch (Exception $ex){
+                    return "false";
+                }
+                
+            }else{
+                return "false";
+            }
         }
 }

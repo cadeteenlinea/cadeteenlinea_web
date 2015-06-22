@@ -40,6 +40,10 @@ class SiteController extends Controller
             // PRUEBA DE WEBSERVICE SOAP
             //$client=new SoapClient('http://localhost/cadeteenlinea/site/quote');
             //echo $client->getPrice('GOOGLE');
+            
+            /*$result ="{\"rut\":44444444,\"nCadete\":\"asd\",\"direccion\":\"asd\",\"comuna\":\"asd\",\"ciudad\":null,\"region\":\"asd\",\"curso\":\"asd\",\"division\":\"asd\",\"anoIngreso\":\"asd\",\"anoNacimiento\":\"asd\",\"mesNacimiento\":\"asd\",\"diaNacimiento\":\"asd\",\"lugarNacimiento\":\"asd\",\"nacionalidad\":\"asd\",\"seleccion\":\"asd\",\"nivel\":\"asd\",\"circulo\":\"asd\"}";
+            $str = CJSON::decode($result);
+            echo $str["rut"];*/
 	}
 
 	/**

@@ -319,29 +319,41 @@ class CadeteController extends Controller
 	 * @return string   
 	 * @soap
 	 */
-        public function save($cadete){
-            if(isset($cadete))
+        public function save($cadetesJson){
+            if(isset($cadetesJson))
             {
-                $result = "";
                 try{
-                    $cad = CJSON::decode($cadete);
-                    $model = Cadete::model()->findByPk($cad["rut"]);
-                    if(!empty($model)){
-                        $result = "update";
-                    } else {
-                        $result = "insert";
-                        $model=new Cadete;
-                    }
-                    $model->nacionalidad = $cad["nacionalidad"];
-                    
-                    if($model->save())
-                        return $result;
-                    else 
-                        return "false";
-                    
+                    $resultado = Sincronizador::cargadoGeneral($cadetesJson, "cadete");
+                    return CJSON::encode($resultado);
                 }  catch (Exception $ex){
                     return "false";
                 }
+                
+                  
+                /*foreach($cadetes as $cad){
+                    $cadete = Cadete::model()->findByPk($cad["rut"]);
+                    $usuario = Usuario::model()->findByPk($cad["rut"]);
+                    if(empty($cadete)){
+                        $cadete = new Cadete();
+                        $cadete->rut = $cad["rut"];
+                    }
+                    
+                    if(empty($usuario)){
+                        $usuario = new Usuario();
+                        $usuario->rut = $cad["rut"];
+                        $usuario->password_2 = substr($cad["rut"], -5);
+                        $usuario->apellidoPat = $cad["apellidoPaterno"];
+                        $usuario->apellidoMat = $cad["apellidoMaterno"];
+                        $usuario->nombres = $cad["nombres"];
+                        $usuario->perfil = 'cadete';
+                        $usuario->email = 'seb.frab@gmail.com';
+                        if(!$usuario->save()){
+                            return $usuario;
+                        }
+                    } 
+                }*/
+                
+                return CJSON::encode($resultado[0]);
                 
             }else{
                 return "false";

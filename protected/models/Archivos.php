@@ -58,7 +58,7 @@ class Archivos extends CActiveRecord
 		return array(
 			'idarchivos' => '#',
 			'fecha' => 'Fecha',
-			'tipo_archivo_idtipo_archivo' => 'Tipo Archivo',
+			'tipo_archivo_idtipo_archivo' => 'Tabla',
 		);
 	}
 
@@ -128,6 +128,9 @@ class Archivos extends CActiveRecord
                             break;
                         case "cadete_apoderado":
                             $model = $this->cargadoClaseCadeteApoderado($datos);
+                            break;
+                        case "transaccion":
+                            $model = $this->cargadoClaseTransacciones($datos);
                             break;
                     }
                     $errors[] = array("columna"=>$i, "error" => $model->getErrors());
@@ -315,9 +318,43 @@ class Archivos extends CActiveRecord
             }
         }
         
-         protected function afterDelete(){
-             parent::afterDelete();
-             unlink('csv/'.$this->idarchivos.'.csv');
-         }
-        
+        protected function afterDelete(){
+            parent::afterDelete();
+            unlink('csv/'.$this->idarchivos.'.csv');
+        }
+         
+        private function cargadoClaseTransacciones($datos){
+            $cadete = Cadete::model()->findByPk($datos[1]);
+            
+            if(!empty($cadete)){
+                $transaccion = Transaccion::model()->findByPk($datos[0]);
+                if(empty($transaccion)){
+                    $transaccion = new Transaccion();
+                }
+                $transaccion->idtransaccion = $datos[0];
+                $transaccion->cadete_rut = $datos[1];
+                $transaccion->tipoTransaccion = $datos[2];
+                $transaccion->monto = $datos[3];
+                $transaccion->fechaMovimiento = $datos[4];
+                $transaccion->descripcion = $datos[5];
+                if(trim($datos[6])=="Colegiatura")
+                    $transaccion->tipoCuenta = "Colegiatura";
+                else if(trim($datos[6])=="Cta Cte")
+                    $transaccion->tipoCuenta = "Cta Cte";
+                else
+                    $transaccion->tipoCuenta = "Equipo";
+                
+                if($transaccion->save()){
+                    return $transaccion;
+                }else{
+                    return $transaccion;
+                }
+                
+            }else{
+                $cadete = new Cadete();
+                $cadete->addError('rut','Cadete no registrado');
+                return $cadete;
+            }
+        }
+         
 }

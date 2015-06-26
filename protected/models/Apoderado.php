@@ -35,7 +35,7 @@ class Apoderado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rut, fono, difunto', 'required'),
+			array('rut, difunto', 'required'),
 			array('rut', 'length', 'max'=>10),
 			array('direccion', 'length', 'max'=>100),
 			array('comuna, ciudad, region, fonoComercial', 'length', 'max'=>25),

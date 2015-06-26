@@ -315,7 +315,7 @@ class CadeteController extends Controller
         }
         
         /**
-	 * @param string   cadete
+	 * @param string   
 	 * @return string   
 	 * @soap
 	 */

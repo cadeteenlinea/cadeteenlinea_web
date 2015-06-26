@@ -18,7 +18,7 @@ class SiteController extends Controller
 			'page'=>array(
 				'class'=>'CViewAction',
 			),
-                        'cadetes'=>array(
+                        'quote'=>array(
 				'class'=>'CWebServiceAction',
 			),
 		);

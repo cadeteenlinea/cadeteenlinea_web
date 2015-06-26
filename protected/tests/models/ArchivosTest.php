@@ -33,8 +33,8 @@ class ArchivosTest extends CTestCase {
     }
     
     public function testDelete(){
-        //$this->object = Archivos::model()->findByPk($this->fixture2['idarchivos']);
-        //$this->assertTrue($this->object->delete());
+        $this->object = Archivos::model()->findByPk($this->fixture2['idarchivos']);
+        $this->assertTrue($this->object->delete());
     }
     
 }

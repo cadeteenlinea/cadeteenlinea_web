@@ -7690,3 +7690,87 @@ Stack trace:
 REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
 in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (265)
 in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 02:54:36 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`cadete_apoderado`, CONSTRAINT `cadete_apoderado_ibfk_1` FOREIGN KEY (`apoderado_rut`) REFERENCES `apoderado` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_rut`, `tipoApoderado`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (320)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 02:54:36 [error] [application] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`cadete_apoderado`, CONSTRAINT `cadete_apoderado_ibfk_1` FOREIGN KEY (`apoderado_rut`) REFERENCES `apoderado` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_rut`, `tipoApoderado`) VALUES (:yp0, :yp1, :yp2, :yp3)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(320): CActiveRecord->save()
+#3 [internal function]: SiteController->cadete_apoderado('[{"idcadete_apo...')
+#4 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#14 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 03:06:13 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`apoderado`, CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `difunto`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (324)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 03:06:13 [error] [application] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`apoderado`, CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `difunto`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(324): CActiveRecord->save()
+#3 [internal function]: SiteController->apoderados('[{"rut":1845725...')
+#4 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#14 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 03:09:01 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`apoderado`, CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `difunto`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (324)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 03:09:01 [error] [application] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`apoderado`, CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `difunto`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(324): CActiveRecord->save()
+#3 [internal function]: SiteController->apoderados('[{"rut":1845725...')
+#4 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#14 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 03:39:42 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`apoderado`, CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `difunto`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (324)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 03:39:42 [error] [application] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`cadeteenlinea`.`apoderado`, CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono`, `fonoComercial`, `difunto`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(324): CActiveRecord->save()
+#3 [internal function]: SiteController->apoderados('[{"rut":1845725...')
+#4 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#14 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)

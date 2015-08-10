@@ -359,4 +359,15 @@ class CadeteController extends Controller
                 return "false";
             }
         }
+        
+        /**  
+	 * @return string   
+	 * @soap
+	 */
+        public function getAllCadetes(){
+            $criteria = new CDbCriteria;
+            $criteria->limit = 10;
+            $cadete = Cadete::model()->findAll($criteria);
+            return CJSON::encode($cadete);
+        }
 }

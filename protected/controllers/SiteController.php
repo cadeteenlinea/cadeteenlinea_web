@@ -308,7 +308,7 @@ class SiteController extends Controller
             $error = "";
             $errores = "";
             foreach ($cadetes_apoderados as $cadete_apoderado){
-                $model = CadeteApoderado::model()->findByPk($cadete_apoderado["id"])
+                $model = CadeteApoderado::model()->findByPk($cadete_apoderado["id"]);
             }
         }
         

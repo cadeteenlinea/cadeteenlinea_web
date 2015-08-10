@@ -2,10 +2,10 @@
 
 class ResetPassForm extends CFormModel
 {
-  public $rut;
-  public $password;
-  public $passwordRepeat;
-  public $codVerificacion;
+    public $rut;
+    public $password;
+    public $passwordRepeat;
+    public $codVerificacion;
   
     public function rules()
     {

@@ -56,8 +56,9 @@ class Cadete extends CActiveRecord
 			array('rut, nCadete, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento', 'length', 'max'=>10),
 			array('direccion, lugarNacimiento', 'length', 'max'=>100),
 			array('comuna, ciudad, region, nacionalidad, seleccion, nivel, circulo', 'length', 'max'=>25),
+                        array('circulo', 'length', 'max'=>25),
 			array('curso', 'length', 'max'=>2),
-			array('division', 'length', 'max'=>1),
+			array('division', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('rut, nCadete, direccion, comuna, ciudad, region, curso, division, anoIngreso, anoNacimiento, mesNacimiento, diaNacimiento, lugarNacimiento, nacionalidad, seleccion, nivel, circulo, especialidad_idespecialidad', 'safe', 'on'=>'search'),

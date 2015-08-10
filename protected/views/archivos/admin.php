@@ -62,14 +62,9 @@ $this->menu=array(
 		array(
                         'class'=>'CButtonColumn',
                         'htmlOptions'=>array('width'=>'120px'),
-                        'template'=>'{view}{actualizarBase}{delete}',
+                        'template'=>'{actualizarBase}{delete}',
                         'afterDelete'=>'function(link,success,data){ if(success) $("#statusMsg").html(data); }',
                         'buttons'=>array(
-                            'view' => array
-                            (
-                                'label'=>'ver',
-                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/ver.png',
-                            ),
                             'actualizarBase' => array
                             (
                                 'label'=>'actualizar Base de Datos',

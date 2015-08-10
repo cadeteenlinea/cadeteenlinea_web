@@ -29,7 +29,7 @@ class ArchivosController extends Controller
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','index','admin','view', 'publicar', 'delete'),
-                                'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "Administrador"',
+                                //'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "Administrador"',
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

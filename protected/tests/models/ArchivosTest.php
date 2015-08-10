@@ -11,7 +11,8 @@ class ArchivosTest extends CTestCase {
         'archivo' => 'C:\xampp\htdocs\cadeteenlinea\csv\1.csv',
     );
     public $fixture2 = array(
-        'idarchivos' => '',
+        'idarchivos' => '10',
+        'idarchivosDelete' => '1',
     );
     
     protected function setUp() {
@@ -33,8 +34,18 @@ class ArchivosTest extends CTestCase {
     }
     
     public function testDelete(){
-        $this->object = Archivos::model()->findByPk($this->fixture2['idarchivos']);
+        $this->object = Archivos::model()->findByPk($this->fixture2['idarchivosDelete']);
         $this->assertTrue($this->object->delete());
     }
     
+    public function testPublicarArchivo(){
+        $this->object = Archivos::model()->findByPk($this->fixture2['idarchivos']);
+        $resultado = $this->object->testPublicarArchivo();
+        foreach ($resultado as $result){
+            if(!empty($result["error"])){
+                $this->assertNotEmpty($result["columna"]);
+                $this->assertNotEmpty($result["error"]);
+            }
+        }  
+    }
 }

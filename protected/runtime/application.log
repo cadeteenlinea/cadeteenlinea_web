@@ -6032,3 +6032,1661 @@ REQUEST_URI=/cadeteenlinea/archivos/create
 in C:\xampp\htdocs\cadeteenlinea\protected\models\Archivos.php (311)
 in C:\xampp\htdocs\cadeteenlinea\protected\controllers\ArchivosController.php (66)
 in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/21 22:32:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getPrice" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('getPrice')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('getPrice')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/getPrice')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/getPrice
+---
+2015/06/21 22:37:27 [error] [php] SoapClient::SoapClient(http://localhost/site/quote): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:39)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (39)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 03:04:59 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadetes')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/cadetes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/cadeteenlinea/cadete/cadetes
+---
+2015/06/22 03:05:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadetes')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/cadetes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/cadeteenlinea/cadete/cadetes
+---
+2015/06/22 03:06:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadetes')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/cadetes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/cadeteenlinea/cadete/cadetes
+---
+2015/06/22 03:06:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadetes')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/cadetes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/cadeteenlinea/cadete/cadetes
+---
+2015/06/22 03:07:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadetes')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/cadetes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/cadeteenlinea/cadete/cadetes
+---
+2015/06/22 03:46:32 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:332)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (332)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 03:48:17 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:332)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (332)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 03:50:41 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 03:55:03 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:332)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (332)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 03:55:51 [error] [php] Undefined offset: 1 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:332)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (332)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 03:56:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "save" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('save')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('save')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/save')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/cadete/save
+---
+2015/06/22 03:58:08 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:332)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (332)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 04:01:38 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php:332)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CadeteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CadeteController->filterAccessControl()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CadeteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CadeteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/cadete/cadetes?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\CadeteController.php (332)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 04:23:52 [error] [php] Use of undefined constant str - assumed 'str' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:46)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (46)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/22 04:24:00 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:46)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (46)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/06/23 00:57:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "save" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('save')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('save')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cadete/save')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/cadete/save
+---
+2015/06/23 01:17:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "quote" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('quote')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('quote')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/quote')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/quote
+---
+2015/06/23 01:17:23 [error] [php] SoapClient::SoapClient(http://localhost/cadeteenlinea/site/quote): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (41)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 03:42:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "$metadata" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('$metadata')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('$metadata')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/$metadata')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/$metadata
+---
+2015/08/07 03:42:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "_vti_bin" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('_vti_bin')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('_vti_bin')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/_vti_bin/L...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/_vti_bin/ListData.svc/$metadata
+---
+2015/08/07 03:42:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "_vti_bin" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('_vti_bin')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('_vti_bin')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/_vti_bin/L...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/_vti_bin/ListData.svc/$metadata
+---
+2015/08/07 03:42:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "mex" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('mex')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('mex')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/mex')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/mex
+---
+2015/08/07 03:42:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "$metadata"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('$metadata')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/$metadata
+---
+2015/08/07 03:42:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "_vti_bin/ListData.svc/$metadata"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('_vti_bin/ListDa...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/_vti_bin/ListData.svc/$metadata
+---
+2015/08/07 03:42:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "mex"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mex')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/mex
+---
+2015/08/07 03:42:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "_vti_bin/ListData.svc/$metadata"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('_vti_bin/ListDa...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/_vti_bin/ListData.svc/$metadata
+---
+2015/08/07 03:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "quote/mex"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('quote/mex')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/quote/mex
+---
+2015/08/07 03:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "quote"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('quote')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/quote
+---
+2015/08/07 03:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "quote"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('quote')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/quote
+---
+2015/08/07 03:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "quote"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('quote')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/quote
+---
+2015/08/07 03:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "quote/$metadata"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('quote/$metadata')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/quote/$metadata
+---
+2015/08/07 03:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "quote/_vti_bin/ListData.svc/$metadata"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('quote/_vti_bin/...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/quote/_vti_bin/ListData.svc/$metadata
+---
+2015/08/07 03:54:03 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 03:57:38 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 03:57:38 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('usuarios', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->usuarios('[{"rut":1845725...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 03:59:27 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 03:59:27 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('usuarios', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->usuarios('[{"rut":1845725...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 04:01:58 [error] [php] Undefined index: nombre (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:243)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (243)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 04:01:58 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('usuarios', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->usuarios('[{"rut":1845725...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 04:02:04 [error] [php] Undefined index: nombre (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:243)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (243)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 04:02:04 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('usuarios', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->usuarios('[{"rut":1845725...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 04:15:10 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2011048' for key 'PRIMARY'. La sentencia SQL ejecutada fue: UPDATE `usuario` SET `perfil`=:yp0, `rut`=:yp1, `apellidoPat`=:yp2, `apellidoMat`=:yp3, `nombres`=:yp4, `password_2`=:yp5, `email`=:yp6 WHERE `usuario`.`rut`='1845725'.
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (253)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 04:15:10 [error] [application] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2011048' for key 'PRIMARY'. The SQL statement executed was: UPDATE `usuario` SET `perfil`=:yp0, `rut`=:yp1, `apellidoPat`=:yp2, `apellidoMat`=:yp3, `nombres`=:yp4, `password_2`=:yp5, `email`=:yp6 WHERE `usuario`.`rut`='1845725'' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1753): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1127): CActiveRecord->updateByPk(1845725, Array)
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->update(NULL)
+#3 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(253): CActiveRecord->save()
+#4 [internal function]: SiteController->usuarios('[{"rut":1845725...')
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#6 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('usuario')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/usuario')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#15 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 04:15:10 [error] [exception.SoapFault] SoapFault exception: [CDbException] CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2011048' for key 'PRIMARY'. The SQL statement executed was: UPDATE `usuario` SET `perfil`=:yp0, `rut`=:yp1, `apellidoPat`=:yp2, `apellidoMat`=:yp3, `nombres`=:yp4, `password_2`=:yp5, `email`=:yp6 WHERE `usuario`.`rut`='1845725' (C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358)
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1753): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1127): CActiveRecord->updateByPk(1845725, Array)
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->update(NULL)
+#3 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(253): CActiveRecord->save()
+#4 [internal function]: SiteController->usuarios('[{"rut":1845725...')
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#6 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('usuario')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/usuario')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#15 {main} in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('usuarios', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->usuarios('[{"rut":1845725...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 04:22:54 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 04:24:14 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:255)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/usuario?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (255)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 16:34:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "usuario" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('usuario')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('usuario')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/usuario')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/cadeteenlinea/site/usuario
+---
+2015/08/07 16:34:47 [error] [php] SoapClient::SoapClient(http://localhost/cadeteenlinea/site/usuario): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:40)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (40)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 16:38:23 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:255)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (255)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 17:41:26 [error] [application] exception 'CException' with message 'SiteController y sus behaviors no tienen un método o closure llamado "loadModel".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(247): CComponent->__call('loadModel', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(247): SiteController->loadModel(1845725)
+#2 [internal function]: SiteController->newUsuarios('[{"rut":1845725...')
+#3 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#4 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#13 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:52:25 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:55:00 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:55:00 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 20:55:18 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:55:18 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 20:56:37 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:56:37 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 20:57:33 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:57:33 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 20:58:27 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:58:27 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 20:59:04 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:59:04 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 20:59:39 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 20:59:39 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/07 21:00:06 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/07 21:00:06 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:31:18 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:36:31 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (291)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:36:31 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:37:00 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:37:07 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:37:17 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:292)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (292)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:37:17 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:38:38 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:292)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (292)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:38:38 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:49:28 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:292)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (292)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:49:28 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:49:38 [error] [php] Undefined index: nacionalidad (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:292)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (292)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:49:38 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:51:17 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'E' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `especialidad` `t` WHERE codigo=E LIMIT 1.
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (302)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:51:17 [error] [application] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'E' in 'where clause'. The SQL statement executed was: SELECT * FROM `especialidad` `t` WHERE codigo=E LIMIT 1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(302): CActiveRecord->find(Object(CDbCriteria))
+#4 [internal function]: SiteController->cadetes('[{"rut":1701671...')
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#6 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#15 {main}
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/08 20:51:17 [error] [exception.SoapFault] SoapFault exception: [CDbException] CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'E' in 'where clause'. The SQL statement executed was: SELECT * FROM `especialidad` `t` WHERE codigo=E LIMIT 1 (C:\xampp\htdocs\yii\framework\db\CDbCommand.php:543)
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(302): CActiveRecord->find(Object(CDbCriteria))
+#4 [internal function]: SiteController->cadetes('[{"rut":1701671...')
+#5 C:\xampp\htdocs\yii\framework\web\services\CWebService.php(210): SoapServer->handle()
+#6 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CWebServiceAction))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('cadeteEnLineaDe...')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cadeteEnLi...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#15 {main} in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/08 20:56:12 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:18:43 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:19:28 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:19:28 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:20:22 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:20:22 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:22:11 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:22:11 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:22:28 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:22:28 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:23:09 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:23:09 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:23:18 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:23:18 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:23:48 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:23:48 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:24:10 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:24:10 [error] [exception.SoapFault] SoapFault exception: [Client] looks like we got no XML document in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:41
+Stack trace:
+#0 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->__call('cadetes', Array)
+#1 C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php(41): SoapClient->cadetes('[{"rut":1701671...')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/cadeteenlinea/
+---
+2015/08/10 00:25:37 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:31:05 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:31:45 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:35:39 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:47:11 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:264)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (264)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:48:25 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:264)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (264)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 00:48:59 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:264)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (264)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:30:28 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:270)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (270)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:30:35 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:270)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (270)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:30:59 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:270)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (270)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:31:28 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:266)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (266)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:31:34 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:266)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (266)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:31:38 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:266)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (266)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:32:15 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:266)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (266)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:34:53 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:36:14 [error] [php] Array to string conversion (C:\xampp\htdocs\yii\framework\web\services\CWebService.php:210)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:36:35 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:267)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (267)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:38:23 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:265)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (265)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)
+2015/08/10 01:39:54 [error] [php] Illegal string offset 'rut' (C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php:265)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\services\CWebServiceAction.php(103): CWebService->run()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(76): CWebServiceAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CWebServiceAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\cadeteenlinea\index.php(13): CWebApplication->run()
+REQUEST_URI=/cadeteenlinea/site/cadeteEnLineaDesktop?ws=1
+in C:\xampp\htdocs\cadeteenlinea\protected\controllers\SiteController.php (265)
+in C:\xampp\htdocs\cadeteenlinea\index.php (13)

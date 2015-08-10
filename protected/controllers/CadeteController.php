@@ -187,7 +187,7 @@ class CadeteController extends Controller
             }
             
             $rutCadete = Yii::app()->getSession()->get('rutCadete');
-            $tipoCuenta = "Cta Cte";
+            $tipoCuenta = "Cuenta Corriente";
             
             //isntancia de la clase cadete, para obtener todas sus transacciones
             //hace uso del metodo getTransacciones

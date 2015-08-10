@@ -37,7 +37,7 @@ class Transaccion extends CActiveRecord
 			array('cadete_rut, monto', 'length', 'max'=>10),
 			array('tipoTransaccion', 'length', 'max'=>5),
 			array('descripcion', 'length', 'max'=>150),
-			array('tipoCuenta', 'length', 'max'=>11),
+			array('tipoCuenta', 'length', 'max'=>16),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idtransaccion, cadete_rut, tipoTransaccion, monto, fechaMovimiento, descripcion, tipoCuenta', 'safe', 'on'=>'search'),

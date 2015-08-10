@@ -12,7 +12,7 @@
  * @property integer $semestre
  * @property integer $asignatura_idasignatura
  * @property string $cadete_rut
- * @property integer $concepto
+ * @property integer $concepto_idconcepto
  *
  * The followings are the available model relations:
  * @property Asignatura $asignatura

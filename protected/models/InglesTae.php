@@ -114,4 +114,49 @@ class InglesTae extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public static function saveWeb($ingles){
+            $error = "";
+            $errores = "";
+            foreach ($ingles as $ing){
+                $model = InglesTae::model()->findByPk($ing["idingles_tae"]);
+                if(empty($model)){
+                    $model =  new InglesTae();
+                    $model->idingles_tae = $ing["idingles_tae"];
+                }
+                
+                $model->ano = $ing["ano"];
+                $model->mes = $ing["mes"];
+                $model->speaking = $ing["speaking"];
+                $model->understanding = $ing["understanding"];
+                $model->writing = $ing["writing"];
+                $model->average = $ing["average"];
+                $model->cadete_rut = $ing["cadete_rut"];
+                
+                if(!$model->save()){
+                    $error["idingles_tae"] = $model->idingles_tae;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idingles_tae"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($ingles){
+            $error = "";
+            $errores = "";
+            foreach ($ingles as $ing){
+                $model=InglesTae::model()->findByPk($ing["idingles_tae"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["idingles_tae"] = $ing["idingles_tae"];
+                       $errores[] = array($error["idingles_tae"], "Nota Ingles no existe en el sistema"); 
+                    }
+                }else{
+                    $error["idingles_tae"] = $ing["idingles_tae"];
+                    $errores[] = array($error["idingles_tae"], "Nota Ingles no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

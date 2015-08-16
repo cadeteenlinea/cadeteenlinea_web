@@ -161,4 +161,50 @@ class Transaccion extends CActiveRecord
         public function getFechaFormatoNacional(){
             return Yii::app()->dateFormatter->format("dd/MM/yyyy", $this->fechaMovimiento);
         }
+        
+        public static function saveWeb($transacciones){
+            $error = "";
+            $errores = "";
+            foreach ($transacciones as $transaccion){
+                $model = Transaccion::model()->findByPk($transaccion["idtransaccion"]);
+                
+                if(empty($model)){
+                    $model =  new Transaccion();
+                    $model->idtransaccion = $transaccion["idtransaccion"];
+                }
+                if(isset($transaccion["cadete_rut"]))
+                    $model->cadete_rut = $transaccion["cadete_rut"];
+                if(isset($transaccion["tipoTransaccion"]))
+                    $model->tipoTransaccion = $transaccion["tipoTransaccion"];
+                if(isset($transaccion["monto"]))
+                    $model->monto = $transaccion["monto"];
+                if(isset($transaccion["fechaMovimiento"]))
+                    $model->fechaMovimiento = $transaccion["fechaMovimiento"];
+                if(isset($transaccion["descripcion"]))
+                    $model->descripcion = $transaccion["descripcion"];
+                if(isset($transaccion["tipoCuenta"]))
+                    $model->tipoCuenta = $transaccion["tipoCuenta"];
+                
+                if(!$model->save()){
+                    $error["idtransaccion"] = $model->idtransaccion;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idtransaccion"], $error["error"]);
+                }
+                
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($transacciones){
+            $error = "";
+            $errores = "";
+            foreach ($transacciones as $transaccion){
+                $model=Transaccion::model()->findByPk($transaccion["idtransaccion"]);
+                if(!$model->delete()){
+                   $error["idtransaccion"] = $transaccion["idtransaccion"];
+                   $errores[] = array($error["idtransaccion"], "Transaccion no existe en el sistema"); 
+                }
+            }
+            return $errores;
+        }
 }

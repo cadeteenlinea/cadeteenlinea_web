@@ -126,4 +126,51 @@ class NotasParciales extends CActiveRecord
         public function getFecha(){
             return $this->dia.'/'.$this->mes.'/'.$this->ano;
         }
+        
+        public static function saveWeb($notas){
+            $error = "";
+            $errores = "";
+            foreach ($notas as $nota){
+                $model = NotasParciales::model()->findByPk($nota["idnotas_parciales"]);
+                if(empty($model)){
+                    $model =  new NotasParciales();
+                    $model->idnotas_parciales = $nota["idnotas_parciales"];
+                }
+                
+                $model->nota = $nota["nota"];
+                $model->dia = $nota["dia"];
+                $model->mes = $nota["mes"];
+                $model->ano = $nota["ano"];
+                $model->semestre = $nota["semestre"];
+                $model->asignatura_idasignatura = $nota["asignatura_idasignatura"];
+                $model->cadete_rut = $nota["cadete_rut"];
+                
+                $criteria=new CDbCriteria;
+                $criteria->addCondition('codigo="'.$nota["concepto"].'"');
+                $concepto = Concepto::model()->find($criteria);
+                if(!empty($concepto)){
+                    $model->concepto_idconcepto = $concepto->idconcepto;
+                }
+                
+                if(!$model->save()){
+                    $error["idnotas_parciales"] = $model->idnotas_parciales;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idnotas_parciales"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($notas){
+            $error = "";
+            $errores = "";
+            foreach ($notas as $nota){
+                $model=NotasParciales::model()->findByPk($nota["idnotas_parciales"]);
+                if(!$model->delete()){
+                   $error["idnotas_parciales"] = $nota["idnotas_parciales"];
+                   $errores[] = array($error["idnotas_parciales"], "Nota Ingles no existe en el sistema"); 
+                }
+            }
+            return $errores;
+        }
 }

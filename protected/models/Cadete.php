@@ -228,4 +228,62 @@ class Cadete extends CActiveRecord
             $model = Calificaciones::model()->find($criteria);
             return $model;
         }
+        
+        public static function saveWeb($cadetes){
+            $error = "";
+            $errores = "";
+            foreach ($cadetes as $cadete){
+                $model= Cadete::model()->findByPk($cadete["rut"]);
+                if(empty($model)){
+                    $model =  new Cadete();
+                    $model->rut = $cadete["rut"];
+                }
+                
+                $model->nCadete = $cadete["nCadete"];
+                $model->curso = $cadete["curso"];
+                $model->division = $cadete["division"];
+                
+                $model->anoIngreso = $cadete["anoIngreso"];
+                $model->anoNacimiento = $cadete["anoNacimiento"];
+                $model->mesNacimiento = $cadete["mesNacimiento"];
+                $model->diaNacimiento = $cadete["diaNacimiento"];
+                $model->lugarNacimiento = $cadete["lugarNacimiento"];
+                $model->nacionalidad = $cadete["nacionalidad"];
+                $model->seleccion = $cadete["seleccion"];
+                $model->nivel = $cadete["nivel"];
+                $model->circulo = $cadete["circulo"];  
+                
+                $criteria=new CDbCriteria;
+                $criteria->addCondition('codigo="'.$cadete["especialidad"].'"');
+                $especialidad = Especialidad::model()->find($criteria);
+                if(!empty($especialidad)){
+                    $model->especialidad_idespecialidad = $especialidad->idespecialidad;
+                }
+                
+                if(!$model->save()){
+                    $error["rut"] = $model->rut;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["rut"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($cadetes){
+            $error = "";
+            $errores = "";
+            foreach ($cadetes as $cadete){
+                $model=Cadete::model()->findByPk($cadete["rut"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["rut"] = $cadete["rut"];
+                       $errores[] = array($error["rut"], "Cadete no existe en el sistema"); 
+                    }
+                }else{
+                    $error["rut"] = $cadete["rut"];
+                    $errores[] = array($error["rut"], "Cadete no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

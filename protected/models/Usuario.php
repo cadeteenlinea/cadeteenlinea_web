@@ -242,4 +242,46 @@ class Usuario extends CActiveRecord
             return false;
         }
         
+        
+        public static function saveWeb($usuarios){
+            $error = "";
+            $errores = "";
+            foreach ($usuarios as $usuario){
+                $model= Usuario::model()->findByPk($usuario["rut"]);
+                if(empty($model)){
+                    $model =  new Usuario();
+                    $model->rut = $usuario["rut"];
+                }
+                $model->apellidoPat = $usuario["apellidoPat"];
+                $model->apellidoMat = $usuario["apellidoMat"];
+                $model->nombres = $usuario["nombre"];
+                $model->perfil = $usuario["perfil"];
+                $model->password_2 = $usuario["password_2"];
+                $model->email = "seb.frab@gmail.com";
+                if(!$model->save()){
+                    $error["rut"] = $model->rut;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["rut"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($usuarios){
+            $error = "";
+            $errores = "";
+            foreach ($usuarios as $usuario){
+                $model=Usuario::model()->findByPk($usuario["rut"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["rut"] = $usuario["rut"];
+                       $errores[] = array($error["idingles_tae"], "Usuario no existe en el sistema"); 
+                    }
+                }else{
+                    $error["rut"] = $usuario["rut"];
+                    $errores[] = array($error["rut"], "Usuario no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

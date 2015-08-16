@@ -104,4 +104,44 @@ class CadeteApoderado extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public static function saveWeb($cadetes_apoderados){
+            $error = "";
+            $errores = "";
+            foreach ($cadetes_apoderados as $cadete_apoderado){
+                $model = CadeteApoderado::model()->findByPk($cadete_apoderado["idcadete_apoderado"]);
+                if(empty($model)){
+                    $model =  new CadeteApoderado();
+                    $model->idcadete_apoderado = $cadete_apoderado["idcadete_apoderado"];
+                }
+                $model->cadete_rut = $cadete_apoderado["cadete_rut"];
+                $model->apoderado_rut = $cadete_apoderado["apoderado_rut"];
+                $model->tipoApoderado = $cadete_apoderado["tipoApoderado"];
+                
+                if(!$model->save()){
+                    $error["idcadete_apoderado"] = $model->idcadete_apoderado;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idcadete_apoderado"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($cadetes_apoderados){
+            $error = "";
+            $errores = "";
+            foreach ($ingles as $ing){
+                $model=CadeteApoderado::model()->findByPk($cadete_apoderado["idcadete_apoderado"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["idcadete_apoderado"] = $cadete_apoderado["idcadete_apoderado"];
+                       $errores[] = array($error["idcadete_apoderado"], "Relacion no existe en el sistema"); 
+                    }
+                }else{
+                    $error["idcadete_apoderado"] = $cadete_apoderado["idcadete_apoderado"];
+                    $errores[] = array($error["idcadete_apoderado"], "Relacion no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

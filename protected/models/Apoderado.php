@@ -154,4 +154,48 @@ class Apoderado extends CActiveRecord
             }
             return false;
         }
+        
+        public static function saveWeb($apoderados){
+            $error = "";
+            $errores = "";
+            foreach ($apoderados as $apoderado){
+                $model = Apoderado::model()->findByPk($apoderado["rut"]);
+                if(empty($model)){
+                    $model =  new Apoderado();
+                    $model->rut = $apoderado["rut"];
+                }
+                $model->direccion = $apoderado["direccion"];
+                $model->comuna = $apoderado["comuna"];
+                $model->ciudad = $apoderado["ciudad"];
+                $model->region = $apoderado["ciudad"];
+                $model->fono = $apoderado["fono"];
+                $model->fonoComercial = $apoderado["fonoComercial"];
+                $model->difunto = $apoderado["difunto"];
+                
+                if(!$model->save()){
+                    $error["rut"] = $model->rut;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["rut"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($apoderados){
+            $error = "";
+            $errores = "";
+            foreach ($apoderados as $apoderado){
+                $model=Apoderado::model()->findByPk($apoderado["rut"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["rut"] = $apoderado["rut"];
+                       $errores[] = array($error["idingles_tae"], "Apoderado no existe en el sistema"); 
+                    }
+                }else{
+                    $error["rut"] = $apoderado["rut"];
+                    $errores[] = array($error["rut"], "Apoderado no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

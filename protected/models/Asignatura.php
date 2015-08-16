@@ -137,4 +137,54 @@ class Asignatura extends CActiveRecord
             $model = Asignatura::model()->findAll($criteria);
             return $model;
         }
+        
+        public static function saveWeb($asignaturas){
+            $error = "";
+            $errores = "";
+            foreach ($asignaturas as $asignatura){
+                $model = Asignatura::model()->findByPk($asignatura["idasignatura"]);
+                if(empty($model)){
+                    $model =  new Asignatura();
+                    $model->idasignatura = $asignatura["idasignatura"];
+                }
+                
+                $model->codigo = $asignatura["codigo"];
+                $model->ano = $asignatura["ano"];
+                $model->semestre = $asignatura["semestre"];
+                $model->curso = $asignatura["curso"];
+                $model->nombre = $asignatura["nombre"];
+                
+                $criteria=new CDbCriteria;
+                $criteria->addCondition('codigo="'.$asignatura["especialidad"].'"');
+                $especialidad = Especialidad::model()->find($criteria);
+                if(!empty($especialidad)){
+                    $model->especialidad_idespecialidad = $especialidad->idespecialidad;
+                }
+                
+                if(!$model->save()){
+                    $error["idasignatura"] = $model->idasignatura;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idasignatura"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($asignaturas){
+            $error = "";
+            $errores = "";
+            foreach ($asignaturas as $asignatura){
+                $model=Asignatura::model()->findByPk($ing["idasignatura"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["idasignatura"] = $ing["idasignatura"];
+                       $errores[] = array($error["idasignatura"], "Asignatura no existe en el sistema"); 
+                    }
+                }else{
+                    $error["idasignatura"] = $ing["idasignatura"];
+                    $errores[] = array($error["idasignatura"], "Asignatura no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

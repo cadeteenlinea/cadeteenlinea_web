@@ -222,143 +222,138 @@ class SiteController extends Controller
         }*/
         
         /**
-	 * @param string
+	 * @param string $usuariosJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-        public function usuarios($usuariosJson){
-            $usuarios = CJSON::decode($usuariosJson, true);
-            $error = "";
-            $errores = "";
-            foreach ($usuarios as $usuario){
-                $model= Usuario::model()->findByPk($usuario["rut"]);
-                if(empty($model)){
-                    $model =  new Usuario();
-                    $model->rut = $usuario["rut"];
-                }
-                $model->apellidoPat = $usuario["apellidoPat"];
-                $model->apellidoMat = $usuario["apellidoMat"];
-                $model->nombres = $usuario["nombre"];
-                $model->perfil = $usuario["perfil"];
-                $model->password_2 = $usuario["password_2"];
-                $model->email = "seb.frab@gmail.com";
-                if(!$model->save()){
-                    $error["rut"] = $model->rut;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["rut"], $error["error"]);
-                }
+        public function usuarios($usuariosJson, $estado){
+            $result = '';
+            if(!empty($usuariosJson) && !empty($estado)){
+                $usuarios = CJSON::decode($usuariosJson, true);
+                if (is_null($usuarios)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = Usuario::saveWeb($usuarios);
+                            break;
+                        case 2:
+                            $result = Usuario::saveWeb($usuarios);
+                            break;
+                        case 3:
+                            $result = Usuario::deleteWeb($usuarios);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
         }
         
         
         /**
-	 * @param string
+	 * @param string $cadetesJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-        public function cadetes($cadetesJson){
-            $cadetes = CJSON::decode($cadetesJson);
-            $error = "";
-            $errores = "";
-            foreach ($cadetes as $cadete){
-                $model= Cadete::model()->findByPk($cadete["rut"]);
-                if(empty($model)){
-                    $model =  new Cadete();
-                    $model->rut = $cadete["rut"];
-                }
-                
-                $model->nCadete = $cadete["nCadete"];
-                $model->curso = $cadete["curso"];
-                $model->division = $cadete["division"];
-                
-                $model->anoIngreso = $cadete["anoIngreso"];
-                $model->anoNacimiento = $cadete["anoNacimiento"];
-                $model->mesNacimiento = $cadete["mesNacimiento"];
-                $model->diaNacimiento = $cadete["diaNacimiento"];
-                $model->lugarNacimiento = $cadete["lugarNacimiento"];
-                $model->nacionalidad = $cadete["nacionalidad"];
-                $model->seleccion = $cadete["seleccion"];
-                $model->nivel = $cadete["nivel"];
-                $model->circulo = $cadete["circulo"];  
-                
-                $criteria=new CDbCriteria;
-                $criteria->addCondition('codigo="'.$cadete["especialidad"].'"');
-                $especialidad = Especialidad::model()->find($criteria);
-                if(!empty($especialidad)){
-                    $model->especialidad_idespecialidad = $especialidad->idespecialidad;
-                }
-                
-                if(!$model->save()){
-                    $error["rut"] = $model->rut;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["rut"], $error["error"]);
-                }
+        public function cadetes($cadetesJson, $estado){
+            $result = '';
+            if(!empty($cadetesJson) && !empty($estado)){
+                $cadetes = CJSON::decode($cadetesJson);
+                if (is_null($cadetes)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = Cadete::saveWeb($cadetes);
+                            break;
+                        case 2:
+                            $result = Cadete::saveWeb($cadetes);
+                            break;
+                        case 3:
+                            $result = Cadete::deleteWeb($cadetes);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
+            return CJSON::encode($result);
+        }
+        
+        /**
+	 * @param string $apoderadoJson
+         * @param string $estado
+	 * @return string
+	 * @soap
+	 */
+        public function apoderados($apoderadoJson, $estado){
+            $result = '';
+            if(!empty($apoderadoJson) && !empty($estado)){
+                $apoderados = CJSON::decode($apoderadoJson);
+                if (is_null($apoderados)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = Apoderado::saveWeb($apoderados);
+                            break;
+                        case 2:
+                            $result = Apoderado::saveWeb($apoderados);
+                            break;
+                        case 3:
+                            $result = Apoderado::deleteWeb($apoderados);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
+            }
+            return CJSON::encode($result);
+        }
+        
+        
+        /**
+	 * @param string $cadete_apoderadoJson
+         * @param string $estado
+	 * @return string
+	 * @soap
+	 */
+        public function cadete_apoderado($cadete_apoderadoJson, $estado){
+            $result = '';
+            if(!empty($cadete_apoderadoJson) && !empty($estado)){
+                $cadetes_apoderados = CJSON::decode($cadete_apoderadoJson);
+                if (is_null($cadetes_apoderados)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = CadeteApoderado::saveWeb($cadetes_apoderados);
+                            break;
+                        case 2:
+                            $result = CadeteApoderado::saveWeb($cadetes_apoderados);
+                            break;
+                        case 3:
+                            $result = CadeteApoderado::deleteWeb($cadetes_apoderados);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
+            }
+            return CJSON::encode($result);
             
-            return CJSON::encode($errores);
-        }
-        
-        /**
-	 * @param string
-	 * @return string
-	 * @soap
-	 */
-        public function apoderados($apoderadoJson){
-            $apoderados = CJSON::decode($apoderadoJson);
-            $error = "";
-            $errores = "";
-            foreach ($apoderados as $apoderado){
-                $model = Apoderado::model()->findByPk($apoderado["rut"]);
-                if(empty($model)){
-                    $model =  new Apoderado();
-                    $model->rut = $apoderado["rut"];
-                }
-                $model->direccion = $apoderado["direccion"];
-                $model->comuna = $apoderado["comuna"];
-                $model->ciudad = $apoderado["ciudad"];
-                $model->region = $apoderado["ciudad"];
-                $model->fono = $apoderado["fono"];
-                $model->fonoComercial = $apoderado["fonoComercial"];
-                $model->difunto = $apoderado["difunto"];
-                
-                if(!$model->save()){
-                    $error["rut"] = $model->rut;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["rut"], $error["error"]);
-                }
-            }
-            
-            return CJSON::encode($errores);
-        }
-        
-        
-        /**
-	 * @param string
-	 * @return string
-	 * @soap
-	 */
-        public function cadete_apoderado($cadete_apoderadoJson){
-            $cadetes_apoderados = CJSON::decode($cadete_apoderadoJson);
-            $error = "";
-            $errores = "";
-            foreach ($cadetes_apoderados as $cadete_apoderado){
-                $model = CadeteApoderado::model()->findByPk($cadete_apoderado["idcadete_apoderado"]);
-                if(empty($model)){
-                    $model =  new CadeteApoderado();
-                    $model->idcadete_apoderado = $cadete_apoderado["idcadete_apoderado"];
-                }
-                $model->cadete_rut = $cadete_apoderado["cadete_rut"];
-                $model->apoderado_rut = $cadete_apoderado["apoderado_rut"];
-                $model->tipoApoderado = $cadete_apoderado["tipoApoderado"];
-                
-                if(!$model->save()){
-                    $error["idcadete_apoderado"] = $model->idcadete_apoderado;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idcadete_apoderado"], $error["error"]);
-                }
-            }
-            return CJSON::encode($errores);
        }
        
        
@@ -402,185 +397,171 @@ class SiteController extends Controller
        
        
        /**
-	 * @param string
+	 * @param string $inglesJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-        public function ingles($inglesJson){
-            $ingles = CJSON::decode($inglesJson);
-            $error = "";
-            $errores = "";
-            foreach ($ingles as $ing){
-                $model = InglesTae::model()->findByPk($ing["idingles_tae"]);
-                if(empty($model)){
-                    $model =  new InglesTae();
-                    $model->idingles_tae = $ing["idingles_tae"];
-                }
-                
-                $model->ano = $ing["ano"];
-                $model->mes = $ing["mes"];
-                $model->speaking = $ing["speaking"];
-                $model->understanding = $ing["understanding"];
-                $model->writing = $ing["writing"];
-                $model->average = $ing["average"];
-                $model->cadete_rut = $ing["cadete_rut"];
-                
-                if(!$model->save()){
-                    $error["idingles_tae"] = $model->idingles_tae;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idingles_tae"], $error["error"]);
-                }
+        public function ingles($inglesJson, $estado){
+            $result = '';
+            if(!empty($inglesJson) && !empty($estado)){
+                $ingles = CJSON::decode($inglesJson);
+                if (is_null($ingles)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = InglesTae::saveWeb($ingles);
+                            break;
+                        case 2:
+                            $result = InglesTae::saveWeb($ingles);
+                            break;
+                        case 3:
+                            $result = InglesTae::deleteWeb($ingles);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
        }
        
        
        /**
-	 * @param string
+	 * @param string $asignaturasJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-        public function asignaturas($asignaturasJson){
-            $asignaturas = CJSON::decode($asignaturasJson);
-            $error = "";
-            $errores = "";
-            foreach ($asignaturas as $asignatura){
-                $model = Asignatura::model()->findByPk($asignatura["idasignatura"]);
-                if(empty($model)){
-                    $model =  new Asignatura();
-                    $model->idasignatura = $asignatura["idasignatura"];
-                }
-                
-                $model->codigo = $asignatura["codigo"];
-                $model->ano = $asignatura["ano"];
-                $model->semestre = $asignatura["semestre"];
-                $model->curso = $asignatura["curso"];
-                $model->nombre = $asignatura["nombre"];
-                
-                $criteria=new CDbCriteria;
-                $criteria->addCondition('codigo="'.$asignatura["especialidad"].'"');
-                $especialidad = Especialidad::model()->find($criteria);
-                if(!empty($especialidad)){
-                    $model->especialidad_idespecialidad = $especialidad->idespecialidad;
-                }
-                
-                if(!$model->save()){
-                    $error["idasignatura"] = $model->idasignatura;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idasignatura"], $error["error"]);
-                }
+        public function asignaturas($asignaturasJson, $estado){
+            $result = '';
+            if(!empty($asignaturasJson) && !empty($estado)){
+                $asignaturas = CJSON::decode($asignaturasJson);
+                if (is_null($asignaturas)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = Asignatura::saveWeb($asignaturas);
+                            break;
+                        case 2:
+                            $result = Asignatura::saveWeb($asignaturas);
+                            break;
+                        case 3:
+                            $result = Asignatura::deleteWeb($asignaturas);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
        }
        
        
        /**
-	 * @param string
+	 * @param string $notasParcialesJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-        public function notasParciales($notasParcialesJson){
-            $notas = CJSON::decode($notasParcialesJson);
-            $error = "";
-            $errores = "";
-            foreach ($notas as $nota){
-                $model = NotasParciales::model()->findByPk($nota["idnotas_parciales"]);
-                if(empty($model)){
-                    $model =  new NotasParciales();
-                    $model->idnotas_parciales = $nota["idnotas_parciales"];
-                }
-                
-                $model->nota = $nota["nota"];
-                $model->dia = $nota["dia"];
-                $model->mes = $nota["mes"];
-                $model->ano = $nota["ano"];
-                $model->semestre = $nota["semestre"];
-                $model->asignatura_idasignatura = $nota["asignatura_idasignatura"];
-                $model->cadete_rut = $nota["cadete_rut"];
-                
-                $criteria=new CDbCriteria;
-                $criteria->addCondition('codigo="'.$nota["concepto"].'"');
-                $concepto = Concepto::model()->find($criteria);
-                if(!empty($concepto)){
-                    $model->concepto_idconcepto = $concepto->idconcepto;
-                }
-                
-                if(!$model->save()){
-                    $error["idnotas_parciales"] = $model->idnotas_parciales;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idnotas_parciales"], $error["error"]);
-                }
+        public function notasParciales($notasParcialesJson, $estado){
+            $result = '';
+            if(!empty($notasParcialesJson) && !empty($estado)){
+                $notas = CJSON::decode($notasParcialesJson);
+                if (is_null($notas)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch($estado){
+                        case 1:
+                            $result = NotasParciales::saveWeb($notas);
+                            break;
+                        case 2:
+                            $result = NotasParciales::saveWeb($notas);
+                            break;
+                        case 3:
+                            $result = NotasParciales::deleteWeb($notas);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
        }
        
        
        /**
-	 * @param string
+	 * @param string $notasFinalesJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-       public function notasFinales($notasFinalesJson){
-            $notas = CJSON::decode($notasFinalesJson);
-            $error = "";
-            $errores = "";
-            foreach ($notas as $nota){
-                $model = NotasFinales::model()->findByPk($nota["idnotas_finales"]);
-                if(empty($model)){
-                    $model =  new NotasFinales();
-                    $model->idnotas_finales = $nota["idnotas_finales"];
-                }
-                
-                $model->nota_presentacion = $nota["nota_presentacion"];
-                $model->nota_examen = $nota["nota_examen"];
-                $model->nota_final = $nota["nota_final"];
-                $model->nota_examen_repeticion = $nota["nota_examen_repeticion"];
-                $model->nota_final_repeticion = $nota["nota_final_repeticion"];
-                $model->estado = $nota["estado"];
-                $model->asignatura_idasignatura = $nota["asignatura_idasignatura"];
-                $model->cadete_rut = $nota["cadete_rut"];
-                
-                if(!$model->save()){
-                    $error["idnotas_finales"] = $model->idnotas_finales;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idnotas_finales"], $error["error"]);
-                }
+       public function notasFinales($notasFinalesJson, $estado){
+            $result = '';
+            if(!empty($notasFinalesJson) && !empty($estado)){
+                $notas = CJSON::decode($notasFinalesJson);
+                if (is_null($notas)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch($estado){
+                        case 1:
+                            $result = NotasFinales::saveWeb($notas);
+                            break;
+                        case 2:
+                            $result = NotasFinales::saveWeb($notas);
+                            break;
+                        case 3:
+                            $result = NotasFinales::deleteWeb($notas);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
        }
        
        /**
-	 * @param string
-	 * @return string
+	 * @param string $transaccionesJson
+         * @param string $estado
+	 * @return string 
 	 * @soap
 	 */
-       public function transacciones($transaccionesJson){
-            $transacciones = CJSON::decode($transaccionesJson);
-            $error = "";
-            $errores = "";
-            foreach ($transacciones as $transaccion){
-                $model = Transaccion::model()->findByPk($transaccion["idtransaccion"]);
-                
-                if(empty($model)){
-                    $model =  new Transaccion();
-                    $model->idtransaccion = $transaccion["idtransaccion"];
-                }
-                
-                $model->cadete_rut = $transaccion["cadete_rut"];
-                $model->tipoTransaccion = $transaccion["tipoTransaccion"];
-                $model->monto = $transaccion["monto"];
-                $model->fechaMovimiento = $transaccion["fechaMovimiento"];
-                $model->descripcion = $transaccion["descripcion"];
-                $model->tipoCuenta = $transaccion["tipoCuenta"];
-                
-                if(!$model->save()){
-                    $error["idtransaccion"] = $model->idtransaccion;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idtransaccion"], $error["error"]);
-                }
-                
+        public function transacciones($transaccionesJson = '', $estado = ''){
+            $result = '';
+            if(!empty($transaccionesJson) && !empty($estado)){
+                $transacciones = CJSON::decode($transaccionesJson);
+                if (is_null($transacciones)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = Transaccion::saveWeb($transacciones);
+                            break;
+                        case 2:
+                            $result = Transaccion::saveWeb($transacciones);
+                            break;
+                        case 3:
+                            $result = Transaccion::deleteWeb($transacciones);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
        }
         
 }

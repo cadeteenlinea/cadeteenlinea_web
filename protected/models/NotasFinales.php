@@ -162,4 +162,45 @@ class NotasFinales extends CActiveRecord
             $model = NotasFinales::model()->find($criteria);
             return $model;
         }
+        
+        public static function saveWeb($notas){
+            $error = "";
+            $errores = "";
+            foreach ($notas as $nota){
+                $model = NotasFinales::model()->findByPk($nota["idnotas_finales"]);
+                if(empty($model)){
+                    $model =  new NotasFinales();
+                    $model->idnotas_finales = $nota["idnotas_finales"];
+                }
+                
+                $model->nota_presentacion = $nota["nota_presentacion"];
+                $model->nota_examen = $nota["nota_examen"];
+                $model->nota_final = $nota["nota_final"];
+                $model->nota_examen_repeticion = $nota["nota_examen_repeticion"];
+                $model->nota_final_repeticion = $nota["nota_final_repeticion"];
+                $model->estado = $nota["estado"];
+                $model->asignatura_idasignatura = $nota["asignatura_idasignatura"];
+                $model->cadete_rut = $nota["cadete_rut"];
+                
+                if(!$model->save()){
+                    $error["idnotas_finales"] = $model->idnotas_finales;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idnotas_finales"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($notas){
+            $error = "";
+            $errores = "";
+            foreach ($notas as $nota){
+                $model=NotasFinales::model()->findByPk($nota["idnotas_finales"]);
+                if(!$model->delete()){
+                   $error["idnotas_finales"] = $nota["idnotas_finales"];
+                   $errores[] = array($error["idnotas_finales"], "Nota Ingles no existe en el sistema"); 
+                }
+            }
+            return $errores;
+        }
 }

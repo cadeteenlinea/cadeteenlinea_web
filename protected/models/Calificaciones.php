@@ -153,4 +153,54 @@ class Calificaciones extends CActiveRecord
             
             return CHtml::listData($model, 'ano', 'ano');
         }
+        
+        public static function saveWeb($calificaciones){
+            $error = "";
+            $errores = "";
+            foreach ($calificaciones as $calificacion){
+                $model = Calificaciones::model()->findByPk($calificacion["idcalificaciones"]);
+                if(empty($model)){
+                    $model =  new Calificaciones();
+                    $model->idcalificaciones = $calificacion["idcalificaciones"];
+                }
+                $model->ano = $calificacion["ano"];
+                $model->semestre = $calificacion["semestre"];
+                $model->mando = $calificacion["mando"];
+                $model->interes_profesional = $calificacion["interes_profesional"];
+                $model->personalidad_madurez = $calificacion["personalidad_madurez"];
+                $model->responsabilidad = $calificacion["responsabilidad"];
+                $model->espiritu_militar = $calificacion["espiritu_militar"];
+                $model->cooperacion = $calificacion["cooperacion"];
+                $model->conducta = $calificacion["conducta"];
+                $model->aptitud_fisica = $calificacion["aptitud_fisica"];
+                $model->tenida_orden_aseo = $calificacion["tenida_orden_aseo"];
+                $model->final = $calificacion["final"];
+                $model->cadete_rut = $calificacion["cadete_rut"];
+                
+                if(!$model->save()){
+                    $error["idcalificaciones"] = $model->idcalificaciones;
+                    $error["error"] = $model->errors;
+                    $errores[] = array($error["idcalificaciones"], $error["error"]);
+                }
+            }
+            return $errores;
+        }
+        
+        public static function deleteWeb($calificaciones){
+            $error = "";
+            $errores = "";
+            foreach ($calificaciones as $calificacion){
+                $model=Calificaciones::model()->findByPk($calificacion["idcalificaciones"]);
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["idcalificaciones"] = $calificacion["idcalificaciones"];
+                       $errores[] = array($error["idcalificaciones"], "Calificacion no existe en el sistema"); 
+                    }
+                }else{
+                    $error["idcalificaciones"] = $calificacion["idcalificaciones"];
+                    $errores[] = array($error["idcalificaciones"], "Calificacion no existe en el sistema");
+                }
+            }
+            return $errores;
+        }
 }

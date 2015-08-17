@@ -358,41 +358,36 @@ class SiteController extends Controller
        
        
        /**
-	 * @param string
+	 * @param string $calificacionesJson
+         * @param string $estado
 	 * @return string
 	 * @soap
 	 */
-        public function calificaciones($calificacionesJson){
-            $calificaciones = CJSON::decode($calificacionesJson);
-            $error = "";
-            $errores = "";
-            foreach ($calificaciones as $calificacion){
-                $model = Calificaciones::model()->findByPk($calificacion["idcalificaciones"]);
-                if(empty($model)){
-                    $model =  new Calificaciones();
-                    $model->idcalificaciones = $calificacion["idcalificaciones"];
-                }
-                $model->ano = $calificacion["ano"];
-                $model->semestre = $calificacion["semestre"];
-                $model->mando = $calificacion["mando"];
-                $model->interes_profesional = $calificacion["interes_profesional"];
-                $model->personalidad_madurez = $calificacion["personalidad_madurez"];
-                $model->responsabilidad = $calificacion["responsabilidad"];
-                $model->espiritu_militar = $calificacion["espiritu_militar"];
-                $model->cooperacion = $calificacion["cooperacion"];
-                $model->conducta = $calificacion["conducta"];
-                $model->aptitud_fisica = $calificacion["aptitud_fisica"];
-                $model->tenida_orden_aseo = $calificacion["tenida_orden_aseo"];
-                $model->final = $calificacion["final"];
-                $model->cadete_rut = $calificacion["cadete_rut"];
-                
-                if(!$model->save()){
-                    $error["idcalificaciones"] = $model->idcalificaciones;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idcalificaciones"], $error["error"]);
-                }
+        public function calificaciones($calificacionesJson, $estado){
+            $result = '';
+            if(!empty($calificacionesJson) && !empty($estado)){
+                $calificaciones = CJSON::decode($calificacionesJson);
+                if (is_null($calificaciones)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch ($estado){
+                        case 1:
+                            $result = Calificaciones::saveWeb($calificaciones);
+                            break;
+                        case 2:
+                            $result = Calificaciones::saveWeb($calificaciones);
+                            break;
+                        case 3:
+                            $result = Calificaciones::deleteWeb($calificaciones);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
             }
-            return CJSON::encode($errores);
+            return CJSON::encode($result);
        }
        
        

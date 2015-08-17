@@ -492,7 +492,6 @@ class SiteController extends Controller
             return CJSON::encode($result);
        }
        
-       
        /**
 	 * @param string $notasFinalesJson
          * @param string $estado

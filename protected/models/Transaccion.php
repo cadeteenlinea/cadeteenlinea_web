@@ -185,9 +185,16 @@ class Transaccion extends CActiveRecord
                 if(isset($transaccion["tipoCuenta"]))
                     $model->tipoCuenta = $transaccion["tipoCuenta"];
                 
-                if(!$model->save()){
+                try{
+                    if(!$model->save()){
+                        $error["idtransaccion"] = $model->idtransaccion;
+                        $error["error"] = $model->errors;
+                        $errores[] = array($error["idtransaccion"], $error["error"]);
+                    }
+                } catch (CDbException $e){
+                    //e->errorInfo[1] 
                     $error["idtransaccion"] = $model->idtransaccion;
-                    $error["error"] = $model->errors;
+                    $error["error"] = $e;
                     $errores[] = array($error["idtransaccion"], $error["error"]);
                 }
                 
@@ -200,9 +207,14 @@ class Transaccion extends CActiveRecord
             $errores = "";
             foreach ($transacciones as $transaccion){
                 $model=Transaccion::model()->findByPk($transaccion["idtransaccion"]);
-                if(!$model->delete()){
-                   $error["idtransaccion"] = $transaccion["idtransaccion"];
-                   $errores[] = array($error["idtransaccion"], "Transaccion no existe en el sistema"); 
+                if(!empty($model)){
+                    if(!$model->delete()){
+                       $error["idtransaccion"] = $transaccion["idtransaccion"];
+                       $errores[] = array($error["idtransaccion"], "Transaccion no existe en el sistema"); 
+                    }
+                }else{
+                    $error["idtransaccion"] = $transaccion["idtransaccion"];
+                    $errores[] = array($error["idtransaccion"], "Transaccion no existe en el sistema"); 
                 }
             }
             return $errores;

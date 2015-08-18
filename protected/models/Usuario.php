@@ -275,7 +275,7 @@ class Usuario extends CActiveRecord
                 if(!empty($model)){
                     if(!$model->delete()){
                        $error["rut"] = $usuario["rut"];
-                       $errores[] = array($error["idingles_tae"], "Usuario no existe en el sistema"); 
+                       $errores[] = array($error["rut"], "Usuario no existe en el sistema"); 
                     }
                 }else{
                     $error["rut"] = $usuario["rut"];

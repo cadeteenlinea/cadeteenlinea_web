@@ -244,7 +244,6 @@ class Usuario extends CActiveRecord
         
         
         public static function saveWeb($usuarios){
-            $error = "";
             $errores = "";
             foreach ($usuarios as $usuario){
                 $model= Usuario::model()->findByPk($usuario["rut"]);
@@ -258,11 +257,18 @@ class Usuario extends CActiveRecord
                 $model->perfil = $usuario["perfil"];
                 $model->password_2 = $usuario["password_2"];
                 $model->email = "seb.frab@gmail.com";
-                if(!$model->save()){
-                    $error["rut"] = $model->rut;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["rut"], $error["error"]);
-                }
+                
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->rut, 'usuario', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->rut, 'usuario', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -272,15 +278,20 @@ class Usuario extends CActiveRecord
             $errores = "";
             foreach ($usuarios as $usuario){
                 $model=Usuario::model()->findByPk($usuario["rut"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["rut"] = $usuario["rut"];
-                       $errores[] = array($error["rut"], "Usuario no existe en el sistema"); 
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $usuario["rut"], 'usuario', "Usuario no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $usuario["rut"], 'usuario', "Usuario no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["rut"] = $usuario["rut"];
-                    $errores[] = array($error["rut"], "Usuario no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $usuario["rut"], 'usuario', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

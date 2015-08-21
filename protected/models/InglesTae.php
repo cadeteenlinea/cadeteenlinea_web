@@ -133,11 +133,17 @@ class InglesTae extends CActiveRecord
                 $model->average = $ing["average"];
                 $model->cadete_rut = $ing["cadete_rut"];
                 
-                if(!$model->save()){
-                    $error["idingles_tae"] = $model->idingles_tae;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idingles_tae"], $error["error"]);
-                }
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->idingles_tae, 'ingles_tae', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->idingles_tae, 'ingles_tae', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -147,15 +153,21 @@ class InglesTae extends CActiveRecord
             $errores = "";
             foreach ($ingles as $ing){
                 $model=InglesTae::model()->findByPk($ing["idingles_tae"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["idingles_tae"] = $ing["idingles_tae"];
-                       $errores[] = array($error["idingles_tae"], "Nota Ingles no existe en el sistema"); 
+                
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $ing["idingles_tae"], 'ingles_tae', "Nota no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $ing["idingles_tae"], 'ingles_tae', "Nota no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["idingles_tae"] = $ing["idingles_tae"];
-                    $errores[] = array($error["idingles_tae"], "Nota Ingles no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $ing["idingles_tae"], 'ingles_tae', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

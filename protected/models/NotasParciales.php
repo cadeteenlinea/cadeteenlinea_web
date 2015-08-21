@@ -151,12 +151,18 @@ class NotasParciales extends CActiveRecord
                 if(!empty($concepto)){
                     $model->concepto_idconcepto = $concepto->idconcepto;
                 }
-                
-                if(!$model->save()){
-                    $error["idnotas_parciales"] = $model->idnotas_parciales;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idnotas_parciales"], $error["error"]);
-                }
+
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->idnotas_parciales, 'notas_parciales', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->idnotas_parciales, 'notas_parciales', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -166,10 +172,20 @@ class NotasParciales extends CActiveRecord
             $errores = "";
             foreach ($notas as $nota){
                 $model=NotasParciales::model()->findByPk($nota["idnotas_parciales"]);
-                if(!$model->delete()){
-                   $error["idnotas_parciales"] = $nota["idnotas_parciales"];
-                   $errores[] = array($error["idnotas_parciales"], "Nota Ingles no existe en el sistema"); 
-                }
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $nota["idnotas_parciales"], 'notas_parciales', "Nota no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $nota["idnotas_parciales"], 'notas_parciales', "Nota no existe en el sistema");
+                        $errores[] = $er;
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $nota["idnotas_parciales"], 'notas_parciales', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

@@ -161,11 +161,17 @@ class Asignatura extends CActiveRecord
                     $model->especialidad_idespecialidad = $especialidad->idespecialidad;
                 }
                 
-                if(!$model->save()){
-                    $error["idasignatura"] = $model->idasignatura;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idasignatura"], $error["error"]);
-                }
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->idasignatura, 'asignatura', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->idasignatura, 'asignatura', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -174,16 +180,22 @@ class Asignatura extends CActiveRecord
             $error = "";
             $errores = "";
             foreach ($asignaturas as $asignatura){
-                $model=Asignatura::model()->findByPk($ing["idasignatura"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["idasignatura"] = $ing["idasignatura"];
-                       $errores[] = array($error["idasignatura"], "Asignatura no existe en el sistema"); 
+                $model=Asignatura::model()->findByPk($asignatura["idasignatura"]);                
+                
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $asignatura["idasignatura"], 'asignatura', "Asignatura no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $asignatura["idasignatura"], 'asignatura', "Asignatura no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["idasignatura"] = $ing["idasignatura"];
-                    $errores[] = array($error["idasignatura"], "Asignatura no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $asignatura["idasignatura"], 'asignatura', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

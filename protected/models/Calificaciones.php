@@ -177,11 +177,17 @@ class Calificaciones extends CActiveRecord
                 $model->final = $calificacion["final"];
                 $model->cadete_rut = $calificacion["cadete_rut"];
                 
-                if(!$model->save()){
-                    $error["idcalificaciones"] = $model->idcalificaciones;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idcalificaciones"], $error["error"]);
-                }
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->idcalificaciones, 'calificaciones', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->idcalificaciones, 'calificaciones', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -191,15 +197,21 @@ class Calificaciones extends CActiveRecord
             $errores = "";
             foreach ($calificaciones as $calificacion){
                 $model=Calificaciones::model()->findByPk($calificacion["idcalificaciones"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["idcalificaciones"] = $calificacion["idcalificaciones"];
-                       $errores[] = array($error["idcalificaciones"], "Calificacion no existe en el sistema"); 
+                
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $calificacion["idcalificaciones"], 'calificacion', "Calificacion no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $calificacion["idcalificaciones"], 'calificacion', "Calificacion no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["idcalificaciones"] = $calificacion["idcalificaciones"];
-                    $errores[] = array($error["idcalificaciones"], "Calificacion no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $calificacion["idcalificaciones"], 'calificacion', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

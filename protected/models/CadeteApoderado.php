@@ -118,11 +118,17 @@ class CadeteApoderado extends CActiveRecord
                 $model->apoderado_rut = $cadete_apoderado["apoderado_rut"];
                 $model->tipoApoderado = $cadete_apoderado["tipoApoderado"];
                 
-                if(!$model->save()){
-                    $error["idcadete_apoderado"] = $model->idcadete_apoderado;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["idcadete_apoderado"], $error["error"]);
-                }
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->idcadete_apoderado, 'cadete_apoderado', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->idcadete_apoderado, 'cadete_apoderado', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -132,15 +138,20 @@ class CadeteApoderado extends CActiveRecord
             $errores = "";
             foreach ($ingles as $ing){
                 $model=CadeteApoderado::model()->findByPk($cadete_apoderado["idcadete_apoderado"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["idcadete_apoderado"] = $cadete_apoderado["idcadete_apoderado"];
-                       $errores[] = array($error["idcadete_apoderado"], "Relacion no existe en el sistema"); 
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $cadete_apoderado["idcadete_apoderado"], 'cadete_apoderado', "Relacion no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $cadete_apoderado["idcadete_apoderado"], 'cadete_apoderado', "Relacion no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["idcadete_apoderado"] = $cadete_apoderado["idcadete_apoderado"];
-                    $errores[] = array($error["idcadete_apoderado"], "Relacion no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $cadete_apoderado["idcadete_apoderado"], 'cadete_apoderado', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

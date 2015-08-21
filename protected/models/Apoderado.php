@@ -155,6 +155,12 @@ class Apoderado extends CActiveRecord
             return false;
         }
         
+        private function deleteRelacionCadete(){
+            foreach ($this->cadeteApoderados as $cadeteApoderado) {
+                $cadeteApoderado->delete();
+            }
+        }
+        
         public static function saveWeb($apoderados){
             $error = "";
             $errores = "";
@@ -172,11 +178,17 @@ class Apoderado extends CActiveRecord
                 $model->fonoComercial = $apoderado["fonoComercial"];
                 $model->difunto = $apoderado["difunto"];
                 
-                if(!$model->save()){
-                    $error["rut"] = $model->rut;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["rut"], $error["error"]);
-                }
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->rut, 'apoderado', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->rut, 'apoderado', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -186,15 +198,21 @@ class Apoderado extends CActiveRecord
             $errores = "";
             foreach ($apoderados as $apoderado){
                 $model=Apoderado::model()->findByPk($apoderado["rut"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["rut"] = $apoderado["rut"];
-                       $errores[] = array($error["idingles_tae"], "Apoderado no existe en el sistema"); 
+                try{
+                    if(!empty($model)){
+                        $model->deleteRelacionCadete();
+                        if(!$model->delete()){
+                            $er = new Error('99998', $apoderado["rut"], 'apoderado', "Apoderado no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $apoderado["rut"], 'apoderado', "Apoderado no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["rut"] = $apoderado["rut"];
-                    $errores[] = array($error["rut"], "Apoderado no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $apoderado["rut"], 'apoderado', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

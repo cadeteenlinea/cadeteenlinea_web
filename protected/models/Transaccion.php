@@ -187,17 +187,15 @@ class Transaccion extends CActiveRecord
                 
                 try{
                     if(!$model->save()){
-                        $error["idtransaccion"] = $model->idtransaccion;
-                        $error["error"] = $model->errors;
-                        $errores[] = array($error["idtransaccion"], $error["error"]);
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->idtransaccion, 'transaccion', $error[0]);
+                            $errores[] = $er;
+                        }
                     }
                 } catch (CDbException $e){
-                    //e->errorInfo[1] 
-                    $error["idtransaccion"] = $model->idtransaccion;
-                    $error["error"] = $e;
-                    $errores[] = array($error["idtransaccion"], $error["error"]);
-                }
-                
+                    $er = new Error($e->errorInfo[1], $model->idtransaccion, 'transaccion', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -206,16 +204,21 @@ class Transaccion extends CActiveRecord
             $error = "";
             $errores = "";
             foreach ($transacciones as $transaccion){
-                $model=Transaccion::model()->findByPk($transaccion["idtransaccion"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["idtransaccion"] = $transaccion["idtransaccion"];
-                       $errores[] = array($error["idtransaccion"], "Transaccion no existe en el sistema"); 
+                $model=Transaccion::model()->findByPk($transaccion["idtransaccion"]);                
+                try{
+                    if(!empty($model)){
+                        if(!$model->delete()){
+                            $er = new Error('99998', $transaccion["idtransaccion"], 'cadete', "Transaccion no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $transaccion["idtransaccion"], 'cadete', "Transaccion no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["idtransaccion"] = $transaccion["idtransaccion"];
-                    $errores[] = array($error["idtransaccion"], "Transaccion no existe en el sistema"); 
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $transaccion["idtransaccion"], 'cadete', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

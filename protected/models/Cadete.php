@@ -229,6 +229,12 @@ class Cadete extends CActiveRecord
             return $model;
         }
         
+        private function deleteRelacionCadete(){
+            foreach ($this->cadeteApoderados as $cadeteApoderado) {
+                $cadeteApoderado->delete();
+            }
+        }
+        
         public static function saveWeb($cadetes){
             $error = "";
             $errores = "";
@@ -259,12 +265,17 @@ class Cadete extends CActiveRecord
                 if(!empty($especialidad)){
                     $model->especialidad_idespecialidad = $especialidad->idespecialidad;
                 }
-                
-                if(!$model->save()){
-                    $error["rut"] = $model->rut;
-                    $error["error"] = $model->errors;
-                    $errores[] = array($error["rut"], $error["error"]);
-                }
+                try{
+                    if(!$model->save()){
+                        foreach($model->errors as $error){
+                            $er = new Error('99999', $model->rut, 'cadete', $error[0]);
+                            $errores[] = $er;
+                        }
+                    }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $model->rut, 'cadete', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }
@@ -274,15 +285,21 @@ class Cadete extends CActiveRecord
             $errores = "";
             foreach ($cadetes as $cadete){
                 $model=Cadete::model()->findByPk($cadete["rut"]);
-                if(!empty($model)){
-                    if(!$model->delete()){
-                       $error["rut"] = $cadete["rut"];
-                       $errores[] = array($error["rut"], "Cadete no existe en el sistema"); 
+                try{
+                    if(!empty($model)){
+                        $model->deleteRelacionCadete();
+                        if(!$model->delete()){
+                            $er = new Error('99998', $cadete["rut"], 'cadete', "Cadete no existe en el sistema");
+                            $errores[] = $er;
+                        }
+                    }else{
+                        $er = new Error('99998', $cadete["rut"], 'cadete', "Cadete no existe en el sistema");
+                        $errores[] = $er;
                     }
-                }else{
-                    $error["rut"] = $cadete["rut"];
-                    $errores[] = array($error["rut"], "Cadete no existe en el sistema");
-                }
+                } catch (CDbException $e){
+                    $er = new Error($e->errorInfo[1], $cadete["rut"], 'cadete', $e->errorInfo[2]);
+                    $errores[] = $er;
+                } 
             }
             return $errores;
         }

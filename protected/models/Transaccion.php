@@ -178,8 +178,11 @@ class Transaccion extends CActiveRecord
                     $model->tipoTransaccion = $transaccion["tipoTransaccion"];
                 if(isset($transaccion["monto"]))
                     $model->monto = $transaccion["monto"];
-                if(isset($transaccion["fechaMovimiento"]))
-                    $model->fechaMovimiento = $transaccion["fechaMovimiento"];
+                if(isset($transaccion["fechaMovimiento"])){
+                    //Falta corregir ingreso de fecha de sistema
+                    //$date = new DateTime(($transaccion["fechaMovimiento"]/1000));
+                    $model->fechaMovimiento = date('Y-m-d H:i:s');
+                }
                 if(isset($transaccion["descripcion"]))
                     $model->descripcion = $transaccion["descripcion"];
                 if(isset($transaccion["tipoCuenta"]))

@@ -256,7 +256,7 @@ class Usuario extends CActiveRecord
                 $model->nombres = $usuario["nombre"];
                 $model->perfil = $usuario["perfil"];
                 $model->password_2 = $usuario["password_2"];
-                $model->email = "seb.frab@gmail.com";
+                $model->email = "cadete@escuelanaval.cl";
                 
                 try{
                     if(!$model->save()){

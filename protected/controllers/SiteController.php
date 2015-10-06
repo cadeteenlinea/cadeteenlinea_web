@@ -558,4 +558,37 @@ class SiteController extends Controller
             return CJSON::encode($result);
        }
         
+       
+       /**
+	 * @param string $notasFisicoJson
+         * @param string $estado
+	 * @return string
+	 * @soap
+	 */
+        public function notasFisicos($notasFisicoJson, $estado){
+            $result = '';
+            if(!empty($notasFisicoJson) && !empty($estado)){
+                $notas = CJSON::decode($notasFisicoJson);
+                if (is_null($notas)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch($estado){
+                        case 1:
+                            $result = NotasFisico::saveWeb($notas);
+                            break;
+                        case 2:
+                            $result = NotasFisico::saveWeb($notas);
+                            break;
+                        case 3:
+                            $result = NotasFisico::deleteWeb($notas);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
+            }
+            return CJSON::encode($result);
+       }
 }

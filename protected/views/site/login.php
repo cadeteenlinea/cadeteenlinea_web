@@ -13,7 +13,8 @@
         <div class="col-lg-4 col-md-6 col-sm-8 form">
         <h1 class="text-center">Iniciar sesión</h1>
         <hr class="separador_post"/>
-        <?php $form=$this->beginWidget('CActiveForm', array(
+        <?php 
+        $form=$this->beginWidget('CActiveForm', array(
                 'id'=>'login-form',
                 'enableClientValidation'=>true,
                 'clientOptions'=>array(

@@ -591,4 +591,38 @@ class SiteController extends Controller
             }
             return CJSON::encode($result);
        }
+       
+       /**
+	 * @param string $nivelacionJson
+         * @param string $estado
+	 * @return string
+	 * @soap
+	 */
+        public function nivelaciones($nivelacionJson, $estado){
+           $result = '';
+            if(!empty($nivelacionJson) && !empty($estado)){
+                $nivelaciones = CJSON::decode($nivelacionJson);
+                if (is_null($nivelaciones)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch($estado){
+                        case 1:
+                            $result = Nivelacion::saveWeb($nivelaciones);
+                            break;
+                        case 2:
+                            $result = Nivelacion::saveWeb($nivelaciones);
+                            break;
+                        case 3:
+                            $result = Nivelacion::deleteWeb($nivelaciones);
+                            break;
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
+            }
+            return CJSON::encode($result);
+        }
+       
 }

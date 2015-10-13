@@ -38,7 +38,7 @@ class CadeteController extends Controller
 				'actions'=>array('movimientoCuentaCorriente', 
                                     'movimientoColegiatura', 'movimientoEquipo', 
                                     'notasParciales','notasFinales','notasTae',
-                                    'calificaciones'),
+                                    'calificaciones','datosPersonales'),
 				'users'=>array('@'),
 			),
                         array('allow',
@@ -370,4 +370,5 @@ class CadeteController extends Controller
             $cadete = Cadete::model()->findAll($criteria);
             return CJSON::encode($cadete);
         }
+        
 }

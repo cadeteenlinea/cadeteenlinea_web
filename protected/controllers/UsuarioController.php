@@ -28,7 +28,7 @@ class UsuarioController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('RecuperarContrasena'),
+				'actions'=>array('datosPersonales'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -162,4 +162,15 @@ class UsuarioController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionDatosPersonales(){
+            $rut = Yii::app()->user->id;
+            $model = Usuario::model()->findByPk($rut);
+            
+            $this->render('datosPersonales',array(
+                'model' => $model,
+                'titulo' => 'Datos Personales',
+            ));
+            
+        }
 }

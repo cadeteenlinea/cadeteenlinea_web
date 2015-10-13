@@ -10,7 +10,6 @@
  * @property string $hora_recogida
  * @property string $fecha_recogida
  * @property string $asignatura_bajo
- * @property string $francoscol
  * @property string $cadete_rut
  *
  * The followings are the available model relations:
@@ -37,11 +36,10 @@ class Francos extends CActiveRecord
 			array('idfrancos, cadete_rut', 'required'),
 			array('idfrancos', 'numerical', 'integerOnly'=>true),
 			array('fecha_salida, hora_salida, hora_recogida, fecha_recogida, asignatura_bajo', 'length', 'max'=>50),
-			array('francoscol', 'length', 'max'=>45),
 			array('cadete_rut', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idfrancos, fecha_salida, hora_salida, hora_recogida, fecha_recogida, asignatura_bajo, francoscol, cadete_rut', 'safe', 'on'=>'search'),
+			array('idfrancos, fecha_salida, hora_salida, hora_recogida, fecha_recogida, asignatura_bajo, cadete_rut', 'safe', 'on'=>'search'),
 		);
 	}
 

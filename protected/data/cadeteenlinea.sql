@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2015 a las 21:01:06
+-- Tiempo de generación: 14-10-2015 a las 00:38:04
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cadeteenlinea`
 --
+DROP DATABASE `cadeteenlinea`;
+CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `cadeteenlinea`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `apoderado`
 --
 
+DROP TABLE IF EXISTS `apoderado`;
 CREATE TABLE IF NOT EXISTS `apoderado` (
   `rut` int(10) unsigned NOT NULL,
   `direccion` varchar(100) DEFAULT NULL,
@@ -65,6 +69,7 @@ INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono
 -- Estructura de tabla para la tabla `archivos`
 --
 
+DROP TABLE IF EXISTS `archivos`;
 CREATE TABLE IF NOT EXISTS `archivos` (
 `idarchivos` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
@@ -87,6 +92,7 @@ INSERT INTO `archivos` (`idarchivos`, `fecha`, `tipo_archivo_idtipo_archivo`) VA
 -- Estructura de tabla para la tabla `asignatura`
 --
 
+DROP TABLE IF EXISTS `asignatura`;
 CREATE TABLE IF NOT EXISTS `asignatura` (
   `idasignatura` int(11) NOT NULL,
   `codigo` varchar(6) NOT NULL,
@@ -103,6 +109,7 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
 -- Estructura de tabla para la tabla `cadete`
 --
 
+DROP TABLE IF EXISTS `cadete`;
 CREATE TABLE IF NOT EXISTS `cadete` (
   `rut` int(10) unsigned NOT NULL,
   `nCadete` int(10) unsigned NOT NULL,
@@ -141,6 +148,7 @@ INSERT INTO `cadete` (`rut`, `nCadete`, `direccion`, `comuna`, `ciudad`, `region
 -- Estructura de tabla para la tabla `cadete_apoderado`
 --
 
+DROP TABLE IF EXISTS `cadete_apoderado`;
 CREATE TABLE IF NOT EXISTS `cadete_apoderado` (
   `idcadete_apoderado` int(10) unsigned NOT NULL,
   `cadete_rut` int(10) unsigned NOT NULL,
@@ -176,6 +184,7 @@ INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_r
 -- Estructura de tabla para la tabla `calificaciones`
 --
 
+DROP TABLE IF EXISTS `calificaciones`;
 CREATE TABLE IF NOT EXISTS `calificaciones` (
   `idcalificaciones` int(11) NOT NULL,
   `ano` int(11) DEFAULT NULL,
@@ -193,12 +202,60 @@ CREATE TABLE IF NOT EXISTS `calificaciones` (
   `cadete_rut` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `calificaciones`
+--
+
+INSERT INTO `calificaciones` (`idcalificaciones`, `ano`, `semestre`, `mando`, `interes_profesional`, `personalidad_madurez`, `responsabilidad`, `espiritu_militar`, `cooperacion`, `conducta`, `aptitud_fisica`, `tenida_orden_aseo`, `final`, `cadete_rut`) VALUES
+(1, 2013, 1, 7, 8, 7.37, 7.16, 7.83, 8, 7.96, 6.25, 8, 7, 17559990),
+(2, 2013, 2, 6.6, 7.83, 7.58, 8, 7.5, 7.84, 7.52, 8, 8, 6.87, 17559990),
+(3, 2014, 1, 7.4, 8.66, 7.82, 7.33, 8, 8, 8.28, 7.5, 7.92, 7.34, 17559990),
+(4, 2014, 2, 7.4, 8.83, 7.34, 6.83, 7.83, 7.46, 7.4, 7.88, 7.07, 6.66, 17559990),
+(5, 2015, 1, 7.8, 8.83, 7.96, 7.66, 7.83, 7.61, 7.92, 6.5, 7.07, 7.68, 17559990),
+(6, 2010, 1, 0, 7.81, 7.9, 7.5, 7.5, 7.6, 8.14, 7.71, 8.2, 7.76, 17992236),
+(7, 2010, 2, 0, 8.54, 7.27, 7.33, 7.8, 8, 8.57, 8, 7.6, 7.93, 17992236),
+(8, 2011, 1, 7.7, 7.5, 7.81, 8, 8, 8, 8, 8, 7.8, 7.88, 17992236),
+(9, 2011, 2, 8.1, 8, 7.72, 8.33, 8.33, 8.2, 8.14, 7.5, 8.4, 7, 17992236),
+(10, 2012, 1, 7.2, 8, 6.72, 6, 7.5, 7.2, 5.42, 7.87, 7.4, 6.97, 17992236),
+(11, 2012, 2, 7.9, 7.66, 7.93, 7.83, 7.66, 8, 7.84, 7.91, 6.42, 7.51, 17992236),
+(12, 2013, 1, 8, 9, 8, 7.66, 8, 7.92, 7.92, 8.66, 7.28, 7.98, 17992236),
+(13, 2013, 2, 8, 7, 7.65, 8, 8, 8.46, 8.16, 8.16, 8, 7.96, 17992236),
+(14, 2014, 1, 7.3, 8.66, 8.37, 8, 7.83, 7.53, 8.12, 8.41, 8.07, 8.02, 17992236),
+(15, 2014, 2, 8.2, 8.5, 7.96, 6.83, 8.66, 8.46, 8.8, 8.66, 8.78, 7.45, 17992236),
+(16, 2015, 1, 7.6, 8.5, 7.37, 6.83, 7.66, 7.3, 7.64, 7.66, 7.07, 7.01, 17992236),
+(17, 2011, 1, 0, 7.33, 7, 7, 8, 7.5, 6.14, 5.75, 8, 7.12, 18176975),
+(18, 2011, 2, 0, 8.66, 7.09, 7.33, 7.8, 8, 7.28, 5.75, 7, 7.43, 18176975),
+(19, 2012, 1, 7.4, 8.33, 6.63, 7.83, 7.66, 7.4, 6, 6.12, 7.8, 7, 18176975),
+(20, 2012, 2, 7.4, 8, 7.03, 7.83, 8, 7.76, 8.32, 6.83, 8.92, 7.28, 18176975),
+(21, 2013, 1, 7.8, 9.5, 7.75, 7.33, 7.83, 7.38, 7.24, 6.88, 8, 6.83, 18176975),
+(22, 2013, 2, 7.6, 9.5, 7.72, 7.16, 7.83, 7.92, 7.64, 6, 7.85, 7.1, 18176975),
+(23, 2014, 1, 7.2, 7.83, 7.24, 6.66, 8, 6.92, 5.92, 6.44, 7.07, 6.51, 18176975),
+(24, 2014, 2, 7.8, 7.33, 7.2, 6.5, 7.5, 7.61, 7.4, 5.41, 7.85, 6.4, 18176975),
+(25, 2015, 1, 6.5, 8.5, 6.82, 6.16, 6.83, 6.61, 7.6, 6.16, 7.07, 6.42, 18176975),
+(26, 2011, 1, 0, 7.33, 6.72, 6.16, 7.2, 7, 6.57, 8.12, 7.2, 6.98, 18203039),
+(27, 2011, 2, 0, 8.66, 6.81, 6.5, 7, 7.5, 6.71, 9.12, 7, 7.34, 18203039),
+(28, 2012, 1, 0, 8, 7, 6.83, 7.4, 7.75, 6.28, 9.37, 7.4, 7, 18203039),
+(29, 2012, 2, 0, 9.16, 8.06, 7.83, 8, 7.58, 7.24, 9.08, 7.85, 7.64, 18203039),
+(30, 2013, 1, 7.2, 9, 8.1, 8.5, 8, 8.46, 7.68, 9.25, 8.07, 7.89, 18203039),
+(31, 2013, 2, 7.9, 8, 7.58, 7.66, 8, 8.38, 7.68, 9.25, 8.78, 8.05, 18203039),
+(32, 2014, 1, 7.6, 8.33, 7.93, 7.5, 8.16, 7.23, 6.76, 9.25, 7.14, 7.19, 18203039),
+(33, 2014, 2, 7.9, 7.66, 7.58, 7.66, 8.5, 8.84, 7.6, 9.75, 7.71, 7.56, 18203039),
+(34, 2015, 1, 7.9, 8.5, 7.93, 7.66, 8, 8, 7.36, 9.16, 8, 7.49, 18203039),
+(35, 2012, 1, 0, 8, 7.45, 7.66, 8.2, 8, 7.71, 7.6, 7.4, 7, 18312151),
+(36, 2012, 2, 0, 7.66, 7.34, 7, 8, 7.58, 7.6, 7.41, 8, 7.22, 18312151),
+(37, 2013, 1, 7.8, 8, 7.89, 7.66, 8.5, 8.07, 8.12, 6.91, 8.64, 7.46, 18312151),
+(38, 2013, 2, 7.9, 8.66, 7.86, 7.33, 8.16, 7.23, 7.84, 8.08, 8.07, 7.81, 18312151),
+(39, 2014, 1, 7.3, 8.66, 7.55, 7, 7.16, 7.38, 7.28, 7.75, 7.07, 6.88, 18312151),
+(40, 2014, 2, 6.8, 7.16, 7.96, 6.83, 7.66, 8.38, 7, 8.08, 7.85, 6.69, 18312151),
+(41, 2015, 1, 8, 8.66, 7.37, 7.33, 8.33, 7.15, 8, 7.41, 8.07, 7.32, 18312151);
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `concepto`
 --
 
+DROP TABLE IF EXISTS `concepto`;
 CREATE TABLE IF NOT EXISTS `concepto` (
 `idconcepto` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
@@ -223,6 +280,7 @@ INSERT INTO `concepto` (`idconcepto`, `nombre`, `codigo`) VALUES
 -- Estructura de tabla para la tabla `departamento`
 --
 
+DROP TABLE IF EXISTS `departamento`;
 CREATE TABLE IF NOT EXISTS `departamento` (
 `iddepartamento` int(10) unsigned NOT NULL,
   `nombre` varchar(25) NOT NULL
@@ -243,6 +301,7 @@ INSERT INTO `departamento` (`iddepartamento`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `especialidad`
 --
 
+DROP TABLE IF EXISTS `especialidad`;
 CREATE TABLE IF NOT EXISTS `especialidad` (
 `idespecialidad` int(11) NOT NULL,
   `codigo` varchar(1) NOT NULL,
@@ -269,6 +328,7 @@ INSERT INTO `especialidad` (`idespecialidad`, `codigo`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `francos`
 --
 
+DROP TABLE IF EXISTS `francos`;
 CREATE TABLE IF NOT EXISTS `francos` (
   `idfrancos` int(11) NOT NULL,
   `fecha_salida` varchar(50) DEFAULT NULL,
@@ -299,6 +359,7 @@ INSERT INTO `francos` (`idfrancos`, `fecha_salida`, `hora_salida`, `hora_recogid
 -- Estructura de tabla para la tabla `funcionario`
 --
 
+DROP TABLE IF EXISTS `funcionario`;
 CREATE TABLE IF NOT EXISTS `funcionario` (
   `rut` int(10) unsigned NOT NULL,
   `departamento_iddepartamento` int(10) unsigned DEFAULT NULL,
@@ -311,6 +372,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 -- Estructura de tabla para la tabla `ingles_tae`
 --
 
+DROP TABLE IF EXISTS `ingles_tae`;
 CREATE TABLE IF NOT EXISTS `ingles_tae` (
   `idingles_tae` int(11) NOT NULL,
   `ano` int(11) NOT NULL,
@@ -328,6 +390,7 @@ CREATE TABLE IF NOT EXISTS `ingles_tae` (
 -- Estructura de tabla para la tabla `nivelacion`
 --
 
+DROP TABLE IF EXISTS `nivelacion`;
 CREATE TABLE IF NOT EXISTS `nivelacion` (
   `idnivelacion` int(11) NOT NULL,
   `ano` int(11) NOT NULL,
@@ -461,6 +524,7 @@ INSERT INTO `nivelacion` (`idnivelacion`, `ano`, `semestre`, `etapa`, `marca_100
 -- Estructura de tabla para la tabla `notas_finales`
 --
 
+DROP TABLE IF EXISTS `notas_finales`;
 CREATE TABLE IF NOT EXISTS `notas_finales` (
   `idnotas_finales` int(11) NOT NULL,
   `nota_presentacion` float NOT NULL,
@@ -479,6 +543,7 @@ CREATE TABLE IF NOT EXISTS `notas_finales` (
 -- Estructura de tabla para la tabla `notas_fisico`
 --
 
+DROP TABLE IF EXISTS `notas_fisico`;
 CREATE TABLE IF NOT EXISTS `notas_fisico` (
   `idnotas_fisico` int(11) NOT NULL,
   `ano` int(11) NOT NULL,
@@ -558,6 +623,7 @@ INSERT INTO `notas_fisico` (`idnotas_fisico`, `ano`, `semestre`, `marca_100_mt`,
 -- Estructura de tabla para la tabla `notas_parciales`
 --
 
+DROP TABLE IF EXISTS `notas_parciales`;
 CREATE TABLE IF NOT EXISTS `notas_parciales` (
   `idnotas_parciales` int(11) NOT NULL,
   `nota` float NOT NULL,
@@ -576,6 +642,7 @@ CREATE TABLE IF NOT EXISTS `notas_parciales` (
 -- Estructura de tabla para la tabla `tipo_archivo`
 --
 
+DROP TABLE IF EXISTS `tipo_archivo`;
 CREATE TABLE IF NOT EXISTS `tipo_archivo` (
 `idtipo_archivo` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
@@ -598,6 +665,7 @@ INSERT INTO `tipo_archivo` (`idtipo_archivo`, `nombre`, `tabla_sincronizar`) VAL
 -- Estructura de tabla para la tabla `transaccion`
 --
 
+DROP TABLE IF EXISTS `transaccion`;
 CREATE TABLE IF NOT EXISTS `transaccion` (
   `idtransaccion` int(10) unsigned NOT NULL,
   `cadete_rut` int(10) unsigned NOT NULL,
@@ -614,6 +682,7 @@ CREATE TABLE IF NOT EXISTS `transaccion` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `rut` int(10) unsigned NOT NULL,
   `apellidoPat` varchar(25) NOT NULL,

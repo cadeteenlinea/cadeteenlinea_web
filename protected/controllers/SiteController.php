@@ -625,4 +625,37 @@ class SiteController extends Controller
             return CJSON::encode($result);
         }
        
+        /**
+	 * @param string $francosJson
+         * @param string $estado
+	 * @return string
+	 * @soap
+	 */
+        public function francos($francosJson, $estado){
+           $result = '';
+            if(!empty($francosJson) && !empty($estado)){
+                $francos = CJSON::decode($francosJson);
+                if (is_null($francos)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    switch($estado){
+                        case 1:
+                            $result = Francos::saveWeb($francos);
+                            break;
+                        case 2:
+                            $result = Francos::saveWeb($francos);
+                            break;
+                        /*case 3:
+                            $result = Nivelacion::deleteWeb($nivelaciones);
+                            break;*/
+                        default:
+                            $result = "Opción solicitada se desconoce";
+                    }
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
+            }
+            return CJSON::encode($result);
+        }
+        
 }

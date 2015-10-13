@@ -59,7 +59,6 @@
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
                                          array('label'=>'Calificaciones', 'url'=>array('cadete/calificaciones'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
-                                         array('label'=>'Datos Personales', 'url'=>array('usuario/datosPersonales'),'visible'=>(!Yii::app()->user->isGuest)),
                                          array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
@@ -99,6 +98,7 @@
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
+                                                        array('label'=>'Datos Personales', 'url'=>array('usuario/datosPersonales'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 'visible'=>Yii::app()->getSession()->get('perfil')=='apoderado'),
                                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
                                                     ),                                                    

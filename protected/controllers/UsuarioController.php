@@ -27,9 +27,9 @@ class UsuarioController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+                        array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('datosPersonales','cambioPassword'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -173,9 +173,13 @@ class UsuarioController extends Controller
             ));
         }
         
-        public function actionCambioPassword($id){
+        public function actionCambioPassword(){
+            /*Se rescata el ID del usuario que es el rut, este queda guardado
+                en la atributo id del componente user*/
+            $rut = Yii::app()->user->id;
+            /*se debe buscar por la clave primaria que es rut, esto es mas rapido que de la otra forma*/
+            $model = Usuario::model()->findByPk($rut);
             
-            $model = Usuario::model()->findByAttributes(array('id' => $id));
             $model->setScenario('changePwd');
             
             if(isset($_POST['Usuario'])){

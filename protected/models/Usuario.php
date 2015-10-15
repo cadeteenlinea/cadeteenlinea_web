@@ -23,7 +23,10 @@ class Usuario extends CActiveRecord
 {
         public $newPassword;
         public $passwordRepeat;
-	/**
+        public $old_password;
+        public $new_password;
+        public $repeat_password;
+        /**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -49,6 +52,10 @@ class Usuario extends CActiveRecord
                         array('codVerificacion', 'length', 'max'=>10),
                     
 			array('rut, apellidoPat, apellidoMat, nombres, password_2, perfil', 'safe', 'on'=>'search'),
+                    
+                        array('old_password, new_password, repeat_password', 'requerid', 'on' => 'changePwd'),
+                        array('old_password', 'findPasswords', 'on' => 'changePwd'),
+                        array('repeat_password', 'compare', 'compareAttribute' => 'new_password'),
 		);
 	}
 
@@ -294,5 +301,11 @@ class Usuario extends CActiveRecord
                 } 
             }
             return $errores;
+        }
+        
+        public function findPasswords ($attribute, $params){
+            $usuario = Usuario::model()->findByPk(Yii::app()->user->id);
+            if ($usuario->password_2 != md5($this->old_password))
+                $this->addError ($attribute, 'Password antigua incorrecta.');
         }
 }

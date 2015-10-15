@@ -98,6 +98,7 @@
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
+                                                        array('label'=>'Cambio Contraseña', 'url'=>array('usuario/cambioPassword'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Datos Personales', 'url'=>array('usuario/datosPersonales'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 'visible'=>Yii::app()->getSession()->get('perfil')=='apoderado'),
                                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),

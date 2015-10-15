@@ -28,7 +28,7 @@ class UsuarioController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('datosPersonales'),
+				'actions'=>array('datosPersonales','cambioPassword'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -171,6 +171,31 @@ class UsuarioController extends Controller
                 'model' => $model,
                 'titulo' => 'Datos Personales',
             ));
+        }
+        
+        public function actionCambioPassword($id){
             
+            $model = Usuario::model()->findByAttributes(array('id' => $id));
+            $model->setScenario('changePwd');
+            
+            if(isset($_POST['Usuario'])){
+                
+                $model->attributes = $_POST['Usuario'];
+                $valid = $model->validate();
+                
+                if($valid){
+                    
+                    $model->password_2 = md5($model->new_password);
+                 
+                    if($model->save())
+                        $this->redirect (array('cambioPassword', 'msg' => 'Cambio de password exitoso'));
+                    else
+                        $this->redirect (array('cambioPassword', 'msg' => 'No se cambio password'));
+                }
+            }
+            $this->render('cambioPassword', array(
+                'model' => $model,
+                'titulo' => 'Cambio Password',
+                ));
         }
 }

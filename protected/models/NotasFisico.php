@@ -231,5 +231,15 @@ class NotasFisico extends CActiveRecord
             }
             return $errores;
         }
+        
+        static function getAnoMax($rutCadete){
+            $criteria=new CDbCriteria;
+            $criteria->select='MAX(ano) as ano';
+            $criteria->addCondition('cadete_rut='.$rutCadete);
+            $model = NotasFisico::model()->find($criteria);
+            if(!empty($model))
+                return $model->ano;
+            return null;
+        }
 }
 

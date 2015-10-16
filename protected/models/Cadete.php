@@ -229,6 +229,16 @@ class Cadete extends CActiveRecord
             return $model;
         }
         
+        public function getNotasFisicoAnoSemestre($ano, $semestre){
+            $criteria = new CDbCriteria();
+            //$criteria->with = array('calificaciones');
+            $criteria->addCondition('ano='.$ano);
+            $criteria->addCondition('semestre='.$semestre);
+            $criteria->addCondition('cadete_rut='.$this->rut);
+            $model = NotasFisico::model()->find($criteria);
+            return $model;
+        }
+        
         private function deleteRelacionCadete(){
             foreach ($this->cadeteApoderados as $cadeteApoderado) {
                 $cadeteApoderado->delete();

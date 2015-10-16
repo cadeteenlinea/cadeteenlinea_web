@@ -38,7 +38,7 @@ class CadeteController extends Controller
 				'actions'=>array('movimientoCuentaCorriente', 
                                     'movimientoColegiatura', 'movimientoEquipo', 
                                     'notasParciales','notasFinales','notasTae',
-                                    'calificaciones','datosPersonales'),
+                                    'calificaciones','datosPersonales','fichaCapacidad'),
 				'users'=>array('@'),
 			),
                         array('allow',
@@ -314,61 +314,30 @@ class CadeteController extends Controller
             ));
         }
         
-        /**
-	 * @param string   
-	 * @return string   
-	 * @soap
-	 */
-        public function save($cadetesJson){
-            if(isset($cadetesJson))
-            {
-                try{
-                    $resultado = Sincronizador::cargadoGeneral($cadetesJson, "cadete");
-                    return CJSON::encode($resultado);
-                }  catch (Exception $ex){
-                    return "false";
-                }
-                
-                  
-                /*foreach($cadetes as $cad){
-                    $cadete = Cadete::model()->findByPk($cad["rut"]);
-                    $usuario = Usuario::model()->findByPk($cad["rut"]);
-                    if(empty($cadete)){
-                        $cadete = new Cadete();
-                        $cadete->rut = $cad["rut"];
-                    }
-                    
-                    if(empty($usuario)){
-                        $usuario = new Usuario();
-                        $usuario->rut = $cad["rut"];
-                        $usuario->password_2 = substr($cad["rut"], -5);
-                        $usuario->apellidoPat = $cad["apellidoPaterno"];
-                        $usuario->apellidoMat = $cad["apellidoMaterno"];
-                        $usuario->nombres = $cad["nombres"];
-                        $usuario->perfil = 'cadete';
-                        $usuario->email = 'seb.frab@gmail.com';
-                        if(!$usuario->save()){
-                            return $usuario;
-                        }
-                    } 
-                }*/
-                
-                return CJSON::encode($resultado[0]);
-                
+        public function actionFichaCapacidad(){
+            $ano = '';
+            if(isset($_POST['ano'])){
+                $ano = $_POST['ano'];
             }else{
-                return "false";
+                $ano = NotasFisico::model()->getAnoMax(Yii::app()->getSession()->get('rutCadete'));
             }
+            
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $model = $this->loadModel($rutCadete);
+            
+            $semestre1 = null;
+            $semestre2 = null;
+            if(!empty($ano)){
+                $semestre1 = $model->getNotasFisicoAnoSemestre($ano, 1);
+                $semestre2 = $model->getNotasFisicoAnoSemestre($ano, 2);
+            }
+            $this->render('notasFisico', array(
+                'semestre1' => $semestre1,
+                'semestre2' => $semestre2,
+                'ano' => $ano,
+                'titulo' => 'Ficha Capacidad Física',
+            ));
         }
-        
-        /**  
-	 * @return string   
-	 * @soap
-	 */
-        public function getAllCadetes(){
-            $criteria = new CDbCriteria;
-            $criteria->limit = 10;
-            $cadete = Cadete::model()->findAll($criteria);
-            return CJSON::encode($cadete);
-        }
+       
         
 }

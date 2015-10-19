@@ -187,6 +187,7 @@ class Nivelacion extends CActiveRecord
                 
                 $model->ano = $nivela["ano"];
                 $model->semestre = $nivela["semestre"];
+                $model->etapa = $nivela["etapa"];
                 $model->marca_100_mt = $nivela["marca_100_mt"];
                 $model->marca_1000_mt = $nivela["marca_1000_mt"];
                 $model->marca_salto_largo = $nivela["marca_salto_largo"];
@@ -246,5 +247,25 @@ class Nivelacion extends CActiveRecord
                 } 
             }
             return $errores;
+        }
+        
+        static function getAnoMax($rutCadete){
+            $criteria=new CDbCriteria;
+            $criteria->select='MAX(ano) as ano';
+            $criteria->addCondition('cadete_rut='.$rutCadete);
+            $model = Nivelacion::model()->find($criteria);
+            if(!empty($model))
+                return $model->ano;
+            return null;
+        }
+        
+        static function getListAno($rutCadete){
+            $criteria=new CDbCriteria;
+            $criteria->select='t.ano as ano';
+            $criteria->addCondition('t.cadete_rut='.$rutCadete);
+            $criteria->distinct=true;
+            $model = Nivelacion::model()->findAll($criteria);
+            
+            return CHtml::listData($model, 'ano', 'ano');
         }
 }

@@ -251,7 +251,7 @@ class Nivelacion extends CActiveRecord
         
         static function getAnoMax($rutCadete){
             $criteria=new CDbCriteria;
-            $criteria->select='MAX(ano) as ano';
+            $criteria->select='COALESCE(MAX(ano),0) as ano';
             $criteria->addCondition('cadete_rut='.$rutCadete);
             $model = Nivelacion::model()->find($criteria);
             if(!empty($model))

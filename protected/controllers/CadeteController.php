@@ -366,11 +366,13 @@ class CadeteController extends Controller
                 }
             }else{
                 $ano = Nivelacion::model()->getAnoMax(Yii::app()->getSession()->get('rutCadete'));
-                 Yii::app()->getSession()->add('ano', $ano);
-                 $semestre = Nivelacion::model()->getSemestreMin(Yii::app()->getSession()->get('rutCadete'), $ano);
-                 Yii::app()->getSession()->add('semestre', $semestre);
-                 $etapa = Nivelacion::model()->getEtapaMin(Yii::app()->getSession()->get('rutCadete'), $ano, $semestre);
-                 Yii::app()->getSession()->add('etapa', $etapa);
+                if($ano!=0){
+                    Yii::app()->getSession()->add('ano', $ano);
+                    $semestre = Nivelacion::model()->getSemestreMin(Yii::app()->getSession()->get('rutCadete'), $ano);
+                    Yii::app()->getSession()->add('semestre', $semestre);
+                    $etapa = Nivelacion::model()->getEtapaMin(Yii::app()->getSession()->get('rutCadete'), $ano, $semestre);
+                    Yii::app()->getSession()->add('etapa', $etapa);
+                }
             }
             
             

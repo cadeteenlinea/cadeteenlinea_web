@@ -239,6 +239,17 @@ class Cadete extends CActiveRecord
             return $model;
         }
         
+        public function getNivelacionAnoSemestreEtapa($ano, $semestre, $etapa){
+            $criteria = new CDbCriteria();
+            //$criteria->with = array('calificaciones');
+            $criteria->addCondition('ano='.$ano);
+            $criteria->addCondition('semestre='.$semestre);
+            $criteria->addCondition('etapa='.$etapa);
+            $criteria->addCondition('cadete_rut='.$this->rut);
+            $model = Nivelacion::model()->find($criteria);
+            return $model;
+        }
+        
         private function deleteRelacionCadete(){
             foreach ($this->cadeteApoderados as $cadeteApoderado) {
                 $cadeteApoderado->delete();

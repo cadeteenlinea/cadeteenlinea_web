@@ -259,6 +259,29 @@ class Nivelacion extends CActiveRecord
             return null;
         }
         
+        static function getSemestreMin($rutCadete, $ano){
+            $criteria=new CDbCriteria;
+            $criteria->select='MIN(semestre) as semestre';
+            $criteria->addCondition('t.ano='.$ano);
+            $criteria->addCondition('cadete_rut='.$rutCadete);
+            $model = Nivelacion::model()->find($criteria);
+            if(!empty($model))
+                return $model->semestre;
+            return null;
+        }
+        
+        static function getEtapaMin($rutCadete, $ano, $semestre){
+            $criteria=new CDbCriteria;
+            $criteria->select='MIN(etapa) as etapa';
+            $criteria->addCondition('t.ano='.$ano);
+            $criteria->addCondition('t.semestre='.$semestre);
+            $criteria->addCondition('cadete_rut='.$rutCadete);
+            $model = Nivelacion::model()->find($criteria);
+            if(!empty($model))
+                return $model->etapa;
+            return null;
+        }
+        
         static function getListAno($rutCadete){
             $criteria=new CDbCriteria;
             $criteria->select='t.ano as ano';
@@ -267,5 +290,28 @@ class Nivelacion extends CActiveRecord
             $model = Nivelacion::model()->findAll($criteria);
             
             return CHtml::listData($model, 'ano', 'ano');
+        }
+        
+        static function getListAnoSemestre($rutCadete, $ano){
+            $criteria=new CDbCriteria;
+            $criteria->select='t.semestre as semestre';
+            $criteria->addCondition('t.ano='.$ano);
+            $criteria->addCondition('t.cadete_rut='.$rutCadete);
+            $criteria->distinct=true;
+            $model = Nivelacion::model()->findAll($criteria);
+            
+            return CHtml::listData($model, 'semestre', 'semestre');
+        }
+        
+        static function getListAnoSemestreEtapa($rutCadete, $ano, $semestre){
+            $criteria=new CDbCriteria;
+            $criteria->select='t.etapa as etapa';
+            $criteria->addCondition('t.ano='.$ano);
+            $criteria->addCondition('t.semestre='.$semestre);
+            $criteria->addCondition('t.cadete_rut='.$rutCadete);
+            $criteria->distinct=true;
+            $model = Nivelacion::model()->findAll($criteria);
+            
+            return CHtml::listData($model, 'etapa', 'etapa');
         }
 }

@@ -14,7 +14,7 @@
                  *Despliega una list con los años con calificaciones
                  * variable $ano contiene el año seleccionado por el usuario
                  */
-                echo CHtml::dropDownList('ano', 'ano', Calificaciones::model()->getListAno(Yii::app()->getSession()->get('rutCadete')),
+                echo CHtml::dropDownList('ano', 'ano', notasFisico::model()->getListAno(Yii::app()->getSession()->get('rutCadete')),
                     array('class'=>'form-control pull-righ','style'=>'width:125px;','submit'=>Yii::app()->request->url,
                         'options'=> array($ano=>array('selected'=>'selected'))
              ));

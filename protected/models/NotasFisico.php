@@ -241,5 +241,15 @@ class NotasFisico extends CActiveRecord
                 return $model->ano;
             return null;
         }
+        
+        static function getListAno($rutCadete){
+            $criteria=new CDbCriteria;
+            $criteria->select='t.ano as ano';
+            $criteria->addCondition('t.cadete_rut='.$rutCadete);
+            $criteria->distinct=true;
+            $model = NotasFisico::model()->findAll($criteria);
+            
+            return CHtml::listData($model, 'ano', 'ano');
+        }
 }
 

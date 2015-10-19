@@ -38,7 +38,8 @@ class CadeteController extends Controller
 				'actions'=>array('movimientoCuentaCorriente', 
                                     'movimientoColegiatura', 'movimientoEquipo', 
                                     'notasParciales','notasFinales','notasTae',
-                                    'calificaciones','datosPersonales','fichaCapacidad'),
+                                    'calificaciones','datosPersonales','fichaCapacidad',
+                                    'Nivelacion'),
 				'users'=>array('@'),
 			),
                         array('allow',
@@ -339,5 +340,52 @@ class CadeteController extends Controller
             ));
         }
        
-        
+        public function actionNivelacion(){
+            $ano = 0;
+            $semestre = 0;
+            $etapa = 0;
+            if(isset($_POST['ano'])){
+                if($_POST['ano'] != Yii::app()->getSession()->get('ano')){
+                    $ano = $_POST['ano'];
+                    Yii::app()->getSession()->add('ano', $ano);
+                    $semestre = Nivelacion::model()->getSemestreMin(Yii::app()->getSession()->get('rutCadete'), $ano);
+                    Yii::app()->getSession()->add('semestre', $semestre);
+                    $etapa = Nivelacion::model()->getEtapaMin(Yii::app()->getSession()->get('rutCadete'), $ano, $semestre);
+                    Yii::app()->getSession()->add('etapa', $etapa);
+                }elseif($_POST['semestre'] != Yii::app()->getSession()->get('semestre')){
+                    $ano = $_POST['ano'];
+                    $semestre = $_POST['semestre'];
+                    Yii::app()->getSession()->add('semestre', $semestre);
+                    $etapa = Nivelacion::model()->getEtapaMin(Yii::app()->getSession()->get('rutCadete'), $ano, $semestre);
+                    Yii::app()->getSession()->add('etapa', $etapa);
+                }else{
+                    $ano = $_POST['ano'];
+                    $semestre = $_POST['semestre'];
+                    $etapa = $_POST['etapa'];
+                    Yii::app()->getSession()->add('etapa', $etapa);
+                }
+            }else{
+                $ano = Nivelacion::model()->getAnoMax(Yii::app()->getSession()->get('rutCadete'));
+                 Yii::app()->getSession()->add('ano', $ano);
+                 $semestre = Nivelacion::model()->getSemestreMin(Yii::app()->getSession()->get('rutCadete'), $ano);
+                 Yii::app()->getSession()->add('semestre', $semestre);
+                 $etapa = Nivelacion::model()->getEtapaMin(Yii::app()->getSession()->get('rutCadete'), $ano, $semestre);
+                 Yii::app()->getSession()->add('etapa', $etapa);
+            }
+            
+            
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $model = $this->loadModel($rutCadete);
+            
+            $resultado = $model->getNivelacionAnoSemestreEtapa($ano, $semestre, $etapa);
+            
+            
+            $this->render('nivelacion', array(
+                'ano' => $ano,
+                'semestre' => $semestre,
+                'etapa' => $etapa,
+                'resultado' => $resultado,
+                'titulo' => 'Nivelacion',
+            ));
+        }
 }

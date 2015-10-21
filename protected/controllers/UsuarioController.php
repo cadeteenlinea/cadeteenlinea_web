@@ -166,7 +166,7 @@ class UsuarioController extends Controller
         public function actionDatosPersonales(){
             $rut = Yii::app()->user->id;
             $model = Usuario::model()->findByPk($rut);
-            
+
             $this->render('datosPersonales',array(
                 'model' => $model,
                 'titulo' => 'Datos Personales',

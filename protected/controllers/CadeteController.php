@@ -39,7 +39,7 @@ class CadeteController extends Controller
                                     'movimientoColegiatura', 'movimientoEquipo', 
                                     'notasParciales','notasFinales','notasTae',
                                     'calificaciones','datosPersonales','fichaCapacidad',
-                                    'Nivelacion'),
+                                    'Nivelacion', 'Francos'),
 				'users'=>array('@'),
 			),
                         array('allow',
@@ -388,6 +388,16 @@ class CadeteController extends Controller
                 'etapa' => $etapa,
                 'resultado' => $resultado,
                 'titulo' => 'Nivelacion',
+            ));
+        }
+        
+        public function actionFrancos(){
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $model = $this->loadModel($rutCadete);
+            
+            $this->render('francos', array(
+                'model' => $model,
+                'titulo' => 'Papeleta de Salida del Cadete',
             ));
         }
 }

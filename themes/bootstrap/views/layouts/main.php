@@ -80,6 +80,7 @@
                                                         array('label'=>'Equipo Inicial', 'url'=>array('cadete/movimientoEquipo')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                         array('label'=>'Hora Salida', 'url'=>array('cadete/francos'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
                                     ),'encodeLabel' => false,
                                     ));
                                 ?>

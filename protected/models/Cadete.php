@@ -32,6 +32,9 @@
  * @property NotasFinales[] $notasFinales
  * @property InglesTae[] $inglesTae
  * @property InglesTae[] $calificaciones
+ * @property NotasFisico[] $notasFisicos
+ * @property Francos[] $francos
+ * @property Nivelacion[] $nivelaciones
  */
 class Cadete extends CActiveRecord
 {
@@ -83,6 +86,9 @@ class Cadete extends CActiveRecord
 			'inglesTae' => array(self::HAS_MANY, 'InglesTae', 'cadete_rut'),
                         'calificaciones' => array(self::HAS_MANY, 'Calificaciones', 'cadete_rut'),
 			'notasParciales' => array(self::HAS_MANY, 'NotasParciales', 'cadete_rut'),
+                        'nivelaciones' => array(self::HAS_MANY, 'Nivelacion', 'cadete_rut'),
+                        'notasFisicos' => array(self::HAS_MANY, 'NotasFisico', 'cadete_rut'),
+                        'francos' => array(self::HAS_MANY, 'Francos', 'cadete_rut'),
 		);
 	}
 
@@ -174,6 +180,12 @@ class Cadete extends CActiveRecord
             if( $this->notasFinales !== array() )
                 return false;
             if( $this->notasParciales !== array() )
+                return false;
+            if( $this->notasFisicos !== array() )
+                return false;
+            if( $this->nivelaciones !== array() )
+                return false;
+            if( $this->francos !== array() )
                 return false;
             return parent::beforeDelete();
         }

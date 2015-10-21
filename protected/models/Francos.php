@@ -13,7 +13,7 @@
  * @property string $cadete_rut
  *
  * The followings are the available model relations:
- * @property Cadete $cadeteRut
+ * @property Cadete $cadete
  */
 class Francos extends CActiveRecord
 {
@@ -51,7 +51,7 @@ class Francos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'cadeteRut' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
+			'cadete' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
 		);
 	}
 

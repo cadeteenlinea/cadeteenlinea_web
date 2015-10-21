@@ -1,30 +1,34 @@
 <h3><?php echo $titulo; ?></h3>
-<div class="media">
-    <div class="media-left">
-        <a href="#">
-        <img width="80" class="media-object" src="<?php echo $model->usuario->imagen();?>" alt="...">
-        </a>
-    </div>
-    <div class="media-body">
-        <p>
-            <b>Cadete: </b> <?php echo $model->usuario->apellidoPat.' '. $model->usuario->apellidoMat.' '. $model->usuario->nombres ?> <br/>
-            <b>Curso: </b> <?php echo $model->curso; ?><br/>
-            <b>División: </b> <?php echo $model->division; ?>
-        </p>
+
+
+<?php foreach ($model->francos as $franco) {?>
+
+<div class="panel panel-default">
+    <table class="table">
+        <tr>
+            <td>Cadete</td>
+            <td><?php echo $model->usuario->apellidoPat.' '. 
+            $model->usuario->apellidoMat.' '. $model->usuario->nombres ;?></td>
+        </tr>
+        <tr>
+            <td>Fecha Salida</td>
+            <td><?php echo $franco->fecha_salida . ' ' . $franco->hora_salida;?></td>
+        </tr>
+        <tr>
+            <td>Fecha Recogida</td>
+            <td><?php echo $franco->fecha_recogida . ' ' . $franco->hora_recogida;?></td>
+        </tr>
         
-        <?php 
-            foreach($model->francos as $franco){
-        ?>
-            <p>
-                <b>Fecha Salida : </b> <?php echo $franco->fecha_salida; ?> <br/>
-                <b>Hora Salida : </b> <?php echo $franco->hora_salida; ?> <br/>
-                <b>Fecha Recogida : </b> <?php echo $franco->fecha_recogida; ?> <br/>
-                <b>Hora Recogida : </b> <?php echo $franco->hora_recogida; ?> <br/>
-            </p>
-        
-        
-        <?php
-            }
-        ?>
-    </div>
+        <tr>
+            <td>Asignaturas con nota bajo 6.0 (escala 0 a 10)</td>
+            <td><?php echo $franco->asignatura_bajo;?></td>
+        </tr>
+    </table>
 </div>
+<?php }?>
+
+
+
+
+
+

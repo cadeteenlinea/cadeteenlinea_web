@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2015 a las 21:27:41
+-- Tiempo de generación: 21-10-2015 a las 20:47:43
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -18,8 +18,9 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `cadeteenlinea`
--- 
-DROP DATABASE `cadeteenlinea`; 
+--
+
+DROP DATABASE `cadeteenlinea`;
 CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `cadeteenlinea`;
 
@@ -1690,8 +1691,8 @@ INSERT INTO `francos` (`idfrancos`, `fecha_salida`, `hora_salida`, `hora_recogid
 (3, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                               ', 18312151),
 (4, ' 2 de OCTUBRE   ', '19,00', '7,45', ' 3 de OCTUBRE   ', '                               ', 17992236),
 (5, ' 3 de OCTUBRE   ', '12,30', '21,00', ' 4 de OCTUBRE   ', '                               ', 17992236),
-(6, ' 4 de OCTUBRE   ', '10,30', '21,00', ' 4 de OCTUBRE   ', '                               ', 18176975),
-(7, ' 3 de OCTUBRE   ', '20,30', '23,30', ' 3 de OCTUBRE   ', '                               ', 18176975);
+(6, ' 3 de OCTUBRE   ', '20,30', '23,30', ' 3 de OCTUBRE   ', '                               ', 18176975),
+(7, ' 4 de OCTUBRE   ', '10,30', '21,00', ' 4 de OCTUBRE   ', '                               ', 18176975);
 
 -- --------------------------------------------------------
 

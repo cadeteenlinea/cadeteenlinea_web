@@ -21,7 +21,12 @@
         
         <tr>
             <td>Asignaturas con nota bajo 6.0 (escala 0 a 10)</td>
-            <td><?php echo $franco->asignatura_bajo;?></td>
+            <td><?php echo  str_replace("\n", "<br>",$franco->asignatura_bajo);?></td>
+        </tr>
+        
+        <tr>
+            <td>Observaciones</td>
+            <td><?php echo  str_replace("\n", "<br>",$franco->observaciones);?></td>
         </tr>
     </table>
 </div>

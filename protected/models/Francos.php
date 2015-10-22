@@ -10,6 +10,7 @@
  * @property string $hora_recogida
  * @property string $fecha_recogida
  * @property string $asignatura_bajo
+ * @property string $observaciones
  * @property string $cadete_rut
  *
  * The followings are the available model relations:
@@ -35,8 +36,10 @@ class Francos extends CActiveRecord
 		return array(
 			array('idfrancos, cadete_rut', 'required'),
 			array('idfrancos', 'numerical', 'integerOnly'=>true),
-			array('fecha_salida, hora_salida, hora_recogida, fecha_recogida, asignatura_bajo', 'length', 'max'=>50),
-			array('cadete_rut', 'length', 'max'=>10),
+			array('fecha_salida, hora_salida, hora_recogida, fecha_recogida', 'length', 'max'=>50),
+			array('observaciones', 'length', 'max'=>154),
+                        array('asignatura_bajo', 'length', 'max'=>258),
+                        array('cadete_rut', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idfrancos, fecha_salida, hora_salida, hora_recogida, fecha_recogida, asignatura_bajo, cadete_rut', 'safe', 'on'=>'search'),
@@ -67,7 +70,7 @@ class Francos extends CActiveRecord
 			'hora_recogida' => 'Hora Recogida',
 			'fecha_recogida' => 'Fecha Recogida',
 			'asignatura_bajo' => 'Asignatura Bajo',
-			'francoscol' => 'Francoscol',
+			'observaciones' => 'Observaciones',
 			'cadete_rut' => 'Cadete Rut',
 		);
 	}
@@ -134,6 +137,7 @@ class Francos extends CActiveRecord
                 $model->hora_recogida = $franco["hora_recogida"];
                 $model->fecha_recogida = $franco["fecha_recogida"];
                 $model->asignatura_bajo = $franco["asignatura_bajo"];
+                $model->observaciones = $franco["observaciones"];
 
                 $model->cadete_rut = $franco["cadete_rut"];
                 

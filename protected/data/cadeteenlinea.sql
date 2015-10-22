@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2015 a las 20:47:43
+-- Tiempo de generación: 22-10-2015 a las 16:11:39
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -18,9 +18,9 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `cadeteenlinea`
---
-
 DROP DATABASE `cadeteenlinea`;
+
+--
 CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `cadeteenlinea`;
 
@@ -1677,7 +1677,8 @@ CREATE TABLE IF NOT EXISTS `francos` (
   `hora_salida` varchar(50) DEFAULT NULL,
   `hora_recogida` varchar(50) DEFAULT NULL,
   `fecha_recogida` varchar(50) DEFAULT NULL,
-  `asignatura_bajo` varchar(50) DEFAULT NULL,
+  `asignatura_bajo` varchar(258) DEFAULT NULL,
+  `observaciones` varchar(154) DEFAULT NULL,
   `cadete_rut` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1685,14 +1686,15 @@ CREATE TABLE IF NOT EXISTS `francos` (
 -- Volcado de datos para la tabla `francos`
 --
 
-INSERT INTO `francos` (`idfrancos`, `fecha_salida`, `hora_salida`, `hora_recogida`, `fecha_recogida`, `asignatura_bajo`, `cadete_rut`) VALUES
-(1, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                               ', 17559990),
-(2, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                               ', 18203039),
-(3, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                               ', 18312151),
-(4, ' 2 de OCTUBRE   ', '19,00', '7,45', ' 3 de OCTUBRE   ', '                               ', 17992236),
-(5, ' 3 de OCTUBRE   ', '12,30', '21,00', ' 4 de OCTUBRE   ', '                               ', 17992236),
-(6, ' 3 de OCTUBRE   ', '20,30', '23,30', ' 3 de OCTUBRE   ', '                               ', 18176975),
-(7, ' 4 de OCTUBRE   ', '10,30', '21,00', ' 4 de OCTUBRE   ', '                               ', 18176975);
+INSERT INTO `francos` (`idfrancos`, `fecha_salida`, `hora_salida`, `hora_recogida`, `fecha_recogida`, `asignatura_bajo`, `observaciones`, `cadete_rut`) VALUES
+(1, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 17559990),
+(2, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 18203039),
+(3, ' 3 de OCTUBRE   ', '12,30', '7,20', ' 5 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 18312151),
+(4, ' 2 de OCTUBRE   ', '19,00', '7,45', ' 3 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 17992236),
+(5, ' 3 de OCTUBRE   ', '12,30', '21,00', ' 4 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 17992236),
+(6, ' 3 de OCTUBRE   ', '20,30', '23,30', ' 3 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \nHORAS POR FALTA         8,0', 18176975),
+(7, ' 4 de OCTUBRE   ', '11,00', '7,20', ' 5 de OCTUBRE   ', 'CALCULO II                 4,2  \r\n                                \r\n                                \r\n                                \r\n', '                                    \nHRS. ESTUDIO ADICIONAL  2,00 \nHORAS POR FALTA        10,0', 18176975),
+(8, ' 4 de OCTUBRE   ', '10,30', '21,00', ' 4 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \nHORAS POR FALTA         8,0', 18176975);
 
 -- --------------------------------------------------------
 

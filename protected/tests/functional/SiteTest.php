@@ -1,17 +1,23 @@
 <?php
 /**
- * @group functional
+ * @group selenium
  */
 
 class SiteTest extends WebTestCase
 {
 
-	/*public function testIndex()
+	public function testIndex()
 	{
+		$this->windowMaximize();
 		$this->open('');
-		$this->assertTextPresent('Welcome');
-	}*/
-        
+		$this->assertElementPresent('name=LoginForm[username]');
+                $this->type('name=LoginForm[username]','4954924-5');
+                $this->assertElementPresent('name=LoginForm[password]');
+                $this->type('LoginForm[password]','4954924');
+                $this->click('name=yt0');
+                
+	}
+        /*
 	public function testContact()
 	{
                 $this->windowMaximize();

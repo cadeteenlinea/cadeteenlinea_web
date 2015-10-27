@@ -22,10 +22,8 @@
 class Usuario extends CActiveRecord
 {
         public $newPassword;
-        public $passwordRepeat;
-        public $old_password;
-        public $new_password;
-        public $repeat_password;
+        public $repeatPassword;
+        public $oldPassword;
         /**
 	 * @return string the associated database table name
 	 */
@@ -53,9 +51,10 @@ class Usuario extends CActiveRecord
                     
 			array('rut, apellidoPat, apellidoMat, nombres, password_2, perfil', 'safe', 'on'=>'search'),
                         //Error de validación, estaba escrito requerid y no required
-                        array('old_password, new_password, repeat_password', 'required', 'on' => 'changePwd'),
-                        array('old_password', 'findPasswords', 'on' => 'changePwd'),
-                        array('repeat_password', 'compare', 'compareAttribute' => 'new_password'),
+                        array('oldPassword, newPassword, repeatPassword', 'required', 'on' => 'changePwd'),
+                        array('newPassword, repeatPassword', 'length', 'min'=>6, 'max'=>250, 'on' => 'changePwd'),
+                        array('oldPassword', 'findPasswords', 'on' => 'changePwd'),
+                        array('repeatPassword', 'compare', 'compareAttribute' => 'newPassword'),
 		);
 	}
 
@@ -85,9 +84,9 @@ class Usuario extends CActiveRecord
 			'nombres' => 'Nombres',
 			'password_2' => 'Clave',
 			'perfil' => 'Perfil',
-                        'old_password'=>'Contraseña Actual',
+                        'oldPassword'=>'Contraseña Actual',
                         'newPassword'=>'Nueva Contraseña',
-                        'passwordRepeat'=>'Repetir Nueva Contraseña',
+                        'repeatPassword'=>'Repetir Nueva Contraseña',
                         'email'=>'Email'
 		);
 	}
@@ -304,9 +303,10 @@ class Usuario extends CActiveRecord
             return $errores;
         }
         
-        public function findPasswords ($attribute, $params){
+        public function findPasswords($attribute, $params){
             $usuario = Usuario::model()->findByPk(Yii::app()->user->id);
-            if ($usuario->password_2 != md5($this->old_password))
+            if ($usuario->password_2 != $this->oldPassword){
                 $this->addError ($attribute, 'Password actual incorrecta.');
+            }
         }
 }

@@ -183,28 +183,27 @@ class UsuarioController extends Controller
             $model->setScenario('changePwd');
             
             if(isset($_POST['Usuario'])){
-                
-                $model->attributes = ($_POST['Usuario']);
-                //$valid = $model->validate();
-                
+                $model->attributes = $_POST['Usuario'];
+
                 if($model->validate()){
+                    //se entrega la nueva contraseña al atributo correspondiente
+                    //no se está utilizando encriptación aun
+                    $model->password_2 = $model->newPassword;
                     
-                    $model->password_2 = md5($model->new_password);
-                 
-                    if($model->save())
-                        $this->redirect (array('cambioPassword', 'msg' => 'Cambio de password exitoso'));
-                    else
-                        $this->redirect (array('cambioPassword', 'msg' => 'No se cambio password'));
-                }
-                else {
-                    $errors = $model->getErrors();
-                    print_r($errors);
-                    exit;
+                    //los setFlash son para enviar mensajes que duran el cargado de la página
+                    //es decir, al refrescar la página se pierden por completo
+                    if($model->save()){
+                        Yii::app()->user->setFlash('success','Contraseña modificada');
+                        $this->redirect(array('CambioPassword'));
+                    }else{
+                        Yii::app()->user->setFlash('error','Contraseña no se pudo modificar');
+                        $this->redirect(array('CambioPassword'));
+                    }
                 }
             }
             $this->render('cambioPassword', array(
                 'model' => $model,
-                'titulo' => 'Cambio Password',
-                ));
+                'titulo' => 'Cambio Contraseña',
+             ));
         }
 }

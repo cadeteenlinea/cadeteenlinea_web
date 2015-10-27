@@ -184,10 +184,10 @@ class UsuarioController extends Controller
             
             if(isset($_POST['Usuario'])){
                 
-                $model->attributes = $_POST['Usuario'];
-                $valid = $model->validate();
+                $model->attributes = ($_POST['Usuario']);
+                //$valid = $model->validate();
                 
-                if($valid){
+                if($model->validate()){
                     
                     $model->password_2 = md5($model->new_password);
                  
@@ -195,6 +195,11 @@ class UsuarioController extends Controller
                         $this->redirect (array('cambioPassword', 'msg' => 'Cambio de password exitoso'));
                     else
                         $this->redirect (array('cambioPassword', 'msg' => 'No se cambio password'));
+                }
+                else {
+                    $errors = $model->getErrors();
+                    print_r($errors);
+                    exit;
                 }
             }
             $this->render('cambioPassword', array(

@@ -1,11 +1,11 @@
-﻿-- phpMyAdmin SQL Dump
--- version 4.2.11
+-- phpMyAdmin SQL Dump
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2015 a las 16:11:39
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Tiempo de generación: 10-11-2015 a las 15:00:02
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,15 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `cadeteenlinea`
-DROP DATABASE `cadeteenlinea`;
-
 --
-CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `cadeteenlinea`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +26,6 @@ USE `cadeteenlinea`;
 -- Estructura de tabla para la tabla `apoderado`
 --
 
-DROP TABLE IF EXISTS `apoderado`;
 CREATE TABLE IF NOT EXISTS `apoderado` (
   `rut` int(10) unsigned NOT NULL,
   `direccion` varchar(100) DEFAULT NULL,
@@ -70,9 +65,8 @@ INSERT INTO `apoderado` (`rut`, `direccion`, `comuna`, `ciudad`, `region`, `fono
 -- Estructura de tabla para la tabla `archivos`
 --
 
-DROP TABLE IF EXISTS `archivos`;
 CREATE TABLE IF NOT EXISTS `archivos` (
-`idarchivos` int(11) NOT NULL,
+  `idarchivos` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `tipo_archivo_idtipo_archivo` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
@@ -93,7 +87,6 @@ INSERT INTO `archivos` (`idarchivos`, `fecha`, `tipo_archivo_idtipo_archivo`) VA
 -- Estructura de tabla para la tabla `asignatura`
 --
 
-DROP TABLE IF EXISTS `asignatura`;
 CREATE TABLE IF NOT EXISTS `asignatura` (
   `idasignatura` int(11) NOT NULL,
   `codigo` varchar(6) NOT NULL,
@@ -1098,8 +1091,7 @@ INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, 
 (987, 'MET202', 2015, 2, 2, 'METEOROLOGÍA', 3),
 (988, 'MET202', 2015, 2, 2, 'METEOROLOGÍA', 4),
 (989, 'MET202', 2015, 2, 2, 'METEOROLOGÍA', 7),
-(990, 'MET401', 2009, 1, 4, 'METEO. Y NAV. COSTERA', 5);
-INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, `nombre`, `especialidad_idespecialidad`) VALUES
+(990, 'MET401', 2009, 1, 4, 'METEO. Y NAV. COSTERA', 5),
 (991, 'MIC301', 2013, 1, 3, 'MICROECONOMÍA', 6),
 (992, 'MIC301', 2014, 1, 3, 'MICROECONOMÍA', 6),
 (993, 'MIC301', 2015, 1, 3, 'MICROECONOMÍA', 6),
@@ -1109,7 +1101,8 @@ INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, 
 (997, 'MIC302', 2012, 2, 3, 'MICROECONOMÍA', 6),
 (998, 'MIC401', 2009, 1, 4, 'MICROECONOMÍA', 6),
 (999, 'MIC402', 2009, 2, 4, 'MICROECONOMIA', 6),
-(1000, 'MQE401', 2010, 1, 4, 'MÁQUINAS ELECTRICAS', 4),
+(1000, 'MQE401', 2010, 1, 4, 'MÁQUINAS ELECTRICAS', 4);
+INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, `nombre`, `especialidad_idespecialidad`) VALUES
 (1001, 'MQE401', 2011, 1, 4, 'MÁQUINAS ELÉCTRICAS', 4),
 (1002, 'MQE401', 2012, 1, 4, 'MÁQUINAS ELÉCTRICAS', 4),
 (1003, 'MQE401', 2013, 1, 4, 'MÁQUINAS ELÉCTRICAS', 4),
@@ -1451,7 +1444,6 @@ INSERT INTO `asignatura` (`idasignatura`, `codigo`, `ano`, `semestre`, `curso`, 
 -- Estructura de tabla para la tabla `cadete`
 --
 
-DROP TABLE IF EXISTS `cadete`;
 CREATE TABLE IF NOT EXISTS `cadete` (
   `rut` int(10) unsigned NOT NULL,
   `nCadete` int(10) unsigned NOT NULL,
@@ -1490,7 +1482,6 @@ INSERT INTO `cadete` (`rut`, `nCadete`, `direccion`, `comuna`, `ciudad`, `region
 -- Estructura de tabla para la tabla `cadete_apoderado`
 --
 
-DROP TABLE IF EXISTS `cadete_apoderado`;
 CREATE TABLE IF NOT EXISTS `cadete_apoderado` (
   `idcadete_apoderado` int(10) unsigned NOT NULL,
   `cadete_rut` int(10) unsigned NOT NULL,
@@ -1526,7 +1517,6 @@ INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_r
 -- Estructura de tabla para la tabla `calificaciones`
 --
 
-DROP TABLE IF EXISTS `calificaciones`;
 CREATE TABLE IF NOT EXISTS `calificaciones` (
   `idcalificaciones` int(11) NOT NULL,
   `ano` int(11) DEFAULT NULL,
@@ -1594,12 +1584,25 @@ INSERT INTO `calificaciones` (`idcalificaciones`, `ano`, `semestre`, `mando`, `i
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `certificado`
+--
+
+CREATE TABLE IF NOT EXISTS `certificado` (
+  `idcertificado` int(11) NOT NULL,
+  `usuario_rut` int(10) unsigned NOT NULL,
+  `fecha_solicitud` varchar(50) NOT NULL,
+  `fecha_vencimiento` varchar(50) NOT NULL,
+  `fecha_aprobacion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `concepto`
 --
 
-DROP TABLE IF EXISTS `concepto`;
 CREATE TABLE IF NOT EXISTS `concepto` (
-`idconcepto` int(11) NOT NULL,
+  `idconcepto` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `codigo` varchar(2) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
@@ -1622,9 +1625,8 @@ INSERT INTO `concepto` (`idconcepto`, `nombre`, `codigo`) VALUES
 -- Estructura de tabla para la tabla `departamento`
 --
 
-DROP TABLE IF EXISTS `departamento`;
 CREATE TABLE IF NOT EXISTS `departamento` (
-`iddepartamento` int(10) unsigned NOT NULL,
+  `iddepartamento` int(10) unsigned NOT NULL,
   `nombre` varchar(25) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -1643,9 +1645,8 @@ INSERT INTO `departamento` (`iddepartamento`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `especialidad`
 --
 
-DROP TABLE IF EXISTS `especialidad`;
 CREATE TABLE IF NOT EXISTS `especialidad` (
-`idespecialidad` int(11) NOT NULL,
+  `idespecialidad` int(11) NOT NULL,
   `codigo` varchar(1) NOT NULL,
   `nombre` varchar(45) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
@@ -1670,7 +1671,6 @@ INSERT INTO `especialidad` (`idespecialidad`, `codigo`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `francos`
 --
 
-DROP TABLE IF EXISTS `francos`;
 CREATE TABLE IF NOT EXISTS `francos` (
   `idfrancos` int(11) NOT NULL,
   `fecha_salida` varchar(50) DEFAULT NULL,
@@ -1702,7 +1702,6 @@ INSERT INTO `francos` (`idfrancos`, `fecha_salida`, `hora_salida`, `hora_recogid
 -- Estructura de tabla para la tabla `funcionario`
 --
 
-DROP TABLE IF EXISTS `funcionario`;
 CREATE TABLE IF NOT EXISTS `funcionario` (
   `rut` int(10) unsigned NOT NULL,
   `departamento_iddepartamento` int(10) unsigned DEFAULT NULL,
@@ -1715,7 +1714,6 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 -- Estructura de tabla para la tabla `ingles_tae`
 --
 
-DROP TABLE IF EXISTS `ingles_tae`;
 CREATE TABLE IF NOT EXISTS `ingles_tae` (
   `idingles_tae` int(11) NOT NULL,
   `ano` int(11) NOT NULL,
@@ -1753,10 +1751,29 @@ INSERT INTO `ingles_tae` (`idingles_tae`, `ano`, `mes`, `speaking`, `understandi
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `motivo`
+--
+
+CREATE TABLE IF NOT EXISTS `motivo` (
+  `idmotivo` int(11) NOT NULL,
+  `motivo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `motivo`
+--
+
+INSERT INTO `motivo` (`idmotivo`, `motivo`) VALUES
+(1, 'Asignación familiar'),
+(2, 'Presentar en embajada'),
+(3, 'Fines que estime convenientes');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `nivelacion`
 --
 
-DROP TABLE IF EXISTS `nivelacion`;
 CREATE TABLE IF NOT EXISTS `nivelacion` (
   `idnivelacion` int(11) NOT NULL,
   `ano` int(11) NOT NULL,
@@ -1890,7 +1907,6 @@ INSERT INTO `nivelacion` (`idnivelacion`, `ano`, `semestre`, `etapa`, `marca_100
 -- Estructura de tabla para la tabla `notas_finales`
 --
 
-DROP TABLE IF EXISTS `notas_finales`;
 CREATE TABLE IF NOT EXISTS `notas_finales` (
   `idnotas_finales` int(11) NOT NULL,
   `nota_presentacion` float NOT NULL,
@@ -2139,7 +2155,6 @@ INSERT INTO `notas_finales` (`idnotas_finales`, `nota_presentacion`, `nota_exame
 -- Estructura de tabla para la tabla `notas_fisico`
 --
 
-DROP TABLE IF EXISTS `notas_fisico`;
 CREATE TABLE IF NOT EXISTS `notas_fisico` (
   `idnotas_fisico` int(11) NOT NULL,
   `ano` int(11) NOT NULL,
@@ -2219,7 +2234,6 @@ INSERT INTO `notas_fisico` (`idnotas_fisico`, `ano`, `semestre`, `marca_100_mt`,
 -- Estructura de tabla para la tabla `notas_parciales`
 --
 
-DROP TABLE IF EXISTS `notas_parciales`;
 CREATE TABLE IF NOT EXISTS `notas_parciales` (
   `idnotas_parciales` int(11) NOT NULL,
   `nota` float NOT NULL,
@@ -2385,9 +2399,8 @@ INSERT INTO `notas_parciales` (`idnotas_parciales`, `nota`, `dia`, `mes`, `ano`,
 -- Estructura de tabla para la tabla `tipo_archivo`
 --
 
-DROP TABLE IF EXISTS `tipo_archivo`;
 CREATE TABLE IF NOT EXISTS `tipo_archivo` (
-`idtipo_archivo` int(11) NOT NULL,
+  `idtipo_archivo` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `tabla_sincronizar` varchar(45) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -2408,7 +2421,6 @@ INSERT INTO `tipo_archivo` (`idtipo_archivo`, `nombre`, `tabla_sincronizar`) VAL
 -- Estructura de tabla para la tabla `transaccion`
 --
 
-DROP TABLE IF EXISTS `transaccion`;
 CREATE TABLE IF NOT EXISTS `transaccion` (
   `idtransaccion` int(10) unsigned NOT NULL,
   `cadete_rut` int(10) unsigned NOT NULL,
@@ -2498,7 +2510,6 @@ INSERT INTO `transaccion` (`idtransaccion`, `cadete_rut`, `tipoTransaccion`, `mo
 -- Estructura de tabla para la tabla `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `rut` int(10) unsigned NOT NULL,
   `apellidoPat` varchar(25) NOT NULL,
@@ -2517,7 +2528,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `password_2`, `perfil`, `lastLogin`, `codVerificacion`, `email`, `fechaVerificacion`) VALUES
-(4954924, 'RAVENTÓS', 'ÁGUILA', 'XIMENA', '4954924', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
+(4954924, 'RAVENTÓS', 'ÁGUILA', 'XIMENA', '123456', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (6378128, 'ACEVEDO', 'PEDREROS', 'RAMÓN ARTURO', '6378128', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (6392614, 'VARAS', 'MORA', 'IVONNE VILMA', '6392614', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (6821677, 'MORENO', 'Poblete', 'Luis  Fernando', '6821677', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
@@ -2547,115 +2558,149 @@ INSERT INTO `usuario` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `password
 -- Indices de la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
- ADD PRIMARY KEY (`rut`), ADD KEY `apoderado_FKIndex1` (`rut`);
+  ADD PRIMARY KEY (`rut`),
+  ADD KEY `apoderado_FKIndex1` (`rut`);
 
 --
 -- Indices de la tabla `archivos`
 --
 ALTER TABLE `archivos`
- ADD PRIMARY KEY (`idarchivos`), ADD KEY `fk_archivos_tipo_archivo1_idx` (`tipo_archivo_idtipo_archivo`);
+  ADD PRIMARY KEY (`idarchivos`),
+  ADD KEY `fk_archivos_tipo_archivo1_idx` (`tipo_archivo_idtipo_archivo`);
 
 --
 -- Indices de la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
- ADD PRIMARY KEY (`idasignatura`), ADD KEY `fk_asignatura_especialidad1_idx` (`especialidad_idespecialidad`);
+  ADD PRIMARY KEY (`idasignatura`),
+  ADD KEY `fk_asignatura_especialidad1_idx` (`especialidad_idespecialidad`);
 
 --
 -- Indices de la tabla `cadete`
 --
 ALTER TABLE `cadete`
- ADD PRIMARY KEY (`rut`), ADD KEY `cadete_FKIndex1` (`rut`), ADD KEY `fk_cadete_especialidad1_idx` (`especialidad_idespecialidad`);
+  ADD PRIMARY KEY (`rut`),
+  ADD KEY `cadete_FKIndex1` (`rut`),
+  ADD KEY `fk_cadete_especialidad1_idx` (`especialidad_idespecialidad`);
 
 --
 -- Indices de la tabla `cadete_apoderado`
 --
 ALTER TABLE `cadete_apoderado`
- ADD PRIMARY KEY (`idcadete_apoderado`), ADD KEY `cadete_apoderado_FKIndex1` (`apoderado_rut`), ADD KEY `cadete_apoderado_FKIndex2` (`cadete_rut`);
+  ADD PRIMARY KEY (`idcadete_apoderado`),
+  ADD KEY `cadete_apoderado_FKIndex1` (`apoderado_rut`),
+  ADD KEY `cadete_apoderado_FKIndex2` (`cadete_rut`);
 
 --
 -- Indices de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
- ADD PRIMARY KEY (`idcalificaciones`), ADD KEY `fk_calificaciones_cadete1_idx` (`cadete_rut`);
+  ADD PRIMARY KEY (`idcalificaciones`),
+  ADD KEY `fk_calificaciones_cadete1_idx` (`cadete_rut`);
+
+--
+-- Indices de la tabla `certificado`
+--
+ALTER TABLE `certificado`
+  ADD PRIMARY KEY (`idcertificado`);
 
 --
 -- Indices de la tabla `concepto`
 --
 ALTER TABLE `concepto`
- ADD PRIMARY KEY (`idconcepto`);
+  ADD PRIMARY KEY (`idconcepto`);
 
 --
 -- Indices de la tabla `departamento`
 --
 ALTER TABLE `departamento`
- ADD PRIMARY KEY (`iddepartamento`);
+  ADD PRIMARY KEY (`iddepartamento`);
 
 --
 -- Indices de la tabla `especialidad`
 --
 ALTER TABLE `especialidad`
- ADD PRIMARY KEY (`idespecialidad`);
+  ADD PRIMARY KEY (`idespecialidad`);
 
 --
 -- Indices de la tabla `francos`
 --
 ALTER TABLE `francos`
- ADD PRIMARY KEY (`idfrancos`), ADD KEY `fk_francos_cadete1_idx` (`cadete_rut`);
+  ADD PRIMARY KEY (`idfrancos`),
+  ADD KEY `fk_francos_cadete1_idx` (`cadete_rut`);
 
 --
 -- Indices de la tabla `funcionario`
 --
 ALTER TABLE `funcionario`
- ADD PRIMARY KEY (`rut`), ADD KEY `funcionario_FKIndex1` (`rut`), ADD KEY `funcionario_FKIndex2` (`departamento_iddepartamento`);
+  ADD PRIMARY KEY (`rut`),
+  ADD KEY `funcionario_FKIndex1` (`rut`),
+  ADD KEY `funcionario_FKIndex2` (`departamento_iddepartamento`);
 
 --
 -- Indices de la tabla `ingles_tae`
 --
 ALTER TABLE `ingles_tae`
- ADD PRIMARY KEY (`idingles_tae`), ADD KEY `fk_ingles_tae_cadete1_idx` (`cadete_rut`);
+  ADD PRIMARY KEY (`idingles_tae`),
+  ADD KEY `fk_ingles_tae_cadete1_idx` (`cadete_rut`);
+
+--
+-- Indices de la tabla `motivo`
+--
+ALTER TABLE `motivo`
+  ADD PRIMARY KEY (`idmotivo`),
+  ADD KEY `idmotivo` (`idmotivo`),
+  ADD KEY `idmotivo_2` (`idmotivo`);
 
 --
 -- Indices de la tabla `nivelacion`
 --
 ALTER TABLE `nivelacion`
- ADD PRIMARY KEY (`idnivelacion`), ADD KEY `fk_notas_fisico_cadete1_idx` (`cadete_rut`);
+  ADD PRIMARY KEY (`idnivelacion`),
+  ADD KEY `fk_notas_fisico_cadete1_idx` (`cadete_rut`);
 
 --
 -- Indices de la tabla `notas_finales`
 --
 ALTER TABLE `notas_finales`
- ADD PRIMARY KEY (`idnotas_finales`), ADD KEY `fk_nota_final_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_finales_cadete1_idx` (`cadete_rut`);
+  ADD PRIMARY KEY (`idnotas_finales`),
+  ADD KEY `fk_nota_final_asignatura1_idx` (`asignatura_idasignatura`),
+  ADD KEY `fk_notas_finales_cadete1_idx` (`cadete_rut`);
 
 --
 -- Indices de la tabla `notas_fisico`
 --
 ALTER TABLE `notas_fisico`
- ADD PRIMARY KEY (`idnotas_fisico`), ADD KEY `fk_notas_fisico_cadete1_idx` (`cadete_rut`);
+  ADD PRIMARY KEY (`idnotas_fisico`),
+  ADD KEY `fk_notas_fisico_cadete1_idx` (`cadete_rut`);
 
 --
 -- Indices de la tabla `notas_parciales`
 --
 ALTER TABLE `notas_parciales`
- ADD PRIMARY KEY (`idnotas_parciales`), ADD KEY `fk_notas_parciales_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_parciales_cadete1_idx` (`cadete_rut`), ADD KEY `fk_notas_parciales_concepto1_idx` (`concepto_idconcepto`);
+  ADD PRIMARY KEY (`idnotas_parciales`),
+  ADD KEY `fk_notas_parciales_asignatura1_idx` (`asignatura_idasignatura`),
+  ADD KEY `fk_notas_parciales_cadete1_idx` (`cadete_rut`),
+  ADD KEY `fk_notas_parciales_concepto1_idx` (`concepto_idconcepto`);
 
 --
 -- Indices de la tabla `tipo_archivo`
 --
 ALTER TABLE `tipo_archivo`
- ADD PRIMARY KEY (`idtipo_archivo`);
+  ADD PRIMARY KEY (`idtipo_archivo`);
 
 --
 -- Indices de la tabla `transaccion`
 --
 ALTER TABLE `transaccion`
- ADD PRIMARY KEY (`idtransaccion`), ADD KEY `transaccion_FKIndex1` (`cadete_rut`);
+  ADD PRIMARY KEY (`idtransaccion`),
+  ADD KEY `transaccion_FKIndex1` (`cadete_rut`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
- ADD PRIMARY KEY (`rut`);
+  ADD PRIMARY KEY (`rut`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -2665,27 +2710,27 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-MODIFY `idarchivos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `idarchivos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `concepto`
 --
 ALTER TABLE `concepto`
-MODIFY `idconcepto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `idconcepto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-MODIFY `iddepartamento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `iddepartamento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `especialidad`
 --
 ALTER TABLE `especialidad`
-MODIFY `idespecialidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `idespecialidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tipo_archivo`
 --
 ALTER TABLE `tipo_archivo`
-MODIFY `idtipo_archivo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `idtipo_archivo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --
@@ -2694,91 +2739,91 @@ MODIFY `idtipo_archivo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- Filtros para la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
-ADD CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `apoderado_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `archivos`
 --
 ALTER TABLE `archivos`
-ADD CONSTRAINT `fk_archivos_tipo_archivo1` FOREIGN KEY (`tipo_archivo_idtipo_archivo`) REFERENCES `tipo_archivo` (`idtipo_archivo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_archivos_tipo_archivo1` FOREIGN KEY (`tipo_archivo_idtipo_archivo`) REFERENCES `tipo_archivo` (`idtipo_archivo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-ADD CONSTRAINT `fk_asignatura_especialidad1` FOREIGN KEY (`especialidad_idespecialidad`) REFERENCES `especialidad` (`idespecialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_asignatura_especialidad1` FOREIGN KEY (`especialidad_idespecialidad`) REFERENCES `especialidad` (`idespecialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `cadete`
 --
 ALTER TABLE `cadete`
-ADD CONSTRAINT `cadete_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_cadete_especialidad1` FOREIGN KEY (`especialidad_idespecialidad`) REFERENCES `especialidad` (`idespecialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `cadete_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cadete_especialidad1` FOREIGN KEY (`especialidad_idespecialidad`) REFERENCES `especialidad` (`idespecialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `cadete_apoderado`
 --
 ALTER TABLE `cadete_apoderado`
-ADD CONSTRAINT `cadete_apoderado_ibfk_1` FOREIGN KEY (`apoderado_rut`) REFERENCES `apoderado` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `cadete_apoderado_ibfk_2` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `cadete_apoderado_ibfk_1` FOREIGN KEY (`apoderado_rut`) REFERENCES `apoderado` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `cadete_apoderado_ibfk_2` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-ADD CONSTRAINT `fk_calificaciones_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_calificaciones_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `francos`
 --
 ALTER TABLE `francos`
-ADD CONSTRAINT `fk_francos_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_francos_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `funcionario`
 --
 ALTER TABLE `funcionario`
-ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`departamento_iddepartamento`) REFERENCES `departamento` (`iddepartamento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`departamento_iddepartamento`) REFERENCES `departamento` (`iddepartamento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `ingles_tae`
 --
 ALTER TABLE `ingles_tae`
-ADD CONSTRAINT `fk_ingles_tae_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_ingles_tae_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `nivelacion`
 --
 ALTER TABLE `nivelacion`
-ADD CONSTRAINT `fk_notas_fisico_cadete10` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_notas_fisico_cadete10` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `notas_finales`
 --
 ALTER TABLE `notas_finales`
-ADD CONSTRAINT `fk_nota_final_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_notas_finales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_nota_final_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_notas_finales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `notas_fisico`
 --
 ALTER TABLE `notas_fisico`
-ADD CONSTRAINT `fk_notas_fisico_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_notas_fisico_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `notas_parciales`
 --
 ALTER TABLE `notas_parciales`
-ADD CONSTRAINT `fk_notas_parciales_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_notas_parciales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_notas_parciales_concepto1` FOREIGN KEY (`concepto_idconcepto`) REFERENCES `concepto` (`idconcepto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_notas_parciales_asignatura1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignatura` (`idasignatura`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_notas_parciales_cadete1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_notas_parciales_concepto1` FOREIGN KEY (`concepto_idconcepto`) REFERENCES `concepto` (`idconcepto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `transaccion`
 --
 ALTER TABLE `transaccion`
-ADD CONSTRAINT `transaccion_ibfk_1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `transaccion_ibfk_1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

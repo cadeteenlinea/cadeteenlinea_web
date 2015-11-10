@@ -5,10 +5,19 @@
  *
  * The followings are the available columns in table 'certificado':
  * @property integer $idcertificado
- * @property string $usuario_rut
  * @property string $fecha_solicitud
  * @property string $fecha_vencimiento
  * @property string $fecha_aprobacion
+ * @property integer $motivo_idmotivo
+ * @property string $usuario_rut
+ * @property integer $tipo_certificado_idtipo_certificado
+ * @property string $cadete_rut
+ *
+ * The followings are the available model relations:
+ * @property Cadete $cadete
+ * @property Motivo $motivo
+ * @property TipoCertificado $tipoCertificado
+ * @property Usuario $usuario
  */
 class Certificado extends CActiveRecord
 {
@@ -28,13 +37,13 @@ class Certificado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idcertificado, usuario_rut, fecha_solicitud, fecha_vencimiento, fecha_aprobacion', 'required'),
-			array('idcertificado', 'numerical', 'integerOnly'=>true),
-			array('usuario_rut', 'length', 'max'=>10),
+			array('fecha_solicitud, motivo_idmotivo, usuario_rut, tipo_certificado_idtipo_certificado, cadete_rut', 'required'),
+			array('idcertificado, motivo_idmotivo, tipo_certificado_idtipo_certificado', 'numerical', 'integerOnly'=>true),
 			array('fecha_solicitud, fecha_vencimiento, fecha_aprobacion', 'length', 'max'=>50),
+			array('usuario_rut, cadete_rut', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idcertificado, usuario_rut, fecha_solicitud, fecha_vencimiento, fecha_aprobacion', 'safe', 'on'=>'search'),
+			array('idcertificado, fecha_solicitud, fecha_vencimiento, fecha_aprobacion, motivo_idmotivo, usuario_rut, tipo_certificado_idtipo_certificado, cadete_rut', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,6 +55,10 @@ class Certificado extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'cadete' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
+			'motivo' => array(self::BELONGS_TO, 'Motivo', 'motivo_idmotivo'),
+			'tipoCertificado' => array(self::BELONGS_TO, 'TipoCertificado', 'tipo_certificado_idtipo_certificado'),
+			'usuario' => array(self::BELONGS_TO, 'Usuario', 'usuario_rut'),
 		);
 	}
 
@@ -56,10 +69,13 @@ class Certificado extends CActiveRecord
 	{
 		return array(
 			'idcertificado' => 'Idcertificado',
-			'usuario_rut' => 'Usuario Rut',
 			'fecha_solicitud' => 'Fecha Solicitud',
 			'fecha_vencimiento' => 'Fecha Vencimiento',
 			'fecha_aprobacion' => 'Fecha Aprobacion',
+			'motivo_idmotivo' => 'Motivo',
+			'usuario_rut' => 'Usuario',
+			'tipo_certificado_idtipo_certificado' => 'Tipo Certificado',
+			'cadete_rut' => 'Cadete',
 		);
 	}
 
@@ -82,10 +98,13 @@ class Certificado extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idcertificado',$this->idcertificado);
-		$criteria->compare('usuario_rut',$this->usuario_rut,true);
 		$criteria->compare('fecha_solicitud',$this->fecha_solicitud,true);
 		$criteria->compare('fecha_vencimiento',$this->fecha_vencimiento,true);
 		$criteria->compare('fecha_aprobacion',$this->fecha_aprobacion,true);
+		$criteria->compare('motivo_idmotivo',$this->motivo_idmotivo);
+		$criteria->compare('usuario_rut',$this->usuario_rut,true);
+		$criteria->compare('tipo_certificado_idtipo_certificado',$this->tipo_certificado_idtipo_certificado);
+		$criteria->compare('cadete_rut',$this->cadete_rut,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -103,13 +122,13 @@ class Certificado extends CActiveRecord
 		return parent::model($className);
 	}
         
-        /*static function getListAno($rutCadete){
-            $criteria=new CDbCriteria;
-            $criteria->select='t.ano as ano';
-            $criteria->addCondition('t.cadete_rut='.$rutCadete);
-            $criteria->distinct=true;
-            $model = Nivelacion::model()->findAll($criteria);
+        
+        public static function getAllCertificadosCadete(){
             
-            return CHtml::listData($model, 'ano', 'ano');
-        }*/
+            $criteria=new CDbCriteria;
+            $criteria->addCondition('t.usuario_rut='.Yii::app()->user->id);
+            $model = Certificado::model()->findAll($criteria);
+            
+            return $model;
+        }
 }

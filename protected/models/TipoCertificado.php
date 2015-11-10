@@ -1,23 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "motivo".
+ * This is the model class for table "tipo_certificado".
  *
- * The followings are the available columns in table 'motivo':
- * @property integer $idmotivo
- * @property string $motivo
+ * The followings are the available columns in table 'tipo_certificado':
+ * @property integer $idtipo_certificado
+ * @property string $nombre
  *
  * The followings are the available model relations:
  * @property Certificado[] $certificados
  */
-class Motivo extends CActiveRecord
+class TipoCertificado extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'motivo';
+		return 'tipo_certificado';
 	}
 
 	/**
@@ -28,12 +28,10 @@ class Motivo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idmotivo, motivo', 'required'),
-			array('idmotivo', 'numerical', 'integerOnly'=>true),
-			array('motivo', 'length', 'max'=>50),
+			array('nombre', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idmotivo, motivo', 'safe', 'on'=>'search'),
+			array('idtipo_certificado, nombre', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,7 +43,7 @@ class Motivo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'certificados' => array(self::HAS_MANY, 'Certificado', 'motivo_idmotivo'),
+			'certificados' => array(self::HAS_MANY, 'Certificado', 'tipo_certificado_idtipo_certificado'),
 		);
 	}
 
@@ -55,8 +53,8 @@ class Motivo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idmotivo' => 'Idmotivo',
-			'motivo' => 'Motivo',
+			'idtipo_certificado' => 'Idtipo Certificado',
+			'nombre' => 'Nombre',
 		);
 	}
 
@@ -78,8 +76,8 @@ class Motivo extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('idmotivo',$this->idmotivo);
-		$criteria->compare('motivo',$this->motivo,true);
+		$criteria->compare('idtipo_certificado',$this->idtipo_certificado);
+		$criteria->compare('nombre',$this->nombre,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -90,19 +88,10 @@ class Motivo extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Motivo the static model class
+	 * @return TipoCertificado the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-        
-        static function getListMotivos(){
-            $models = Motivo::model()->findAll(
-                 array('order' => 'motivo'));
-            $list = CHtml::listData($models, 
-                'idmotivo', 'motivo');
-            
-            return $list;
-        }
 }

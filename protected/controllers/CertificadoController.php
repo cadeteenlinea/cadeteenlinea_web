@@ -28,7 +28,7 @@ class CertificadoController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('generarPDF'),
+				'actions'=>array('view', 'Create', 'MisCertificados'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -36,38 +36,25 @@ class CertificadoController extends Controller
 			),
 		);
 	}
-        
-        public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Certificado']))
-		{
-			$model->attributes=$_POST['Certificado'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idcertificado));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
 
         public function actionCreate()
 	{
 		$model=new Certificado;
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Certificado']))
 		{
 			$model->attributes=$_POST['Certificado'];
+
+                        //cadete a quien pertenece el certificado
+                        $rutCadete = Yii::app()->getSession()->get('rutCadete');
+                        $model->fecha_solicitud = date("Y-m-d H:i:s");
+                        $model->tipo_certificado_idtipo_certificado = 1;
+                        //usuario que pide el certificado
+                        $model->usuario_rut = Yii::app()->user->id;
+                        $model->cadete_rut = $rutCadete;
+                        
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->rut));
+				$this->redirect(array('MisCertificados'));
 		}
 
 		$this->render('create',array(
@@ -75,21 +62,43 @@ class CertificadoController extends Controller
 		));
 	}
         
-        public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+        public function actionMisCertificados(){
+            
+                $model=new Certificado('search');
+		$model->unsetAttributes();  // clear any default values
+                
+                $model->usuario_rut = Yii::app()->user->id;
+		if(isset($_GET['Certificado'])){
+			$model->attributes=$_GET['Certificado'];
+                        $model->usuario_rut = Yii::app()->user->id;
+                }
+
+                $this->render('misCertificados',array(
+			'model'=>$model,
 		));
+        }
+        
+        public function loadModel($id)
+	{
+		$model=Certificado::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
 	}
         
-        public function actionDelete($id)
+        public function actionView($id)
 	{
-		$this->loadModel($id)->delete();
+            $model = $this->loadModel($id);
+            $this->layout = '//layouts/pdf';
+            $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter');
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+            # render (full page)
+            $mPDF1->WriteHTML($this->render('view', array('model'=>$model), true));
+
+            # Outputs ready PDF
+            $mPDF1->Output();
 	}
+      
         
         public function actionGenerarPDF()
 	{

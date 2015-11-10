@@ -34,7 +34,8 @@ class NotasFinalesTest extends CTestCase {
     }
 
     public function testGetNotaAnoCadete() {
-        $nota = $this->object->getNotaAnoCadete($this->objectCadete->rut, $this->fixture["asignatura"]);
+        $nota = $this->object->getNotaAnoCadete($this->objectCadete->rut, 
+                $this->fixture["asignatura"]);
         if(!empty($nota)){
             $this->assertNotEmpty($nota->nota_presentacion); 
             $this->assertNotEmpty($nota->nota_examen); 

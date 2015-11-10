@@ -81,6 +81,7 @@
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
                                          array('label'=>'Hora Salida', 'url'=>array('cadete/francos'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
+                                         array('label'=>'Certificados', 'url'=>array('certificado/generarPDF'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
                                     ),'encodeLabel' => false,
                                     ));
                                 ?>

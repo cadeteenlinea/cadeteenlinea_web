@@ -16,12 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Base de datos: `cadeteenlinea`
---
+DROP DATABASE `cadeteenlinea`;
 CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `cadeteenlinea`;
-
 -- --------------------------------------------------------
 
 --

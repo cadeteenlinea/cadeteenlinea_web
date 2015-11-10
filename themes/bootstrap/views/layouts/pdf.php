@@ -22,12 +22,14 @@
 </head>
     <body>
         
-        <div class="container" style="border: 2px solid #848484; height: 1000px;">
+        <div class="container" style="border: 2px solid #848484; height: 1000px; padding-left: 100px; padding-right: 100px;">
             <div class="row">
                 
                 <br/><br/><br/><br/><br/><br/><br/>
                 
-                <?php echo $content; ?>
+
+                         <?php echo $content; ?>
+                
                 
             </div>
         </div>

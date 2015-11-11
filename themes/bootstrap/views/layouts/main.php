@@ -91,6 +91,15 @@
                                                         array('label'=>'Ver mis certificados', 'url'=>array('certificado/misCertificados')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                         array('label'=>'Certificados <b class="caret"></b>', 'url'=>'#', 
+                                                    'linkOptions'=>array(
+                                                        'class'=>'dropdown-toggle',
+                                                        'data-toggle'=>'dropdown',
+                                                    ),
+                                                    'items'=>array(
+                                                        array('label'=>'Certificados por aprobar', 'url'=>array('certificado/admin')),
+                                                    ),                                                    
+                                                    'visible'=>(Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "administrador" )),
                                     ),'encodeLabel' => false,
                                     ));
                                 ?>

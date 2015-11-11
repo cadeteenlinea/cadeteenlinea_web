@@ -31,6 +31,11 @@ class CertificadoController extends Controller
 				'actions'=>array('view', 'Create', 'MisCertificados'),
 				'users'=>array('@'),
 			),
+                        array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('admin', 'aprobar'),
+				'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || '
+                                    .' Yii::app()->getSession()->get("tipoFuncionario") == "administrador"',
+			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -114,5 +119,34 @@ class CertificadoController extends Controller
                 exit;
             }
             $this->render('generarPDF');
+        }
+        
+        
+        public function actionAdmin()
+	{
+		$model=new Certificado('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Certificado']))
+			$model->attributes=$_GET['Certificado'];
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+        
+        public function actionAprobar($id){
+            $model=$this->loadModel($id);
+            $model->fecha_aprobacion = date("Y-m-d H:i:s");
+            $model->fecha_vencimiento = date("Y-m-d H:i:s");           
+            
+            if($model->save()){
+                Yii::app()->user->setFlash("success","Certificado Folio #$model->idcertificado a sido aprobado");
+            }else{
+                Yii::app()->user->setFlash("error","Certificado no pudo ser aprobado");
+            }
+            
+            
+            $this->redirect(array('MisCertificados'));
+            
         }
 }

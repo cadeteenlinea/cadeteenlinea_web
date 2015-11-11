@@ -68,7 +68,7 @@ class Certificado extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idcertificado' => 'Idcertificado',
+			'idcertificado' => 'Folio',
 			'fecha_solicitud' => 'Fecha Solicitud',
 			'fecha_vencimiento' => 'Fecha Vencimiento',
 			'fecha_aprobacion' => 'Fecha Aprobacion',
@@ -91,10 +91,9 @@ class Certificado extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+       
+        public function search($clientes)
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idcertificado',$this->idcertificado);
@@ -104,7 +103,12 @@ class Certificado extends CActiveRecord
 		$criteria->compare('motivo_idmotivo',$this->motivo_idmotivo);
 		$criteria->compare('usuario_rut',$this->usuario_rut,true);
 		$criteria->compare('tipo_certificado_idtipo_certificado',$this->tipo_certificado_idtipo_certificado);
-		$criteria->compare('cadete_rut',$this->cadete_rut,true);
+                
+                // La fecha de aprobación es la que determina si está aprobado o no el certificado
+                // al cliente solo se le muestras sus certificados y los que esten aprobados
+                if($clientes == true){
+                    $criteria->addCondition('fecha_aprobacion <> ""');
+                }
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

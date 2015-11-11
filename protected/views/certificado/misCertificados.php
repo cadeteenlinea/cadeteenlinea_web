@@ -1,6 +1,6 @@
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'cadete-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search(true),
 	'filter'=>$model,
         'itemsCssClass' => 'table table-hover',
         'pager' => array(
@@ -14,6 +14,7 @@
             'lastPageLabel' => 'Last',
         ),
 	'columns'=>array(
+                'idcertificado',
                 array(
                     'name'=>'cadete_rut',
                     'value'=>'$data->cadete->usuario->nombres', 
@@ -24,7 +25,6 @@
                     'value'=>'$data->motivo->motivo',
                     'filter'=>Motivo::model()->getListMotivos(),
                 ),
-                'fecha_vencimiento',
                 array(
                         'class'=>'CButtonColumn',
                         'htmlOptions'=>array('width'=>'50px'),

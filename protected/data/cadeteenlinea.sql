@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2015 a las 20:09:24
+-- Tiempo de generación: 11-11-2015 a las 17:57:07
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -16,9 +16,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
-DROP DATABASE `cadeteenlinea`;
+--
+-- Base de datos: `cadeteenlinea`
+--
 CREATE DATABASE IF NOT EXISTS `cadeteenlinea` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `cadeteenlinea`;
+
 -- --------------------------------------------------------
 
 --
@@ -1732,6 +1735,13 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `tipo` enum('Administrador','administrativo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `funcionario`
+--
+
+INSERT INTO `funcionario` (`rut`, `departamento_iddepartamento`, `tipo`) VALUES
+(17558919, 2, 'administrativo');
+
 -- --------------------------------------------------------
 
 --
@@ -2580,7 +2590,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `password_2`, `perfil`, `lastLogin`, `codVerificacion`, `email`, `fechaVerificacion`) VALUES
-(4954924, 'RAVENTÓS', 'ÁGUILA', 'XIMENA', '123456', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
+(4954924, 'RAVENTÓS', 'ÁGUILA', 'XIMENA', '4954924', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (6378128, 'ACEVEDO', 'PEDREROS', 'RAMÓN ARTURO', '6378128', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (6392614, 'VARAS', 'MORA', 'IVONNE VILMA', '6392614', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (6821677, 'MORENO', 'Poblete', 'Luis  Fernando', '6821677', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
@@ -2596,6 +2606,7 @@ INSERT INTO `usuario` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `password
 (10738140, 'BARAHONA', 'LEIVA', 'FABIOLA ANDREA', '10738140', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (15121504, 'RAMOS', 'RUZ', 'DIEGO', '15121504', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (16309340, 'MORENO', 'RUZ', 'DANIELA', '16309340', 'apoderado', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
+(17558919, 'Franco', 'Brantes', 'Sebastián Franco', '17558919', 'funcionario', NULL, NULL, '', NULL),
 (17559990, 'SEPULVEDA', 'Fell', 'Pablo Andrés', '17559990', 'cadete', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (17992236, 'MORENO', 'Ruz', 'Matías Fernando', '17992236', 'cadete', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (18176975, 'CASANUEVA', 'Gómez', 'Javier Andrés', '18176975', 'cadete', NULL, NULL, 'cadete@escuelanaval.cl', NULL),

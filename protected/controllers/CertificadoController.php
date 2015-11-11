@@ -58,8 +58,10 @@ class CertificadoController extends Controller
                         $model->usuario_rut = Yii::app()->user->id;
                         $model->cadete_rut = $rutCadete;
                         
-			if($model->save())
-				$this->redirect(array('MisCertificados'));
+			if($model->save()){
+                            Yii::app()->user->setFlash("success","Certificado solicitado, favor esperar aprobación para poder visualizar y/o descargar");
+                            $this->redirect(array('MisCertificados'));
+                        }
 		}
 
 		$this->render('create',array(
@@ -94,18 +96,23 @@ class CertificadoController extends Controller
         public function actionView($id)
 	{
             $model = $this->loadModel($id);
-            $this->layout = '//layouts/pdf';
-            $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter');
+            
+            if($model->usuario_rut == Yii::app()->user->id && $model->fecha_aprobacion != null){
+                $this->layout = '//layouts/pdf';
+                $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter');
 
-            # render (full page)
-            $mPDF1->WriteHTML($this->render('view', array('model'=>$model), true));
+                # render (full page)
+                $mPDF1->WriteHTML($this->render('view', array('model'=>$model), true));
 
-            # Outputs ready PDF
-            $mPDF1->Output();
+                # Outputs ready PDF
+                $mPDF1->Output();
+            }else{
+                $this->redirect(array('MisCertificados'));
+            }
 	}
       
         
-        public function actionGenerarPDF()
+        /*public function actionGenerarPDF()
 	{
             $rut = Yii::app()->user->id;
             $model = Usuario::model()->findByPk($rut);
@@ -119,7 +126,7 @@ class CertificadoController extends Controller
                 exit;
             }
             $this->render('generarPDF');
-        }
+        }*/
         
         
         public function actionAdmin()
@@ -136,17 +143,17 @@ class CertificadoController extends Controller
         
         public function actionAprobar($id){
             $model=$this->loadModel($id);
-            $model->fecha_aprobacion = date("Y-m-d H:i:s");
-            $model->fecha_vencimiento = date("Y-m-d H:i:s");           
+            $fecha = date("Y-m-d H:i:s");
+            $model->fecha_aprobacion = $fecha;
+ 
+            $nuevaVencimiento = strtotime( '+60 day' , strtotime ( $fecha ) ) ;
+            $model->fecha_vencimiento =  date('Y-m-d H:i:s',$nuevaVencimiento);
             
             if($model->save()){
                 Yii::app()->user->setFlash("success","Certificado Folio #$model->idcertificado a sido aprobado");
             }else{
                 Yii::app()->user->setFlash("error","Certificado no pudo ser aprobado");
             }
-            
-            
-            $this->redirect(array('MisCertificados'));
-            
+            $this->redirect(array('admin'));
         }
 }

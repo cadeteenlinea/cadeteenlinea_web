@@ -1,3 +1,13 @@
+<h1>Mis Certificados</h1>
+
+<?php if(Yii::app()->user->hasFlash('success')):?>
+    <div style="margin-top: 20px;" class="flash-success col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <?php echo Yii::app()->user->getFlash('success'); ?>
+    </div>
+<?php endif; ?>
+
+
+
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'cadete-grid',
 	'dataProvider'=>$model->search(true),
@@ -34,6 +44,8 @@
                             (
                                 'label'=>'ver',
                                 'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/ver.png',
+                                'visible'=>'$data->fecha_aprobacion != null',
+                                'options'=>array('target'=>'_blank')
                             ),
                         ),
                 ),

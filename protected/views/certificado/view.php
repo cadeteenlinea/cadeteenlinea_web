@@ -6,7 +6,7 @@
     <h2 align="center">Certificado de <?php echo $model->tipoCertificado->nombre ?></h2>
 </div>
 <br/>
-<div class="col-lg-12" style="height: 320px;">
+<div class="col-lg-12" style="height: 310px;">
     <p style="text-align: justify;">
         La Escuela Naval "Arturo Prat", Certifica que: don(ña) 
         <b><?php echo $model->cadete->usuario->nombres .' '.  
@@ -30,10 +30,10 @@
 
 
 
-<div class="col-lg-12" style="width: 350px; margin-top: 45px;">  
+<div class="col-lg-12" style="width: 350px; margin-top: 35px;">  
     <?php 
     $this->widget('application.extensions.qrcode.QRCodeGenerator',array(
-        'data' => 'http://www.someurl.com',
+        'data' => 'http://cadetes.escuelanaval.cl/certificado/validar',
         'filename' => $model->idcertificado.".png",
         'subfolderVar' => false,
         'displayImage'=>true,
@@ -43,15 +43,15 @@
     ?>
     
     <p style="margin-top: 5px;">
-        Fecha de emisión: <?php $model->fecha_aprobacion?> 5 de diciembre de 2015
+        Fecha de emisión: <?php echo $model->fecha_aprobacion?>
     </p>
 </div>
 
 <div style="width: 280px; height: 60px; margin-left: 400px; margin-top: -70px;" >
     <p style="text-align: right;">
-        Folio: <?php $model->idcertificado;?><br/>
-        ID alumno: <?php $model->cadete->usuario->rut;?><br/>
-        Válido Hasta: <?php $model->idcertificado;?>
+        Folio: <?php echo $model->idcertificado;?><br/>
+        ID alumno: <?php echo $model->cadete->usuario->rut;?><br/>
+        Válido Hasta: <?php echo $model->fecha_vencimiento;?>
     </p>
 </div>
 

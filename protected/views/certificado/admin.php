@@ -1,5 +1,4 @@
 
-
 <h1>Certificados</h1>
 
 
@@ -23,16 +22,32 @@
 	'columns'=>array(
 		'idcertificado',
 		'fecha_solicitud',
-		'fecha_vencimiento',
-		'fecha_aprobacion',
-		'motivo_idmotivo',
+		array(
+                    'name'=>'motivo_idmotivo',
+                    'header'=>'motivo',
+                    'value'=>'$data->motivo->motivo',
+                    'filter'=>Motivo::model()->getListMotivos(),
+                ),
 		'usuario_rut',
 		/*
 		'tipo_certificado_idtipo_certificado',
 		'cadete_rut',
 		*/
 		array(
-			'class'=>'CButtonColumn',
-		),
+                        'class'=>'CButtonColumn',
+                        'htmlOptions'=>array('width'=>'50px'),
+                        'template'=>'{aprobar}',
+                        'buttons'=>array(
+                            'aprobar' => array
+                            (
+                                'label'=>'aprobar',
+                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/vistoBueno.png',
+                                'url' => 'Yii::app()->createUrl("certificado/aprobar",array("id"=>$data->idcertificado))',
+                                'options' => array(
+                                    'confirm' => '¿Está seguro que quiere aprobar este Certificado?',
+                                 ),
+                            ),
+                        ),
+                ),
 	),
 )); ?>

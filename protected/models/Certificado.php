@@ -107,7 +107,9 @@ class Certificado extends CActiveRecord
                 // La fecha de aprobación es la que determina si está aprobado o no el certificado
                 // al cliente solo se le muestras sus certificados y los que esten aprobados
                 if($clientes == true){
-                    $criteria->addCondition('fecha_aprobacion <> ""');
+                    //$criteria->addCondition('fecha_aprobacion <> ""');
+                }else{
+                    $criteria->addCondition('fecha_aprobacion IS NULL');
                 }
 
 		return new CActiveDataProvider($this, array(

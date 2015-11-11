@@ -57,6 +57,6 @@
 
 <div class="col-lg-6" style="margin-top:15px; height: 40px; width: 670px; border-top: 1px solid #848484;">
     <p style="text-align: center; margin-top: 10px;">
-        htttp://cadetes.escuelanaval.cl/certificados/validar
+        htttp://cadetes.escuelanaval.cl/certificado/validar
     </p>
 </div>

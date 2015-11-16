@@ -36,6 +36,10 @@ class CertificadoController extends Controller
 				'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || '
                                     .' Yii::app()->getSession()->get("tipoFuncionario") == "administrador"',
 			),
+                        array('allow',  
+                                'actions'=>array('validar'),
+				'users'=>array('*'),
+			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -45,7 +49,7 @@ class CertificadoController extends Controller
         public function actionCreate()
 	{
 		$model=new Certificado;
-
+                
 		if(isset($_POST['Certificado']))
 		{
 			$model->attributes=$_POST['Certificado'];
@@ -155,5 +159,35 @@ class CertificadoController extends Controller
                 Yii::app()->user->setFlash("error","Certificado no pudo ser aprobado");
             }
             $this->redirect(array('admin'));
+        }
+        
+        public function actionValidar(){
+            $model=new Certificado();
+            $model->setScenario('validar');
+            $validacion = false;
+            
+            if(isset($_GET['Certificado'])){
+                $model->attributes=$_GET['Certificado'];
+                if($model->validate()){
+                    
+                    $cadete_rut=substr(strtolower($model->cadete_rut),0,-2);
+                    $modelCartificado = Certificado::getCertificadoValidar($model->idcertificado, $cadete_rut);
+
+                    
+                    if(!empty($modelCartificado)){
+                        if($modelCartificado->fecha_vencimiento != null){
+                            $validacion = true;
+                            $model = $modelCartificado;
+                        }
+                    }else{
+                        Yii::app()->user->setFlash("error","Certificado no encontrado");
+                    }
+                }        
+            }
+            
+            $this->render('validar',array(
+                'model'=>$model,
+                'validacion'=>$validacion,
+            ));
         }
 }

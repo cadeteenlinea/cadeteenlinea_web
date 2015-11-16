@@ -37,10 +37,15 @@ class Certificado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha_solicitud, motivo_idmotivo, usuario_rut, tipo_certificado_idtipo_certificado, cadete_rut', 'required'),
+			array('fecha_solicitud, motivo_idmotivo, usuario_rut, tipo_certificado_idtipo_certificado, cadete_rut', 'required', 'except'=>'validar'),
 			array('idcertificado, motivo_idmotivo, tipo_certificado_idtipo_certificado', 'numerical', 'integerOnly'=>true),
 			array('fecha_solicitud, fecha_vencimiento, fecha_aprobacion', 'length', 'max'=>50),
 			array('usuario_rut, cadete_rut', 'length', 'max'=>10),
+                    
+                    
+                        array('idcertificado, cadete_rut', 'required', 'on' => 'validar'),
+                        array('cadete_rut', 'validateRut', 'on' => 'validar'),
+                    
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idcertificado, fecha_solicitud, fecha_vencimiento, fecha_aprobacion, motivo_idmotivo, usuario_rut, tipo_certificado_idtipo_certificado, cadete_rut', 'safe', 'on'=>'search'),
@@ -75,7 +80,7 @@ class Certificado extends CActiveRecord
 			'motivo_idmotivo' => 'Motivo',
 			'usuario_rut' => 'Usuario',
 			'tipo_certificado_idtipo_certificado' => 'Tipo Certificado',
-			'cadete_rut' => 'Cadete',
+			'cadete_rut' => 'RUN Cadete',
 		);
 	}
 
@@ -130,11 +135,58 @@ class Certificado extends CActiveRecord
         
         
         public static function getAllCertificadosCadete(){
-            
             $criteria=new CDbCriteria;
             $criteria->addCondition('t.usuario_rut='.Yii::app()->user->id);
             $model = Certificado::model()->findAll($criteria);
             
             return $model;
+        }
+        
+        public static function getCertificadoValidar($idcertificado, $cadete_rut){
+            $criteria=new CDbCriteria;
+            $criteria->addCondition('t.idcertificado='.$idcertificado);
+            $criteria->addCondition("t.fecha_aprobacion <>'' ");
+            $criteria->addCondition('t.cadete_rut='.$cadete_rut);
+            
+            $model = Certificado::model()->find($criteria);
+            return $model;
+        }
+        
+        
+        //Validación de rut chileno
+        public function validateRut($attribute, $params) {
+            $data = explode('-', $this->cadete_rut);
+            $evaluate = strrev($data[0]);
+            $multiply = 2;
+            $store = 0;
+            for ($i = 0; $i < strlen($evaluate); $i++) {
+                $store += $evaluate[$i] * $multiply;
+                $multiply++;
+                if ($multiply > 7)
+                    $multiply = 2;
+            }
+            isset($data[1]) ? $verifyCode = strtolower($data[1]) : $verifyCode = '';
+            $result = 11 - ($store % 11);
+            if ($result == 10)
+                $result = 'k';
+            if ($result == 11)
+                $result = 0;
+            if ($verifyCode != $result)
+                $this->addError('cadete_rut', 'Rut inválido.');
+        }
+        
+        public function validacion(){
+            $fechaActual = date("Y-m-d H:i:s");
+            $fechaActual = strtotime($fechaActual);
+            
+            
+            $fechaCertificado = strtotime($this->fecha_vencimiento);
+            
+            
+            
+            if($fechaCertificado >= $fechaActual){
+                return true;
+            }
+            return false;
         }
 }

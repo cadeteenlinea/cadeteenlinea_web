@@ -44,14 +44,14 @@ if(!$validacion){
 
     <?php if(!$model->validacion()){ ?>
         <div style="margin-top: 20px;" class="flash-error col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            Este Certificado tuvo vigencia hasta <b><?php echo $model->fecha_vencimiento; ?></b>, 
+            Este Certificado tuvo vigencia hasta <b><?php echo $model->getFecha_vencimiento(); ?></b>, 
             por lo que se considera <b>fuera de vigencia.
             Se recomienda obtener un nuevo certificado, para garantizar la entrega de la 
             información más reciente disponible</b>
         </div>
     <?php }else{ ?>
         <div style="margin-top: 20px;" class="flash-success col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            Este certificado tiene vigencía hasta <b><?php echo $model->fecha_vencimiento; ?></b>
+            Este certificado tiene vigencía hasta <b><?php echo $model->getFecha_vencimiento(); ?></b>
         </div>
     <?php } ?>
 <?php } ?>

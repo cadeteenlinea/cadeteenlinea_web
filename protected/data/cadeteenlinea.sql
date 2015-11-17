@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2015 a las 19:30:57
+-- Tiempo de generación: 17-11-2015 a las 19:30:25
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -1599,29 +1599,32 @@ INSERT INTO `calificaciones` (`idcalificaciones`, `ano`, `semestre`, `mando`, `i
 DROP TABLE IF EXISTS `certificado`;
 CREATE TABLE IF NOT EXISTS `certificado` (
 `idcertificado` int(11) NOT NULL,
-  `fecha_solicitud` varchar(50) NOT NULL,
-  `fecha_vencimiento` varchar(50) DEFAULT NULL,
-  `fecha_aprobacion` varchar(50) DEFAULT NULL,
+  `fecha_solicitud` date NOT NULL,
+  `fecha_vencimiento` date DEFAULT NULL,
+  `fecha_aprobacion` date DEFAULT NULL,
   `motivo_idmotivo` int(11) NOT NULL,
   `usuario_rut` int(10) unsigned NOT NULL,
   `tipo_certificado_idtipo_certificado` int(11) NOT NULL,
   `cadete_rut` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `certificado`
 --
 
 INSERT INTO `certificado` (`idcertificado`, `fecha_solicitud`, `fecha_vencimiento`, `fecha_aprobacion`, `motivo_idmotivo`, `usuario_rut`, `tipo_certificado_idtipo_certificado`, `cadete_rut`) VALUES
-(1, '2015-11-10 16:19:40', NULL, NULL, 1, 7763080, 1, 18176975),
-(2, '2015-11-10 16:20:48', NULL, NULL, 3, 4954924, 1, 18176975),
-(3, '2015-11-10 16:21:37', NULL, NULL, 1, 4954924, 1, 18176975),
-(4, '2015-11-10 16:46:21', '2016-01-10 19:24:06', '2015-11-11 19:24:06', 2, 4954924, 1, 18176975),
-(5, '2015-11-11 18:44:25', NULL, NULL, 3, 4954924, 1, 18176975),
-(6, '2015-11-11 18:47:12', NULL, NULL, 1, 4954924, 1, 18176975),
-(7, '2015-11-11 19:22:38', NULL, NULL, 1, 4954924, 1, 18176975),
-(8, '2015-11-11 19:27:36', NULL, NULL, 2, 4954924, 1, 18176975),
-(9, '2015-11-11 19:28:05', NULL, NULL, 3, 4954924, 1, 18176975);
+(1, '2015-11-10', NULL, NULL, 1, 7763080, 1, 18176975),
+(2, '2015-11-10', NULL, NULL, 3, 4954924, 1, 18176975),
+(3, '2015-11-10', NULL, NULL, 1, 4954924, 1, 18176975),
+(4, '2015-11-10', '2015-11-11', '2015-11-11', 2, 4954924, 1, 18176975),
+(5, '2015-11-11', NULL, NULL, 3, 4954924, 1, 18176975),
+(6, '2015-11-11', NULL, NULL, 1, 4954924, 1, 18176975),
+(7, '2015-11-11', NULL, NULL, 1, 4954924, 1, 18176975),
+(8, '2015-11-11', NULL, NULL, 2, 4954924, 1, 18176975),
+(9, '2015-11-11', NULL, NULL, 3, 4954924, 1, 18176975),
+(10, '2015-11-12', '2016-01-11', '2015-11-12', 3, 4954924, 1, 18176975),
+(11, '2015-11-16', NULL, NULL, 3, 4954924, 1, 18176975),
+(12, '2015-11-17', '2016-01-16', '2015-11-17', 3, 4954924, 1, 18176975);
 
 -- --------------------------------------------------------
 
@@ -2768,7 +2771,7 @@ MODIFY `idarchivos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT de la tabla `certificado`
 --
 ALTER TABLE `certificado`
-MODIFY `idcertificado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `idcertificado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `concepto`
 --

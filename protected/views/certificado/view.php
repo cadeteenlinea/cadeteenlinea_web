@@ -13,8 +13,8 @@
                 $model->cadete->usuario->apellidoPat . ' '. 
                 $model->cadete->usuario->apellidoMat; ?></b>, 
         RUN
-        <b><?php echo $model->cadete->usuario->rut; ?></b> , es alumno regular
-        de la institución, durante el periodo academico 2015
+        <b><?php echo $model->cadete->usuario->getRut(); ?></b> , es alumno regular
+        de la institución, durante el periodo academico <?php echo date('Y', strtotime($model->fecha_aprobacion)); ?>
     </p>
     
     <p style="text-align: justify;">
@@ -30,28 +30,28 @@
 
 
 
-<div class="col-lg-12" style="width: 350px; margin-top: 35px;">  
+<div class="col-lg-12" style="width: 300px; margin-top: 70px;">  
     <?php 
     $this->widget('application.extensions.qrcode.QRCodeGenerator',array(
-        'data' => 'http://cadetes.escuelanaval.cl/certificado/validar',
+        'data' => "http://200.54.198.54/pruebas/cadeteenlinea/certificado/validar?Certificado[idcertificado]=$model->idcertificado&Certificado[cadete_rut]=".$model->cadete->usuario->getRut(),
         'filename' => $model->idcertificado.".png",
         'subfolderVar' => false,
         'displayImage'=>true,
         'errorCorrectionLevel'=>'L',
-        'matrixPointSize'=>4, // 1 to 10 only
+        'matrixPointSize'=>2, // 1 to 10 only
     )) 
     ?>
     
     <p style="margin-top: 5px;">
-        Fecha de emisión: <?php echo $model->fecha_aprobacion?>
+        Fecha de emisión: <?php echo $model->getFecha_aprobacion()?>
     </p>
 </div>
 
 <div style="width: 280px; height: 60px; margin-left: 400px; margin-top: -70px;" >
     <p style="text-align: right;">
         Folio: <?php echo $model->idcertificado;?><br/>
-        ID alumno: <?php echo $model->cadete->usuario->rut;?><br/>
-        Válido Hasta: <?php echo $model->fecha_vencimiento;?>
+        ID alumno: <?php echo $model->cadete->usuario->getRut();?><br/>
+        Válido Hasta: <?php echo $model->getFecha_vencimiento();?>
     </p>
 </div>
 

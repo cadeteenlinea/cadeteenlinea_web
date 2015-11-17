@@ -189,4 +189,17 @@ class Certificado extends CActiveRecord
             }
             return false;
         }
+        
+        public function getFecha_vencimiento(){
+            //$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+            $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+            $this->fecha_vencimiento = str_replace("-","/",$this->fecha_vencimiento);
+            
+            echo date('d', strtotime($this->fecha_vencimiento))." de ".$meses[date('n', strtotime($this->fecha_vencimiento))-1]. " de ".date('Y', strtotime($this->fecha_vencimiento));
+        }
+        
+        public function getFecha_aprobacion(){
+            $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+            echo date('d', strtotime($this->fecha_aprobacion))." de ".$meses[date('n', strtotime($this->fecha_aprobacion))-1]. " de ".date('Y', strtotime($this->fecha_aprobacion));
+        }
 }

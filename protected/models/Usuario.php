@@ -18,6 +18,7 @@
  * @property Apoderado $apoderado
  * @property Cadete $cadete
  * @property Funcionario $funcionario
+ * @property Noticia $noticias
  */
 class Usuario extends CActiveRecord
 {
@@ -69,6 +70,8 @@ class Usuario extends CActiveRecord
 			'apoderado' => array(self::HAS_ONE, 'Apoderado', 'rut'),
 			'cadete' => array(self::HAS_ONE, 'Cadete', 'rut'),
 			'funcionario' => array(self::HAS_ONE, 'Funcionario', 'rut'),
+			'noticias' => array(self::HAS_MANY, 'UsuarioNoticia', 'usuario_rut'),
+                        'misNoticias'=>array(self::MANY_MANY, 'Noticia','usuario_noticia(usuario_rut, noticia_idnoticia)'),
 		);
 	}
 
@@ -328,5 +331,9 @@ class Usuario extends CActiveRecord
         
         public function getRut(){
             return $this->generarDigitoVerificador($this->rut);
+        }
+        
+        public function getMisNoticias(){
+            return $this->misNoticias;
         }
 }

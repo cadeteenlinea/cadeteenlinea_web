@@ -30,9 +30,12 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-            
             if(!Yii::app()->user->isGuest){
-                $this->render('index');
+                if(Yii::app()->getSession()->get("perfil") == 'apoderado' || Yii::app()->getSession()->get("perfil") == 'cadete'){
+                    $this->redirect(array('usuario/Misnoticias'));
+                }else{
+                    $this->render('index');
+                }
             }else{
                 $this->actionLogin();
             }

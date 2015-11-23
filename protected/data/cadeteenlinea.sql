@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2015 a las 19:30:25
+-- Tiempo de generación: 24-11-2015 a las 00:34:12
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -1502,22 +1502,22 @@ CREATE TABLE IF NOT EXISTS `cadete_apoderado` (
 --
 
 INSERT INTO `cadete_apoderado` (`idcadete_apoderado`, `cadete_rut`, `apoderado_rut`, `tipoApoderado`) VALUES
-(1927, 17559990, 7089557, 'Padre'),
-(1928, 17559990, 9693262, 'Padre'),
-(1929, 17992236, 6821677, 'Padre'),
-(1930, 17992236, 8662591, 'Padre'),
-(1931, 17992236, 15121504, 'Apoderado Titular'),
-(1932, 17992236, 16309340, 'Padre'),
-(1933, 18176975, 4954924, 'Padre'),
-(1934, 18176975, 7763080, 'Padre'),
-(1935, 18176975, 8551041, 'Padre'),
-(1936, 18176975, 9978078, 'Apoderado Titular'),
-(1937, 18203039, 6378128, 'Padre'),
-(1938, 18203039, 6392614, 'Padre'),
-(1939, 18203039, 8016825, 'Padre'),
-(1940, 18203039, 10738140, 'Apoderado Titular'),
-(1941, 18312151, 9707695, 'Padre'),
-(1942, 18312151, 10263684, 'Padre');
+(2007, 17559990, 7089557, 'Padre'),
+(2008, 17559990, 9693262, 'Padre'),
+(2009, 17992236, 6821677, 'Padre'),
+(2010, 17992236, 8662591, 'Padre'),
+(2011, 17992236, 15121504, 'Apoderado Titular'),
+(2012, 17992236, 16309340, 'Padre'),
+(2013, 18176975, 4954924, 'Padre'),
+(2014, 18176975, 7763080, 'Padre'),
+(2015, 18176975, 8551041, 'Padre'),
+(2016, 18176975, 9978078, 'Apoderado Titular'),
+(2017, 18203039, 6378128, 'Padre'),
+(2018, 18203039, 6392614, 'Padre'),
+(2019, 18203039, 8016825, 'Padre'),
+(2020, 18203039, 10738140, 'Apoderado Titular'),
+(2021, 18312151, 9707695, 'Padre'),
+(2022, 18312151, 10263684, 'Padre');
 
 -- --------------------------------------------------------
 
@@ -1606,25 +1606,7 @@ CREATE TABLE IF NOT EXISTS `certificado` (
   `usuario_rut` int(10) unsigned NOT NULL,
   `tipo_certificado_idtipo_certificado` int(11) NOT NULL,
   `cadete_rut` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `certificado`
---
-
-INSERT INTO `certificado` (`idcertificado`, `fecha_solicitud`, `fecha_vencimiento`, `fecha_aprobacion`, `motivo_idmotivo`, `usuario_rut`, `tipo_certificado_idtipo_certificado`, `cadete_rut`) VALUES
-(1, '2015-11-10', NULL, NULL, 1, 7763080, 1, 18176975),
-(2, '2015-11-10', NULL, NULL, 3, 4954924, 1, 18176975),
-(3, '2015-11-10', NULL, NULL, 1, 4954924, 1, 18176975),
-(4, '2015-11-10', '2015-11-11', '2015-11-11', 2, 4954924, 1, 18176975),
-(5, '2015-11-11', NULL, NULL, 3, 4954924, 1, 18176975),
-(6, '2015-11-11', NULL, NULL, 1, 4954924, 1, 18176975),
-(7, '2015-11-11', NULL, NULL, 1, 4954924, 1, 18176975),
-(8, '2015-11-11', NULL, NULL, 2, 4954924, 1, 18176975),
-(9, '2015-11-11', NULL, NULL, 3, 4954924, 1, 18176975),
-(10, '2015-11-12', '2016-01-11', '2015-11-12', 3, 4954924, 1, 18176975),
-(11, '2015-11-16', NULL, NULL, 3, 4954924, 1, 18176975),
-(12, '2015-11-17', '2016-01-16', '2015-11-17', 3, 4954924, 1, 18176975);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1728,7 +1710,7 @@ INSERT INTO `francos` (`idfrancos`, `fecha_salida`, `hora_salida`, `hora_recogid
 (4, ' 2 de OCTUBRE   ', '19,00', '7,45', ' 3 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 17992236),
 (5, ' 3 de OCTUBRE   ', '12,30', '21,00', ' 4 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \n                           ', 17992236),
 (6, ' 3 de OCTUBRE   ', '20,30', '23,30', ' 3 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \nHORAS POR FALTA         8,0', 18176975),
-(7, ' 4 de OCTUBRE   ', '11,00', '7,20', ' 5 de OCTUBRE   ', 'CALCULO II                 4,2  \r\n                                \r\n                                \r\n                                \r\n', '                                    \nHRS. ESTUDIO ADICIONAL  2,00 \nHORAS POR FALTA        10,0', 18176975),
+(7, ' 4 de OCTUBRE   ', '11,00', '7,20', ' 5 de OCTUBRE   ', 'CALCULO II                 4,2  \n                                \n                                \n                                \n', '                                    \nHRS. ESTUDIO ADICIONAL  2,00 \nHORAS POR FALTA        10,0', 18176975),
 (8, ' 4 de OCTUBRE   ', '10,30', '21,00', ' 4 de OCTUBRE   ', '                                \n                                \n                                \n                                \n', '                                    \n                             \nHORAS POR FALTA         8,0', 18176975);
 
 -- --------------------------------------------------------
@@ -1749,7 +1731,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 --
 
 INSERT INTO `funcionario` (`rut`, `departamento_iddepartamento`, `tipo`) VALUES
-(17558919, 2, 'administrativo');
+(17558919, 1, 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -2445,6 +2427,30 @@ INSERT INTO `notas_parciales` (`idnotas_parciales`, `nota`, `dia`, `mes`, `ano`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `noticia`
+--
+
+DROP TABLE IF EXISTS `noticia`;
+CREATE TABLE IF NOT EXISTS `noticia` (
+`idnoticia` int(11) NOT NULL,
+  `titulo` varchar(45) NOT NULL,
+  `cuerpo` text NOT NULL,
+  `fecha` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `noticia`
+--
+
+INSERT INTO `noticia` (`idnoticia`, `titulo`, `cuerpo`, `fecha`) VALUES
+(4, 'asd', 'asd', '2015-11-24 00:10:35'),
+(5, 'noticia 9234780', 'q9dyajdnasjkdn para todos', '2015-11-24 00:13:37'),
+(6, 'solo apoderados', 'asdasd', '2015-11-24 00:15:19'),
+(7, 'solo 4D - apoderado', 'asdasd', '2015-11-24 00:16:01');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tipo_archivo`
 --
 
@@ -2506,73 +2512,73 @@ CREATE TABLE IF NOT EXISTS `transaccion` (
 --
 
 INSERT INTO `transaccion` (`idtransaccion`, `cadete_rut`, `tipoTransaccion`, `monto`, `fechaMovimiento`, `descripcion`, `tipoCuenta`) VALUES
-(61731, 18203039, 'Cargo', 6640, '2015-10-19 17:39:11', 'BOLETA PAÃ‘OL', 'Cuenta Corriente'),
-(61741, 18312151, 'Cargo', 6640, '2015-10-19 17:39:11', 'BOLETA PAÃ‘OL', 'Cuenta Corriente'),
-(61907, 18203039, 'Abono', 19650, '2015-10-19 17:39:11', 'DEPOSITO BANCO CHILE EDW CITI', 'Cuenta Corriente'),
-(62261, 18203039, 'Cargo', -269, '2015-10-19 17:39:11', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
-(62345, 17992236, 'Cargo', -73, '2015-10-19 17:39:11', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
-(62347, 18176975, 'Cargo', -4699, '2015-10-19 17:39:11', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
-(62497, 17559990, 'Abono', 3500, '2015-10-19 17:39:11', 'SOBRETABLA DICIEMBRE', 'Cuenta Corriente'),
-(62522, 17559990, 'Abono', 135269, '2015-10-19 17:39:11', 'SOBRETABLA DICIEMBRE', 'Colegiatura'),
-(62570, 18312151, 'Abono', 135449, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(62585, 18312151, 'Abono', 36540, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
-(62688, 18312151, 'Cargo', 180, '2015-10-19 17:39:11', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
-(63365, 17559990, 'Cargo', 134977, '2015-10-19 17:39:11', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
-(63398, 18312151, 'Cargo', 134977, '2015-10-19 17:39:11', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
-(63708, 17992236, 'Cargo', 269954, '2015-10-19 17:39:11', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
-(63709, 18176975, 'Cargo', 269954, '2015-10-19 17:39:11', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
-(63736, 18203039, 'Cargo', 269954, '2015-10-19 17:39:11', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
-(64002, 18203039, 'Abono', 269989, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(64169, 17559990, 'Abono', 134977, '2015-10-19 17:39:11', 'SOBRETABLA FEBRERO', 'Colegiatura'),
-(64225, 17992236, 'Abono', 19649, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
-(64244, 18312151, 'Abono', 134960, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(64439, 18203039, 'Cargo', 35, '2015-10-19 17:39:11', 'VARIACION  UF - COLE. FEBRERO', 'Colegiatura'),
-(64528, 18312151, 'Cargo', -17, '2015-10-19 17:39:11', 'VARIACION  UF - COLE. FEBRERO', 'Colegiatura'),
-(64599, 17559990, 'Cargo', 135023, '2015-10-19 17:39:11', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
-(64628, 18312151, 'Cargo', 135023, '2015-10-19 17:39:11', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
-(64807, 18203039, 'Cargo', 270046, '2015-10-19 17:39:11', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
-(64900, 17992236, 'Cargo', 270046, '2015-10-19 17:39:11', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
-(64901, 18176975, 'Cargo', 270046, '2015-10-19 17:39:11', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
-(64914, 18203039, 'Abono', 6639, '2015-10-19 17:39:11', 'TRANSFERENCIA BANCARIA', 'Cuenta Corriente'),
-(65071, 17992236, 'Abono', 542024, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(65097, 18203039, 'Abono', 270036, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(65248, 18176975, 'Abono', 19649, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
-(65640, 18312151, 'Abono', 135234, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(66004, 17559990, 'Abono', 135023, '2015-10-19 17:39:11', 'SOBRETABLA MARZO', 'Colegiatura'),
-(66179, 18203039, 'Cargo', 72251, '2015-10-19 17:39:11', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
-(66269, 18312151, 'Cargo', 72251, '2015-10-19 17:39:11', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
-(66281, 17992236, 'Cargo', 72251, '2015-10-19 17:39:11', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
-(66282, 18176975, 'Cargo', 72251, '2015-10-19 17:39:11', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
-(66458, 18203039, 'Cargo', -10, '2015-10-19 17:39:11', 'VARIACION UF', 'Colegiatura'),
-(66533, 18312151, 'Cargo', 211, '2015-10-19 17:39:11', 'VARIACION UF', 'Colegiatura'),
-(66542, 17992236, 'Cargo', 966, '2015-10-19 17:39:11', 'VARIACION UF', 'Colegiatura'),
-(66618, 17559990, 'Cargo', 135513, '2015-10-19 17:39:11', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
-(66647, 18312151, 'Cargo', 135513, '2015-10-19 17:39:11', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
-(66822, 18203039, 'Cargo', 271025, '2015-10-19 17:39:11', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
-(66916, 17992236, 'Cargo', 271025, '2015-10-19 17:39:11', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
-(66917, 18176975, 'Cargo', 271025, '2015-10-19 17:39:11', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
-(66950, 18203039, 'Abono', 270885, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(67005, 17992236, 'Abono', 271060, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(67655, 17559990, 'Abono', 135513, '2015-10-19 17:39:11', 'SOBRETABLA ABRIL', 'Colegiatura'),
-(67730, 18312151, 'Abono', 135934, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(67876, 18203039, 'Abono', 72251, '2015-10-19 17:39:11', 'TRANSFERENCIA BANCARIA', 'Cuenta Corriente'),
-(68000, 17559990, 'Cargo', 136287, '2015-10-19 17:39:11', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
-(68028, 18312151, 'Cargo', 136287, '2015-10-19 17:39:11', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
-(68204, 18203039, 'Cargo', 272574, '2015-10-19 17:39:11', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
-(68298, 17992236, 'Cargo', 272574, '2015-10-19 17:39:11', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
-(68299, 18176975, 'Cargo', 272574, '2015-10-19 17:39:11', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
-(68511, 17559990, 'Cargo', 48302, '2015-10-19 17:39:11', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
-(68534, 18203039, 'Cargo', 48302, '2015-10-19 17:39:11', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
-(68624, 18312151, 'Cargo', 48301, '2015-10-19 17:39:11', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
-(68636, 17992236, 'Cargo', 48301, '2015-10-19 17:39:11', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
-(68637, 18176975, 'Cargo', 48301, '2015-10-19 17:39:11', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
-(68751, 17992236, 'Abono', -1980, '2015-10-19 17:39:11', 'CORRIGE ABONO BANCO CHILE', 'Colegiatura'),
-(68810, 17992236, 'Abono', 72251, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
-(68850, 18203039, 'Abono', 272574, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(68880, 17992236, 'Abono', 272574, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(69056, 18312151, 'Abono', 120552, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
-(69065, 18312151, 'Abono', 410426, '2015-10-19 17:39:11', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
-(69446, 17559990, 'Abono', 136287, '2015-10-19 17:39:11', 'SOBRETABLA', 'Colegiatura');
+(61731, 18203039, 'Cargo', 6640, '2015-11-24 00:30:14', 'BOLETA PAÃ‘OL', 'Cuenta Corriente'),
+(61741, 18312151, 'Cargo', 6640, '2015-11-24 00:30:14', 'BOLETA PAÃ‘OL', 'Cuenta Corriente'),
+(61907, 18203039, 'Abono', 19650, '2015-11-24 00:30:14', 'DEPOSITO BANCO CHILE EDW CITI', 'Cuenta Corriente'),
+(62261, 18203039, 'Cargo', -269, '2015-11-24 00:30:14', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
+(62345, 17992236, 'Cargo', -73, '2015-11-24 00:30:14', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
+(62347, 18176975, 'Cargo', -4699, '2015-11-24 00:30:14', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
+(62497, 17559990, 'Abono', 3500, '2015-11-24 00:30:14', 'SOBRETABLA DICIEMBRE', 'Cuenta Corriente'),
+(62522, 17559990, 'Abono', 135269, '2015-11-24 00:30:14', 'SOBRETABLA DICIEMBRE', 'Colegiatura'),
+(62570, 18312151, 'Abono', 135449, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(62585, 18312151, 'Abono', 36540, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
+(62688, 18312151, 'Cargo', 180, '2015-11-24 00:30:14', 'VARIACION UF. COLEG.DICIEMBRE', 'Colegiatura'),
+(63365, 17559990, 'Cargo', 134977, '2015-11-24 00:30:14', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
+(63398, 18312151, 'Cargo', 134977, '2015-11-24 00:30:14', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
+(63708, 17992236, 'Cargo', 269954, '2015-11-24 00:30:14', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
+(63709, 18176975, 'Cargo', 269954, '2015-11-24 00:30:14', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
+(63736, 18203039, 'Cargo', 269954, '2015-11-24 00:30:14', 'COLEGIATURA FEBRERO 2015', 'Colegiatura'),
+(64002, 18203039, 'Abono', 269989, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(64169, 17559990, 'Abono', 134977, '2015-11-24 00:30:14', 'SOBRETABLA FEBRERO', 'Colegiatura'),
+(64225, 17992236, 'Abono', 19649, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
+(64244, 18312151, 'Abono', 134960, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(64439, 18203039, 'Cargo', 35, '2015-11-24 00:30:14', 'VARIACION  UF - COLE. FEBRERO', 'Colegiatura'),
+(64528, 18312151, 'Cargo', -17, '2015-11-24 00:30:14', 'VARIACION  UF - COLE. FEBRERO', 'Colegiatura'),
+(64599, 17559990, 'Cargo', 135023, '2015-11-24 00:30:14', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
+(64628, 18312151, 'Cargo', 135023, '2015-11-24 00:30:14', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
+(64807, 18203039, 'Cargo', 270046, '2015-11-24 00:30:14', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
+(64900, 17992236, 'Cargo', 270046, '2015-11-24 00:30:14', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
+(64901, 18176975, 'Cargo', 270046, '2015-11-24 00:30:14', 'COLEGIATURA MARZO 2015', 'Colegiatura'),
+(64914, 18203039, 'Abono', 6639, '2015-11-24 00:30:14', 'TRANSFERENCIA BANCARIA', 'Cuenta Corriente'),
+(65071, 17992236, 'Abono', 542024, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(65097, 18203039, 'Abono', 270036, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(65248, 18176975, 'Abono', 19649, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
+(65640, 18312151, 'Abono', 135234, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(66004, 17559990, 'Abono', 135023, '2015-11-24 00:30:14', 'SOBRETABLA MARZO', 'Colegiatura'),
+(66179, 18203039, 'Cargo', 72251, '2015-11-24 00:30:14', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
+(66269, 18312151, 'Cargo', 72251, '2015-11-24 00:30:14', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
+(66281, 17992236, 'Cargo', 72251, '2015-11-24 00:30:14', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
+(66282, 18176975, 'Cargo', 72251, '2015-11-24 00:30:14', 'SEGURO POR PERMANENCIA', 'Cuenta Corriente'),
+(66458, 18203039, 'Cargo', -10, '2015-11-24 00:30:14', 'VARIACION UF', 'Colegiatura'),
+(66533, 18312151, 'Cargo', 211, '2015-11-24 00:30:14', 'VARIACION UF', 'Colegiatura'),
+(66542, 17992236, 'Cargo', 966, '2015-11-24 00:30:14', 'VARIACION UF', 'Colegiatura'),
+(66618, 17559990, 'Cargo', 135513, '2015-11-24 00:30:14', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
+(66647, 18312151, 'Cargo', 135513, '2015-11-24 00:30:14', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
+(66822, 18203039, 'Cargo', 271025, '2015-11-24 00:30:14', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
+(66916, 17992236, 'Cargo', 271025, '2015-11-24 00:30:14', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
+(66917, 18176975, 'Cargo', 271025, '2015-11-24 00:30:14', 'VARIACION UF - COLE. ABRIL', 'Colegiatura'),
+(66950, 18203039, 'Abono', 270885, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(67005, 17992236, 'Abono', 271060, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(67655, 17559990, 'Abono', 135513, '2015-11-24 00:30:14', 'SOBRETABLA ABRIL', 'Colegiatura'),
+(67730, 18312151, 'Abono', 135934, '2015-11-24 00:30:14', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(67876, 18203039, 'Abono', 72251, '2015-11-24 00:30:14', 'TRANSFERENCIA BANCARIA', 'Cuenta Corriente'),
+(68000, 17559990, 'Cargo', 136287, '2015-11-24 00:30:14', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
+(68028, 18312151, 'Cargo', 136287, '2015-11-24 00:30:14', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
+(68204, 18203039, 'Cargo', 272574, '2015-11-24 00:30:14', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
+(68298, 17992236, 'Cargo', 272574, '2015-11-24 00:30:14', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
+(68299, 18176975, 'Cargo', 272574, '2015-11-24 00:30:14', 'COLEGIATURA MAYO 2015', 'Colegiatura'),
+(68511, 17559990, 'Cargo', 48302, '2015-11-24 00:30:14', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
+(68534, 18203039, 'Cargo', 48302, '2015-11-24 00:30:14', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
+(68624, 18312151, 'Cargo', 48301, '2015-11-24 00:30:14', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
+(68636, 17992236, 'Cargo', 48301, '2015-11-24 00:30:15', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
+(68637, 18176975, 'Cargo', 48301, '2015-11-24 00:30:15', 'SEGURO ESCOLAR', 'Cuenta Corriente'),
+(68751, 17992236, 'Abono', -1980, '2015-11-24 00:30:15', 'CORRIGE ABONO BANCO CHILE', 'Colegiatura'),
+(68810, 17992236, 'Abono', 72251, '2015-11-24 00:30:15', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
+(68850, 18203039, 'Abono', 272574, '2015-11-24 00:30:15', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(68880, 17992236, 'Abono', 272574, '2015-11-24 00:30:15', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(69056, 18312151, 'Abono', 120552, '2015-11-24 00:30:15', 'PAGO PORTAL BANCO CHILE', 'Cuenta Corriente'),
+(69065, 18312151, 'Abono', 410426, '2015-11-24 00:30:15', 'PAGO PORTAL BANCO CHILE', 'Colegiatura'),
+(69446, 17559990, 'Abono', 136287, '2015-11-24 00:30:15', 'SOBRETABLA', 'Colegiatura');
 
 -- --------------------------------------------------------
 
@@ -2621,6 +2627,58 @@ INSERT INTO `usuario` (`rut`, `apellidoPat`, `apellidoMat`, `nombres`, `password
 (18176975, 'CASANUEVA', 'Gómez', 'Javier Andrés', '18176975', 'cadete', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (18203039, 'ACEVEDO', 'Barahona', 'Daniel Maximiliano', '18203039', 'cadete', NULL, NULL, 'cadete@escuelanaval.cl', NULL),
 (18312151, 'VALDIVIA', 'Narváez', 'Sebastián Enrique', '18312151', 'cadete', NULL, NULL, 'cadete@escuelanaval.cl', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario_noticia`
+--
+
+DROP TABLE IF EXISTS `usuario_noticia`;
+CREATE TABLE IF NOT EXISTS `usuario_noticia` (
+`idusuario_noticia` int(11) NOT NULL,
+  `noticia_idnoticia` int(11) NOT NULL,
+  `usuario_rut` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario_noticia`
+--
+
+INSERT INTO `usuario_noticia` (`idusuario_noticia`, `noticia_idnoticia`, `usuario_rut`) VALUES
+(16, 4, 17992236),
+(17, 4, 18176975),
+(18, 4, 18203039),
+(19, 4, 18312151),
+(20, 5, 4954924),
+(21, 5, 6378128),
+(22, 5, 6392614),
+(23, 5, 6821677),
+(24, 5, 7089557),
+(25, 5, 7763080),
+(26, 5, 8016825),
+(27, 5, 8551041),
+(28, 5, 8662591),
+(29, 5, 9693262),
+(30, 5, 9707695),
+(31, 5, 9978078),
+(32, 5, 10263684),
+(33, 5, 10738140),
+(34, 5, 15121504),
+(35, 5, 16309340),
+(36, 5, 17559990),
+(37, 5, 17992236),
+(38, 5, 18176975),
+(39, 5, 18203039),
+(40, 5, 18312151),
+(41, 6, 6821677),
+(42, 6, 8662591),
+(43, 6, 15121504),
+(44, 6, 16309340),
+(45, 7, 4954924),
+(46, 7, 7763080),
+(47, 7, 8551041),
+(48, 7, 9978078);
 
 --
 -- Índices para tablas volcadas
@@ -2735,6 +2793,12 @@ ALTER TABLE `notas_parciales`
  ADD PRIMARY KEY (`idnotas_parciales`), ADD KEY `fk_notas_parciales_asignatura1_idx` (`asignatura_idasignatura`), ADD KEY `fk_notas_parciales_cadete1_idx` (`cadete_rut`), ADD KEY `fk_notas_parciales_concepto1_idx` (`concepto_idconcepto`);
 
 --
+-- Indices de la tabla `noticia`
+--
+ALTER TABLE `noticia`
+ ADD PRIMARY KEY (`idnoticia`);
+
+--
 -- Indices de la tabla `tipo_archivo`
 --
 ALTER TABLE `tipo_archivo`
@@ -2759,6 +2823,12 @@ ALTER TABLE `usuario`
  ADD PRIMARY KEY (`rut`);
 
 --
+-- Indices de la tabla `usuario_noticia`
+--
+ALTER TABLE `usuario_noticia`
+ ADD PRIMARY KEY (`idusuario_noticia`), ADD KEY `fk_usuario_noticia_noticia1_idx` (`noticia_idnoticia`), ADD KEY `fk_usuario_noticia_usuario1_idx` (`usuario_rut`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -2771,7 +2841,7 @@ MODIFY `idarchivos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT de la tabla `certificado`
 --
 ALTER TABLE `certificado`
-MODIFY `idcertificado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `idcertificado` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `concepto`
 --
@@ -2788,6 +2858,11 @@ MODIFY `iddepartamento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=
 ALTER TABLE `especialidad`
 MODIFY `idespecialidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT de la tabla `noticia`
+--
+ALTER TABLE `noticia`
+MODIFY `idnoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT de la tabla `tipo_archivo`
 --
 ALTER TABLE `tipo_archivo`
@@ -2797,6 +2872,11 @@ MODIFY `idtipo_archivo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 ALTER TABLE `tipo_certificado`
 MODIFY `idtipo_certificado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `usuario_noticia`
+--
+ALTER TABLE `usuario_noticia`
+MODIFY `idusuario_noticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 --
 -- Restricciones para tablas volcadas
 --
@@ -2899,6 +2979,13 @@ ADD CONSTRAINT `fk_notas_parciales_concepto1` FOREIGN KEY (`concepto_idconcepto`
 --
 ALTER TABLE `transaccion`
 ADD CONSTRAINT `transaccion_ibfk_1` FOREIGN KEY (`cadete_rut`) REFERENCES `cadete` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `usuario_noticia`
+--
+ALTER TABLE `usuario_noticia`
+ADD CONSTRAINT `fk_usuario_noticia_noticia1` FOREIGN KEY (`noticia_idnoticia`) REFERENCES `noticia` (`idnoticia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_usuario_noticia_usuario1` FOREIGN KEY (`usuario_rut`) REFERENCES `usuario` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

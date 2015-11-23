@@ -34,7 +34,7 @@ class CertificadoController extends Controller
                         array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('admin', 'aprobar'),
 				'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || '
-                                    .' Yii::app()->getSession()->get("tipoFuncionario") == "administrador"',
+                                    .' Yii::app()->getSession()->get("tipoFuncionario") == "Administrador"',
 			),
                         array('allow',  
                                 'actions'=>array('validar'),

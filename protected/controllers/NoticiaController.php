@@ -70,6 +70,9 @@ class NoticiaController extends Controller
                             $usuarios = Noticia::model()->getAllUsuarioNoticiaInsert(
                                     $model->tipoUsuario, $model->division, $model->curso);
                             UsuarioNoticia::model()->insertNoticiaUsuario($usuarios, $model->idnoticia);
+                            
+                            Yii::app()->user->setFlash("success","Noticia #$model->idnoticia publicada");
+                            
                             $this->redirect(array('admin'));
                         }
 		}
@@ -94,8 +97,15 @@ class NoticiaController extends Controller
 		if(isset($_POST['Noticia']))
 		{
 			$model->attributes=$_POST['Noticia'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idnoticia));
+			if($model->save()){
+                            Noticia::model()->deleteAllNoticiaUsuario($model->idnoticia);
+                            $usuarios = Noticia::model()->getAllUsuarioNoticiaInsert(
+                                $model->tipoUsuario, $model->division, $model->curso);
+                            UsuarioNoticia::model()->insertNoticiaUsuario($usuarios, $model->idnoticia);
+                            
+                            Yii::app()->user->setFlash("success","Noticia #$model->idnoticia actualizada");
+                            $this->redirect(array('admin'));
+                        }
 		}
 
 		$this->render('update',array(
@@ -110,8 +120,10 @@ class NoticiaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+                Noticia::model()->deleteAllNoticiaUsuario($id);
 		$this->loadModel($id)->delete();
 
+                Yii::app()->user->setFlash("success","Noticia eliminada");
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

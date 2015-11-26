@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Noticia', 'url'=>array('index')),
-	array('label'=>'Create Noticia', 'url'=>array('create')),
-	array('label'=>'Update Noticia', 'url'=>array('update', 'id'=>$model->idnoticia)),
-	array('label'=>'Delete Noticia', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idnoticia),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Noticia', 'url'=>array('admin')),
+	array('label'=>'Nueva Noticia', 'url'=>array('create')),
+	array('label'=>'Actualizar Noticia', 'url'=>array('update', 'id'=>$model->idnoticia)),
+	array('label'=>'Eliminar Noticia', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idnoticia),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Mantenedor Noticias', 'url'=>array('admin')),
 );
 ?>
 

@@ -1,18 +1,8 @@
 <?php
-/* @var $this NoticiaController */
-/* @var $model Noticia */
-
-$this->breadcrumbs=array(
-	'Noticias'=>array('index'),
-	$model->idnoticia=>array('view','id'=>$model->idnoticia),
-	'Update',
-);
-
 $this->menu=array(
-	array('label'=>'List Noticia', 'url'=>array('index')),
-	array('label'=>'Create Noticia', 'url'=>array('create')),
-	array('label'=>'View Noticia', 'url'=>array('view', 'id'=>$model->idnoticia)),
-	array('label'=>'Manage Noticia', 'url'=>array('admin')),
+	array('label'=>'Nueva Noticia', 'url'=>array('create')),
+	array('label'=>'Ver Noticia', 'url'=>array('view', 'id'=>$model->idnoticia)),
+	array('label'=>'Mantenedor Noticia', 'url'=>array('admin')),
 );
 ?>
 

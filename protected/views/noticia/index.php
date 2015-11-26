@@ -18,14 +18,3 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
-
-
-
-<?php 
-    $model = Noticia::model()->getAllUsuarioNoticiaInsert('cadete', 'B', '');
-    $i = 1;
-    foreach ($model as $m){
-        echo $i.' '.$m->rut.' --- '.$m->perfil.'<br/>';
-        $i++;
-    }
-?>

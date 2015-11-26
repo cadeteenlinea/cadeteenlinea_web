@@ -113,6 +113,15 @@ class Noticia extends CActiveRecord
             return self::$tipos; 
         }
         
+        public static function deleteAllNoticiaUsuario($idnoticia){
+            $criteria=new CDbCriteria;
+            $criteria->addCondition('t.noticia_idnoticia = '.$idnoticia);
+            $model = UsuarioNoticia::model()->findAll($criteria);
+            foreach($model as $item){
+                $item->delete();
+            }
+        }
+        
         public static function getAllUsuarioNoticiaInsert($tipoUsuario, $division, $curso){
             $usuarios = null;
             $criteria=new CDbCriteria;

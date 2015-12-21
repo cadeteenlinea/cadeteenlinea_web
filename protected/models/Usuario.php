@@ -206,7 +206,7 @@ class Usuario extends CActiveRecord
             $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</p>';
             $body .= '<p>codigo: <b>'. $this->codVerificacion.'</b></p>';
             $body .= '<a href="http://localhost/cadeteenlinea/site/ResetPassword">'.Yii::app()->request->baseUrl.'/site/ResetPassword</a>';
-            $body .= '<p><br/>Si usted no utiliza este código dentro de las proximas, '
+            $body .= '<p><br/>Si usted no utiliza este código dentro de las proximas 24 horas, '
                     . 'este caducará. Para obtener un nuevo código visite '
                     . '<a href="http://localhost/cadeteenlinea/site/RecuperarContrasena">'.Yii::app()->request->baseUrl.'/site/RecuperarContrasena</a></p>';
             $body .= '<p>Atentamente.<br/>'

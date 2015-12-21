@@ -28,7 +28,7 @@ class UsuarioController extends Controller
 	{
 		return array(
                         array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('datosPersonales','cambioPassword'),
+				'actions'=>array('datosPersonales','cambioPassword', 'update'),
 				'users'=>array('@'),
 			),
                         array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -81,18 +81,19 @@ class UsuarioController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate()
 	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$model=$this->loadModel(Yii::app()->user->id);
 
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->rut));
+			if($model->save()){
+                                Yii::app()->user->setFlash('success','Datos personales modificados');
+				$this->redirect(array('datosPersonales'));
+                        }else{
+                            Yii::app()->user->setFlash('error','No se pudo modificar los datos personales');
+                        }
 		}
 
 		$this->render('update',array(
@@ -220,4 +221,5 @@ class UsuarioController extends Controller
                 'noticias' => $noticias,
              ));
         }
+        
 }

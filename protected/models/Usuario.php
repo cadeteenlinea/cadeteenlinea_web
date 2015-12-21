@@ -43,12 +43,13 @@ class Usuario extends CActiveRecord
 		return array(
 			array('rut, apellidoPat, apellidoMat, nombres, password_2, email', 'required'),
 			array('rut', 'length', 'max'=>10),
-                        array('apellidoPat, apellidoMat, email', 'length', 'max'=>25),
+                        array('apellidoPat, apellidoMat', 'length', 'max'=>25),
                         array('email', 'length', 'max'=>50),
                         array('nombres', 'length', 'max'=>50),
 			array('password_2', 'length', 'max'=>250),
 			array('perfil', 'length', 'max'=>11),
                         array('codVerificacion', 'length', 'max'=>10),
+                        array('email','email'),
                     
 			array('rut, apellidoPat, apellidoMat, nombres, password_2, perfil', 'safe', 'on'=>'search'),
                         //Error de validación, estaba escrito requerid y no required
@@ -82,8 +83,8 @@ class Usuario extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-                        'apellidoPat' => 'Apellido Pat',
-			'apellidoMat' => 'Apellido Mat',
+                        'apellidoPat' => 'Apellido Paterno',
+			'apellidoMat' => 'Apellido Materno',
 			'nombres' => 'Nombres',
 			'password_2' => 'Clave',
 			'perfil' => 'Perfil',

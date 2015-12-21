@@ -9,8 +9,8 @@
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
         <h3 style="margin-top: 0px;">Datos Personales</h3>
         <p>
-            <b>R.U.N. : </b> <?php echo $model->rut; ?> <br/>
-            <b>Email : </b> <?php echo $model->email; ?> <br/>
+            <b>R.U.N. : </b> <?php echo $model->getRut(); ?> <br/>
+            <b>Email : </b> <?php echo $model->email; ?> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo CHtml::link('editar',array('usuario/update')); ?><br/>
             
             <?php if(!empty($model->apoderado)){ ?>
             <b>Dirección : </b> <?php echo $model->apoderado->direccion;?><br/>
@@ -18,7 +18,7 @@
             <b>Comuna : </b> <?php echo $model->apoderado->comuna;?><br/>  
             <b>Fono : </b> <?php echo $model->apoderado->fono;?><br/>
             <b>Fono Comercial : </b> <?php echo $model->apoderado->fonoComercial;?><br/>
-            <?php }else{?>
+            <?php }else if(!empty($model->cadete)){?>
             <b>Fecha Nacimiento : </b> 
                 <?php echo $model->cadete->diaNacimiento . '/' .$model->cadete->mesNacimiento .'/'. $model->cadete->anoNacimiento;?><br/>  
             <b>Lugar de Nacimiento : </b> <?php echo $model->cadete->lugarNacimiento;?><br/>  
@@ -34,16 +34,23 @@
             <b>Nivel : </b> <?php echo $model->cadete->nivel;?><br/>  
             <b>Circulo : </b> <?php echo $model->cadete->circulo;?><br/>  
             
-            
-            
             <?php }?>
-        </p>
-        
-        <p>
-            
-        </p>
+        </p> 
     </div>
     
+    <div id="statusMsg">
+        <?php if(Yii::app()->user->hasFlash('success')):?>
+            <div style="margin-top: 20px;" class="flash-success col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <?php echo Yii::app()->user->getFlash('success'); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if(Yii::app()->user->hasFlash('error')):?>
+            <div style="margin-top: 20px;" class="flash-error col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <?php echo Yii::app()->user->getFlash('error'); ?>
+            </div>
+        <?php endif; ?>
+    </div>
 </div>
 
 

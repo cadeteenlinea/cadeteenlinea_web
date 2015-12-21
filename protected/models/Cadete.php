@@ -336,4 +336,24 @@ class Cadete extends CActiveRecord
             }
             return $errores;
         }
+        
+        public static function getAllDivision(){
+            $criteria = new CDbCriteria();
+            $criteria->select = array('t.division');
+            $criteria->distinct = true;
+            $model = Cadete::model()->findAll($criteria);           
+            $list = CHtml::listData($model, 
+                'division', 'division');
+            return $list;
+        }
+        
+        public static function getAllCurso(){
+            $criteria = new CDbCriteria();
+            $criteria->select = array('t.curso');
+            $criteria->distinct = true;
+            $model = Cadete::model()->findAll($criteria);           
+            $list = CHtml::listData($model, 
+                'curso', 'curso');
+            return $list;
+        }
 }

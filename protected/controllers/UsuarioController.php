@@ -31,6 +31,11 @@ class UsuarioController extends Controller
 				'actions'=>array('datosPersonales','cambioPassword'),
 				'users'=>array('@'),
 			),
+                        array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('misNoticias'),
+				'expression'=>'Yii::app()->getSession()->get("perfil") == "apoderado" || '
+                                    .' Yii::app()->getSession()->get("perfil") == "cadete"',
+			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -204,6 +209,15 @@ class UsuarioController extends Controller
             $this->render('cambioPassword', array(
                 'model' => $model,
                 'titulo' => 'Cambio Contraseña',
+             ));
+        }
+        
+        
+        public function actionMisNoticias(){
+            $usuario = $this->loadModel(Yii::app()->user->id);
+            $noticias = $usuario->getMisNoticias();
+            $this->render('misNoticias', array(
+                'noticias' => $noticias,
              ));
         }
 }

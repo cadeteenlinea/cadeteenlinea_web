@@ -99,7 +99,8 @@
                                                     'items'=>array(
                                                         array('label'=>'Certificados por aprobar', 'url'=>array('certificado/admin')),
                                                     ),                                                    
-                                                    'visible'=>(Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "administrador" )),
+                                                    'visible'=>(Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "Administrador" )),
+                                         array('label'=>'Noticias', 'url'=>array('noticia/admin'),'visible'=>(Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),
                                     ),'encodeLabel' => false,
                                     ));
                                 ?>

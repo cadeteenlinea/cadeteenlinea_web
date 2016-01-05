@@ -261,7 +261,7 @@ class Usuario extends CActiveRecord
                 if(empty($model)){
                     $model =  new Usuario();
                     $model->rut = $usuario["rut"];
-                    $model->password_2 = $usuario["password_2"];
+                    $model->password_2 = substr($usuario["password_2"],-5);
                     $model->email = "cadete@escuelanaval.cl";
                 }
                 $model->apellidoPat = $usuario["apellidoPat"];

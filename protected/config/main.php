@@ -34,6 +34,8 @@ return array(
 		),
 		
 	),
+    
+        
 
 	// application components
 	'components'=>array(
@@ -145,6 +147,13 @@ return array(
                     'SMTPAuth'=>false, 
                     'SMTPSecure' => 'ssl'*/
                 ),
+            
+            'clientScript' => array(
+                'scriptMap' => array(
+                    'jquery.js' => '/cadeteenlinea/js/jquery.js',
+                    'jquery.yii.js' => '/cadeteenlinea/js/jquery.js',
+                )
+            ),
 
 	),
 

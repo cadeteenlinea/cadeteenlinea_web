@@ -17,14 +17,8 @@
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/init.css" />
         
-        <?php /*Yii::app()->clientScript->registerCoreScript('jquery'); */?>
+        <?php Yii::app()->clientScript->registerCoreScript('jquery');?>
 
-        <?php
-            $cs=Yii::app()->clientScript;
-            $cs->registerScriptFile(Yii::app()->baseUrl . '/js/jquery.js', CClientScript::POS_HEAD);
-        ?>
-        
-        
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
     <body>

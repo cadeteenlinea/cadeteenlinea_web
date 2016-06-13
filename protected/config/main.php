@@ -151,7 +151,7 @@ return array(
             'clientScript' => array(
                 'scriptMap' => array(
                     'jquery.js' => '/js/jquery.js',
-                    'jquery.yii.js' => '/js/jquery.js',
+                    //'jquery.yii.js' => '/js/jquery.yii.js',
                 )
             ),
 

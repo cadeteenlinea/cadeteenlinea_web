@@ -87,19 +87,11 @@
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
-                                                        array('label'=>'Solicitar', 'url'=>array('certificado/create')),
-                                                        array('label'=>'Ver mis certificados', 'url'=>array('certificado/misCertificados')),
+                                                        array('label'=>'Solicitar', 'url'=>array('certificado/create'), 'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                                        array('label'=>'Ver mis certificados', 'url'=>array('certificado/misCertificados'), 'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                                        array('label'=>'Certificados por aprobar', 'url'=>array('certificado/admin'), 'visible'=>(Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "Administrador" )),
                                                     ),                                                    
-                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
-                                         array('label'=>'Certificados <b class="caret"></b>', 'url'=>'#', 
-                                                    'linkOptions'=>array(
-                                                        'class'=>'dropdown-toggle',
-                                                        'data-toggle'=>'dropdown',
-                                                    ),
-                                                    'items'=>array(
-                                                        array('label'=>'Certificados por aprobar', 'url'=>array('certificado/admin')),
-                                                    ),                                                    
-                                                    'visible'=>(Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "Administrador" )),
+                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') || Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "Administrador")),
                                          array('label'=>'Noticias', 'url'=>array('noticia/admin'),'visible'=>(Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),
                                     ),'encodeLabel' => false,
                                     ));
@@ -114,7 +106,7 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
-                                         array('label'=>'<span class="glyphicon glyphicon-cog"></span> Cpanel <b class="caret"></b>', 'url'=>'#', 
+                                         /*array('label'=>'<span class="glyphicon glyphicon-cog"></span> Cpanel <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
                                                         'data-toggle'=>'dropdown',
@@ -122,7 +114,7 @@
                                                     'items'=>array(
                                                         array('label'=>'Archivos', 'url'=>array('archivos/')),
                                                     ),                                                    
-                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),
+                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),*/
                                          array('label'=>'<span class="glyphicon glyphicon-cog"></span> Cuenta <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
@@ -131,7 +123,8 @@
                                                     'items'=>array(
                                                         array('label'=>'Cambio Contraseña', 'url'=>array('usuario/cambioPassword'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Datos Personales', 'url'=>array('usuario/datosPersonales'),'visible'=>(!Yii::app()->user->isGuest)),
-                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 'visible'=>Yii::app()->getSession()->get('perfil')=='apoderado'),
+                                                        array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 
+                                                            'visible'=>(Yii::app()->getSession()->get('perfil')=='apoderado') || Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'),
                                                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
                                                     ),                                                    
                                                     'visible'=>!Yii::app()->user->isGuest),
@@ -146,6 +139,20 @@
                 </div>
             </nav>
         </header>
+        
+        <!-- visualización del cadete seleccionado -->
+        <div class="container text-right" style="height: 50px; padding-top: 70px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="color: #585858; font-style: italic;">
+                        <?php
+                            if(Yii::app()->getSession()->get('nCadete'))
+                                echo "Cadete N°". Yii::app()->getSession()->get('nCadete')." - ". Yii::app()->getSession()->get('apellidoPaternoCadete');
+                        ?>
+                    </p>
+                </div>
+            </div>
+        </div>
         
         <?php echo $content; ?>
         

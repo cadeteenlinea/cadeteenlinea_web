@@ -165,15 +165,27 @@ class ApoderadoController extends Controller
         
         public function actionSelectCadete()
         {
-            if(isset($_GET['rutCadete'])){
-                if($this->loadModel(Yii::app()->user->id)->seleccionarCadete($_GET['rutCadete'])){
-                    $this->redirect(array('site/index'));
+            /***********SELECCIÓN PARA APODERADOS***********/
+            if(Yii::app()->getSession()->get('perfil')=='apoderado'){
+                if(isset($_GET['rutCadete'])){
+                    if($this->loadModel(Yii::app()->user->id)->seleccionarCadete($_GET['rutCadete'])){
+                        $this->redirect(array('site/index'));
+                    }
                 }
-            }
-            $this->render('selectCadete',array(
-                'cadetes'=>$apoderado = $this->loadModel(Yii::app()->user->id)->getCadetes(),
-            ));
-            
-            
+                $this->render('selectCadete',array(
+                    'cadetes'=>$apoderado = $this->loadModel(Yii::app()->user->id)->getCadetes(),
+                ));
+            /************SELECCIÓN PARA OFICIALES***************/    
+            }else if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'){
+                if(isset($_GET['rutCadete'])){
+                    if(Funcionario::model()->findByPk(Yii::app()->user->id)->seleccionarCadeteOficial($_GET['rutCadete'])){
+                        $this->redirect(array('site/index'));
+                    }
+                }
+                $model = Funcionario::model()->findByPk(Yii::app()->user->id)->getCadetesOficiales();
+                $this->render('selectCadete',array(
+                    'cadetes'=>$model,
+                ));
+            } 
         }
 }

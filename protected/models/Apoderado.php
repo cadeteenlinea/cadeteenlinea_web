@@ -139,6 +139,13 @@ class Apoderado extends CActiveRecord
             if($this->validarCadeteAsociado($rutCadete)){
                 Yii::app()->getSession()->remove('rutCadete');
                 Yii::app()->getSession()->add('rutCadete', $rutCadete);
+                
+                $model = Cadete::model()->findByPk($rutCadete);
+                Yii::app()->getSession()->remove('nCadete');
+                Yii::app()->getSession()->add('nCadete', $model->nCadete);
+                Yii::app()->getSession()->remove('apellidoPaternoCadete');
+                Yii::app()->getSession()->add('apellidoPaternoCadete', $model->usuario->apellidoPat);
+                
                 return true;
             }else{
                 return false;

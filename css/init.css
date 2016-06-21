@@ -7,7 +7,8 @@
 */
 
 body > .container {
-  padding: 70px 15px 0;
+  /*padding: 70px 15px 0;*/
+  padding-right: 15px;
   color: #747474 !important;
 }
 
@@ -123,4 +124,13 @@ div.flash-notice a
 div.flash-success a
 {
 	color:#264409;
+}
+
+.cadeteSelect{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.cadeteSelect:hover{
+    background-color: #CEE3F6;
 }

@@ -9,24 +9,44 @@
                 'id'=>'ano-view',
                 'htmlOptions'=>array(
                     'class'=>'pull-right',
+                    'style'=>'width: 500px;'
                 ),
                 'enableAjaxValidation'=>false,));
                 /*
                  *Despliega una list con los años con calificaciones
                  * variable $ano contiene el año seleccionado por el usuario
                  */
+            ?>
+            
+            <div class="col-lg-4 col-md-4">
+                <label style="width: 70px;">Año</label>
+                <?php
                 echo CHtml::dropDownList('ano', 'ano', Nivelacion::model()->getListAno(Yii::app()->getSession()->get('rutCadete')),
                     array('class'=>'btn btn-default','style'=>'width:125px;','submit'=>Yii::app()->request->url,
                         'options'=> array($ano=>array('selected'=>'selected'))
                 ));
+                ?>
+            </div>
+            
+            <div class="col-lg-4 col-md-4">
+                <label style="width: 70px;">Semestre</label>
+                <?php
                 echo CHtml::dropDownList('semestre', 'semestre', Nivelacion::model()->getListAnoSemestre(Yii::app()->getSession()->get('rutCadete'), $ano),
                     array('class'=>'btn btn-default','style'=>'width:125px;','submit'=>Yii::app()->request->url,
                         'options'=> array($semestre=>array('selected'=>'selected'))
                 ));
+                ?>
+            </div>  
+            <div class="col-lg-4 col-md-4">  
+                <label style="width: 70px;">Etapa</label>
+                <?php
                 echo CHtml::dropDownList('etapa', 'etapa', Nivelacion::model()->getListAnoSemestreEtapa(Yii::app()->getSession()->get('rutCadete'), $ano, $semestre),
                     array('class'=>'btn btn-default','style'=>'width:125px;','submit'=>Yii::app()->request->url,
                         'options'=> array($etapa=>array('selected'=>'selected'))
                 ));
+                ?>
+            </div>    
+            <?php   
             $this->endWidget();
         ?>
         </div>

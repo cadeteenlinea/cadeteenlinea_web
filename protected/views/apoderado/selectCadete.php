@@ -14,7 +14,7 @@
 <div class="row">
     <?php foreach ($cadetes as $cadete){
         ?>
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 cadeteSelect">
             <div class="thumbnail"><img src="<?php echo $cadete->usuario->imagen(); ?>" alt="<?php echo $cadete->usuario->nombres; ?>"></div>
             <div style="height:100px;">
                 <p class="text-center">Cadete <?php echo $cadete->nCadeteView;?></p>

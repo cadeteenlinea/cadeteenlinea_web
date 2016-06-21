@@ -101,4 +101,31 @@ class Funcionario extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getCadetesOficiales(){
+            $model = Cadete::model()->findAll();
+            return $model;
+        }
+        
+        /*****METEDOS AGREGADOS PARA LA VISUALIZACIÓN DE CADETES PARA OFICIALES*****/
+        public function seleccionarCadeteOficial($rutCadete){
+            if($this->validarCadeteAsociado($rutCadete)){
+                Yii::app()->getSession()->remove('rutCadete');
+                Yii::app()->getSession()->add('rutCadete', $rutCadete);
+                
+                $model = Cadete::model()->findByPk($rutCadete);
+                Yii::app()->getSession()->remove('nCadete');
+                Yii::app()->getSession()->add('nCadete', $model->nCadete);
+                Yii::app()->getSession()->remove('apellidoPaternoCadete');
+                Yii::app()->getSession()->add('apellidoPaternoCadete', $model->usuario->apellidoPat);
+                
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        private function validarCadeteAsociado($rutCadete){
+            return true;
+        }
 }

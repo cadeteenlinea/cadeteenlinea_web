@@ -24,7 +24,7 @@
  * @property integer $especialidad_idespecialidad
  *
  * The followings are the available model relations:
- * @property Usuario $rut0
+ * @property Usuario $usuario
  * @property Especialidad $especialidad
  * @property CadeteApoderado[] $cadeteApoderados
  * @property NotasParciales[] $notasParciales
@@ -228,7 +228,13 @@ class Cadete extends CActiveRecord
             $criteria->addCondition('t.asignatura_idasignatura='.$idAsignatura);
             $criteria->addCondition('t.cadete_rut='.$this->rut);
             $model = NotasParciales::model()->find($criteria);
-            return round($model->nota,1);
+            
+            /*****cambio realizado para solo mostrar el promedio de asignaturas con notas****/
+            if($model->nota == 0){
+                return "";
+            }else{
+                return round($model->nota,2);
+            }
         }
         
         public function getCalificacionesAnoSemestre($ano, $semestre){

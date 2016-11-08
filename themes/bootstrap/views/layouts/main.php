@@ -69,7 +69,7 @@
                                                         array('label'=>'Nivelacion', 'url'=>array('cadete/nivelacion')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
-                                         array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
+                                         /*array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
                                                         'data-toggle'=>'dropdown',
@@ -79,7 +79,7 @@
                                                         array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
                                                         array('label'=>'Equipo Inicial', 'url'=>array('cadete/movimientoEquipo')),
                                                     ),                                                    
-                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
+                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),*/
                                          array('label'=>'Hora Salida', 'url'=>array('cadete/francos'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
                                          array('label'=>'Certificados <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
@@ -115,7 +115,17 @@
                                                         array('label'=>'Archivos', 'url'=>array('archivos/')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),*/
-                                         array('label'=>'<span class="glyphicon glyphicon-cog"></span> Cuenta <b class="caret"></b>', 'url'=>'#', 
+                                         array('label'=>'<span class="glyphicon glyphicon-phone"></span> Contactos <b class="caret"></b>', 'url'=>'#', 
+                                                    'linkOptions'=>array(
+                                                        'class'=>'dropdown-toggle',
+                                                        'data-toggle'=>'dropdown',
+                                                    ),
+                                                    'items'=>array(
+                                                        array('label'=>'Departamentos', 'url'=>array('contacto/contactoDepartamentos')),
+                                                        array('label'=>'Oficiales de División', 'url'=>array('contacto/contactoOficiales')),
+                                                    ),                                                    
+                                                    'visible'=>(!Yii::app()->user->isGuest)),
+                                         array('label'=>'<span class="glyphicon glyphicon-user"></span> Cuenta <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
                                                         'data-toggle'=>'dropdown',
@@ -125,7 +135,7 @@
                                                         array('label'=>'Datos Personales', 'url'=>array('usuario/datosPersonales'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 
                                                             'visible'=>(Yii::app()->getSession()->get('perfil')=='apoderado') || Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'),
-                                                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
+                                                        array('label'=>'Cerrar sesión ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
                                                     ),                                                    
                                                     'visible'=>!Yii::app()->user->isGuest),
                                          

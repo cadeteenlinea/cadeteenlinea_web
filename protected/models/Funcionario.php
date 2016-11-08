@@ -103,7 +103,7 @@ class Funcionario extends CActiveRecord
 	}
         
         public function getCadetesOficiales(){
-            $model = Cadete::model()->findAll();
+            $model = Cadete::model()->with('usuario')->findAll(array('order' => 'usuario.apellidoPat, usuario.apellidoMat, usuario.nombres  ASC'));
             return $model;
         }
         

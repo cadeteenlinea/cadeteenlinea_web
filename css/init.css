@@ -134,3 +134,13 @@ div.flash-success a
 .cadeteSelect:hover{
     background-color: #CEE3F6;
 }
+
+.oficial{
+    height: 210px;
+}
+
+@media (max-width: 992px) {
+    .oficial{
+        height: 400px;
+    }
+}

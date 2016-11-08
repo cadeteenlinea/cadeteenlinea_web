@@ -188,8 +188,7 @@ class SiteController extends Controller
             $this->render('resetPassword',array(
 		'model'=>$model,
             ));
-        }
-        
+        }       
         
         /*public function actionLoginWebService(){
             $response = array();

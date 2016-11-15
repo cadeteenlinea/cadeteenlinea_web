@@ -1,5 +1,5 @@
 
-<div class="container">
+
     <div class="row">
        <div id="statusMsg">
         <?php if(Yii::app()->user->hasFlash('success')):?>

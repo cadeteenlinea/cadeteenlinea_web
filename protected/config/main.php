@@ -10,7 +10,7 @@ return array(
 	'name'=>'Cadete en Línea',
         'sourceLanguage' => 'es_ES',
         'language'=>'es',
-        'theme'=>'bootstrap',
+        'theme'=>'2017',
 
 	// preloading 'log' component
 	'preload' => array('log',

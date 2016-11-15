@@ -9,20 +9,50 @@
 <h2>Seleccione Cadete</h2>
 <?php  ?>
 <br/>
-<br/>
 
 <div class="row">
-    <?php foreach ($cadetes as $cadete){
-        ?>
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 cadeteSelect">
-            <div class="thumbnail"><img src="<?php echo $cadete->usuario->imagen(); ?>" alt="<?php echo $cadete->usuario->nombres; ?>"></div>
-            <div style="height:100px;">
-                <p class="text-center">Cadete <?php echo $cadete->nCadeteView;?></p>
-                <p class="text-center"><?php echo $cadete->usuario->apellidoPat.' '. $cadete->usuario->apellidoMat.' '. $cadete->usuario->nombres ;?></p>
-                <p class="text-center">Curso <?php echo $cadete->curso;?></p>
-            </div>
-            <?php echo CHtml::link("seleccionar",array("apoderado/selectCadete", "rutCadete"=>$cadete->rut),
-                                    array("class"=>"btn btn-default pull-right")); ?>
+    <?php 
+        if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'){
+        $form=$this->beginWidget('CActiveForm', array(
+            'id'=>'cadete-form',
+            'enableAjaxValidation'=>false,
+            'enableClientValidation' => true,
+            'clientOptions' => array(
+                'validateOnSubmit' => true,
+            ),
+            'htmlOptions'=>array(
+                'onsubmit'=>'
+                    str = $("#cadete-form").serialize() + "&ajax=cadete-form";
+                    $.ajax({
+                        type: "POST",
+                        url: "' . Yii::app()->createUrl('apoderado/listaCadetes/') . '",
+                        data: str,
+                        success: function(data) {
+                            $("#lista_cadetes").html(data);
+                        },
+                    });
+                    return false;
+                ',
+            )
+    )); ?>
+
+        <div class="col-lg-4 col-md-4 col-sm-7 col-xs-8">
+            <?php echo $form->textField($filtro,'nCadete',array('size'=>10,'maxlength'=>4, 'class'=>'form-control', 'placeholder'=>'N° cadete')) ?>
+        </div> 
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+            <?php echo CHtml::submitButton('buscar', array('class'=>'btn btn-primary')); ?>
         </div>
-    <?php } ?>
+            
+
+    <?php 
+        $this->endWidget(); 
+        }
+    ?>
 </div>
+
+<br/>
+
+<div id="lista_cadetes">
+    <?php $this->renderPartial('_listaCadetes', array('cadetes'=>$cadetes)); ?>
+</div>
+

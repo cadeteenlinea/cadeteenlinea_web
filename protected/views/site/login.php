@@ -5,12 +5,8 @@
 
 ?>
 
-<div class="container">
-    
-    <div class="row">
-        <div class="col-lg-4 col-md-3 col-sm-2"></div>
 
-        <div class="col-lg-4 col-md-6 col-sm-8 form">
+    <div class="row">
         <h1 class="text-center">Iniciar sesión</h1>
         <hr class="separador_post"/>
         <?php 
@@ -45,7 +41,7 @@
 	</div>
 
 	<div class="form-group">
-		<?php echo CHtml::submitButton('Acceder',array('class'=>'btn btn-primary col-lg-12', 'id'=>'buttonLogin')); ?>
+		<?php echo CHtml::submitButton('Acceder',array('class'=>'btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12', 'id'=>'buttonLogin')); ?>
 	</div>
 
         <?php $this->endWidget(); ?>
@@ -53,12 +49,9 @@
         <div class="text-center">
             <?php echo CHtml::link('¿Olvidaste tu contraseña?',array('site/recuperarContrasena')); ?>
         </div>
-        
-        </div>
-        
-        <div class="col-lg-4 col-md-3 col-sm-2"></div>
+
  </div>
-</div>
+
 
 
 <?php $this->renderPartial('_message'); ?>

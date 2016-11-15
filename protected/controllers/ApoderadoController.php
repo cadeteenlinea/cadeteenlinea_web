@@ -28,7 +28,7 @@ class ApoderadoController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('selectCadete'),
+				'actions'=>array('selectCadete', 'ListaCadetes'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -173,7 +173,7 @@ class ApoderadoController extends Controller
                     }
                 }
                 $this->render('selectCadete',array(
-                    'cadetes'=>$apoderado = $this->loadModel(Yii::app()->user->id)->getCadetes(),
+                    'cadetes' => $apoderado = $this->loadModel(Yii::app()->user->id)->getCadetes(),
                 ));
             /************SELECCIÓN PARA OFICIALES***************/    
             }else if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'){
@@ -182,10 +182,24 @@ class ApoderadoController extends Controller
                         $this->redirect(array('site/index'));
                     }
                 }
+                $filtro = new Cadete;
                 $model = Funcionario::model()->findByPk(Yii::app()->user->id)->getCadetesOficiales();
                 $this->render('selectCadete',array(
                     'cadetes'=>$model,
+                    'filtro' => $filtro,
                 ));
             } 
+        }
+        
+        public function actionListaCadetes(){
+            $model=new Cadete;
+            $model->attributes=$_POST['Cadete'];
+            
+            if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'){
+                $cadetes = Funcionario::model()->findByPk(Yii::app()->user->id)->getCadetesOficiales($model->nCadete);
+                return $this->renderPartial('_listaCadetes', array('cadetes'=>$cadetes));
+            }else{
+                return false;
+            }
         }
 }

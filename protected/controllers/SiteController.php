@@ -98,7 +98,7 @@ class SiteController extends Controller
             if(!Yii::app()->user->isGuest){
                 $this->actionIndex();
             }else{
-                $this->layout = '//layouts/mainNoFooter';
+                $this->layout = '//layouts/login';
 		$model=new LoginForm;
 
 		// if it is ajax validation request
@@ -156,6 +156,10 @@ class SiteController extends Controller
                                 código de autorización, los que le permitiran 
                                 restablecer su contraseña por 
                                 las próximas 24 horas');
+                            $this->redirect(array('RecuperarContrasena'));
+                        }else{
+                            Yii::app()->user->setFlash('error','* Ha surgido un '
+                                    . 'problema al realizar el envío de correo');
                             $this->redirect(array('RecuperarContrasena'));
                         }
                    }

@@ -39,7 +39,7 @@ class CadeteController extends Controller
                                     'movimientoColegiatura', 'movimientoEquipo', 
                                     'notasParciales','notasFinales','notasTae',
                                     'calificaciones','datosPersonales','fichaCapacidad',
-                                    'Nivelacion', 'Francos'),
+                                    'Nivelacion', 'Francos','ResumenFinalAnos'),
 				'users'=>array('@'),
 			),
                         array('allow',
@@ -276,7 +276,7 @@ class CadeteController extends Controller
             $this->render('notasFinales',array(
                 'model'=>$model,
                 'ano'=>$ano,
-                'titulo' => 'Resumen Anual',
+                'titulo' => 'Notas Finales por año',
             ));
         }
         
@@ -398,6 +398,16 @@ class CadeteController extends Controller
             $this->render('francos', array(
                 'model' => $model,
                 'titulo' => 'Papeleta de Salida del Cadete',
+            ));
+        }
+        
+        public function actionResumenFinalAnos(){
+            $rutCadete = Yii::app()->getSession()->get('rutCadete');
+            $model = $this->loadModel($rutCadete);
+            
+            $this->render('resumenFinalAnos', array(
+                'model' => $model,
+                'titulo' => 'Resumen Final por año',
             ));
         }
 }

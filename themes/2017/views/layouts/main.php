@@ -54,7 +54,8 @@
                                                     ),
                                                     'items'=>array(
                                                         array('label'=>'Notas Parciales', 'url'=>array('cadete/notasParciales')),
-                                                        array('label'=>'Resumen anual', 'url'=>array('cadete/notasFinales')),
+                                                        array('label'=>'Notas Finales por año', 'url'=>array('cadete/notasFinales')),
+                                                        array('label'=>'Resumen Finales por año', 'url'=>array('cadete/resumenFinalAnos')),
                                                         array('label'=>'Examen Inglés TAE', 'url'=>array('cadete/notasTae')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),

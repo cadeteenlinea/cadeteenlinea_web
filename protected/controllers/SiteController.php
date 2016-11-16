@@ -664,4 +664,24 @@ class SiteController extends Controller
             return CJSON::encode($result);
         }
         
+        /**
+	 * @param string $resumenJson
+	 * @return string
+	 * @soap
+	 */
+        public function resumen($resumenJson){
+            $result = '';
+            if(!empty($resumenJson)){
+                $resumen = CJSON::decode($resumenJson);
+                if (is_null($resumen)) {
+                    $result = "No es un objeto JSON";
+                }  else {
+                    $result = Resumen::saveWeb($resumen);
+                } 
+            }else{
+                $result = "Datos enviado no deben estar vacios";
+            }
+            return CJSON::encode($result);
+        }
+        
 }

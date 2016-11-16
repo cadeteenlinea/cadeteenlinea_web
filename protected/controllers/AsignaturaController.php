@@ -166,10 +166,13 @@ class AsignaturaController extends Controller
         public function actionVerDetalleNotasParciales($id){
             $model=$this->loadModel($id);
             $notas = Cadete::model()->findByPk(Yii::app()->getSession()->get('rutCadete'));
+            //obtengo las notas finales de la asignatura, examenes y repeticiones
+            $notasFinales = NotasFinales::model()->getNotaAnoCadete(Yii::app()->getSession()->get('rutCadete'), $model->idasignatura);
             $this->render('verDetalleNotasParciales',array(
 		'model'=>$model,
                 'notas'=>$notas->getNotasParcialesAsignatura($id),
                 'promedio'=>$notas->getPromedioNotasParcialesAsignatura($id),
+                'notasFinales'=>$notasFinales,
                 'titulo' => 'Notas Parciales',
             ));
         }

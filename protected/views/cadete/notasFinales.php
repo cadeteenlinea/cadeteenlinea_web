@@ -45,13 +45,13 @@
                 ?>
                     <td><a href="<?php echo Yii::app()->createUrl("notasFinales/verDetalleNotasFinal/",array("id"=>$nota->idnotas_finales)); ?>" title="ver detalle"><?php echo $asignatura->nombre; ?></a></td>
                 
-                    <td class="hidden-sm hidden-xs"><?php echo $nota->nota_presentacion; ?></td>
-                    <td class="hidden-sm hidden-xs"><?php echo $nota->nota_examen; ?></td>
-                    <td class="hidden-sm hidden-xs"><?php echo $nota->nota_final; ?></td>
-                    <td class="hidden-sm hidden-xs"><?php echo $nota->nota_examen_repeticion; ?></td>
-                    <td class="hidden-sm hidden-xs"><?php echo $nota->nota_final_repeticion; ?></td>
-                    <td class="hidden-sm hidden-xs"><?php echo $nota->getEstado(); ?></td>
-                    <td class="visible-sm visible-xs"><?php echo $nota->estado; ?></td>
+                    <td class="hidden-sm hidden-xs"><b> <?php echo Nota::deleteZero($nota->nota_presentacion); ?></b></td>
+                    <td class="hidden-sm hidden-xs">    <?php echo Nota::deleteZero($nota->nota_examen); ?></td>
+                    <td class="hidden-sm hidden-xs"><b> <?php echo Nota::deleteZero($nota->nota_final); ?></b></td>
+                    <td class="hidden-sm hidden-xs">    <?php echo Nota::deleteZero($nota->nota_examen_repeticion); ?></td>
+                    <td class="hidden-sm hidden-xs"><b> <?php echo Nota::deleteZero($nota->nota_final_repeticion); ?></b></td>
+                    <td class="hidden-sm hidden-xs"><b> <?php echo $nota->getEstado(); ?></b></td>
+                    <td class="visible-sm visible-xs"><b><?php echo $nota->estado; ?></b></td>
                 <?php }else{ ?>
                     <td class="hidden-sm hidden-xs"><?php echo $asignatura->nombre; ?></td>
                     <td class="hidden-sm hidden-xs"></td>

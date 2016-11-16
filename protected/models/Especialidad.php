@@ -11,6 +11,7 @@
  * The followings are the available model relations:
  * @property Asignatura[] $asignaturas
  * @property Cadete[] $cadetes
+ * @property Resumen[] $resumenes
  */
 class Especialidad extends CActiveRecord
 {
@@ -49,6 +50,7 @@ class Especialidad extends CActiveRecord
 		return array(
 			'asignaturas' => array(self::HAS_MANY, 'Asignatura', 'especialidad_idespecialidad'),
 			'cadetes' => array(self::HAS_MANY, 'Cadete', 'especialidad_idespecialidad'),
+                        'resumenes' => array(self::HAS_MANY, 'Resumen', 'especialidad_idespecialidad'),
 		);
 	}
 

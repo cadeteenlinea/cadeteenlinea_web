@@ -268,6 +268,14 @@ class Cadete extends CActiveRecord
             return $model;
         }
         
+        public function getResumenFinalAnos(){
+            $criteria = new CDbCriteria();
+            $criteria->addCondition('cadete_rut='.$this->rut);
+            $criteria->order = 'ano';
+            $model = Resumen::model()->findAll($criteria);
+            return $model;
+        }
+        
         private function deleteRelacionCadete(){
             foreach ($this->cadeteApoderados as $cadeteApoderado) {
                 $cadeteApoderado->delete();

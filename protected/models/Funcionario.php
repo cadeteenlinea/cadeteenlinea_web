@@ -103,11 +103,11 @@ class Funcionario extends CActiveRecord
 	}
         
         public function getCadetesOficiales($nCadete=null){
-            if(!is_null($nCadete)){
-                $nCadete = (int)$nCadete;
-            }
             $criteria=new CDbCriteria;
-            $criteria->compare('nCadete',$nCadete,true);
+            if((int)$nCadete > 0){
+                $nCadete = (int)$nCadete;
+                $criteria->condition = 'nCadete = '.$nCadete;
+            }
             $criteria->order = 'usuario.apellidoPat, usuario.apellidoMat, usuario.nombres  ASC';
             
             $model = Cadete::model()->with('usuario')->findAll($criteria);

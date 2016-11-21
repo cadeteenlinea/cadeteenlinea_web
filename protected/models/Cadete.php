@@ -35,6 +35,7 @@
  * @property NotasFisico[] $notasFisicos
  * @property Francos[] $francos
  * @property Nivelacion[] $nivelaciones
+ * @property Apoderado[] $apoderados
  */
 class Cadete extends CActiveRecord
 {
@@ -89,6 +90,7 @@ class Cadete extends CActiveRecord
                         'nivelaciones' => array(self::HAS_MANY, 'Nivelacion', 'cadete_rut'),
                         'notasFisicos' => array(self::HAS_MANY, 'NotasFisico', 'cadete_rut'),
                         'francos' => array(self::HAS_MANY, 'Francos', 'cadete_rut'),
+                        'apoderados' => array(self::MANY_MANY,'Apoderado','cadete_apoderado(cadete_rut,apoderado_rut)'),
 		);
 	}
 

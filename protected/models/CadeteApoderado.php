@@ -10,8 +10,8 @@
  * @property string $tipoApoderado
  *
  * The followings are the available model relations:
- * @property Apoderado $apoderadoRut
- * @property Cadete $cadeteRut
+ * @property Apoderado $apoderado
+ * @property Cadete $cadete
  */
 class CadeteApoderado extends CActiveRecord
 {
@@ -48,8 +48,8 @@ class CadeteApoderado extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'apoderadoRut' => array(self::BELONGS_TO, 'Apoderado', 'apoderado_rut'),
-			'cadeteRut' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
+			'apoderado' => array(self::BELONGS_TO, 'Apoderado', 'apoderado_rut'),
+			'cadete' => array(self::BELONGS_TO, 'Cadete', 'cadete_rut'),
 		);
 	}
 

@@ -9,6 +9,7 @@
  * @property double $nota_examen
  * @property double $nota_final
  * @property double $nota_examen_repeticion
+ * @property double $nota_tercera_opcion
  * @property double $nota_final_repeticion
  * @property string $estado
  * @property integer $asignatura_idasignatura
@@ -39,12 +40,12 @@ class NotasFinales extends CActiveRecord
 		return array(
 			array('nota_presentacion, nota_final, estado, asignatura_idasignatura, cadete_rut', 'required'),
 			array('asignatura_idasignatura', 'numerical', 'integerOnly'=>true),
-			array('nota_presentacion, nota_examen, nota_final, nota_examen_repeticion, nota_final_repeticion', 'numerical'),
+			array('nota_presentacion, nota_examen, nota_final, nota_examen_repeticion, nota_tercera_opcion, nota_final_repeticion', 'numerical'),
 			array('estado', 'length', 'max'=>1),
 			array('cadete_rut', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idnotas_finales, nota_presentacion, nota_examen, nota_final, nota_examen_repeticion, nota_final_repeticion, estado, asignatura_idasignatura, cadete_rut', 'safe', 'on'=>'search'),
+			array('idnotas_finales, nota_presentacion, nota_examen, nota_final, nota_examen_repeticion, nota_tercera_opcion, nota_final_repeticion, estado, asignatura_idasignatura, cadete_rut', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,6 +73,7 @@ class NotasFinales extends CActiveRecord
 			'nota_examen' => 'Nota Examen',
 			'nota_final' => 'Nota Final',
 			'nota_examen_repeticion' => 'Nota Examen Repeticion',
+                        'nota_tercera_opcion' => 'Nota Examen tercera opción',
 			'nota_final_repeticion' => 'Nota Final Repeticion',
 			'estado' => 'Estado',
 			'asignatura_idasignatura' => 'Asignatura Idasignatura',
@@ -102,6 +104,7 @@ class NotasFinales extends CActiveRecord
 		$criteria->compare('nota_examen',$this->nota_examen);
 		$criteria->compare('nota_final',$this->nota_final);
 		$criteria->compare('nota_examen_repeticion',$this->nota_examen_repeticion);
+                $criteria->compare('nota_tercera_opcion',$this->nota_tercera_opcion);
 		$criteria->compare('nota_final_repeticion',$this->nota_final_repeticion);
 		$criteria->compare('estado',$this->estado,true);
 		$criteria->compare('asignatura_idasignatura',$this->asignatura_idasignatura);
@@ -177,6 +180,7 @@ class NotasFinales extends CActiveRecord
                 $model->nota_examen = $nota["nota_examen"];
                 $model->nota_final = $nota["nota_final"];
                 $model->nota_examen_repeticion = $nota["nota_examen_repeticion"];
+                $model->nota_tercera_opcion = $nota["nota_tercera_opcion"];
                 $model->nota_final_repeticion = $nota["nota_final_repeticion"];
                 $model->estado = $nota["estado"];
                 $model->asignatura_idasignatura = $nota["asignatura_idasignatura"];

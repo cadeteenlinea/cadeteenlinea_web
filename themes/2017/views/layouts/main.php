@@ -16,10 +16,12 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/init.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         
         <?php Yii::app()->clientScript->registerCoreScript('jquery');?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        
 </head>
     <body>
         
@@ -158,7 +160,9 @@
                     <p style="color: #585858; font-style: italic;">
                         <?php
                             if(Yii::app()->getSession()->get('nCadete'))
-                                echo "Cadete N°". Yii::app()->getSession()->get('nCadete')." - ". Yii::app()->getSession()->get('apellidoPaternoCadete');
+                                echo CHtml::link('Cadete N°'. Yii::app()->getSession()->get('nCadete').' - '. Yii::app()->getSession()->get('apellidoPaternoCadete'),
+                                        array('cadete/datosCadete'),
+                                        array('title'=>'Datos del Cadete'));
                         ?>
                     </p>
                 </div>
@@ -166,6 +170,28 @@
         </div>
         
         <?php echo $content; ?>
+        
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12" style="text-align: center; ">
+                        <h3>
+                            <a style="color: #0b0b0c !important;" href="http://escuelanaval.cl/" target="_blank">
+                                www.escuelanaval.mil.cl
+                            </a>
+                        </h3>
+                        <div class="col-lg-12">
+                        <p style="font-size: 12px;">
+                            <a style="color: #2b2b2c !important;" title="ver mapa" href="http://escuelanaval.cl/Esc_contacto.html" target="_blank">
+                                Avda. González de Hontaneda N° 11 Playa Ancha Valparaiso.
+                            </a><br/>
+                            Teléfono (32) 2785219 email: <a style="color: #2b2b2c !important;" title="enviar email" href="mailto:webmaster@escuelanaval.cl">webmaster@escuelanaval.cl</a>
+                        </p>
+                    </div>    
+                    </div>
+                </div>
+            </div>
+        </footer>
         
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.js"></script>
         <script type="text/javascript">

@@ -168,6 +168,14 @@ class Apoderado extends CActiveRecord
             }
         }
         
+        public function tipoApoderado(){
+            $criteria=new CDbCriteria;
+            $criteria->addCondition('cadete_rut='.Yii::app()->getSession()->get('rutCadete'));
+            $criteria->addCondition('apoderado_rut='.$this->rut);
+            $model = CadeteApoderado::model()->find($criteria);
+            return $model->tipoApoderado;
+        }
+        
         public static function saveWeb($apoderados){
             $error = "";
             $errores = "";

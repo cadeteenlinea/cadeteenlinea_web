@@ -40,17 +40,22 @@
             <tr>
                 <td></td>
                 <td><b>N. Final</b></td>
-                <td><b><?php echo $notasFinales->nota_final ?></b></td>
+                <td><b><?php echo Nota::deleteZero($notasFinales->nota_final) ?></b></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Examen Rep.</td>
-                <td><?php echo $notasFinales->nota_examen_repeticion ?></td>
+                <td><?php echo Nota::deleteZero($notasFinales->nota_examen_repeticion) ?></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Examen 3ra. Opción</td>
+                <td><?php echo Nota::deleteZero($notasFinales->nota_tercera_opcion) ?></td>
             </tr>
             <tr>
                 <td></td>
                 <td><b>N. final con examen Rep.</b></td>
-                <td><b><?php echo $notasFinales->nota_final_repeticion ?></b></td>
+                <td><b><?php echo Nota::deleteZero($notasFinales->nota_final_repeticion) ?></b></td>
             </tr>
             <tr>
                 <td></td>

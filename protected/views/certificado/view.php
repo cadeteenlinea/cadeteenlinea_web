@@ -33,7 +33,7 @@
 <div class="col-lg-12" style="width: 300px; margin-top: 70px;">  
     <?php 
     $this->widget('application.extensions.qrcode.QRCodeGenerator',array(
-        'data' => "http://200.54.198.54/pruebas/cadeteenlinea/certificado/validar?Certificado[idcertificado]=$model->idcertificado&Certificado[cadete_rut]=".$model->cadete->usuario->getRut(),
+        'data' => "http://portalcadete.escuelanaval.cl/certificado/validar?Certificado[idcertificado]=$model->idcertificado&Certificado[cadete_rut]=".$model->cadete->usuario->getRut(),
         'filename' => $model->idcertificado.".png",
         'subfolderVar' => false,
         'displayImage'=>true,
@@ -57,6 +57,6 @@
 
 <div class="col-lg-6" style="margin-top:15px; height: 40px; width: 670px; border-top: 1px solid #848484;">
     <p style="text-align: center; margin-top: 10px;">
-        htttp://cadetes.escuelanaval.cl/certificado/validar
+        http://portalcadete.escuelanaval.cl/certificado/validar
     </p>
 </div>

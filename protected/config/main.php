@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Cadete en Línea',
+	'name'=>'Portal Cadete',
         'sourceLanguage' => 'es_ES',
         'language'=>'es',
         'theme'=>'2017',
@@ -129,14 +129,14 @@ return array(
                     'SMTPSecure' => 'tls',*/
                     
                     'class'=>'application.extensions.smtpmail.PHPMailer',
-                    'Host'=>"smtp.gmail.com",
-                    'Username'=>'cadeteenlinea@gmail.com',
-                    'Password'=>'cadetes2015',
+                    'Host'=>"mail.escuelanaval.cl",
+                    'Username'=>'noreply@escuelanaval.cl',
+                    'Password'=>'esnaval',
                     'Mailer'=>'smtp',
-                    'Port'=>587,
+                    'Port'=>25,
                     'SMTPAuth'=>true, 
                     'CharSet'=>'utf-8', 
-                    'SMTPSecure' => 'tls',
+                    //'SMTPSecure' => 'tls',
                     
                     /*'class'=>'application.extensions.smtpmail.PHPMailer',
                     'Host'=>"mail.escuelanaval.cl",
@@ -161,6 +161,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'seb.frab@gmail.com',
+		'adminEmail'=>'portalcadete@escuelanaval.cl',
 	),
 );

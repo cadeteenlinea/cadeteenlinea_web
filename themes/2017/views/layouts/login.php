@@ -61,10 +61,16 @@
                         <footer>
                             <div class="row">
                                 <div class="col-lg-12 hidden-xs" style="text-align: center; ">
-                                    <h3><a style="color: #0b0b0c !important;" href="#">www.escuelanaval.mil.cl</a></h3>
+                                    <h3>
+                                        <a style="color: #0b0b0c !important;" href="http://escuelanaval.cl/" target="_blank">
+                                            www.escuelanaval.mil.cl
+                                        </a>
+                                    </h3>
                                     <div class="col-lg-12">
                                         <p style="font-size: 12px;">
-                                            <a style="color: #2b2b2c !important;" title="ver mapa" href="Esc_contacto.html">Avda. González de Hontaneda N° 11 Playa Ancha Valparaiso.</a><br/>
+                                            <a style="color: #2b2b2c !important;" title="ver mapa" href="http://escuelanaval.cl/Esc_contacto.html" target="_blank">
+                                                Avda. González de Hontaneda N° 11 Playa Ancha Valparaiso.
+                                            </a><br/>
                                             Teléfono (32) 2785219 email: <a style="color: #2b2b2c !important;" title="enviar email" href="mailto:webmaster@escuelanaval.cl">webmaster@escuelanaval.cl</a>
                                         </p>
                                     </div>
@@ -83,6 +89,31 @@
                 $(window).resize(function() {
                   window_resize();
                 });
+                
+                var imagen1 = 'images/design/background_login_2.jpg';
+                var imagen2 = 'images/design/background_login.jpg';
+                var img1 = 0;
+                var img2 = 0;
+                var changeInterval=8000;
+                
+                setInterval(function(){
+                    var imagen = null;
+                    if(img2==0){
+                        imagen = imagen1;
+                        img1 = 0;
+                        img2 = 1;
+                    }else{
+                        imagen = imagen2;
+                        img1 = 1;
+                        img2 = 0;
+                    }
+                    
+                    $('body').css('background', "url('"+ imagen + "')" +" no-repeat center center fixed");
+                    $('body').css('-webkit-background-size', "cover");
+                    $('body').css('-moz-background-size', "cover");
+                    $('body').css('-o-background-size', "cover");
+                    $('body').css('background', "cover");
+                },changeInterval);
             });
             
             function window_resize(){

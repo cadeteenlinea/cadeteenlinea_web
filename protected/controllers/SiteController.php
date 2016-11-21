@@ -153,7 +153,7 @@ class SiteController extends Controller
                         if($usuario->enviarEmailContrasena()){
                             Yii::app()->user->setFlash('success','* Te hemos 
                                 enviado un correo electrónico con un enlace y 
-                                código de autorización, los que le permitiran 
+                                código de autorización, los que le permitirán  
                                 restablecer su contraseña por 
                                 las próximas 24 horas');
                             $this->redirect(array('RecuperarContrasena'));

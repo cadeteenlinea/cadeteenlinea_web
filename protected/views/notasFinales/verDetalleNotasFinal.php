@@ -3,23 +3,27 @@
 
 <ul class="list-group">
   <li class="list-group-item">
-    <span class="badge"><?php echo $model->nota_presentacion; ?></span>
+    <span class="badge"><?php echo Nota::deleteZero($model->nota_presentacion); ?></span>
     Nota de presentación
   </li>
   <li class="list-group-item">
-    <span class="badge"><?php echo $model->nota_examen; ?></span>
+    <span class="badge"><?php echo Nota::deleteZero($model->nota_examen); ?></span>
     Examen
   </li>
   <li class="list-group-item">
-    <span class="badge"><?php echo $model->nota_final; ?></span>
+    <span class="badge"><?php echo Nota::deleteZero($model->nota_final); ?></span>
     Nota Final
   </li>
   <li class="list-group-item">
-    <span class="badge"><?php echo $model->nota_examen_repeticion; ?></span>
+    <span class="badge"><?php echo Nota::deleteZero($model->nota_examen_repeticion); ?></span>
     Examen de repetición
   </li>
   <li class="list-group-item">
-    <span class="badge"><?php echo $model->nota_final_repeticion; ?></span>
+    <span class="badge"><?php echo Nota::deleteZero($model->nota_tercera_opcion); ?></span>
+    Examen 3ra. Opción
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><?php echo Nota::deleteZero($model->nota_final_repeticion); ?></span>
     Nota final con Examen de Rep.
   </li>
   <li class="list-group-item">

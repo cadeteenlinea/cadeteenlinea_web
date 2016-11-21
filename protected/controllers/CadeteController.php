@@ -412,16 +412,29 @@ class CadeteController extends Controller
             ));
         }
         
-        public function actionDatosCadete(){
-            $rut = Yii::app()->getSession()->get('rutCadete');
-            $model = Usuario::model()->findByPk($rut);
-            $cadete = Cadete::model()->findByPk($rut);
-            
-            
-            $this->render('datosCadete',array(
-                'model' => $model,
-                'cadete' => $cadete,
-                'titulo' => 'Datos del Cadete',
-            ));
+        public function actionDatosCadete($id = null){
+            if(isset($id) && Yii::app()->getSession()->get('perfil') == 'funcionario'){
+                //Acceso de visualización para funcionario del sistema 
+                //Aprobación de certificados y otros
+                $model = Usuario::model()->findByPk($id);
+                $cadete = Cadete::model()->findByPk($id);
+		
+                $this->renderPartial('datosCadete',array(
+                    'model' => $model,
+                    'cadete' => $cadete,
+                    'titulo' => 'Datos del Cadete',
+                ));
+            }else {
+                //Visualización para padres, capoderados y cadetes
+                $rut = Yii::app()->getSession()->get('rutCadete');
+                $model = Usuario::model()->findByPk($rut);
+                $cadete = Cadete::model()->findByPk($rut);
+                
+                $this->render('datosCadete',array(
+                    'model' => $model,
+                    'cadete' => $cadete,
+                    'titulo' => 'Datos del Cadete',
+                ));
+            }
         }
 }

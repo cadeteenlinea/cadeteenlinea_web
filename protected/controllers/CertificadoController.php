@@ -152,7 +152,7 @@ class CertificadoController extends Controller
  
             $nuevaVencimiento = strtotime( '+60 day' , strtotime ( $fecha ) ) ;
             $model->fecha_vencimiento =  date('Y-m-d H:i:s',$nuevaVencimiento);
-            
+            $model->usuario_rut_aprobado = Yii::app()->user->id;
             if($model->save()){
                 Yii::app()->user->setFlash("success","Certificado Folio #$model->idcertificado a sido aprobado");
             }else{

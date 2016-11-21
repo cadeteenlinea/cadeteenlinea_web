@@ -1,5 +1,5 @@
 
-<h1>Certificados</h1>
+<h1>Certificados por aprobar</h1>
 
 
 <?php if(Yii::app()->user->hasFlash('success')):?>
@@ -21,31 +21,57 @@
 	'filter'=>$model,
 	'columns'=>array(
 		'idcertificado',
-		'fecha_solicitud',
-		array(
+                array(
+                    'name'=>'fecha_solicitud',
+                    'header'=>'Fecha Solicitud',
+                    'value'=>'$data->fecha_solicitud',
+                    'filter'=>'',
+                ),
+                array(
+                    'name'=>'usuario_rut',
+                    'header'=>'Pedido por',
+                    'value'=>'$data->usuario->NombreCompleto',
+                    'filter'=>'',
+                ),
+                array(
+                    'name'=>'cadete_rut',
+                    'header'=>'Cadete',
+                    'value'=>'"[". $data->cadete->nCadeteView."] " . $data->cadete->usuario->NombreCompleto',
+                    'filter'=>'',
+                ),
+                array(
                     'name'=>'motivo_idmotivo',
                     'header'=>'motivo',
                     'value'=>'$data->motivo->motivo',
                     'filter'=>Motivo::model()->getListMotivos(),
                 ),
-		'usuario_rut',
 		/*
 		'tipo_certificado_idtipo_certificado',
 		'cadete_rut',
 		*/
 		array(
                         'class'=>'CButtonColumn',
-                        'htmlOptions'=>array('width'=>'50px'),
-                        'template'=>'{aprobar}',
+                        'htmlOptions'=>array('width'=>'60px'),
+                        'template'=>'{cadete}{aprobar}',
                         'buttons'=>array(
+                            'cadete' => array(
+                                'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-user"></i>',
+                                'imageUrl'=>false,
+                                'url'=>'Yii::app()->createUrl("cadete/datosCadete/" . $data->cadete_rut)',
+                                'options'=>array(
+                                    'title'=>'Datos del Cadete',
+                                    'class'=>'showModalButton'
+                                ),
+                            ),
                             'aprobar' => array
                             (
-                                'label'=>'aprobar',
-                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/vistoBueno.png',
+                                'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-ok"></i>',
+                                'imageUrl'=>false,
                                 'url' => 'Yii::app()->createUrl("certificado/aprobar",array("id"=>$data->idcertificado))',
                                 'options' => array(
                                     'confirm' => '¿Está seguro que quiere aprobar este Certificado?',
-                                 ),
+                                    'title'=>'Aprobar',
+                                ),
                             ),
                         ),
                 ),

@@ -1,31 +1,34 @@
 
 <div style=" padding-left: 100px; padding-right: 100px;">
     
+    <div class="col-lg-12" style="text-align: center;">
+        <img align="center" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.jpg" />
+    </div>
+    <br/>
+    <div class="col-lg-12">
+        <h2 align="center">Certificado de <?php echo $model->tipoCertificado->nombre ?></h2>
+    </div>
+    <br/>
+    <div class="col-lg-12" style="height: 280px;">
+        <p style="text-align: justify;">
+            La Escuela Naval "Arturo Prat", Certifica que: don(ña) 
+            <b><?php echo $model->cadete->usuario->nombres .' '.  
+                    $model->cadete->usuario->apellidoPat . ' '. 
+                    $model->cadete->usuario->apellidoMat; ?></b>, 
+            RUN
+            <b><?php echo $model->cadete->usuario->getRut(); ?></b> , es alumno regular
+            de la institución, durante el periodo academico <?php echo date('Y', strtotime($model->fecha_aprobacion)); ?>
+        </p>
 
-<div class="col-lg-12">
-    <h2 align="center">Certificado de <?php echo $model->tipoCertificado->nombre ?></h2>
-</div>
-<br/>
-<div class="col-lg-12" style="height: 310px;">
-    <p style="text-align: justify;">
-        La Escuela Naval "Arturo Prat", Certifica que: don(ña) 
-        <b><?php echo $model->cadete->usuario->nombres .' '.  
-                $model->cadete->usuario->apellidoPat . ' '. 
-                $model->cadete->usuario->apellidoMat; ?></b>, 
-        RUN
-        <b><?php echo $model->cadete->usuario->getRut(); ?></b> , es alumno regular
-        de la institución, durante el periodo academico <?php echo date('Y', strtotime($model->fecha_aprobacion)); ?>
-    </p>
-    
-    <p style="text-align: justify;">
-        Se otorga el presente certificado, a petición del interesado, para 
-        <?php echo $model->motivo->motivo ?>
-    </p>
-</div>
+        <p style="text-align: justify;">
+            Se otorga el presente certificado, a petición del interesado, para 
+            <?php echo $model->motivo->motivo ?>
+        </p>
+    </div>
 
-<div class="col-lg-12" style="height: 100px;">
-    <img style="margin-left: 70px;" align="center" src="<?php echo Yii::app()->request->baseUrl; ?>/images/qrcodes/firma.jpg" />
-</div>
+    <div class="col-lg-12" style="height: 100px;">
+        <img style="margin-left: 70px;" align="center" src="<?php echo Yii::app()->request->baseUrl; ?>/images/qrcodes/firma.jpg" />
+    </div>
 </div>  
 
 
@@ -55,7 +58,7 @@
     </p>
 </div>
 
-<div class="col-lg-6" style="margin-top:15px; height: 40px; width: 670px; border-top: 1px solid #848484;">
+<div class="col-lg-6" style="margin-top:15px; height: 30px; width: 670px; border-top: 1px solid #848484;">
     <p style="text-align: center; margin-top: 10px;">
         http://portalcadete.escuelanaval.cl/certificado/validar
     </p>

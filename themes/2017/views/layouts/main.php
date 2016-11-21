@@ -171,6 +171,21 @@
         
         <?php echo $content; ?>
         
+        
+        <div id="modal" class="fade modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <span id="modalHeaderTitle"></span>
+                    </div>
+                    <div class="modal-body">
+                        <div id='modalContent'></div>
+                    </div>
+                </div>    
+            </div>
+        </div> 
+        
         <footer>
             <div class="container-fluid">
                 <div class="row">
@@ -194,6 +209,8 @@
         </footer>
         
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/modal.js"></script>
+
         <script type="text/javascript">
 
         </script>

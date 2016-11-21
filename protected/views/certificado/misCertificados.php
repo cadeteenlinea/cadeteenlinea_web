@@ -27,7 +27,9 @@
                 'idcertificado',
                 array(
                     'name'=>'cadete_rut',
-                    'value'=>'$data->cadete->usuario->nombres', 
+                    'header'=>'Cadete',
+                    'value'=>'"[". $data->cadete->nCadeteView."] " . $data->cadete->usuario->NombreCompleto',
+                    'filter'=>'',
                 ),
 		array(
                     'name'=>'motivo_idmotivo',
@@ -42,10 +44,14 @@
                         'buttons'=>array(
                             'view' => array
                             (
-                                'label'=>'ver',
-                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/ver.png',
+                                'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-download-alt"></i>',
+                                'imageUrl'=>false,
                                 'visible'=>'$data->fecha_aprobacion != null',
-                                'options'=>array('target'=>'_blank')
+                                'options'=>array(
+                                    'target'=>'_blank',
+                                    'title'=>'ver y descargar',
+                                )
+                                
                             ),
                         ),
                 ),

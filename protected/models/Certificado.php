@@ -12,12 +12,14 @@
  * @property string $usuario_rut
  * @property integer $tipo_certificado_idtipo_certificado
  * @property string $cadete_rut
+ * @property string $usuario_rut_aprobado
  *
  * The followings are the available model relations:
  * @property Cadete $cadete
  * @property Motivo $motivo
  * @property TipoCertificado $tipoCertificado
  * @property Usuario $usuario
+ * @property Usuario $aprobador
  */
 class Certificado extends CActiveRecord
 {
@@ -40,7 +42,7 @@ class Certificado extends CActiveRecord
 			array('fecha_solicitud, motivo_idmotivo, usuario_rut, tipo_certificado_idtipo_certificado, cadete_rut', 'required', 'except'=>'validar'),
 			array('idcertificado, motivo_idmotivo, tipo_certificado_idtipo_certificado', 'numerical', 'integerOnly'=>true),
 			array('fecha_solicitud, fecha_vencimiento, fecha_aprobacion', 'length', 'max'=>50),
-			array('usuario_rut, cadete_rut', 'length', 'max'=>10),
+			array('usuario_rut, cadete_rut, usuario_rut_aprobado', 'length', 'max'=>10),
                     
                     
                         array('idcertificado, cadete_rut', 'required', 'on' => 'validar'),
@@ -64,6 +66,7 @@ class Certificado extends CActiveRecord
 			'motivo' => array(self::BELONGS_TO, 'Motivo', 'motivo_idmotivo'),
 			'tipoCertificado' => array(self::BELONGS_TO, 'TipoCertificado', 'tipo_certificado_idtipo_certificado'),
 			'usuario' => array(self::BELONGS_TO, 'Usuario', 'usuario_rut'),
+                        'aprobador' => array(self::BELONGS_TO, 'Usuario', 'usuario_rut_aprobado'),
 		);
 	}
 
@@ -81,6 +84,7 @@ class Certificado extends CActiveRecord
 			'usuario_rut' => 'Usuario',
 			'tipo_certificado_idtipo_certificado' => 'Tipo Certificado',
 			'cadete_rut' => 'RUN Cadete',
+                        'usuario_rut_aprobado' => 'Aprobado por',
 		);
 	}
 

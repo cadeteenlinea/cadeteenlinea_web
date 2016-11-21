@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        
+        <link rel="shortcut Icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/iconos/cadeteenlinea.ico"/>
         <meta name="language" content="es" />
         <meta name="author" content="Sebastian Franco Brantes - Marco Acevedo"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,18 +23,11 @@
     <body>
         
         <div class="container" style="border: 2px solid #848484; height: 1000px;">
-            <div class="row">
-                
-                <br/><br/><br/><br/><br/><br/><br/>
-                
-
-                         <?php echo $content; ?>
-                
-                
+            <div class="row">                
+                <br/>
+                <?php echo $content; ?>
             </div>
         </div>
-        
-        
         
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.js"></script>
     </body>

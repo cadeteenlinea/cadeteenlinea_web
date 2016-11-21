@@ -91,6 +91,7 @@ class Usuario extends CActiveRecord
                         'oldPassword'=>'Contraseña Actual',
                         'newPassword'=>'Nueva Contraseña',
                         'repeatPassword'=>'Repetir Nueva Contraseña',
+                        'NombreCompleto'=>'nombre',
                         'email'=>'Email'
 		);
 	}
@@ -135,9 +136,9 @@ class Usuario extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-        
-        public function nombreCompleto(){
-            return $this->nombres + ' '+ $this->apellidoPat + ' ' + $this->apellidoMat;
+                
+        public function getNombreCompleto(){
+            return $this->apellidoPat . ' ' . $this->apellidoMat . ' '. $this->nombres;
         }
         
         function beforeDelete(){

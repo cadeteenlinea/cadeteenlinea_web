@@ -114,6 +114,8 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login()){
+                            $usuario = Usuario::model()->findByPk(Yii::app()->user->id);
+                            Yii::app()->getSession()->add('email', $usuario->email);
                             if(Yii::app()->getSession()->get('perfil')=='apoderado' || Yii::app()->getSession()->get('tipoFuncionario')=='Oficial'){
                                 $this->redirect(array('apoderado/selectCadete')); 
                             }else{

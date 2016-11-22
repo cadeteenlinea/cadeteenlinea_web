@@ -89,6 +89,7 @@ class UsuarioController extends Controller
 		{
 			$model->attributes=$_POST['Usuario'];
 			if($model->save()){
+                                Yii::app()->getSession()->add('email', $model->email);
                                 Yii::app()->user->setFlash('success','Datos personales modificados');
 				$this->redirect(array('datosPersonales'));
                         }else{

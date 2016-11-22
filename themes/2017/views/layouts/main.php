@@ -169,6 +169,29 @@
             </div>
         </div>
         
+        <?php 
+            //Validación de mensaje para solicitar cambio de correo electrónico
+            if(Yii::app()->getSession()->get('email') == 'cadete@escuelanaval.cl' || Yii::app()->getSession()->get('email') == '' && !Yii::app()->user->isGuest){
+        ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info pull-right" role="alert">
+                            &thinsp;&thinsp;&thinsp;&thinsp;
+                            Favor de actualizar correo electrónico 
+                            <b>
+                            <?php 
+                            echo CHtml::link('Aquí',
+                                            array('usuario/update'),
+                                            array('title'=>'Actualizar correo electrónico'));
+                            ?>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        
         <?php echo $content; ?>
         
         

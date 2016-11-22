@@ -1,6 +1,6 @@
 
 
-    <div class="row">
+
        <div id="statusMsg">
         <?php if(Yii::app()->user->hasFlash('success')):?>
             <div style="margin-top: 20px;" class="flash-success col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -14,4 +14,3 @@
             </div>
         <?php endif; ?>
         </div> 
-    </div>

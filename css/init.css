@@ -83,7 +83,7 @@ hr.separador_post:after {
 *    MENSAJES FLASH
 */
 
-div.flash-error, div.flash-notice, div.flash-success
+div.flash-error, div.flash-notice, div.flash-success, div.flash-info
 {
 	padding:.8em;
 	margin-bottom:1em;
@@ -105,6 +105,13 @@ div.flash-notice
 }
 
 div.flash-success
+{
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+
+div.flash-info
 {
 	background:#E6EFC2;
 	color:#264409;
@@ -135,6 +142,15 @@ div.flash-success a
     background-color: #CEE3F6;
 }
 
+.cadeteSelectRetirado{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.cadeteSelectRetirado:hover{
+    background-color: #F6CECE;
+}
+
 .oficial{
     height: 210px;
 }
@@ -143,4 +159,8 @@ div.flash-success a
     .oficial{
         height: 400px;
     }
+}
+
+.imagenGris{
+    filter:  grayscale(1);
 }

@@ -90,8 +90,8 @@
                   window_resize();
                 });
                 
-                var imagen1 = 'images/design/background_login_2.jpg';
-                var imagen2 = 'images/design/background_login.jpg';
+                var imagen1 = '<?php echo Yii::app()->request->baseUrl; ?>/images/design/background_login_2.jpg';
+                var imagen2 = '<?php echo Yii::app()->request->baseUrl; ?>/images/design/background_login.jpg';
                 var img1 = 0;
                 var img2 = 0;
                 var changeInterval=8000;

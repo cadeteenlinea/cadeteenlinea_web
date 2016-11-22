@@ -209,10 +209,10 @@ class Usuario extends CActiveRecord
             $body .= '<p>Nos enteramos de que usted perdió su contraseña. Lo sentimos!<br/>';
             $body .= 'Pero no te preocupes, Ingresa el siguiente codigo en el enlace de mas abajo</p>';
             $body .= '<p>Código: <b>'. $this->codVerificacion.'</b></p>';
-            $body .= '<a href="http://portalcadete.escuelanaval.cl/site/ResetPassword">http://portalcadete.escuelanaval.cl//site/ResetPassword</a>';
+            $body .= '<a href="http://portalcadete.escuelanaval.cl/site/ResetPassword">http://portalcadete.escuelanaval.cl/site/ResetPassword</a>';
             $body .= '<p><br/>Si usted no utiliza este código dentro de las proximas 24 horas, '
                     . 'este caducará. Para obtener un nuevo código visite '
-                    . '<a href="http://portalcadete.escuelanaval.cl/site/RecuperarContrasena">http://portalcadete.escuelanaval.cl//site/RecuperarContrasena</a></p>';
+                    . '<a href="http://portalcadete.escuelanaval.cl/site/RecuperarContrasena">http://portalcadete.escuelanaval.cl/site/RecuperarContrasena</a></p>';
             $body .= '<p>Atentamente.<br/>'
                     . 'Equipo Portal Cadete</p>';
             

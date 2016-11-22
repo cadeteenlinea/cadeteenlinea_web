@@ -17,19 +17,19 @@
         
         <div class="form-group">
             <?php echo $form->labelEx($model,'rut'); ?>
-            <?php echo $form->textField($model,'rut',array('class'=>'form-control',)); ?>
+            <?php echo $form->textField($model,'rut',array('class'=>'form-control', 'placeholder'=>'16055178-k')); ?>
             <?php echo $form->error($model,'rut',array('class'=>'alert alert-danger')); ?>
         </div>
         
         <div class="form-group">
             <?php echo $form->labelEx($model,'password'); ?>
-            <?php echo $form->passwordField($model,'password',array('class'=>'form-control',)); ?>
+            <?php echo $form->passwordField($model,'password',array('class'=>'form-control', 'placeholder'=>'*******')); ?>
             <?php echo $form->error($model,'password',array('class'=>'alert alert-danger')); ?>
         </div>
         
         <div class="form-group">
             <?php echo $form->labelEx($model,'passwordRepeat'); ?>
-            <?php echo $form->passwordField($model,'passwordRepeat',array('class'=>'form-control',)); ?>
+            <?php echo $form->passwordField($model,'passwordRepeat',array('class'=>'form-control', 'placeholder'=>'*******')); ?>
             <?php echo $form->error($model,'passwordRepeat',array('class'=>'alert alert-danger')); ?>
         </div>
         

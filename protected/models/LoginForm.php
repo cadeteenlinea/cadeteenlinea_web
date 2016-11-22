@@ -54,7 +54,7 @@ class LoginForm extends CFormModel
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
 			if(!$this->_identity->authenticate())
-				$this->addError('password','Rut o clave incorrectos');
+				$this->addError('password', $this->_identity->errorMessageX);
 		}
 	}
 

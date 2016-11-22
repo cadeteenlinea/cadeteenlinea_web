@@ -13,12 +13,14 @@
  * @property string $codVerificacion
  * @property string $fechaVerificacion
  * @property string $email
+ * @property integer $estado_idestado
  *
  * The followings are the available model relations:
  * @property Apoderado $apoderado
  * @property Cadete $cadete
  * @property Funcionario $funcionario
  * @property Noticia $noticias
+ * @property Estado $estado
  */
 class Usuario extends CActiveRecord
 {
@@ -68,11 +70,12 @@ class Usuario extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'apoderado' => array(self::HAS_ONE, 'Apoderado', 'rut'),
-			'cadete' => array(self::HAS_ONE, 'Cadete', 'rut'),
-			'funcionario' => array(self::HAS_ONE, 'Funcionario', 'rut'),
-			'noticias' => array(self::HAS_MANY, 'UsuarioNoticia', 'usuario_rut'),
-                        'misNoticias'=>array(self::MANY_MANY, 'Noticia','usuario_noticia(usuario_rut, noticia_idnoticia)'),
+                    'apoderado' => array(self::HAS_ONE, 'Apoderado', 'rut'),
+                    'cadete' => array(self::HAS_ONE, 'Cadete', 'rut'),
+                    'funcionario' => array(self::HAS_ONE, 'Funcionario', 'rut'),
+                    'noticias' => array(self::HAS_MANY, 'UsuarioNoticia', 'usuario_rut'),
+                    'misNoticias'=>array(self::MANY_MANY, 'Noticia','usuario_noticia(usuario_rut, noticia_idnoticia)'),
+                    'estado' => array(self::BELONGS_TO, 'Estado', 'estado_idestado'),
 		);
 	}
 
@@ -270,6 +273,7 @@ class Usuario extends CActiveRecord
                 $model->apellidoMat = $usuario["apellidoMat"];
                 $model->nombres = $usuario["nombre"];
                 $model->perfil = $usuario["perfil"];
+                $model->estado_idestado = $usuario["estado_idestado"];
                 
                 try{
                     if(!$model->save()){

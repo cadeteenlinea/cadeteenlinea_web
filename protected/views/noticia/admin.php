@@ -49,18 +49,27 @@ $this->menu=array(
                         'buttons'=>array(
                             'view' => array
                             (
-                                'label'=>'ver',
-                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/ver.png',
+                                'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-search"></i>',
+                                'imageUrl'=>false,
+                                'options'=>array(
+                                    'title'=>'Ver',
+                                ),
                             ),
                             'update' => array
                             (
-                                'label'=>'actualizar',
-                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/actualizar.png',
+                                'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-pencil"></i>',
+                                'imageUrl'=>false,
+                                'options'=>array(
+                                    'title'=>'Actualizar',
+                                ),
                             ),
                             'delete' => array
                             (
-                                'label'=>'eliminar',
-                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/iconos/eliminar.png',
+                                'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-remove"></i>',
+                                'imageUrl'=>false,
+                                'options'=>array(
+                                    'title'=>'Eliminar',
+                                ),
                             ),
                         ),
                 ),

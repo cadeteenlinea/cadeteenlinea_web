@@ -35,7 +35,7 @@
             <tr>
                 <td></td>
                 <td>Examen</td>
-                <td><?php echo $notasFinales->nota_examen ?></td>
+                <td><?php echo Nota::deleteZero($notasFinales->nota_examen) ?></td>
             </tr>
             <tr>
                 <td></td>

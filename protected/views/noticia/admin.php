@@ -39,6 +39,12 @@ $this->menu=array(
         ),
 	'columns'=>array(
 		'titulo',
+                array(
+                    'name'=>'usuario_rut',
+                    'header'=>'Publicado por',
+                    'value'=>'$data->usuario->NombreCompleto',
+                    'filter'=>'',
+                ),
                 'tipo_usuario',
                 'division',
                 'curso',

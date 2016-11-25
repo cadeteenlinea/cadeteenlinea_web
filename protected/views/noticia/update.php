@@ -1,6 +1,7 @@
 <?php
 $this->menu=array(
-	array('label'=>'Nueva Noticia', 'url'=>array('create')),
+	array('label'=>'Nueva', 'url'=>array('create')),
+        array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->idnoticia)),
 	array('label'=>'Mantenedor Noticia', 'url'=>array('admin')),
 );
 ?>

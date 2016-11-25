@@ -5,6 +5,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar Noticia <?php echo $model->idnoticia; ?></h1>
+<h1>Actualizar Noticia "<?php echo $model->titulo; ?>"</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

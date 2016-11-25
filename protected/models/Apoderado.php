@@ -168,9 +168,9 @@ class Apoderado extends CActiveRecord
             }
         }
         
-        public function tipoApoderado(){
+        public function tipoApoderado($rut){
             $criteria=new CDbCriteria;
-            $criteria->addCondition('cadete_rut='.Yii::app()->getSession()->get('rutCadete'));
+            $criteria->addCondition('cadete_rut='.$rut);
             $criteria->addCondition('apoderado_rut='.$this->rut);
             $model = CadeteApoderado::model()->find($criteria);
             return $model->tipoApoderado;

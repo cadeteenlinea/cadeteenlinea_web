@@ -46,7 +46,7 @@
             ?>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <p>
-                    <b><?php echo $apoderado->tipoApoderado(); ?></b> <br/>
+                    <b><?php echo $apoderado->tipoApoderado($model->rut); ?></b> <br/>
                     <b>Nombre : </b> <?php echo $apoderado->usuario->apellidoPat.' '. $apoderado->usuario->apellidoMat.' '. $apoderado->usuario->nombres ;?><br/>
                     <b>R.U.N. : </b> <?php echo $apoderado->usuario->getRut(); ?> <br/>
                     <b>Dirección : </b> <?php echo $apoderado->direccion;?><br/>

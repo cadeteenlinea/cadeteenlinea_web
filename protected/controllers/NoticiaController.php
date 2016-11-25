@@ -29,7 +29,7 @@ class NoticiaController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','create','update','admin','delete'),
-				'expression'=>'Yii::app()->getSession()->get("perfil") == "funcionario"',
+				'expression'=>'Yii::app()->getSession()->get("tipoFuncionario")=="Administrador" || Yii::app()->getSession()->get("tipoFuncionario")=="Oficial"',
 			),
                         array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('viewFile'),

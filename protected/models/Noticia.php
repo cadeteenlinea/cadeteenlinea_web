@@ -187,9 +187,9 @@ class Noticia extends CActiveRecord
         
         public function getCuerpoNoticia(){
             $cadena = $this->cuerpo;
-            if(strlen($cadena) > 220){
+            /*if(strlen($cadena) > 220){
                 $cadena = substr($cadena,0,220)."...";
-            }
+            }*/
             return $cadena;
         }
 }

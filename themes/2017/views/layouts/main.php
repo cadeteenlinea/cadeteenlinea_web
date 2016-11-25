@@ -95,7 +95,7 @@
                                                         array('label'=>'Certificados por aprobar', 'url'=>array('certificado/admin'), 'visible'=>(Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "Administrador" )),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') || Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || Yii::app()->getSession()->get("tipoFuncionario") == "Administrador")),
-                                         array('label'=>'Noticias', 'url'=>array('noticia/admin'),'visible'=>(Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),
+                                         array('label'=>'Noticias', 'url'=>array('noticia/admin'),'visible'=>(Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" || Yii::app()->getSession()->get('tipoFuncionario')=="Oficial" )),
                                     ),'encodeLabel' => false,
                                     ));
                                 ?>

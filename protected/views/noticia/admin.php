@@ -38,8 +38,10 @@ $this->menu=array(
                 'lastPageLabel' => 'Last',
         ),
 	'columns'=>array(
-		'idnoticia',
 		'titulo',
+                'tipo_usuario',
+                'division',
+                'curso',
 		'fecha',
 		array(
                         'class'=>'CButtonColumn',

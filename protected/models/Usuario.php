@@ -74,7 +74,7 @@ class Usuario extends CActiveRecord
                     'cadete' => array(self::HAS_ONE, 'Cadete', 'rut'),
                     'funcionario' => array(self::HAS_ONE, 'Funcionario', 'rut'),
                     'noticias' => array(self::HAS_MANY, 'UsuarioNoticia', 'usuario_rut'),
-                    'misNoticias'=>array(self::MANY_MANY, 'Noticia','usuario_noticia(usuario_rut, noticia_idnoticia)'),
+                    'misNoticias'=>array(self::MANY_MANY, 'Noticia','usuario_noticia(usuario_rut, noticia_idnoticia)', 'order'=>'idusuario_noticia DESC', 'limit'=>'10'),
                     'estado' => array(self::BELONGS_TO, 'Estado', 'estado_idestado'),
 		);
 	}

@@ -28,8 +28,12 @@ class NoticiaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','create','update','admin','delete'),
-				'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "Administrador"',
+				'actions'=>array('index','create','update','admin','delete'),
+				'expression'=>'Yii::app()->getSession()->get("perfil") == "funcionario"',
+			),
+                        array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('viewFile'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -62,13 +66,22 @@ class NoticiaController extends Controller
 		if(isset($_POST['Noticia']))
 		{
 			$model->attributes=$_POST['Noticia'];
-                        $model->division = $_POST['Noticia']['division'];
-                        $model->curso = $_POST['Noticia']['curso'];
                         $model->fecha = date("Y-m-d H:i:s");
-
+                        $model->usuario_rut = Yii::app()->user->id;
+                        
+                        $file=CUploadedFile::getInstance($model,'documento');
+                        if(!empty($file)){
+                            $model->extension = $file->getExtensionName();
+                        }
                         if($model->save()){
+
+                            if(!empty($file)){
+                                $file->saveAs('./news/'.$model->idnoticia.'.'.$file->getExtensionName());  // image will uplode to rootDirectory/banner/
+                            }
+                            
                             $usuarios = Noticia::model()->getAllUsuarioNoticiaInsert(
-                                    $model->tipoUsuario, $model->division, $model->curso);
+                                    $model->tipo_usuario, $model->division, $model->curso);
+                            
                             UsuarioNoticia::model()->insertNoticiaUsuario($usuarios, $model->idnoticia);
                             
                             Yii::app()->user->setFlash("success","Noticia #$model->idnoticia publicada");
@@ -97,10 +110,20 @@ class NoticiaController extends Controller
 		if(isset($_POST['Noticia']))
 		{
 			$model->attributes=$_POST['Noticia'];
+                        $model->usuario_rut = Yii::app()->user->id;
+                        $file=CUploadedFile::getInstance($model,'documento');
+                        if(!empty($file)){
+                            $model->extension = $file->getExtensionName();
+                        }
 			if($model->save()){
+                            
+                            if(!empty($file)){
+                                $file->saveAs('./news/'.$model->idnoticia.'.'.$file->getExtensionName());  // image will uplode to rootDirectory/banner/
+                            }
+                            
                             Noticia::model()->deleteAllNoticiaUsuario($model->idnoticia);
                             $usuarios = Noticia::model()->getAllUsuarioNoticiaInsert(
-                                $model->tipoUsuario, $model->division, $model->curso);
+                                $model->tipo_usuario, $model->division, $model->curso);
                             UsuarioNoticia::model()->insertNoticiaUsuario($usuarios, $model->idnoticia);
                             
                             Yii::app()->user->setFlash("success","Noticia #$model->idnoticia actualizada");
@@ -154,6 +177,25 @@ class NoticiaController extends Controller
 			'model'=>$model,
 		));
 	}
+        
+        public function actionViewFile($id)
+        {
+            $model = $this->loadModel($id);
+            
+            $path = Yii::getPathOfAlias('webroot')."/news/".$model->idnoticia.".".$model->extension;
+            
+            if(!empty($path)){ 
+                header("Content-type:application/pdf"); //for pdf file
+                //header('Content-Type:text/plain; charset=ISO-8859-15');
+                //if you want to read text file using text/plain header 
+                header('Content-Disposition: attachment; filename="'.$model->titulo.'.'.$model->extension.'"'); 
+                header('Content-Length: ' . filesize($path));
+                readfile($path);
+                Yii::app()->end();
+            }else{
+                throw new CHttpException(404,'The requested page does not exist.');
+            }
+        }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

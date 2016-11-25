@@ -8,56 +8,62 @@
  * @property string $titulo
  * @property string $cuerpo
  * @property string $fecha
+ * @property string $tipo_usuario
+ * @property string $division
+ * @property string $curso
+ * @property string $extension
+ * @property string $usuario_rut
  *
  * The followings are the available model relations:
  * @property UsuarioNoticia[] $usuarioNoticias
+ * @property Usuario $usuario
  */
 class Noticia extends CActiveRecord
 {
     
-        public static $tipos = array('todos'=>'Todos','apoderado'=>'Solo apoderado', 'cadete'=>'Solo cadete');
-        public $tipoUsuario;
-        public $division;
-        public $curso;
-	/**
-	 * @return string the associated database table name
-	 */
+        public static $tipos = array('todos'=>'Todos','apoderado'=>'Solo apoderados', 'cadete'=>'Solo cadetes');
+        public $documento;
+
 	public function tableName()
 	{
 		return 'noticia';
 	}
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
 	public function rules()
 	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
 		return array(
-			array('titulo, cuerpo, fecha, tipoUsuario', 'required'),
+			array('titulo, cuerpo, fecha, tipo_usuario', 'required'),
 			array('titulo', 'length', 'max'=>45),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('idnoticia, titulo, cuerpo, fecha', 'safe', 'on'=>'search'),
+                        array('division, curso', 'length', 'max'=>2),
+                        array('extension', 'length', 'max'=>5),
+                        array('documento', 
+                            'file',
+                            'types' =>'jpg,png,doc,docx,xls,xlsx,pdf',
+                            'maxSize' => 1024 * 1024 * 10, // 10MB                
+                            'tooLarge' => 'Máximo 10MB. Por favor suba un archivo de menor peso.', 
+                            'on'=>'insert',
+                            'allowEmpty' => true,
+                        ),
+                        array('documento', 
+                            'file',
+                            'types' =>'jpg,png,doc,docx,xls,xlsx,pdf',
+                            'maxSize' => 1024 * 1024 * 10, // 10MB                
+                            'tooLarge' => 'Máximo 10MB. Por favor suba un archivo de menor peso.',     
+                            'on'=>'update', 
+                            'allowEmpty' => true, 
+                        ),
+			array('idnoticia, titulo, cuerpo, fecha, documento, tipo_usuario, division, curso, extension', 'safe', 'on'=>'search'),
 		);
 	}
 
-	/**
-	 * @return array relational rules.
-	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
 			'usuarioNoticias' => array(self::HAS_MANY, 'UsuarioNoticia', 'noticia_idnoticia'),
+                        'usuario' => array(self::BELONGS_TO, 'Usuario', 'usuario_rut'),
 		);
 	}
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
 	public function attributeLabels()
 	{
 		return array(
@@ -65,43 +71,32 @@ class Noticia extends CActiveRecord
 			'titulo' => 'Titulo',
 			'cuerpo' => 'Cuerpo',
 			'fecha' => 'Fecha',
+                        'documento' => 'Documento',
+                        'curso' => 'Curso',
+                        'division' => 'División',
+                        'tipo_usuario' => 'Para',
+                        'extension' => 'Extension',
 		);
 	}
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idnoticia',$this->idnoticia);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('cuerpo',$this->cuerpo,true);
 		$criteria->compare('fecha',$this->fecha,true);
-
+                $criteria->compare('tipo_usuario',$this->tipo_usuario,true);
+                $criteria->compare('division',$this->division,true);
+                $criteria->compare('curso',$this->curso,true);
+                $criteria->compare('extension',$this->extension,true);
+                
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Noticia the static model class
-	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -130,13 +125,13 @@ class Noticia extends CActiveRecord
                     $criteria->addCondition('t.perfil<>"funcionario"');
                     break;
                 case 'apoderado':
-                    $criteria->with = array('apoderado', 'apoderado.cadeteApoderados', 'apoderado.cadeteApoderados.cadeteRut');
+                    $criteria->with = array('apoderado', 'apoderado.cadeteApoderados', 'apoderado.cadeteApoderados.cadete');
                     $criteria->addCondition('t.perfil="apoderado"');
                     if($division!=null){
-                        $criteria->addCondition('cadeteRut.division="'.$division.'"');
+                        $criteria->addCondition('cadete.division="'.$division.'"');
                     }
                     if($curso!=null){
-                        $criteria->addCondition('cadeteRut.curso="'.$curso.'"');
+                        $criteria->addCondition('cadete.curso="'.$curso.'"');
                     }
                     break;
                 case 'cadete':
@@ -152,5 +147,49 @@ class Noticia extends CActiveRecord
             }
             $usuarios = Usuario::model()->findAll($criteria);
             return $usuarios;
+        }
+        
+        public function documento(){
+            if(file_exists('news/'.$this->idnoticia.'.'.$this->extension)){
+                return Yii::app()->request->baseUrl.'/news/'.$this->idnoticia.'.'.$this->extension;
+            }else{
+                return null;
+            }
+        }
+        
+        public function tipoDocumento(){
+            if($this->documento()!=null){
+                switch ($this->extension) {
+                    case 'pdf':
+                        return Yii::app()->request->baseUrl.'/images/iconos/pdf.png';
+                        break;
+                    case 'doc':
+                        return Yii::app()->request->baseUrl.'/images/iconos/word.png';
+                        break;
+                    case 'docx':
+                        return Yii::app()->request->baseUrl.'/images/iconos/word.png';
+                        break;
+                    case 'xls':
+                        return Yii::app()->request->baseUrl.'/images/iconos/excel.png';
+                        break;
+                    case 'xlsx':
+                        return Yii::app()->request->baseUrl.'/images/iconos/excel.png';
+                        break;
+                    case 'jpg':
+                        return Yii::app()->request->baseUrl.'/images/iconos/imagen.png';
+                        break;
+                    case 'png':
+                        return Yii::app()->request->baseUrl.'/images/iconos/imagen.png';
+                        break;
+                }
+            }
+        }
+        
+        public function getCuerpoNoticia(){
+            $cadena = $this->cuerpo;
+            if(strlen($cadena) > 220){
+                $cadena = substr($cadena,0,220)."...";
+            }
+            return $cadena;
         }
 }

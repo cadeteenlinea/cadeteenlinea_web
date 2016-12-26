@@ -100,7 +100,7 @@ class CertificadoController extends Controller
         public function actionView($id)
 	{
             $model = $this->loadModel($id);
-            
+                        
             if($model->usuario_rut == Yii::app()->user->id && $model->fecha_aprobacion != null){
                 $this->layout = '//layouts/pdf';
                 $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter');
@@ -150,10 +150,18 @@ class CertificadoController extends Controller
             $fecha = date("Y-m-d H:i:s");
             $model->fecha_aprobacion = $fecha;
  
-            $nuevaVencimiento = strtotime( '+60 day' , strtotime ( $fecha ) ) ;
-            $model->fecha_vencimiento =  date('Y-m-d H:i:s',$nuevaVencimiento);
+            //certificado valido por 60 dias, excepto aquellos que superen al 31-12 del presente mes
+            //esos serán validos solo hasta el 31-12 del mes en curso
+            $fecha_vencimiento = date('Y-m-d H:i:s',strtotime( '+60 day' , strtotime ( $fecha ) )) ;
+            $fecha_maxima = date("Y-m-d H:i:s",strtotime('31-12-'.date("Y")));
+            if($fecha_vencimiento>$fecha_maxima){
+                $fecha_vencimiento = $fecha_maxima;
+            }
+            
+            $model->fecha_vencimiento =  $fecha_vencimiento;
             $model->usuario_rut_aprobado = Yii::app()->user->id;
             if($model->save()){
+                $model->avisoDeAprobacion();
                 Yii::app()->user->setFlash("success","Certificado Folio #$model->idcertificado a sido aprobado");
             }else{
                 Yii::app()->user->setFlash("error","Certificado no pudo ser aprobado");
@@ -173,7 +181,6 @@ class CertificadoController extends Controller
                     $cadete_rut=substr(strtolower($model->cadete_rut),0,-2);
                     $modelCartificado = Certificado::getCertificadoValidar($model->idcertificado, $cadete_rut);
 
-                    
                     if(!empty($modelCartificado)){
                         if($modelCartificado->fecha_vencimiento != null){
                             $validacion = true;

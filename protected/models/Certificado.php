@@ -23,9 +23,8 @@
  */
 class Certificado extends CActiveRecord
 {
-	/**
-	 * @return string the associated database table name
-	 */
+	public $estado;
+        
 	public function tableName()
 	{
 		return 'certificado';
@@ -104,13 +103,14 @@ class Certificado extends CActiveRecord
         public function search($clientes)
 	{
 		$criteria=new CDbCriteria;
-
+                $criteria->with = 'cadete';
 		$criteria->compare('idcertificado',$this->idcertificado);
 		$criteria->compare('fecha_solicitud',$this->fecha_solicitud,true);
 		$criteria->compare('fecha_vencimiento',$this->fecha_vencimiento,true);
 		$criteria->compare('fecha_aprobacion',$this->fecha_aprobacion,true);
 		$criteria->compare('motivo_idmotivo',$this->motivo_idmotivo);
 		$criteria->compare('usuario_rut',$this->usuario_rut,true);
+                $criteria->condition = "cadete.nCadete IS NOT NULL";
 		$criteria->compare('tipo_certificado_idtipo_certificado',$this->tipo_certificado_idtipo_certificado);
                 
                 // La fecha de aprobación es la que determina si está aprobado o no el certificado
@@ -183,15 +183,26 @@ class Certificado extends CActiveRecord
             $fechaActual = date("Y-m-d H:i:s");
             $fechaActual = strtotime($fechaActual);
             
-            
             $fechaCertificado = strtotime($this->fecha_vencimiento);
-            
-            
-            
             if($fechaCertificado >= $fechaActual){
                 return true;
             }
             return false;
+        }
+        
+        public function estado(){
+            $fechaActual = date("Y-m-d H:i:s");
+            $fechaActual = strtotime($fechaActual);
+            
+            $fechaCertificado = strtotime($this->fecha_vencimiento);
+            if(!is_null($this->fecha_aprobacion)){
+                if($fechaCertificado >= $fechaActual){
+                    return "Caduca: ".date("d-m-Y",strtotime($this->fecha_vencimiento));
+                }
+            }else{
+                return "Por aprobar";
+            }
+            return "Caducado";
         }
         
         public function getFecha_vencimiento(){
@@ -205,5 +216,42 @@ class Certificado extends CActiveRecord
         public function getFecha_aprobacion(){
             $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
             echo date('d', strtotime($this->fecha_aprobacion))." de ".$meses[date('n', strtotime($this->fecha_aprobacion))-1]. " de ".date('Y', strtotime($this->fecha_aprobacion));
+        }
+        
+        public function avisoDeAprobacion(){
+            if($this->usuario->email != 'cadete@escuelanaval.cl'){
+                $body = '<div style="background: #23415b; padding: 15px; margin: 0px;">'
+                        . '<br/><br/><h2 style="color: #fff;">Solicitud de Certificado</h2>'
+                        . '</div>';
+
+                $body .= '<div style="background: #fafafa; padding: 15px; margin: 0px; border: 1px solid #e6e6e6;">';
+                $body .= '<p>Hola, '.$this->usuario->nombres.'</p>';
+                $body .= '<p>Se encuentra disponible para descarga el siguiente certificado: </p>';
+                $body .= '<ul><li>Folio: '.$this->idcertificado.'</li>';
+                $body .= '<li>Cadete: ['.$this->cadete->getnCadeteView().'] '.$this->cadete->usuario->getNombreCompleto().'</li>';
+                $body .= '<li>Tipo de Certificado: '.$this->tipoCertificado->nombre.'</li></ul>';
+                $body .= '<br/><p></p>';
+                $body .= 'Ingresa a <a href="http://portalcadete.escuelanaval.cl/">http://portalcadete.escuelanaval.cl/</a><br/><br/>';
+
+                $body .= '<p>Atentamente.<br/>'
+                        . 'Equipo Portal Cadete</p>';
+                $body .= '</div>';
+
+                $mail=Yii::app()->Smtpmail;
+                $mail->IsHTML(true);
+                $mail->SetFrom('noreply@escuelanaval.cl', '[Portal Cadete]');
+                $mail->Subject    = 'Solicitud de Certificado';
+                $mail->MsgHTML($body);
+                $mail->AddAddress($this->usuario->email, "");
+                $sw = false;
+
+                if($mail->Send()) {
+                    $sw = true;
+                }
+                $mail->ClearAddresses(); //clear addresses for next email sending
+
+                return $sw;
+            }
+            return false;
         }
 }

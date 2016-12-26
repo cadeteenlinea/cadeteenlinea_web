@@ -358,6 +358,7 @@ class Cadete extends CActiveRecord
             $criteria->select = array('t.division');
             $criteria->distinct = true;
             $criteria->addCondition('t.division<>""');
+            $criteria->order = 't.division';
             $model = Cadete::model()->findAll($criteria);           
             $list = CHtml::listData($model, 
                 'division', 'division');
@@ -368,6 +369,7 @@ class Cadete extends CActiveRecord
             $criteria = new CDbCriteria();
             $criteria->select = array('t.curso');
             $criteria->distinct = true;
+            $criteria->order = 't.curso';
             $model = Cadete::model()->findAll($criteria);           
             $list = CHtml::listData($model, 
                 'curso', 'curso');

@@ -38,6 +38,12 @@
                     'filter'=>Motivo::model()->getListMotivos(),
                 ),
                 array(
+                    'name'=>'estado',
+                    'header'=>'',
+                    'value'=>'$data->estado()',
+                    'filter'=>'',
+                ),
+                array(
                         'class'=>'CButtonColumn',
                         'htmlOptions'=>array('width'=>'50px'),
                         'template'=>'{view}',
@@ -46,12 +52,11 @@
                             (
                                 'label'=>'<i style="font-size: 22px;" class="glyphicon glyphicon-download-alt"></i>',
                                 'imageUrl'=>false,
-                                'visible'=>'$data->fecha_aprobacion != null',
+                                'visible'=>'$data->validacion() == true',
                                 'options'=>array(
                                     'target'=>'_blank',
                                     'title'=>'ver y descargar',
                                 )
-                                
                             ),
                         ),
                 ),

@@ -181,6 +181,13 @@ class Transaccion extends CActiveRecord
                 if(isset($transaccion["fechaMovimiento"])){
                     //Falta corregir ingreso de fecha de sistema
                     //$date = new DateTime(($transaccion["fechaMovimiento"]/1000));
+                    /*list($d,$m,$y) = explode("-", $transaccion["fechaMovimiento"]);
+                    $y = substr($y, 0,4); 
+                    $timestamp = mktime(0,0,0,$m,$d,$y);
+                    $fecha = date("Y-m-d H:i:s",$timestamp);
+                    $model->fechaMovimiento = $fecha;*/
+                    $model->fechaMovimiento = date('Y-m-d H:i:s');
+                }else{
                     $model->fechaMovimiento = date('Y-m-d H:i:s');
                 }
                 if(isset($transaccion["descripcion"]))

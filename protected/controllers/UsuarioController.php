@@ -210,7 +210,7 @@ class UsuarioController extends Controller
             }
             $this->render('cambioPassword', array(
                 'model' => $model,
-                'titulo' => 'Cambio Contraseña',
+                'titulo' => 'Cambiar Contraseña',
              ));
         }
         

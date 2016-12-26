@@ -686,4 +686,24 @@ class SiteController extends Controller
             return CJSON::encode($result);
         }
         
+
+        //Metodo para realizar la subida de imagenes de los cadetes
+        //se entrega el rut del cadete para relizar la subida acorde
+        public function actionFotoCadete(){
+            $uploaddir = "images/usuario/";
+            if(is_uploaded_file($_FILES["file"]["tmp_name"])) 
+            {
+                $uploadfile = $uploaddir . $_GET['rut'].'.jpg';
+                if (move_uploaded_file($_FILES["file"]["tmp_name"], $uploadfile)) 
+                {
+                    echo true;
+                }else{
+                    echo false;
+                }
+            }
+            else 
+            {
+                echo false;
+            }
+        }        
 }

@@ -118,6 +118,15 @@
                                                         array('label'=>'Archivos', 'url'=>array('archivos/')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),*/
+                                         array('label'=>'<span class="glyphicon glyphicon-apple"></span> BD <b class="caret"></b>', 'url'=>'#', 
+                                                    'linkOptions'=>array(
+                                                        'class'=>'dropdown-toggle',
+                                                        'data-toggle'=>'dropdown',
+                                                    ),
+                                                    'items'=>array(
+                                                        array('label'=>'Reiniciar Tablas', 'url'=>array('administracion/ReiniciarTablas')),
+                                                    ),                                                    
+                                                    'visible'=>(Yii::app()->getSession()->get('tipoFuncionario')=="Administrador")),
                                          array('label'=>'<span class="glyphicon glyphicon-phone"></span> Contactos <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',

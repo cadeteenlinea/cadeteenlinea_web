@@ -80,5 +80,9 @@ class Administracion
     public static function deleteUsuarioNoticia(){
         Yii::app()->db->createCommand('delete from usuario_noticia;')->query();
     }
+    
+    public static function deleteFinanzas(){
+        Yii::app()->db->createCommand('delete from transaccion;')->query();
+    }
 }
 

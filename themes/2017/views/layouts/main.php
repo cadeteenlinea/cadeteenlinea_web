@@ -118,13 +118,14 @@
                                                         array('label'=>'Archivos', 'url'=>array('archivos/')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('tipoFuncionario')=="Administrador" )),*/
-                                         array('label'=>'<span class="glyphicon glyphicon-apple"></span> BD <b class="caret"></b>', 'url'=>'#', 
+                                         array('label'=>'<span class="glyphicon glyphicon-apple"></span><b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
                                                         array('label'=>'Reiniciar Tablas', 'url'=>array('administracion/ReiniciarTablas')),
+                                                        array('label'=>'Ver usuarios', 'url'=>array('usuario/admin')),
                                                     ),                                                    
                                                     'visible'=>(Yii::app()->getSession()->get('tipoFuncionario')=="Administrador")),
                                          array('label'=>'<span class="glyphicon glyphicon-phone"></span> Contactos <b class="caret"></b>', 'url'=>'#', 
@@ -232,7 +233,7 @@
                             <a style="color: #2b2b2c !important;" title="ver mapa" href="http://escuelanaval.cl/Esc_contacto.html" target="_blank">
                                 Avda. González de Hontaneda N° 11 Playa Ancha Valparaiso.
                             </a><br/>
-                            Teléfono (32) 2785219 email: <a style="color: #2b2b2c !important;" title="enviar email" href="mailto:webmaster@escuelanaval.cl">webmaster@escuelanaval.cl</a>
+                            Teléfono (32) 2785240 email: <a style="color: #2b2b2c !important;" title="enviar email" href="mailto:webmaster@escuelanaval.cl">webmaster@escuelanaval.cl</a>
                         </p>
                     </div>    
                     </div>

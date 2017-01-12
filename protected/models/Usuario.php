@@ -27,6 +27,11 @@ class Usuario extends CActiveRecord
         public $newPassword;
         public $repeatPassword;
         public $oldPassword;
+        public static $perfiles=array(
+            'apoderado'=>'apoderado',
+            'cadete'=>'cadete',
+            'funcionario'=>'funcionario',
+        );
         /**
 	 * @return string the associated database table name
 	 */
@@ -118,9 +123,7 @@ class Usuario extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rut',$this->rut,true);
-                $criteria->compare('apellidoPat',$this->apellidoPat,true);
-		$criteria->compare('apellidoMat',$this->apellidoMat,true);
-		$criteria->compare('nombres',$this->nombres,true);
+                $criteria->compare('CONCAT(nombres," ",apellidoPat," ",apellidoMat)',$this->nombres,true);
 		$criteria->compare('password_2',$this->password_2,true);
 		$criteria->compare('perfil',$this->perfil,true);
 
@@ -350,5 +353,11 @@ class Usuario extends CActiveRecord
         
         public function getMisNoticias(){
             return $this->misNoticias;
+        }
+        
+        public function getPerfiles($key=null){
+            if($key!==null)
+                return self::$perfiles[$key];
+            return self::$perfiles;
         }
 }

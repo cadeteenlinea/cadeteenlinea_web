@@ -36,6 +36,10 @@ class UsuarioController extends Controller
 				'expression'=>'Yii::app()->getSession()->get("perfil") == "apoderado" || '
                                     .' Yii::app()->getSession()->get("perfil") == "cadete"',
 			),
+                        array('allow',
+                            'actions'=>array('admin'),
+                		'expression'=>'Yii::app()->getSession()->get("tipoFuncionario")=="Administrador"',
+                        ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),

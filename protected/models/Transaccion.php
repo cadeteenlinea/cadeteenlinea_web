@@ -186,7 +186,11 @@ class Transaccion extends CActiveRecord
                     $timestamp = mktime(0,0,0,$m,$d,$y);
                     $fecha = date("Y-m-d H:i:s",$timestamp);
                     $model->fechaMovimiento = $fecha;*/
-                    $model->fechaMovimiento = date('Y-m-d H:i:s');
+                    $fecha = substr($transaccion["fechaMovimiento"], 0,10);
+                    list($d,$m,$y) = explode("-", $fecha);
+                    $timestamp = mktime(0,0,0,$m,$d,$y);
+                    $fecha = date("Y-m-d",$timestamp);
+                    $model->fechaMovimiento = date("Y-m-d");
                 }else{
                     $model->fechaMovimiento = date('Y-m-d H:i:s');
                 }

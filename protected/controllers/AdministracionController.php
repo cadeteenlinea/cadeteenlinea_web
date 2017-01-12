@@ -60,8 +60,11 @@ class AdministracionController extends Controller
                     Administracion::deleteResumen();
                     Administracion::deleteAsignatura();
                     break;
+                case 'finanzas':
+                    Administracion::deleteFinanzas();
+                    break;
             }
-            return "proceso realizado...";
+            echo "proceso realizado...";
         }else{
             $this->render('reiniciarTablas');
         }

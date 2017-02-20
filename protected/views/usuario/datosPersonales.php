@@ -11,7 +11,7 @@
             <h3 style="margin-top: 0px;">Datos Personales</h3>
             <p>
                 <b>R.U.N. : </b> <?php echo $model->getRut(); ?> <br/>
-                <b>Email : </b> <?php echo $model->email; ?> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo CHtml::link('editar',array('usuario/update')); ?><br/>
+                <b>Email : </b> <?php echo $model->email; ?> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo CHtml::link('editar',array('usuario/updateMisDatos')); ?><br/>
 
                 <?php if(!empty($model->apoderado)){ ?>
                 <b>Dirección : </b> <?php echo $model->apoderado->direccion;?><br/>
@@ -19,6 +19,7 @@
                 <b>Comuna : </b> <?php echo $model->apoderado->comuna;?><br/>  
                 <b>Fono : </b> <?php echo $model->apoderado->fono;?><br/>
                 <b>Fono Comercial : </b> <?php echo $model->apoderado->fonoComercial;?><br/>
+                <b>Celular : </b> <?php echo $apoderado->celular;?><br/>
                 <?php }else if(!empty($model->cadete)){?>
                 <b>Fecha Nacimiento : </b> 
                     <?php echo $model->cadete->diaNacimiento . '/' .$model->cadete->mesNacimiento .'/'. $model->cadete->anoNacimiento;?><br/>  

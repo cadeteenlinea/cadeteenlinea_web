@@ -28,7 +28,7 @@ class UsuarioController extends Controller
 	{
 		return array(
                         array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('datosPersonales','cambioPassword', 'update'),
+				'actions'=>array('datosPersonales','cambioPassword', 'UpdateMisDatos'),
 				'users'=>array('@'),
 			),
                         array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -37,7 +37,7 @@ class UsuarioController extends Controller
                                     .' Yii::app()->getSession()->get("perfil") == "cadete"',
 			),
                         array('allow',
-                            'actions'=>array('admin'),
+                            'actions'=>array('admin', 'create'),
                 		'expression'=>'Yii::app()->getSession()->get("tipoFuncionario")=="Administrador"',
                         ),
 			array('deny',  // deny all users
@@ -64,19 +64,26 @@ class UsuarioController extends Controller
 	public function actionCreate()
 	{
 		$model=new Usuario;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
+                $funcionario = new Funcionario;
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->rut));
+                        $model->estado_idestado = 1;
+                        
+                        $funcionario->attributes=$_POST['Funcionario'];
+                        $funcionario->rut = $model->rut;
+                        
+                        if($model->validate() && $funcionario->validate()){
+                            if($model->save()){
+                                    $funcionario->save();
+                                    $this->redirect(array('admin'));
+                            }
+                        }
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'funcionario'=>$funcionario
 		));
 	}
 
@@ -85,7 +92,7 @@ class UsuarioController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate()
+	public function actionUpdateMisDatos()
 	{
 		$model=$this->loadModel(Yii::app()->user->id);
 
@@ -101,10 +108,11 @@ class UsuarioController extends Controller
                         }
 		}
 
-		$this->render('update',array(
+		$this->render('updateMisDatos',array(
 			'model'=>$model,
 		));
 	}
+        
 
 	/**
 	 * Deletes a particular model.

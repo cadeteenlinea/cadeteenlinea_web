@@ -11,6 +11,7 @@
  * @property string $region
  * @property string $fono
  * @property string $fonoComercial
+ * @property string $celular
  * @property string $difunto
  *
  * The followings are the available model relations:
@@ -191,6 +192,7 @@ class Apoderado extends CActiveRecord
                 $model->region = $apoderado["ciudad"];
                 $model->fono = $apoderado["fono"];
                 $model->fonoComercial = $apoderado["fonoComercial"];
+                $model->celular = $apoderado["celular"];
                 $model->difunto = $apoderado["difunto"];
                 
                 try{

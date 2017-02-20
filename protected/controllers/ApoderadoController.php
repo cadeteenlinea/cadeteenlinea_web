@@ -176,7 +176,7 @@ class ApoderadoController extends Controller
                     'cadetes' => $apoderado = $this->loadModel(Yii::app()->user->id)->getCadetes(),
                 ));
             /************SELECCIÓN PARA OFICIALES***************/    
-            }else if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'){
+            }else if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador' || Yii::app()->getSession()->get('tipoFuncionario')=='administrativo'){
                 if(isset($_GET['rutCadete'])){
                     if(Funcionario::model()->findByPk(Yii::app()->user->id)->seleccionarCadeteOficial($_GET['rutCadete'])){
                         $this->redirect(array('site/index'));
@@ -195,7 +195,7 @@ class ApoderadoController extends Controller
             $model=new Cadete;
             $model->attributes=$_POST['Cadete'];
             
-            if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'){
+            if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'|| Yii::app()->getSession()->get('tipoFuncionario')=='administrativo'){
                 $cadetes = Funcionario::model()->findByPk(Yii::app()->user->id)->getCadetesOficiales($model->nCadete);
                 return $this->renderPartial('_listaCadetes', array('cadetes'=>$cadetes));
             }else{

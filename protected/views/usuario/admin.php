@@ -6,6 +6,10 @@ $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
 	'Manage',
 );
+
+$this->menu=array(
+	array('label'=>'Nuevo Funcionario', 'url'=>array('create')),
+);
 ?>
 
 <h1>Usuarios</h1>

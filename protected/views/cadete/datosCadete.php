@@ -54,6 +54,7 @@
                     <b>Comuna : </b> <?php echo $apoderado->comuna;?><br/>  
                     <b>Fono : </b> <?php echo $apoderado->fono;?><br/>
                     <b>Fono Comercial : </b> <?php echo $apoderado->fonoComercial;?><br/>
+                    <b>Celular : </b> <?php echo $apoderado->celular;?><br/>
                     <b>Difunto : </b> <?php echo $apoderado->difunto;?><br/>
                 </p>
             </div>    

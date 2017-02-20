@@ -27,7 +27,7 @@ class CadeteController extends Controller
 		'actions'=>array('notasParciales','notasFinales','notasTae',
                                     'calificaciones','datosPersonales','fichaCapacidad',
                                     'Nivelacion', 'Francos','ResumenFinalAnos',
-                                    'DatosCadete'),
+                                    'DatosCadete', 'PerfilEgreso'),
 		'users'=>array('@'),
             ),
             //accione permitidas solo para administradores y apoderados
@@ -384,5 +384,11 @@ class CadeteController extends Controller
                 'titulo' => 'Datos del Cadete',
             ));
         }
+    }
+    
+    public function actionPerfilEgreso(){
+        $this->render('perfilEgreso', array(
+            'titulo' => 'Perfiles de Egreso',
+        ));
     }
 }

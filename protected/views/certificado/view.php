@@ -17,7 +17,7 @@
                     $model->cadete->usuario->apellidoMat; ?></b>, 
             RUN
             <b><?php echo $model->cadete->usuario->getRut(); ?></b> , es alumno regular
-            de la institución, durante el periodo academico <?php echo date('Y', strtotime($model->fecha_aprobacion)); ?>
+            de la institución, cursando <?php echo $model->cadete->getCursoNombre($model->cadete->curso);?>, durante el periodo academico <?php echo date('Y', strtotime($model->fecha_aprobacion)); ?>.
         </p>
 
         <p style="text-align: justify;">

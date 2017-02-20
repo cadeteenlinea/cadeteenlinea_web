@@ -117,6 +117,7 @@ class Certificado extends CActiveRecord
                 // al cliente solo se le muestras sus certificados y los que esten aprobados
                 if($clientes == true){
                     //$criteria->addCondition('fecha_aprobacion <> ""');
+                    $criteria->addCondition('usuario_rut ='.Yii::app()->user->id);
                 }else{
                     $criteria->addCondition('fecha_aprobacion IS NULL');
                 }
@@ -125,7 +126,7 @@ class Certificado extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
+        
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

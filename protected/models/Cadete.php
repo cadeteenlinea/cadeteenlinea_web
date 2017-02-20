@@ -375,4 +375,17 @@ class Cadete extends CActiveRecord
                 'curso', 'curso');
             return $list;
         }
+
+        public static function getCursoNombre($curso){
+            if (strpos($curso, '1') !== false){
+               $texto='1º año';
+            }elseif (strpos($curso, '2') !== false) {
+               $texto='2º año';
+            }elseif (strpos($curso, '3') !== false) {
+               $texto='3º año';
+            }elseif (strpos($curso, '4') !== false) {
+               $texto='4º año';
+            }else{ $texto="";}
+           return $texto;
+        }
 }

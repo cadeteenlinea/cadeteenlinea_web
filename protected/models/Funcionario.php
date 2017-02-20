@@ -14,9 +14,13 @@
  */
 class Funcionario extends CActiveRecord
 {
-	/**
-	 * @return string the associated database table name
-	 */
+    
+        public static $tipos=array(
+            'Administrador'=>'Administrador',
+            'administrativo'=>'administrativo',
+            'Oficial'=>'Oficial',
+        );
+        
 	public function tableName()
 	{
 		return 'funcionario';
@@ -59,7 +63,7 @@ class Funcionario extends CActiveRecord
 	{
 		return array(
 			'rut' => 'Rut',
-			'departamento_iddepartamento' => 'Departamento Iddepartamento',
+			'departamento_iddepartamento' => 'Departamento',
 			'tipo' => 'Tipo',
 		);
 	}
@@ -134,5 +138,11 @@ class Funcionario extends CActiveRecord
         
         private function validarCadeteAsociado($rutCadete){
             return true;
+        }
+        
+        public function getTipos($key=null){
+            if($key!==null)
+                return self::$tipos[$key];
+            return self::$tipos;
         }
 }

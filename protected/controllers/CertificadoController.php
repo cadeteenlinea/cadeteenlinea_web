@@ -75,10 +75,10 @@ class CertificadoController extends Controller
         
         public function actionMisCertificados(){
             
-                $model=new Certificado('search');
+                $model=new Certificado('searchMisCertificados');
 		$model->unsetAttributes();  // clear any default values
                 
-                $model->usuario_rut = Yii::app()->user->id;
+                
 		if(isset($_GET['Certificado'])){
 			$model->attributes=$_GET['Certificado'];
                         $model->usuario_rut = Yii::app()->user->id;

@@ -49,7 +49,7 @@
                                         'class'=>'dropdown-menu', 
                                      ),
                                      'items'=>array(
-                                         array('label'=>'Academia <b class="caret"></b>', 'url'=>'#', 
+                                         array('label'=>'Académico <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
                                                         'data-toggle'=>'dropdown',
@@ -78,8 +78,8 @@
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
-                                                        array('label'=>'Cuenta Corriente', 'url'=>array('cadete/movimientoCuentaCorriente')),
-                                                        //array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
+                                                        //array('label'=>'Cuenta Corriente', 'url'=>array('cadete/movimientoCuentaCorriente')),
+                                                        array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
                                                         //array('label'=>'Equipo Inicial', 'url'=>array('cadete/movimientoEquipo')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') && Yii::app()->getSession()->get('perfil')=='apoderado' || !Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') && Yii::app()->getSession()->get('tipoFuncionario')=='Administrador')),
@@ -146,8 +146,9 @@
                                                     'items'=>array(
                                                         array('label'=>'Cambiar Contraseña', 'url'=>array('usuario/cambioPassword'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Datos Personales', 'url'=>array('usuario/datosPersonales'),'visible'=>(!Yii::app()->user->isGuest)),
+                                                        array('label'=>'Perfiles de Egreso', 'url'=>array('cadete/perfilEgreso'),'visible'=>(!Yii::app()->user->isGuest)),
                                                         array('label'=>'Seleccionar Cadete', 'url'=>array('apoderado/selectCadete') , 
-                                                            'visible'=>(Yii::app()->getSession()->get('perfil')=='apoderado') || Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'),
+                                                            'visible'=>(Yii::app()->getSession()->get('perfil')=='apoderado') || Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'|| Yii::app()->getSession()->get('tipoFuncionario')=='administrativo'),
                                                         array('label'=>'Cerrar sesión ('.Yii::app()->user->name.')', 'url'=>array('/site/logout')),
                                                     ),                                                    
                                                     'visible'=>!Yii::app()->user->isGuest),
@@ -192,7 +193,7 @@
                             <b>
                             <?php 
                             echo CHtml::link('Aquí',
-                                            array('usuario/update'),
+                                            array('usuario/updateMisDatos'),
                                             array('title'=>'Actualizar correo electrónico'));
                             ?>
                             </b>

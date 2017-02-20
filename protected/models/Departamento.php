@@ -95,4 +95,8 @@ class Departamento extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public static function listDepartamento(){
+            return CHtml::listData(Departamento::model()->findAll(), "iddepartamento", "nombre");
+        }
 }

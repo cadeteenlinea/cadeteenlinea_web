@@ -100,7 +100,7 @@ class Certificado extends CActiveRecord
 	 * based on the search/filter conditions.
 	 */
        
-        public function search($clientes)
+        public function search($filtro)
 	{
 		$criteria=new CDbCriteria;
                 $criteria->with = 'cadete';
@@ -113,13 +113,17 @@ class Certificado extends CActiveRecord
                 $criteria->condition = "cadete.nCadete IS NOT NULL";
 		$criteria->compare('tipo_certificado_idtipo_certificado',$this->tipo_certificado_idtipo_certificado);
                 
-                // La fecha de aprobación es la que determina si está aprobado o no el certificado
-                // al cliente solo se le muestras sus certificados y los que esten aprobados
-                if($clientes == true){
-                    //$criteria->addCondition('fecha_aprobacion <> ""');
-                    $criteria->addCondition('usuario_rut ='.Yii::app()->user->id);
-                }else{
-                    $criteria->addCondition('fecha_aprobacion IS NULL');
+                //se recepciona el tipo de search o filtor que se requiere
+                switch ($filtro) {
+                    case "porAprobar":
+                        $criteria->addCondition('fecha_aprobacion IS NULL');
+                        break;
+                    case "misCertificados":
+                        $criteria->addCondition('usuario_rut ='.Yii::app()->user->id);
+                        break;
+                    case "aprobados":
+                        $criteria->addCondition('fecha_aprobacion IS NOT NULL');
+                        break;
                 }
 
 		return new CActiveDataProvider($this, array(

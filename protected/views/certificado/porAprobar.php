@@ -17,7 +17,7 @@
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'certificado-grid',
-	'dataProvider'=>$model->search(false),
+	'dataProvider'=>$model->search("porAprobar"),
 	'filter'=>$model,
         'itemsCssClass' => 'table table-hover',
         'pager' => array(

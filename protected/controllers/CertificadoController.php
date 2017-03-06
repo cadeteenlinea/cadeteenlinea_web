@@ -32,7 +32,7 @@ class CertificadoController extends Controller
 				'users'=>array('@'),
 			),
                         array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin', 'aprobar'),
+				'actions'=>array('porAprobar', 'aprobar','aprobados'),
 				'expression'=>'Yii::app()->getSession()->get("tipoFuncionario") == "administrativo" || '
                                     .' Yii::app()->getSession()->get("tipoFuncionario") == "Administrador"',
 			),
@@ -133,14 +133,27 @@ class CertificadoController extends Controller
         }*/
         
         
-        public function actionAdmin()
+        public function actionPorAprobar()
 	{
-		$model=new Certificado('search');
+		$model=new Certificado('searchPorAprobar');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Certificado']))
 			$model->attributes=$_GET['Certificado'];
 
-		$this->render('admin',array(
+		$this->render('porAprobar',array(
+			'model'=>$model,
+		));
+	}
+        
+        public function actionAprobados()
+	{
+		$model=new Certificado('search');
+		$model->unsetAttributes();  // clear any default values
+                
+		if(isset($_GET['Certificado']))
+			$model->attributes=$_GET['Certificado'];
+
+		$this->render('aprobados',array(
 			'model'=>$model,
 		));
 	}
@@ -166,7 +179,7 @@ class CertificadoController extends Controller
             }else{
                 Yii::app()->user->setFlash("error","Certificado no pudo ser aprobado");
             }
-            $this->redirect(array('admin'));
+            $this->redirect(array('PorAprobar'));
         }
         
         public function actionValidar(){

@@ -10,7 +10,7 @@
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'cadete-grid',
-	'dataProvider'=>$model->search(true),
+	'dataProvider'=>$model->search("misCertificados"),
 	'filter'=>$model,
         'itemsCssClass' => 'table table-hover',
         'pager' => array(

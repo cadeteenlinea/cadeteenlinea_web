@@ -19,7 +19,7 @@
                 <b>Comuna : </b> <?php echo $model->apoderado->comuna;?><br/>  
                 <b>Fono : </b> <?php echo $model->apoderado->fono;?><br/>
                 <b>Fono Comercial : </b> <?php echo $model->apoderado->fonoComercial;?><br/>
-                <b>Celular : </b> <?php echo $apoderado->celular;?><br/>
+                <b>Celular : </b> <?php echo $model->apoderado->celular;?><br/>
                 <?php }else if(!empty($model->cadete)){?>
                 <b>Fecha Nacimiento : </b> 
                     <?php echo $model->cadete->diaNacimiento . '/' .$model->cadete->mesNacimiento .'/'. $model->cadete->anoNacimiento;?><br/>  

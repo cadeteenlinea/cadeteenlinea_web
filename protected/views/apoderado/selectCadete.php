@@ -36,10 +36,13 @@
             )
     )); ?>
 
-        <div class="col-lg-4 col-md-4 col-sm-7 col-xs-8">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
             <?php echo $form->textField($filtro,'nCadete',array('size'=>10,'maxlength'=>4, 'class'=>'form-control', 'placeholder'=>'N° cadete')) ?>
         </div> 
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <?php echo $form->textField($filtro,'seleccion',array('size'=>10,'maxlength'=>10, 'class'=>'form-control', 'placeholder'=>'Apellido Paterno')) ?>
+        </div> 
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <?php echo CHtml::submitButton('buscar', array('class'=>'btn btn-primary')); ?>
         </div>
             

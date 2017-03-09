@@ -100,7 +100,8 @@ class Usuario extends CActiveRecord
                         'newPassword'=>'Nueva Contraseña',
                         'repeatPassword'=>'Repetir Nueva Contraseña',
                         'NombreCompleto'=>'nombre',
-                        'email'=>'Email'
+                        'email'=>'Email',
+                        'estado_idestado'=>'Estado'
 		);
 	}
 

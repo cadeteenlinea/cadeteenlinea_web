@@ -44,6 +44,7 @@ $this->menu=array(
                     'filter'=>  Usuario::model()->getPerfiles(),
                 ),
                 'email',
+                'estado.nombre',
 		array(
                         'class'=>'CButtonColumn',
                         'htmlOptions'=>array('width'=>'100px'),

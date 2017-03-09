@@ -196,7 +196,7 @@ class ApoderadoController extends Controller
             $model->attributes=$_POST['Cadete'];
             
             if(Yii::app()->getSession()->get('tipoFuncionario')=='Oficial' || Yii::app()->getSession()->get('tipoFuncionario')=='Administrador'|| Yii::app()->getSession()->get('tipoFuncionario')=='administrativo'){
-                $cadetes = Funcionario::model()->findByPk(Yii::app()->user->id)->getCadetesOficiales($model->nCadete);
+                $cadetes = Funcionario::model()->findByPk(Yii::app()->user->id)->getCadetesOficiales($model->nCadete, $model->seleccion);
                 return $this->renderPartial('_listaCadetes', array('cadetes'=>$cadetes));
             }else{
                 return false;

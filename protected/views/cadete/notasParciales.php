@@ -66,3 +66,9 @@
         <?php }} ?>
     </table>
 </div>
+
+<div class="alert alert-info" role="alert">
+    <p>* Se hace presente que el rango de notas de la Escuela Naval es de 0 a 10, 
+        siendo el 6,0 la nota mínima aceptable de aprobación</p>
+
+</div>

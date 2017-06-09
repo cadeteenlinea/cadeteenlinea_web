@@ -34,7 +34,7 @@ class CadeteController extends Controller
             array('allow',
 		'actions'=>array('movimientoCuentaCorriente', 
                                 'movimientoColegiatura', 'movimientoEquipo'),
-                		'expression'=>'Yii::app()->getSession()->get("tipoFuncionario")=="Administrador" || Yii::app()->getSession()->get("perfil")=="apoderado"',
+                		'expression'=>'Yii::app()->getSession()->get("tipoFuncionario")=="Administrador"',// ||Yii::app()->getSession()->get("perfil")=="apoderado"',
             ),
             array('allow',
                 'actions'=>array('cadetes'),

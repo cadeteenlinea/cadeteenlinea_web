@@ -235,7 +235,8 @@ class Cadete extends CActiveRecord
             if($model->nota == 0){
                 return "";
             }else{
-                return round($model->nota,2);
+                //return round($model->nota,2);
+                return (floor($model->nota*100)/100);
             }
         }
         

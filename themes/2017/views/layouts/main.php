@@ -72,17 +72,18 @@
                                                         array('label'=>'Nivelación', 'url'=>array('cadete/nivelacion')),
                                                     ),                                                    
                                                     'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') )),
-                                         array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
+                                         array('label'=>'Finanzas', 'url'=>'https://www.recaudaciones.bancochile.cl/cliente/pgdr/appfront/Pag_Login.aspx?IdCon=92','linkOptions' => array('target'=>'_blank'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
+                                         /*array('label'=>'Finanzas <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(
                                                         'class'=>'dropdown-toggle',
                                                         'data-toggle'=>'dropdown',
                                                     ),
                                                     'items'=>array(
                                                         //array('label'=>'Cuenta Corriente', 'url'=>array('cadete/movimientoCuentaCorriente')),
-                                                        array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
+                                                        //array('label'=>'Colegiatura', 'url'=>array('cadete/movimientoColegiatura')),
                                                         //array('label'=>'Equipo Inicial', 'url'=>array('cadete/movimientoEquipo')),
                                                     ),                                                    
-                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') && Yii::app()->getSession()->get('perfil')=='apoderado' || !Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') && Yii::app()->getSession()->get('tipoFuncionario')=='Administrador')),
+                                                    'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') && Yii::app()->getSession()->get('perfil')=='apoderado' || !Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete') && Yii::app()->getSession()->get('tipoFuncionario')=='Administrador')),*/
                                          array('label'=>'Hora Salida', 'url'=>array('cadete/francos'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->getSession()->get('rutCadete'))),
                                          array('label'=>'Certificados <b class="caret"></b>', 'url'=>'#', 
                                                     'linkOptions'=>array(

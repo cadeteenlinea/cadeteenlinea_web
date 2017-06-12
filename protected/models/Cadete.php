@@ -225,18 +225,31 @@ class Cadete extends CActiveRecord
         }
         
         public function getPromedioNotasParcialesAsignatura($idAsignatura){
+            //se cambio la función ya que mysql entregaba promedios erroneos al realizar el calculo
+            //ejemplo promeido de 7.7+7.4+8.9 = 7.99 y deberia ser 8
+            
             $criteria=new CDbCriteria;
-            $criteria->select = "AVG(t.nota) as 'nota'"; 
+            //$criteria->select = "AVG(t.nota) as 'nota'"; 
             $criteria->addCondition('t.asignatura_idasignatura='.$idAsignatura);
             $criteria->addCondition('t.cadete_rut='.$this->rut);
-            $model = NotasParciales::model()->find($criteria);
+            $model = NotasParciales::model()->findAll($criteria);
             
+            $sum = 0;
+            $cantidad = 0;
+            foreach($model as $nota){
+                $sum += $nota->nota;
+                $cantidad++;
+            }
+            $promedio = null;
+            if($sum>0 && $cantidad>0){
+                $promedio = ($sum/$cantidad);
+            }
             /*****cambio realizado para solo mostrar el promedio de asignaturas con notas****/
-            if($model->nota == 0){
+            if($promedio == 0){
                 return "";
             }else{
                 //return round($model->nota,2);
-                return (floor($model->nota*100)/100);
+                return (floor($promedio*100)/100);
             }
         }
         

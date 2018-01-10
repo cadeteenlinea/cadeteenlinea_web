@@ -13,7 +13,7 @@
                 <th class="hidden-sm hidden-xs">Examen</th>
                 <th class="hidden-sm hidden-xs">N. Final</th>
                 <th class="hidden-sm hidden-xs">Examen Rep.</th>
-                <th class="hidden-sm hidden-xs">Examen 3ra. Opción</th>
+                <!--<th class="hidden-sm hidden-xs">Examen 3ra. Opción</th>-->
                 <th class="hidden-sm hidden-xs">N. final con examen Rep.</th>
                 <th class="">Estado</th>
             </tr>
@@ -48,7 +48,7 @@
                     <td class="hidden-sm hidden-xs">    <?php echo Nota::deleteZero($nota->nota_examen); ?></td>
                     <td class="hidden-sm hidden-xs"><b> <?php echo Nota::deleteZero($nota->nota_final); ?></b></td>
                     <td class="hidden-sm hidden-xs">    <?php echo Nota::deleteZero($nota->nota_examen_repeticion); ?></td>
-                    <td class="hidden-sm hidden-xs">    <?php echo Nota::deleteZero($nota->nota_tercera_opcion); ?></td>
+                    <!--<td class="hidden-sm hidden-xs">    <?php //echo Nota::deleteZero($nota->nota_tercera_opcion); ?></td> -->
                     <td class="hidden-sm hidden-xs"><b> <?php echo Nota::deleteZero($nota->nota_final_repeticion); ?></b></td>
                     <td class="hidden-sm hidden-xs"><b> <?php echo Nota::deleteZero($nota->getEstado()); ?></b></td>
                     <td class="visible-sm visible-xs"><b><?php echo Nota::deleteZero($nota->estado); ?></b></td>
@@ -56,7 +56,7 @@
                     <td class="hidden-sm hidden-xs"></td>
                     <td class="hidden-sm hidden-xs"></td>
                     <td class="hidden-sm hidden-xs"></td>
-                    <td class="hidden-sm hidden-xs"></td>
+                    <!--<td class="hidden-sm hidden-xs"></td>-->
                     <td class="hidden-sm hidden-xs"></td>
                     <td class="hidden-sm hidden-xs"></td>
                     <td class=""></td>

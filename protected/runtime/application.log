@@ -22527,3 +22527,39 @@ Stack trace:
 REQUEST_URI=/cadeteenlinea/apoderado/listaCadetes
 HTTP_REFERER=http://localhost/cadeteenlinea/apoderado/selectCadete
 ---
+2018/01/10 20:53:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "images/contacto/oficial.jpg"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/contacto...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/images/contacto/oficial.jpg
+HTTP_REFERER=http://localhost/cadeteenlinea/contacto/contactoOficiales
+---
+2018/01/10 21:14:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "images/contacto/oficial.jpg"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/contacto...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/images/contacto/oficial.jpg
+HTTP_REFERER=http://localhost/cadeteenlinea/contacto/contactoOficiales
+---
+2018/01/10 21:14:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "images/contacto/oficial.jpg"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/contacto...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/images/contacto/oficial.jpg
+HTTP_REFERER=http://localhost/cadeteenlinea/contacto/contactoOficiales
+---
+2018/01/10 21:14:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "images/contacto/oficial.jpg"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/contacto...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\cadeteenlinea\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/cadeteenlinea/images/contacto/oficial.jpg
+HTTP_REFERER=http://localhost/cadeteenlinea/contacto/contactoOficiales
+---

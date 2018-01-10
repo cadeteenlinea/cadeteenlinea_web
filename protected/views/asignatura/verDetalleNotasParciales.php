@@ -47,11 +47,11 @@
                 <td>Examen Rep.</td>
                 <td><?php echo Nota::deleteZero($notasFinales->nota_examen_repeticion) ?></td>
             </tr>
-            <tr>
+            <!--<tr>
                 <td></td>
                 <td>Examen 3ra. Opción</td>
-                <td><?php echo Nota::deleteZero($notasFinales->nota_tercera_opcion) ?></td>
-            </tr>
+                <td><?php //echo Nota::deleteZero($notasFinales->nota_tercera_opcion) ?></td>
+            </tr>-->
             <tr>
                 <td></td>
                 <td><b>N. final con examen Rep.</b></td>

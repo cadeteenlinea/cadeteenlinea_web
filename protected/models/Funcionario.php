@@ -145,7 +145,7 @@ class Funcionario extends CActiveRecord
             return true;
         }
         
-        public function getTipos($key=null){
+        public static function getTipos($key=null){
             if($key!==null)
                 return self::$tipos[$key];
             return self::$tipos;

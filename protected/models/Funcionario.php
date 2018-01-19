@@ -117,6 +117,7 @@ class Funcionario extends CActiveRecord
 
                 $criteria->compare('usuario.apellidoPat',$apellido,true);
             }
+            $criteria->addCondition('estado_idestado = 1');
             $criteria->order = 'usuario.apellidoPat, usuario.apellidoMat, usuario.nombres  ASC';
             
             $model = Cadete::model()->with('usuario')->findAll($criteria);
